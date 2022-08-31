@@ -1,0 +1,58 @@
+{
+    "name": "web",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@reduxjs/toolkit": "^1.8.3",
+        "@types/node": "^12.19.12",
+        "axios": "^0.21.0",
+        "dayjs": "^1.9.7",
+        "jwt-decode": "^3.1.2",
+        "lib": "file:../lib",
+        "react": "^18.2.0",
+        "react-datepicker": "^4.8.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^7.2.8",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^5.0.1",
+        "redux": "^4.2.0",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.4.1",
+        "sass": "^1.30.0",
+        "typescript": "^4.3.5",
+        "web-vitals": "^0.2.4"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.0",
+        "@types/react-datepicker": "^4.4.2",
+        "@types/react-dom": "^18.0.0",
+        "@types/react-redux": "^7.1.24",
+        "@types/react-router-dom": "^5.3.3",
+        "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@typescript-eslint/parser": "^5.31.0",
+        "customize-cra": "^1.0.0",
+        "eslint": "^8.20.0",
+        "eslint-config-prettier": "^7.0.0",
+        "eslint-plugin-prettier": "^3.3.0",
+        "prettier": "^2.2.1",
+        "react-app-rewired": "^2.1.8"
+    },
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "eject": "react-scripts eject"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

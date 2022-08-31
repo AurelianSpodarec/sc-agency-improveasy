@@ -1,0 +1,26 @@
+// button
+.button {
+    @include mainFont();
+    color: var( --typography-button-primary);
+    background-color: var( --background-button-primary);
+
+    &.primary {
+        color: var( --typography-button-primary);
+        background-color: var( --background-button-primary);
+    }
+
+    &.secondary {
+        color: var( --typography-button-secondary);
+        background-color: var( --background-button-secondary);
+    }
+
+    &.positive {
+        color: var( --typography-button-primary);
+        background-color: var( --background-button-positive);
+    }
+
+    &.negative {
+        color: var( --typography-button-primary);
+        background-color: var( --background-button-negative);
+    }
+}

@@ -1,0 +1,60 @@
+// side navigation
+.navigation {
+    flex: 0 0 200px;
+    padding: 20px;
+    background-color: var(--background-nav);
+    box-shadow: var(--shadow-nav);
+
+    .nav-list {
+        p, a {
+            font-size: 14px;
+        }
+    }
+
+    .nav-group {
+        padding: 10px 0;
+        text-transform: uppercase;
+        opacity: 0.5;
+
+        p {
+            font-size: 13px;
+        }
+    }
+
+    .nav-item {
+        padding-bottom: 15px;
+
+        a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            text-decoration: none;
+            color: var(--typography-primary);
+            font-size: 14px;
+
+            .icon {
+                margin-right: 8px;
+                opacity: 0.5;
+                font-size: 16px;
+            }
+
+            p {
+                flex: 1;
+            }
+
+            &.active {
+                @include mainFontSemiBold;
+
+                .icon {
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+                .icon {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

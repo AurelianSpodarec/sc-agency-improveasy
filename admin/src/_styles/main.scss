@@ -1,0 +1,76 @@
+@import 'variables.scss';
+
+html, body, #root, #admin-body {
+    height: 100%;
+    overflow: hidden;
+    @include mainFont();
+}
+
+// wrapper
+#admin-body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-body);
+    color: var(--typography-primary);
+}
+
+#admin-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+#admin-content {
+    flex: 1;
+    padding: 20px;
+    overflow: auto;
+}
+
+// login form
+.login-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+
+    .login-form {
+        width: 600px;
+        padding: 20px;
+        box-shadow: var(--shadow-container);
+    }
+
+    form {
+        width: 100%;
+    }
+}
+
+// create header
+.create-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    
+    .page-title {
+        margin-bottom: 0;
+    }
+
+    .button {
+        margin-left: 15px;
+    }
+}
+
+// loading
+.loading {
+    text-align: center;
+    font-size: 22px;
+}
+
+@import 'components/button.scss';
+@import 'components/contentBlock.scss';
+@import 'components/form.scss';
+@import 'components/header.scss';
+@import 'components/modal.scss';
+@import 'components/nav.scss';
+@import 'components/table.scss';
+@import 'components/typography.scss';

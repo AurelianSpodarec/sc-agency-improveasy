@@ -1,0 +1,46 @@
+.content-block {
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-container);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.content-row {
+    display: flex;
+
+    &:last-child {
+        .content-item {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.content-item {
+    flex: 1;
+    margin: 0 15px 20px;
+    font-size: 14px;
+
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+
+    label {
+        @include mainFontSemiBold;
+    }
+
+    a:not(.button) {
+        color: var(--typography-link);
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}

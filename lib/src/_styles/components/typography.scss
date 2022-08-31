@@ -1,0 +1,23 @@
+.page-title, .page-description {
+    &.left {
+        text-align: left;
+    }
+
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: right;
+    }
+}
+
+.page-title {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.page-description {
+    margin-bottom: 20px;
+    font-size: 14px;
+}

@@ -1,0 +1,35 @@
+// table
+table {
+    tr {
+        border-color: var(--stroke-table-row);
+    }
+
+    th {
+        @include mainFontSemiBold;
+    }
+}
+
+// pagination
+.table-pagination {
+    .page-links {
+        button {
+            color: var(--typography-primary);
+        }
+    }
+}
+
+// search
+.table-search {
+    .icon {
+        color: var(--typography-secondary)
+    }
+
+    input {
+        @include mainFont();
+        color: var(--typography-primary);
+        
+        &::placeholder {
+            color: var(--placeholder-form-input);
+        }
+    }
+}

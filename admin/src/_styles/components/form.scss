@@ -1,0 +1,146 @@
+
+
+// asterisk
+.form-asterisk {
+    color: var(--typography-primary);
+}
+
+// error
+.form-error {
+    color: var(--highlight-form-error);
+}
+
+.form-generic-error {
+    border-color: var(--highlight-form-error);
+    background-color: var(--background-form-error);
+}
+
+// inputs, textarea and select
+.form-input, .form-select {
+    @include mainFont();
+    color: var(--typography-primary);
+    background-color: var(--background-form-input);
+    border-color: var(--stroke-form-input);
+
+    &:disabled, &.disabled {
+        background-color: var(--background-form-input-disabled);
+    }
+
+    &.error {
+        border-color: var(--highlight-form-error);
+    }
+}
+
+// input and textarea
+.form-input {
+    &:focus {
+        border-color: var(--highlight-form);
+    }
+
+    &::placeholder {
+        color: var(--placeholder-form-input);
+    }
+}
+
+// select
+.form-select {
+    .arrow {
+        border-left-color: var(--stroke-form-input);
+    }
+
+    p {
+        &.placeholder {
+            color: var(--placeholder-form-input);
+        }
+    }
+
+    i {
+        color: var(--typography-primary);
+    }
+
+    // multi select
+    &.multi-select {
+        .option {
+            background-color: var(--background-form-multi-select-option);
+        }
+    }
+}
+
+// select options & search
+.form-select-options {
+    background-color: var(--background-form-input);
+    border-color: var(--stroke-form-input);
+
+    .options-list {
+        .option {
+            &:hover, &.active {
+                background-color: var(--background-form-multi-select-option);
+            }
+        }
+    }
+}
+
+// checkbox and radio buttons
+.form-checkbox, .form-radio {
+    .content {
+        .outer-box {
+            border-color: var(--stroke-form-input);
+            background-color: var(--background-form-input);
+        }
+
+        &.disabled {
+            .outer-box {
+                background-color: var(--background-form-input-disabled);
+            }
+        }
+    }
+}
+
+.form-checkbox {
+    .content {
+        .inner-box {
+            color: var(--active-form-selection);
+        }
+    }
+}
+
+.form-radio {
+    .content {
+        .inner-box {
+            background-color: var(--active-form-selection);
+        }
+    }
+}
+
+// datepicker
+.form-datepicker {
+    .calendar {
+        border-left-color: var(--stroke-form-input);
+    }
+
+    i {
+        color: var(--typography-primary);
+    }
+}
+
+// Toggle select
+.checkbox {
+    input {
+        &:checked {
+            + label,
+            + input + label {
+                .outer {
+                    background-color: var(--active-form-selection);
+                }
+            }
+        }
+    }
+
+    .outer {
+        background-color: grey;
+    }
+
+    .inner {
+        background-color: white;
+    }
+}
