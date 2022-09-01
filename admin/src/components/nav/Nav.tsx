@@ -18,9 +18,13 @@ const Nav: React.FC = () => {
             <ul className="nav-list">
                 <NavItem to="/" text="Dashboard" icon="home" />
 
+                <NavGroup text="Property management">
+                    <NavItem to="/admin-users" text="Properties" icon="users-cog" />
+                    <NavItem to="/admin-users" text="Landlords/ Homeowners" icon="users-cog" />
+                </NavGroup>
+
                 <NavGroup text="User management">
                     <NavItem to="/admin-users" text="Admins" icon="users-cog" />
-                    <NavItem to="/users" text="Users" icon="users" />
                 </NavGroup>
 
                 <NavGroup text="Settings">
