@@ -13,14 +13,12 @@ import {
 import { useHistory } from 'react-router-dom';
 
 import { AdminUser } from 'src/types/shared/AdminUser';
-import { adminUserRoles } from 'lib/src/shared/enums/dropdownEnums';
 
 export default function useUpdateAdmin({
     id,
     email,
     firstName,
     lastName,
-    roles,
 }: AdminUser): UpdateAdminReturn {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -29,7 +27,7 @@ export default function useUpdateAdmin({
         history.replace(`/admin-users/${id}`);
     }, [history, id]);
 
-    const [formState, handleChange] = useForm({ email, firstName, lastName, roles });
+    const [formState, handleChange] = useForm({ email, firstName, lastName });
 
     const handleSubmit = useCallback(() => {
         dispatch(updateAdminUser(id, formState));
@@ -60,12 +58,11 @@ interface FormState {
     email: string;
     firstName: string;
     lastName: string;
-    roles: adminUserRoles[];
 }
 interface UpdateAdminReturn {
     handleSubmit: () => void;
     formState: FormState;
-    handleChange: <T>(name: 'firstName' | 'lastName' | 'email' | 'roles', value: T) => void;
+    handleChange: <T>(name: 'firstName' | 'lastName' | 'email', value: T) => void;
     closeModal: () => void;
     isPosting: boolean;
     error: string | null;

@@ -5,7 +5,6 @@ export interface AdminUser {
     firstName: string;
     lastName: string;
     email: string;
-    roles: adminUserRoles[];
     createdOn: Date;
 }
 
@@ -13,7 +12,6 @@ export interface AdminUserPost {
     firstName: string;
     lastName: string;
     email: string;
-    roles: adminUserRoles[];
 }
 
 export interface UpdatePasswordPost {

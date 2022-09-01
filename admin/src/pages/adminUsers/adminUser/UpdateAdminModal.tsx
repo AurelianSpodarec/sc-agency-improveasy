@@ -1,18 +1,10 @@
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
-import MultiSelect from 'lib/src/components/form/MultiSelect';
 import TextInput from 'lib/src/components/form/TextInput';
 import Modal from 'lib/src/components/modal/Modal';
-import React from 'react';
 import { AdminUser } from 'src/types/shared/AdminUser';
-import { adminUserRoles } from 'lib/src/shared/enums/dropdownEnums';
 
 import useUpdateAdmin from './hooks/useUpdateAdmin';
-
-const adminRoleOptions = Object.entries(adminUserRoles).map(([key, value]) => ({
-    value: +value,
-    label: key,
-}));
 
 const UpdateAdminModal: React.FC<UpdateAdminProps> = ({ user }) => {
     const {
@@ -21,7 +13,7 @@ const UpdateAdminModal: React.FC<UpdateAdminProps> = ({ user }) => {
         closeModal,
         isPosting,
         // error,
-        formState: { email, firstName, lastName, roles },
+        formState: { email, firstName, lastName },
     } = useUpdateAdmin(user);
 
     return (
@@ -52,16 +44,6 @@ const UpdateAdminModal: React.FC<UpdateAdminProps> = ({ user }) => {
                         value={lastName}
                         onChange={handleChange}
                         label="Last Name"
-                        required
-                    />
-                </FormRow>
-                <FormRow>
-                    <MultiSelect
-                        name="roles"
-                        value={roles}
-                        options={adminRoleOptions}
-                        onChange={handleChange}
-                        label="Admin roles"
                         required
                     />
                 </FormRow>

@@ -1,14 +1,9 @@
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-import MultiSelect from 'lib/src/components/form/MultiSelect';
 
 import Modal from 'lib/src/components/modal/Modal';
 import useCreateAdmin from './hooks/useCreateAdmin';
-
-import { adminUserRoles, convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums';
-
-const adminRoleOptions = convertEnumToDropdownOption(adminUserRoles);
 
 const CreateAdminUserModal: React.FC = () => {
     const {
@@ -18,7 +13,7 @@ const CreateAdminUserModal: React.FC = () => {
         handleSubmit,
         validateConfirmPassword,
         closeModal,
-        formState: { email, firstName, lastName, password, confirmPassword, roles },
+        formState: { email, firstName, lastName, password, confirmPassword },
     } = useCreateAdmin();
 
     return (
@@ -70,16 +65,6 @@ const CreateAdminUserModal: React.FC = () => {
                         label="Confirm Password"
                         type="password"
                         customValidate={validateConfirmPassword}
-                        required
-                    />
-                </FormRow>
-                <FormRow>
-                    <MultiSelect
-                        name="roles"
-                        value={roles}
-                        options={adminRoleOptions}
-                        onChange={handleChange}
-                        label="Admin roles"
                         required
                     />
                 </FormRow>

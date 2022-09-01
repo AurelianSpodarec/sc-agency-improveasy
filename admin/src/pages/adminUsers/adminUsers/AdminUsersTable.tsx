@@ -4,7 +4,6 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import Table from 'lib/src/components/table/Table';
 import { Column } from 'lib/src/types/table';
 import { AdminUser } from 'src/types/shared/AdminUser';
-import { adminUserRoleNames } from 'lib/src/shared/enums/dropdownEnums';
 
 const AdminUsersTable: React.FC<AdminUsersTableProps> = ({ adminUsers, isFetching }) => {
     return <Table columns={columns} rows={Object.values(adminUsers)} isLoading={isFetching} />;
@@ -33,11 +32,6 @@ const columns: Column<AdminUser>[] = [
     },
     {
         key: 4,
-        heading: 'Roles',
-        getValue: row => row.roles.map(roleEnum => adminUserRoleNames[roleEnum] || '').join(', '),
-    },
-    {
-        key: 5,
         heading: '',
         getValue: row => (
             <ButtonRow alignment="right">

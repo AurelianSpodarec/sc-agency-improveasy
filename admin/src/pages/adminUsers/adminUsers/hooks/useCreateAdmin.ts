@@ -11,7 +11,6 @@ import {
     getAdminUsersError,
 } from '@selectors/adminUsers';
 import { useHistory } from 'react-router-dom';
-import { adminUserRoles } from 'lib/src/shared/enums/dropdownEnums';
 import { CloseModal, HandleSubmit, ValidateConfirmPassword } from 'src/types/shared/Functions';
 
 const initialFormData: FormState = {
@@ -20,7 +19,6 @@ const initialFormData: FormState = {
     confirmPassword: '',
     firstName: '',
     lastName: '',
-    roles: [],
 };
 
 export default function useCreateAdmin(): UseCreateAdminReturn {
@@ -74,7 +72,6 @@ interface FormState {
     confirmPassword: string;
     firstName: string;
     lastName: string;
-    roles: adminUserRoles[];
 }
 
 interface UseCreateAdminReturn {

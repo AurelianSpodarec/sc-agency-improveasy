@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { adminUserRoleNames } from 'lib/src/shared/enums/dropdownEnums';
-
 import ContentBlock from '@components/layout/contentBlock/ContentBlock';
 import ContentItem from '@components/layout/contentBlock/ContentItem';
 import ContentRow from '@components/layout/contentBlock/ContentRow';
@@ -13,7 +11,7 @@ import { AdminUser } from 'src/types/shared/AdminUser';
 const AdminUserComponent: React.FC<AdminUserProps> = ({ user }) => {
     if (!user) return null;
 
-    const { id, firstName, lastName, email, roles } = user;
+    const { id, firstName, lastName, email } = user;
     return (
         <>
             <Title>
@@ -29,9 +27,6 @@ const AdminUserComponent: React.FC<AdminUserProps> = ({ user }) => {
                         <p>
                             <a href={`mailto:${email}`}>{email}</a>
                         </p>
-                    </ContentItem>
-                    <ContentItem label="Roles">
-                        <p>{roles.map(role => adminUserRoleNames[role]).join(', ')}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>
