@@ -1,7 +1,7 @@
 import { Config } from '.';
 
 const config: Config = {
-    API_URL: 'https://localhost:5001', // todo
+    API_URL: '', // todo
 };
 
 export default config;
