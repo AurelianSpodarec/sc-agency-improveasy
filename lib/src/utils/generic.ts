@@ -23,3 +23,7 @@ export function convertArrToObj<T>(arr: T[], field: string = 'id'): Record<strin
         return acc;
     }, {});
 }
+
+export function getFileName(src: any) {
+    return src.match('[^/]*$')[0];
+}
