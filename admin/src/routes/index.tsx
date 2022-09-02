@@ -21,6 +21,9 @@ const Routes: React.FC = () => (
         <SubRouter path="/admin-users" auth>
             <AdminUsersRoutes />
         </SubRouter>
+        <SubRouter path="/properties" auth>
+            <AdminUsersRoutes />
+        </SubRouter>
         <DefaultRedirect to="/" />
     </Switch>
 );

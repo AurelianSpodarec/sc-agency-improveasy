@@ -1,13 +1,12 @@
-import React from 'react';
-
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import MultiSelect from 'lib/src/components/form/MultiSelect';
 import TextInput from 'lib/src/components/form/TextInput';
 import Modal from 'lib/src/components/modal/Modal';
+import React from 'react';
+import { User } from 'src/types/shared/User';
 import { userRoles } from 'lib/src/shared/enums/dropdownEnums';
 
-import { User } from 'src/types/shared/User';
 import useUpdateUser from './hooks/useUpdateUser';
 
 const userRoleOptions = Object.entries(userRoles).map(([key, value]) => ({
