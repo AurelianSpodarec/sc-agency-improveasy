@@ -1,15 +1,16 @@
-import Container from "@components/Container";
-import Text from "@components/Text";
+import Container from "@components/ui/Container";
+import Section from "@components/ui/Section";
+import Text from "@components/ui/Text";
 
 function Home() {
     return (
-        <div>
+        <>
 
-            <section>
+            <Section>
 
-            <Container>
+                <Container>
                 <header>
-                    <h2>Why use?</h2>
+                    <Text type="h2" size="2xl" weight="bold">Why use?</Text>
                 </header>
                 </Container>
 
@@ -18,16 +19,17 @@ function Home() {
                     <p>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </Container>
 
-            </section>
+            </Section>
 
-            <section>
+
+
+            <Section>
 
                 <Container>
                 <header>
                     <h2>A simple 5 step process</h2>
                 </header>
                 </Container>
-
 
                 <Container>
                     <div>
@@ -37,34 +39,33 @@ function Home() {
                         </div>
                     </div>
                 </Container>
-            </section>
+
+            </Section>
 
 
-            <section>
-                <Container>
+
+            <Section>
+            <Container>
+
+                <div>
 
                     <div>
-
+                        <img src="" />
+                    </div>
+                    <div>
                         <div>
-                            <img src="" />
+                            <h2>Why use?</h2>
+                            <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</Text>
                         </div>
-                        <div>
-                            <div>
-                                <h2>Why use?</h2>
-                                <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</Text>
-                            </div>
-                            <button>Read more</button>
-                        </div>
-
+                        <button>Read more</button>
                     </div>
 
-                </Container>
-            </section>
+                </div>
 
+            </Container>
+            </Section>
 
-            
-
-        </div>
+        </>
     )
 }
 

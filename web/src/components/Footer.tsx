@@ -1,10 +1,12 @@
-import Container from "./Container"
-import Text from "./Text";
+import Container from "./ui/Container"
+import Section from "./ui/Section";
+import Text from "./ui/Text";
 
 function Footer() {
     return (
-        <footer className="footer">
-            <div className="footer__outer">
+        <footer className="footer">   
+        <Section>
+
             <div className="footer__inner">
 
                 <Container>
@@ -74,8 +76,9 @@ function Footer() {
 
     
             </div>
-            </div>
-            </footer>
+
+        </Section>
+        </footer>
     )
 }
 
