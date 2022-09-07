@@ -26,7 +26,7 @@ const RegisterFormContainer: React.FC = (): JSX.Element => {
     const prevPostSuccess = usePrevious(postSuccess);
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
-            history.push('/');
+            history.push('/auth/confirm-email');
         }
     }, [postSuccess, prevPostSuccess, history]);
 
