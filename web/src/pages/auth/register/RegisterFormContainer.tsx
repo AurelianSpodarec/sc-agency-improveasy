@@ -20,6 +20,7 @@ const RegisterFormContainer: React.FC = (): JSX.Element => {
         lastName: '',
         email: '',
         password: '',
+        phone: '',
     });
 
     const prevPostSuccess = usePrevious(postSuccess);

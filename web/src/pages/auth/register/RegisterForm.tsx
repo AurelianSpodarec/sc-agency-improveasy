@@ -6,7 +6,7 @@ import TextInput from 'lib/src/components/form/TextInput';
 import { HandleSubmit } from 'src/types/shared/Functions';
 
 const RegisterForm: React.FC<RegisterFormProps> = ({
-    formState: { firstName, lastName, email, password },
+    formState: { firstName, lastName, email, password, phone },
     handleChange,
     handleSubmit,
     isPosting,
@@ -50,6 +50,9 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
                 required
             />
         </FormRow>
+        <FormRow>
+            <TextInput name="phone" value={phone} label="Phone" onChange={handleChange} required />
+        </FormRow>
         <ButtonRow alignment="right">
             <ActionButton isPosting={isPosting}>Register</ActionButton>
         </ButtonRow>
@@ -57,8 +60,17 @@ const RegisterForm: React.FC<RegisterFormProps> = ({
 );
 
 interface RegisterFormProps {
-    formState: { firstName: string; lastName: string; email: string; password: string };
-    handleChange: <T>(name: 'email' | 'password' | 'firstName' | 'lastName', value: T) => void;
+    formState: {
+        firstName: string;
+        lastName: string;
+        email: string;
+        password: string;
+        phone: string;
+    };
+    handleChange: <T>(
+        name: 'email' | 'password' | 'firstName' | 'lastName' | 'phone',
+        value: T,
+    ) => void;
     handleSubmit: HandleSubmit;
     isPosting: boolean;
 }
