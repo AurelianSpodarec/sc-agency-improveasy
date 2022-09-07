@@ -1,4 +1,4 @@
-function Section({className, children, size}:any) {
+function Section({className, style, children, size}:any) {
 
     const options = {
         'fluid': 'fluid',
@@ -15,7 +15,7 @@ function Section({className, children, size}:any) {
     //     console.error("section - provided value", size, "doesn't exist");
     // }
     return ( // @ts-ignore
-        <section className={`section ${className ? className : ""} ${size ? `section--${options[size]}` : `section--${options.base}`}`}>
+        <section style={style} className={`section ${className ? className : ""} ${size ? `section--${options[size]}` : `section--${options.base}`}`}>
             {children}
         </section>
     )

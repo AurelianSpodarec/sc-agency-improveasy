@@ -1,8 +1,11 @@
+import MainPublic from "./components/MainPublic";
+
 function MEES() {
     return (
-        <div>
-            MEES
-        </div>
+        <MainPublic>
+
+            mees
+        </MainPublic>
     )
 }
 

@@ -1,8 +1,10 @@
+import MainPublic from "./components/MainPublic";
+
 function WhyUs() {
     return (
-        <div>
-            WhyUs
-        </div>
+        <MainPublic>
+            why us
+        </MainPublic>
     )
 }
 

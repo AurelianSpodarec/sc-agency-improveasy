@@ -8,11 +8,7 @@ const App = () => {
     useGlobalRedirect();
     return (
         <>
-            <Header />
-            <main>
-                <Routes />
-            </main>
-            <Footer />
+            <Routes />
         </>
     );
 };

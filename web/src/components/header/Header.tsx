@@ -14,9 +14,10 @@ const Header = () => {
 
     return (
         <header className="header">
-        <Container>
+        <Container style={{ height: "100%" }}>
+        
 
-            <div className="header__inner">
+            <div className="header__inner flex justify-between items-center">
                 <div>
                     <Link to="/">
                         <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451.43 92.85">
@@ -45,6 +46,10 @@ const Header = () => {
                             <path className="text-green-600 fill-current" d="M87.27,7V60.16A25.69,25.69,0,0,1,61.58,85.84H16L29.54,72.3H57.2A16.68,16.68,0,0,0,73.88,55.62V13.81H60.81v6.73H38.61A16.84,16.84,0,0,0,21.76,37.38V64.72L8.42,78.06V32.68A25.69,25.69,0,0,1,34.1,7Z"/>
                         </svg>  
                     </Link>
+                </div>
+
+                <div className="userAvatar">
+                    <img className="userAvatar__img" src="" />
                 </div>
 
                 <div className="profile flex-row align-center">

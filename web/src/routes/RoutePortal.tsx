@@ -4,30 +4,34 @@ import PropertyList from '@pages/portal/Property/PropertyList/PropertyList';
 import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
  
 
-function RoutePages() {
+function RoutePortal() {
     return (
         <>
-            <Route exact path="/properties">
+            <Route exact path="/dashboard">
                 <PropertyList />
             </Route>
 
-            <Route exact path="/properties/:id">
+            {/* <Route exact path="/dashboard/properties">
+                <PropertyList />
+            </Route>
+
+            <Route exact path="/dashboard/properties/:id">
                 <PropertyView />
             </Route>
 
-            <Route exact path="/properties/:id/tenants">
+            <Route exact path="/dashboard/properties/:id/tenants">
                 <PropertyView />
             </Route>
 
-            <Route exact path="/properties/:id/ecp-rating">
+            <Route exact path="/dashboard/properties/:id/ecp-rating">
                 <PropertyView />
             </Route>
 
-            <Route exact path="/properties/:id">
+            <Route exact path="/dashboard/properties/:id">
                 <PropertyView />
-            </Route>         
+            </Route>          */}
         </>
     )
 }
 
-export default RoutePages;
+export default RoutePortal;

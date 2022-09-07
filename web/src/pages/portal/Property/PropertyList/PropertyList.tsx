@@ -1,8 +1,10 @@
+import MainPortal from "@pages/portal/components/MainPortal";
+
 function PropertyList() {
     return (
-        <div>
+        <MainPortal>
             PropertyList
-        </div>
+        </MainPortal>
     )
 }
 

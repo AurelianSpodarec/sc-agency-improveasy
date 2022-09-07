@@ -1,4 +1,4 @@
-function Container({children, size}:any) {
+function Container({children, style, size}:any) {
 
     const options = {
         'fluid': 'fluid',
@@ -15,7 +15,7 @@ function Container({children, size}:any) {
     //     console.error("Container - provided value", size, "doesn't exist");
     // }
     return (// @ts-ignore
-        <div className={`container ${size ? `container--${options[size]}` : "container--fluid"}`}>
+        <div style={style} className={`container ${size ? `container--${options[size]}` : "container--fluid"}`}>
             {children}
         </div>
     )

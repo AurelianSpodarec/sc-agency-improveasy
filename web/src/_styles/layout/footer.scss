@@ -10,11 +10,13 @@
     // line-height: 26px;
     // text-align: left;
 
-    // &__links {
-    //     color: #FFFFFF;
-    //     font-size: 22px;
-    //     line-height: 26px;
-    // }
+    &__section-links {
+        color: #FFFFFF;
+    }
+
+    &__section-link {
+        color: #FFFFFF;
+    }
 
     &__copy {
         text-align: center;

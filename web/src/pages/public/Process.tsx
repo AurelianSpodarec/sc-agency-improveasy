@@ -1,8 +1,10 @@
+import MainPublic from "./components/MainPublic";
+
 function Process() {
-    return (
-        <div>
-            Process
-        </div>
+    return (    
+        <MainPublic>
+            process
+        </MainPublic>
     )
 }
 
