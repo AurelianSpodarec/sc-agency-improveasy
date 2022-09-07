@@ -17,7 +17,6 @@
 
 // inputs, textarea and select
 .form-input, .form-select {
-    @include mainFont();
     color: var(--typography-primary);
     background-color: var(--background-form-input);
     border-color: var(--stroke-form-input);

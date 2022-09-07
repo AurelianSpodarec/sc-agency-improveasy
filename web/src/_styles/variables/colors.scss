@@ -7,7 +7,7 @@
     --text-primary-500: #264653;
 
 
-    
+
     --background-body: white;
     --background-container: #fdfdfd;
     --background-header: white;
@@ -46,20 +46,3 @@
     --active-form-selection: #1bb8b0;
     --stroke-table-row: #5c5c5c;
 }
-
-// fonts
-@mixin mainFont() {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-}
-
-@mixin mainFontLight() {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-}
-
-@mixin mainFontSemiBold() {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-}
-

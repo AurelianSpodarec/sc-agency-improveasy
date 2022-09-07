@@ -14,7 +14,7 @@ function Container({children, size}:any) {
         console.error("Container - provided value", size, "doesn't exist");
     }
     return (
-        <div className={`container ${size ? `container--"${options[size]}` : "container--md"}`}>
+        <div className={`container ${size ? `container--"${options[size]}` : "container--xl"}`}>
             {children}
         </div>
     )
