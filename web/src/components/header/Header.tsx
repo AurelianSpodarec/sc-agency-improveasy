@@ -22,16 +22,13 @@ const Header = () => {
 
                 <div className="profile flex-row align-center">
                     {isLoggedIn ? (
-                        <ActionButton source="secondary" onClick={logout} className="winged">
+                        <ActionButton source="primary" onClick={logout} className="winged">
                             Logout
                         </ActionButton>
                     ) : (
                         <>
-                            <LinkButton source="secondary" href="/auth/login" className="winged">
-                                Login
-                            </LinkButton>
-                            <LinkButton source="secondary" href="/auth/register" className="winged">
-                                Register
+                            <LinkButton source="primary" href="/get-started" className="winged">
+                                Get Started
                             </LinkButton>
                         </>
                     )}
