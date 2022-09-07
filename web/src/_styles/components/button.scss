@@ -23,4 +23,8 @@
         color: var( --typography-button-primary);
         background-color: var( --background-button-negative);
     }
+
+    &.winged {
+        border-radius: 55px 0;
+    }
 }

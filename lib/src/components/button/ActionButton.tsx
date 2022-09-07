@@ -2,13 +2,14 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     children,
     type = 'submit',
     source = 'primary',
+    className = '',
     icon,
     isPosting = false,
     disabled = false,
     onClick = () => {},
 }) => (
     <button
-        className={`button ${source}`}
+        className={`button ${source} ${className}`}
         type={type}
         disabled={isPosting || disabled}
         onClick={onClick}
@@ -23,6 +24,7 @@ interface ActionButtonProps {
     children: React.ReactNode;
     type?: 'submit' | 'button' | 'reset';
     source?: 'primary' | 'secondary' | 'positive' | 'negative';
+    className?: string;
     icon?: string;
     isPosting?: boolean;
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;

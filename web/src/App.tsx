@@ -2,13 +2,11 @@ import Routes from './routes';
 
 import Header from './components/header/Header';
 import useGlobalRedirect from 'lib/src/hooks/useGlobalRedirect';
-import useDarkMode from 'lib/src/hooks/useDarkMode';
 
-const App: React.FC = () => {
+const App = () => {
     useGlobalRedirect();
-    const [darkMode] = useDarkMode();
     return (
-        <div id="web-body" className="body" data-theme={darkMode ? 'dark' : 'light'}>
+        <div id="web-body" className="body">
             <Header />
             <div id="web-wrapper">
                 <div className="container">
