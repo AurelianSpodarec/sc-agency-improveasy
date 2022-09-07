@@ -23,3 +23,32 @@
 .font-bold {font-weight: 700; }
 .font-extrabold {font-weight: 800; }
 .font-black {font-weight: 900; }
+
+
+.text-center {
+    text-align: center;
+}
+
+
+.bg-gradient-primary {
+    background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
+}
+
+.text-white {
+    color: white;
+}
+
+
+.page-header {
+    color: #0D695C;
+    padding-bottom: 47px;
+
+    & span {
+        border-bottom: 7px solid #0D695C;   
+    }
+
+}
+
+.rounded-primary {
+    border-radius: 55px 0;
+}

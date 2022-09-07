@@ -8,7 +8,9 @@
     padding: 0 32px;
 
     &--fluid {
-        
+        @media (min-width: 3800px) {
+            max-width: 3800px;
+        }
     }
 
     &--xs {

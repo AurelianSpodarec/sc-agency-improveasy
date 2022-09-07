@@ -3,10 +3,20 @@
 // ==========================================================================
 
 .section {
+    &--xs {
+        // padding-top: 90px;
+        // padding-bottom: 90px;
+    }
     
     &--base {
         padding-top: 90px;
         padding-bottom: 90px;
+    }
+
+
+    &--2xl {
+        padding-top: 170px;
+        padding-bottom: 170px;
     }
 
 }

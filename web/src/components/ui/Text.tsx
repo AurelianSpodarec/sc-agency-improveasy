@@ -35,12 +35,12 @@ const weights = {
 
 {/* <Text type="h1" size="xs" weight="bold"/> */}
 
-function Text({title, children, type, size, weight}:any) {// @ts-ignore
+function Text({title, children, type, size, weight, className, style}:any) {// @ts-ignore
     const Tag = types[type] || types.p// @ts-ignore
-    const className = `text--${sizes[size] || sizes.base} font-${weights[weight] || weights.normal}`
+    const customClassName = `${className} text--${sizes[size] || sizes.base} font-${weights[weight] || weights.normal}`
 
     if(!Tag) return <></>
-    return <Tag className={className}>{title ? title : children}</Tag>
+    return <Tag style={style} className={customClassName}>{title ? title : children}</Tag>
 }
 
 export default Text;
