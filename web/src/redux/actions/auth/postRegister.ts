@@ -13,14 +13,7 @@ export const postRegister =
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(postRegisterRequest());
         try {
-            const { data } = await api.post<RegisterRequestModel, RegisterResponse>(
-                'auth/register',
-                postBody,
-            );
-
-            localStorage.setItem('jwt', data.token);
-            localStorage.setItem('refreshToken', data.refreshToken);
-
+            await api.post<RegisterRequestModel, unknown>('auth/register', postBody);
             dispatch(postRegisterSuccess());
         } catch (e) {
             handleApiErrors(dispatch, postRegisterFailure, e as APIError);
@@ -32,9 +25,4 @@ interface RegisterRequestModel {
     lastName: string;
     email: string;
     password: string;
-}
-
-export interface RegisterResponse {
-    token: string;
-    refreshToken: string;
 }
