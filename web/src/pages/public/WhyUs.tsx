@@ -1,4 +1,4 @@
-import MainPublic from "./components/MainPublic";
+import MainPublic from "./_components/MainPublic";
 
 function WhyUs() {
     return (

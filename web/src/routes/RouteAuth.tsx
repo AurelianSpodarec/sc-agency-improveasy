@@ -1,8 +1,8 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
-import Login from '@pages/auth/login/Login';
-import Register from '@pages/auth/register/Register';
-import ConfirmEmail from '@pages/auth/confirmEmail/ConfirmEmail';
+import Login from '@pages/public/auth/login/Login';
+import Register from '@pages/public/auth/register/Register';
+import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
 
 const RouteAuth = () => {
     const { path } = useRouteMatch();

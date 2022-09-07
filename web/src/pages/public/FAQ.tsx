@@ -1,5 +1,5 @@
 import { Container, PageHeading, Section, Text } from "@components/ui";
-import MainPublic from "./components/MainPublic";
+import MainPublic from "./_components/MainPublic";
 
 function FAQ() {
     return (

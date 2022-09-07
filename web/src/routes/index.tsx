@@ -8,9 +8,9 @@ import RoutePortal from './RoutePortal';
 
 const Routes: React.FC = () => (
     <Switch>
-        <RoutePages />
+        {/* <RoutePages /> */}
         {/* <SubRouter path="/dashboard"> */}
-            <RoutePortal />
+            {/* <RoutePortal /> */}
         {/* </SubRouter> */}
 
         <SubRouter path="/auth">
