@@ -1,38 +1,45 @@
-@import 'variables.scss';
+// ==========================================================================
+// # Main - Order in this file matters
+// ==========================================================================
 
-html, body, #root, #web-body {
-    height: 100%;
-    overflow: hidden;
-    @include mainFont();
-}
+@import 'helpers/mixins';
+@import 'helpers/sc-mixins';
 
-// wrapper
-#web-body {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-body);
-    color: var(--typography-primary);
-}
 
-#web-wrapper {
-    flex: 1;
-    overflow: auto;
-    background: linear-gradient(270deg, rgba(231,111,81,1) 0%, rgba(237,184,103,1) 50%, rgba(17,109,95,1) 100%);;
-}
+// ==========================================================================
+// Variables
+// ==========================================================================
+@import 'variables/colors';
+@import 'variables/units';
+@import 'variables/breakpoints';
 
-.container {
-    margin: 0 auto;
-    padding: 0 20px;
-    max-width: 1300px;
-}
 
-.page-padding {
-    padding: 20px 0;
-}
+// ==========================================================================
+// Base
+// ==========================================================================
+@import 'base/base';
 
-@import 'components/button.scss';
-@import 'components/form.scss';
-@import 'components/header.scss';
-@import 'components/modal.scss';
-@import 'components/table.scss';
-@import 'components/typography.scss';
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+@import 'layout/footer';
+
+
+// ==========================================================================
+// Components
+// ==========================================================================
+@import 'components/container';
+
+@import 'components/button';
+@import 'components/form';
+@import 'components/header';
+@import 'components/modal';
+@import 'components/table';
+@import 'components/typography';
+
+
+// ==========================================================================
+// Cheat - random CSS
+// ==========================================================================
+@import 'cheat';

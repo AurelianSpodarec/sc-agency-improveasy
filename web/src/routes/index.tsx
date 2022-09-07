@@ -1,18 +1,24 @@
 import { Switch, Route } from 'react-router-dom';
 
-import Home from '@pages/public/home/Home';
-import AuthRoutes from './AuthRoutes';
-import SubRouter from './SubRouter';
-import DefaultRedirect from './DefaultRedirect';
+
+import AuthRoutes from './RouteAuth';
+import SubRouter from './utils/SubRouter';
+import DefaultRedirect from './utils/DefaultRedirect';
+import RoutePages from './RoutePages';
+
 
 const Routes: React.FC = () => (
     <Switch>
-        <Route exact path="/">
-            <Home />
-        </Route>
+
+
+        <RoutePages />
+
+
         <SubRouter path="/auth">
             <AuthRoutes />
         </SubRouter>
+
+        {/* Page 404 */}
         <DefaultRedirect to="/" />
     </Switch>
 );

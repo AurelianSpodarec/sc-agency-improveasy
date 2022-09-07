@@ -2,9 +2,9 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
 import Login from '@pages/auth/login/Login';
 import Register from '@pages/auth/register/Register';
-import DefaultRedirect from './DefaultRedirect';
+import DefaultRedirect from './utils/DefaultRedirect';
 
-const AuthRoutes = () => {
+const RouteAuth = () => {
     const { path } = useRouteMatch();
     return (
         <Switch>
@@ -19,4 +19,4 @@ const AuthRoutes = () => {
     );
 };
 
-export default AuthRoutes;
+export default RouteAuth;
