@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom';
 
-import Home from '@pages/home/Home';
+import Home from '@pages/public/home/Home';
 import AuthRoutes from './AuthRoutes';
 import SubRouter from './SubRouter';
 import DefaultRedirect from './DefaultRedirect';
