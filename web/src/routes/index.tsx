@@ -60,15 +60,17 @@ const Routes: React.FC = () => (
 
         {/* Auth */}
         <SubRouter path="/auth">
-            <Route exact path={`/login`}>
-                <Login />
-            </Route>
-            <Route exact path={`/register`}>
-                <Register />
-            </Route>
-            <Route exact path={`/confirm-email`}>
-                <ConfirmEmail />
-            </Route>
+            <Switch>
+                <Route exact path={`/auth/login`}>
+                    <Login />
+                </Route>
+                <Route exact path={`/auth/register`}>
+                    <Register />
+                </Route>
+                <Route exact path={`/auth/confirm-email`}>
+                    <ConfirmEmail />
+                </Route>
+            </Switch>
         </SubRouter>
 
         <DefaultRedirect to="/" />
