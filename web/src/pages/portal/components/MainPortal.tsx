@@ -1,5 +1,4 @@
-import Footer from "@components/Footer";
-import Header from "@components/header/Header";
+import Header from "@pages/_components/Header";
 
 function MainPortal({children}:any) {
     return (
@@ -8,7 +7,6 @@ function MainPortal({children}:any) {
             <main>
                 {children}
             </main>
-            <Footer />
         </div>
     )
 }

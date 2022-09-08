@@ -6,16 +6,28 @@
 .footer {
     background-color: #264653;
     color: #FFFFFF;
+    padding: 0 30px;
     // font-size: 22px;
     // line-height: 26px;
     // text-align: left;
 
     &__section-links {
         color: #FFFFFF;
+        margin-bottom: 40px;
     }
+    
+     
 
     &__section-link {
+        width: 100%;
         color: #FFFFFF;
+        display: block;
+        text-decoration: none;
+        padding-bottom: 10px;
+    }
+
+    &__info {
+        margin-bottom: 60px;
     }
 
     &__copy {

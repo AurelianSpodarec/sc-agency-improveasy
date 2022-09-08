@@ -10,34 +10,12 @@
 }
 
 
-.main-portal {
-    
-}
-
 .userAvatar {
     &__img {
         box-shadow: #0E3D38;
     }
 }
-
-
-
-//  Font weight
-.font-thin { font-weight: 100};
-.font-extralight {font-weight: 200};
-.font-light {font-weight: 300};
-.font-normal {font-weight: 400;}
-.font-medium {font-weight: 500; }
-.font-semibold {font-weight: 600; }
-.font-bold {font-weight: 700; }
-.font-extrabold {font-weight: 800; }
-.font-black {font-weight: 900; }
-
-
-.text-center {
-    text-align: center;
-}
-
+ 
 
 .bg-gradient-primary {
     background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
@@ -47,11 +25,9 @@
     color: white;
 }
 
-
 .page-header {
     color: #0D695C;
     padding-bottom: 47px;
-
     & span {
         border-bottom: 7px solid #0D695C;   
     }
@@ -61,92 +37,3 @@
 .rounded-primary {
     border-radius: 55px 0;
 }
-
-.text-left {
-    text-align: left
-  }
-  
-  .text-center {
-    text-align: center
-  }
-  
-  .text-right {
-    text-align: right
-  }
-  
-  .text-justify {
-    text-align: justify
-  }
-  
-  @media (min-width: 640px) {
-    .sm\:text-left {
-      text-align: left
-    }
-  
-    .sm\:text-center {
-      text-align: center
-    }
-  
-    .sm\:text-right {
-      text-align: right
-    }
-  
-    .sm\:text-justify {
-      text-align: justify
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .md\:text-left {
-      text-align: left
-    }
-  
-    .md\:text-center {
-      text-align: center
-    }
-  
-    .md\:text-right {
-      text-align: right
-    }
-  
-    .md\:text-justify {
-      text-align: justify
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .lg\:text-left {
-      text-align: left
-    }
-  
-    .lg\:text-center {
-      text-align: center
-    }
-  
-    .lg\:text-right {
-      text-align: right
-    }
-  
-    .lg\:text-justify {
-      text-align: justify
-    }
-  }
-  
-  @media (min-width: 1280px) {
-    .xl\:text-left {
-      text-align: left
-    }
-  
-    .xl\:text-center {
-      text-align: center
-    }
-  
-    .xl\:text-right {
-      text-align: right
-    }
-  
-    .xl\:text-justify {
-      text-align: justify
-    }
-  }
-      

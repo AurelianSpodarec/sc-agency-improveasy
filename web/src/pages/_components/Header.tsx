@@ -6,7 +6,7 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
-import Container from './../ui/Container';
+import Container from '../../components/ui/Container';
 
 const Header = () => {
     const history = useHistory();
