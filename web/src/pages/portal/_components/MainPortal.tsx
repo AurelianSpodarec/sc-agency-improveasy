@@ -1,14 +1,12 @@
-import Header from "./Header";
+import Header from './Header';
 
-function MainPortal({children}:any) {
+function MainPortal({ children }: any) {
     return (
         <div className="main-portal">
             <Header />
-            <main>
-                {children}
-            </main>
+            <main>{children}</main>
         </div>
-    )
+    );
 }
 
 export default MainPortal;

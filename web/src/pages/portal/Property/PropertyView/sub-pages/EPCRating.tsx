@@ -1,7 +1,4 @@
 function EPCRating() {
-
-
-
     return (
         <div>
             <div className="md:d-flex">
@@ -15,23 +12,17 @@ function EPCRating() {
                         <button type="button">Request Updated EPC</button>
                         <button type="button">Request Survey</button>
                     </div>
-                    <div>
-                        Table
-                    </div>
+                    <div>Table</div>
                 </div>
             </div>
 
             <div>
                 <h3>Potential Rating Improvements</h3>
 
-                <div>
-                    table
-                </div>
+                <div>table</div>
             </div>
-
-
         </div>
-    )
+    );
 }
 
 export default EPCRating;

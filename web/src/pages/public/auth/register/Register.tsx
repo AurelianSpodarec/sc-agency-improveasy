@@ -5,16 +5,12 @@ import RegisterFormContainer from './RegisterFormContainer';
 
 const Register: React.FC = (): JSX.Element => (
     <MainPublic>
-
         <Section>
-        <Container>
-
-            <Title>Register</Title>
-            <RegisterFormContainer />
-
-        </Container>
+            <Container>
+                <Title>Register</Title>
+                <RegisterFormContainer />
+            </Container>
         </Section>
-        
     </MainPublic>
 );
 

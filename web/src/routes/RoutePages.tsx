@@ -6,14 +6,13 @@ import MEES from '@pages/public/MEES';
 import Process from '@pages/public/Process';
 import WhyUs from '@pages/public/WhyUs';
 
-
 function RoutePages() {
     return (
         <Switch>
             <Route exact path="/">
                 <Home />
             </Route>
-            
+
             <Route exact path="/faq">
                 <FAQ />
             </Route>
@@ -30,7 +29,7 @@ function RoutePages() {
                 <WhyUs />
             </Route>
         </Switch>
-    )
+    );
 }
 
 export default RoutePages;

@@ -1,9 +1,5 @@
 function PropertyTenants() {
-    return (
-        <div>
-
-        </div>
-    )
+    return <div></div>;
 }
 
 export default PropertyTenants;

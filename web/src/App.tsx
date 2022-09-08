@@ -10,7 +10,7 @@ const App = () => {
             <CreateModal />
             <Routes />
         </>
-    )
+    );
 };
 
 export default App;

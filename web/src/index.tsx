@@ -26,12 +26,9 @@ root.render(
     <ErrorBoundary>
         <Router>
             <Provider store={store}>
-
                 <ModalProvider>
                     <App />
                 </ModalProvider>
-
-
             </Provider>
         </Router>
     </ErrorBoundary>,

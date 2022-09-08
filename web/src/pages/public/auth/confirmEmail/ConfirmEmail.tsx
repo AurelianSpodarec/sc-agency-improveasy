@@ -13,34 +13,30 @@ const ConfirmEmail: React.FC = () => {
 
     return (
         <MainPublic>
-
             <Section>
-            <Container>
+                <Container>
+                    <Title>Confirm Email</Title>
 
-                <Title>Confirm Email</Title>
+                    <Form onSubmit={handleSubmit} isPosting={isPosting} omitButtons>
+                        <FormRow>
+                            <TextInput
+                                name="code"
+                                type="code"
+                                value={formData.code}
+                                label="Verification code"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
 
-                <Form onSubmit={handleSubmit} isPosting={isPosting} omitButtons>
-                    <FormRow>
-                        <TextInput
-                            name="code"
-                            type="code"
-                            value={formData.code}
-                            label="Verification code"
-                            onChange={handleChange}
-                            required
-                        />
-                    </FormRow>
-
-                    <ButtonRow alignment="right">
-                        <ActionButton icon="sign-in" isPosting={isPosting}>
-                            Submit
-                        </ActionButton>
-                    </ButtonRow>
-                </Form>
-                
-            </Container>
+                        <ButtonRow alignment="right">
+                            <ActionButton icon="sign-in" isPosting={isPosting}>
+                                Submit
+                            </ActionButton>
+                        </ButtonRow>
+                    </Form>
+                </Container>
             </Section>
-
         </MainPublic>
     );
 };
