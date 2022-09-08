@@ -9,7 +9,7 @@ import WhyUs from '@pages/public/WhyUs';
 
 function RoutePages() {
     return (
-        <>
+        <Switch>
             <Route exact path="/">
                 <Home />
             </Route>
@@ -29,7 +29,7 @@ function RoutePages() {
             <Route exact path="/why-us">
                 <WhyUs />
             </Route>
-        </>
+        </Switch>
     )
 }
 

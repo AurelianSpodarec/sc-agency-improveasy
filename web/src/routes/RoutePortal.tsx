@@ -6,7 +6,7 @@ import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
 
 function RoutePortal() {
     return (
-        <>
+        <Switch>
             <Route exact path="/dashboard">
                 <PropertyList />
             </Route>
@@ -33,7 +33,7 @@ function RoutePortal() {
             <Route exact path="/dashboard/properties/:id">
                 <PropertyView />
             </Route>          */}
-        </>
+        </Switch>
     )
 }
 

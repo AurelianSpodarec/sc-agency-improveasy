@@ -4,10 +4,11 @@ import Login from '@pages/public/auth/login/Login';
 import Register from '@pages/public/auth/register/Register';
 import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
 
+
 const RouteAuth = () => {
     const { path } = useRouteMatch();
     return (
-        <>
+        <Switch>
             <Route exact path={`${path}/login`}>
                 <Login />
             </Route>
@@ -17,7 +18,7 @@ const RouteAuth = () => {
             <Route exact path={`${path}/confirm-email`}>
                 <ConfirmEmail />
             </Route>
-        </>
+        </Switch>
     );
 };
 
