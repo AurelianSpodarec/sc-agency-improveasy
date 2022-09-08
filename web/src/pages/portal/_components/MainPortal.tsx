@@ -1,4 +1,4 @@
-import Header from "@pages/_components/Header";
+import Header from "./Header";
 
 function MainPortal({children}:any) {
     return (

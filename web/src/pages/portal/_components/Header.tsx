@@ -6,14 +6,15 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
-import Container from '../../components/ui/Container';
+import { Container } from '@components/ui';
+
 
 const Header = () => {
     const history = useHistory();
     const isLoggedIn = useIsLoggedIn();
 
     return (
-        <header className="header">
+        <header className="header header--portal">
         <Container style={{ height: "100%" }}>
         
 
@@ -53,17 +54,11 @@ const Header = () => {
                 </div>
 
                 <div className="profile flex-row align-center">
-                    {isLoggedIn ? (
-                        <ActionButton source="primary" onClick={logout} className="winged">
-                            Logout
-                        </ActionButton>
-                    ) : (
-                        <>
-                            <LinkButton source="primary" href="/get-started" className="winged">
-                                Get Started
-                            </LinkButton>
-                        </>
-                    )}
+                
+                    <LinkButton source="primary" href="/get-started" className="winged">
+                        Create Property
+                    </LinkButton>
+                     
                 </div>
             </div>
 
