@@ -1,3 +1,4 @@
+import CreateAccordion from "@components/Accordion/CreateAccordion";
 import { 
     Container, 
     PageHeading,
@@ -26,6 +27,12 @@ function Home() {
                 </div>
                 </Container>
 
+            </Section>
+
+
+            <Section>
+                <CreateAccordion />
+                <CreateAccordion />
             </Section>
 
 
@@ -79,7 +86,6 @@ function Home() {
                 </Container>
 
             </Section>
-
 
 
             <Section>
