@@ -2,7 +2,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import PropertyList from '@pages/portal/Property/PropertyList/PropertyList';
 import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
- 
 
 function RoutePortal() {
     return (
@@ -14,7 +13,7 @@ function RoutePortal() {
             <Route exact path="/dashboard/properties">
                 <PropertyList />
             </Route>
-            
+
             <Route exact path="/dashboard/properties/:id">
                 <PropertyView />
             </Route>
@@ -34,7 +33,7 @@ function RoutePortal() {
                 <PropertyView />
             </Route>          */}
         </Switch>
-    )
+    );
 }
 
 export default RoutePortal;

@@ -5,16 +5,12 @@ import LoginFormContainer from './LoginFormContainer';
 
 const Login: React.FC = () => (
     <MainPublic>
-
         <Section>
-        <Container>
-
-            <Title>Login</Title>
-            <LoginFormContainer />
-
-        </Container>
+            <Container>
+                <Title>Login</Title>
+                <LoginFormContainer />
+            </Container>
         </Section>
-
     </MainPublic>
 );
 

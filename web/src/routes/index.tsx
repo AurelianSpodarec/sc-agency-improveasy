@@ -24,12 +24,11 @@ import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
 
 const Routes: React.FC = () => (
     <Switch>
-
         {/* Public */}
         <Route exact path="/">
             <Home />
         </Route>
-        
+
         <Route exact path="/faq">
             <FAQ />
         </Route>
@@ -46,8 +45,6 @@ const Routes: React.FC = () => (
             <WhyUs />
         </Route>
 
-
-
         {/* Portal */}
         <Route exact path="/dashboard">
             <PropertyList />
@@ -56,12 +53,10 @@ const Routes: React.FC = () => (
         <Route exact path="/dashboard/properties">
             <PropertyList />
         </Route>
-        
+
         <Route exact path="/dashboard/properties/:id">
             <PropertyView />
         </Route>
-
-
 
         {/* Auth */}
         <SubRouter path="/auth">
@@ -75,7 +70,6 @@ const Routes: React.FC = () => (
                 <ConfirmEmail />
             </Route>
         </SubRouter>
-
 
         <DefaultRedirect to="/" />
     </Switch>
