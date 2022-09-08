@@ -1,20 +1,16 @@
 import Routes from './routes';
 
-import Header from './components/header/Header';
 import useGlobalRedirect from 'lib/src/hooks/useGlobalRedirect';
+import CreateModal from '@components/Modal/CreateModal';
 
 const App = () => {
     useGlobalRedirect();
     return (
-        <div id="web-body" className="body">
-            <Header />
-            <div id="web-wrapper">
-                <div className="container">
-                    <Routes />
-                </div>
-            </div>
-        </div>
-    );
+        <>
+            <CreateModal />
+            <Routes />
+        </>
+    )
 };
 
 export default App;

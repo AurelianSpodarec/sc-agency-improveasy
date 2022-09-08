@@ -16,6 +16,8 @@ module.exports = function (config, env) {
                 '@routes': path.resolve(__dirname, 'src/routes'),
                 '@styles': path.resolve(__dirname, 'src/_styles'),
                 '@content': path.resolve(__dirname, 'src/_content'),
+                '@context': path.resolve(__dirname, 'src/context'),
+                '@hooks': path.resolve(__dirname, 'src/hooks'),
             }),
             babelInclude([path.resolve('src'), fs.realpathSync('node_modules/lib/src')]),
         )(config, env),

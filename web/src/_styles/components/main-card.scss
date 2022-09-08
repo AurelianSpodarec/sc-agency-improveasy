@@ -1,0 +1,15 @@
+.main-card {
+  
+    border-radius: 15px;
+    &__heading {
+        padding: 10px 24px;
+        display: inline-block;
+        background-color: #FFFFFF;
+        border-radius: 15px 15px 0 0;
+        box-shadow: 5px -5px 4px 0 rgba(0, 0, 0, 0.15);
+    }
+    &__content {
+        background-color: #FFFFFF;
+        border-radius: 0px 15px 15px 15px;
+    }
+}

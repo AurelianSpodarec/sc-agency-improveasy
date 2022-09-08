@@ -1,0 +1,48 @@
+// ==========================================================================
+// # Colors
+// ==========================================================================
+
+:root {
+    // Brand Colors
+    --text-primary-500: #264653;
+
+
+
+    --background-body: white;
+    --background-container: #fdfdfd;
+    --background-header: white;
+    --typography-header: white;
+    --background-button-primary: #E76F51;
+    --typography-button-primary: white;
+    --background-button-secondary: #dddddd;
+    --typography-button-secondary: #222222;
+    --background-button-positive: #46c531;
+    --background-button-negative: #dc3545;
+    --typography-primary: #222222;
+    --background-form-input: white;
+    --background-form-input-disabled: #f7f7f7;
+    --background-form-multi-select-option: #eee;
+    --stroke-form-input: #cccccc;
+    --placeholder-form-input: #cdcdcd;
+    --highlight-form: #6a6a6a;
+    --highlight-form-error: #ea7b73;
+    --active-form-selection: #007bff;
+    --background-form-error: rgba(234, 123, 115, 0.18);
+    --stroke-table-row: #cccccc;
+}
+
+[data-theme="dark"] {
+    --background-body: #181818;
+    --background-container: #1e1e1e;
+    --background-button-primary: #1bb8b0;
+    --background-button-secondary: #b8b8b8;
+    --typography-primary: white;
+    --background-form-input: #181818;
+    --background-form-input-disabled: #2c2c2c;
+    --background-form-multi-select-option: #4f4f4f;
+    --stroke-form-input: #5c5c5c;
+    --placeholder-form-input: #a4a4a4;
+    --highlight-form: #c3c3c3;
+    --active-form-selection: #1bb8b0;
+    --stroke-table-row: #5c5c5c;
+}
