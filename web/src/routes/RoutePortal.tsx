@@ -14,11 +14,13 @@ function RoutePortal() {
             <Route exact path="/dashboard/properties">
                 <PropertyList />
             </Route>
-            {/* 
-
+            
             <Route exact path="/dashboard/properties/:id">
                 <PropertyView />
             </Route>
+
+            {/* 
+
 
             <Route exact path="/dashboard/properties/:id/tenants">
                 <PropertyView />

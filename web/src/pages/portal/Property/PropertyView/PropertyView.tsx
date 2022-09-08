@@ -1,8 +1,14 @@
+import MainPortal from "@pages/portal/_components/MainPortal";
+
 function PropertyView() {
     return (
-        <div>
-            PropertyView
-        </div>
+        <MainPortal>
+        
+
+            
+
+
+        </MainPortal>
     )
 }
 
