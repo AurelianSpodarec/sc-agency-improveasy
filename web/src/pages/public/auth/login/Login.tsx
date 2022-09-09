@@ -1,14 +1,14 @@
 import { Container, Section } from '@components/ui';
 import MainPublic from '@pages/public/_components/MainPublic';
 import Title from 'lib/src/components/typography/Title';
-import LoginFormContainer from './LoginFormContainer';
+import LoginForm from './LoginForm';
 
 const Login: React.FC = () => (
     <MainPublic>
         <Section>
             <Container>
                 <Title>Login</Title>
-                <LoginFormContainer />
+                <LoginForm />
             </Container>
         </Section>
     </MainPublic>

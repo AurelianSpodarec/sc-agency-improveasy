@@ -7,9 +7,7 @@ import usePrevious from 'lib/src/hooks/usePrevious';
 import { postLogin } from '@actions/auth/postLogin';
 import { getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
 
-import LoginForm from './LoginForm';
-
-const LoginFormContainer: React.FC = (): JSX.Element => {
+const useLogin = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const isPosting = useSelector(getAuthIsPosting);
@@ -31,19 +29,17 @@ const LoginFormContainer: React.FC = (): JSX.Element => {
         // eslint-disable-next-line
     }, [formState.email]);
 
-    return (
-        <LoginForm
-            handleChange={handleChange}
-            formState={formState}
-            handleSubmit={handleSubmit}
-            isPosting={isPosting}
-            customValidate={customValidate}
-        />
-    );
-
-    function handleSubmit() {
+    const handleSubmit = () => {
         dispatch(postLogin(formState));
-    }
+    };
+
+    return {
+        formState,
+        handleChange,
+        handleSubmit,
+        isPosting,
+        customValidate,
+    };
 };
 
-export default LoginFormContainer;
+export default useLogin;
