@@ -12,10 +12,11 @@ const LoginForm: React.FC = () => {
         handleSubmit,
         isPosting,
         customValidate,
+        error,
     } = useLogin();
 
     return (
-        <Form onSubmit={handleSubmit} isPosting={isPosting} omitButtons>
+        <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
             <FormRow>
                 <TextInput
                     name="email"

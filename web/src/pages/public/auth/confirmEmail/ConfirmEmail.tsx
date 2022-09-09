@@ -4,12 +4,12 @@ import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-import useConfirmEmaiml from './hooks/useConfirmEmail';
+import useConfirmEmail from './hooks/useConfirmEmail';
 import MainPublic from '@pages/public/_components/MainPublic';
 import { Container, Section } from '@components/ui';
 
 const ConfirmEmail: React.FC = () => {
-    const { isPosting, handleSubmit, formData, handleChange } = useConfirmEmaiml();
+    const { isPosting, handleSubmit, formData, handleChange, error } = useConfirmEmail();
 
     return (
         <MainPublic>
@@ -17,7 +17,7 @@ const ConfirmEmail: React.FC = () => {
                 <Container>
                     <Title>Confirm Email</Title>
 
-                    <Form onSubmit={handleSubmit} isPosting={isPosting} omitButtons>
+                    <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
                         <FormRow>
                             <TextInput
                                 name="code"

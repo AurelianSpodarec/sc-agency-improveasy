@@ -1,3 +1,4 @@
+import { getAuthError, getAuthIsConfirmed } from './../../../../../redux/selectors/auth';
 import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -12,6 +13,8 @@ const useLogin = () => {
     const history = useHistory();
     const isPosting = useSelector(getAuthIsPosting);
     const postSuccess = useSelector(getAuthPostSuccess);
+    const error = useSelector(getAuthError);
+    const isConfirmed = useSelector(getAuthIsConfirmed);
 
     const [formState, handleChange] = useForm({
         email: '',
@@ -21,9 +24,13 @@ const useLogin = () => {
     const prevPostSuccess = usePrevious(postSuccess);
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
-            history.push('/');
+            if (isConfirmed) {
+                history.push('/dashboard');
+            } else {
+                history.push('/auth/confirm-email');
+            }
         }
-    }, [postSuccess, prevPostSuccess, history]);
+    }, [postSuccess, prevPostSuccess, isConfirmed, history]);
 
     const customValidate = useCallback(() => {
         // eslint-disable-next-line
@@ -39,6 +46,7 @@ const useLogin = () => {
         handleSubmit,
         isPosting,
         customValidate,
+        error,
     };
 };
 

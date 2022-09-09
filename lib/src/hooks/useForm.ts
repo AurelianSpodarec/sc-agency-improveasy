@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export default function useForm<TForm>(initialData: TForm): UseForm<TForm> {
     const [formData, setFormData] = useState<TForm>(initialData);
 
-    function handleChange<T>(name: keyof TForm, value: T) {
+    const handleChange = useCallback(<T>(name: keyof TForm, value: T) => {
         setFormData((prev: TForm) => ({ ...prev, [name]: value }));
-    }
+    }, [])
 
     function resetData(data: TForm) {
         setFormData(data);

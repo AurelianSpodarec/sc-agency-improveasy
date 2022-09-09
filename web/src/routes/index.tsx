@@ -17,10 +17,6 @@ import WhyUs from '@pages/public/WhyUs';
 import PropertyList from '@pages/portal/Property/PropertyList/PropertyList';
 import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
 
-// Auth
-import Login from '@pages/public/auth/login/Login';
-import Register from '@pages/public/auth/register/Register';
-import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
 import AuthRoutes from './AuthRoutes';
 
 const Routes: React.FC = () => (

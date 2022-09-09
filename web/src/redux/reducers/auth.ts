@@ -7,27 +7,39 @@ import {
     postRegisterRequest,
     postRegisterSuccess,
     postRegisterFailure,
+    postConfirmEmailRequest,
+    postConfirmEmailSuccess,
+    postConfirmEmailFailure,
 } from '@actions/auth';
+import { LoginResponse } from 'lib/src/utils/api';
 
 interface AuthState {
     isPosting: boolean;
     postSuccess: boolean;
     error: string | null;
+    isConfirmed: boolean;
 }
 
 const initialState: AuthState = {
     isPosting: false,
     postSuccess: false,
     error: null,
+    isConfirmed: false,
 };
 
 export default createReducer(initialState, {
     [postLoginRequest.type]: handlePostRequest,
-    [postLoginSuccess.type]: handlePostSuccess,
+    [postLoginSuccess.type]: handlePostLoginSuccess,
     [postLoginFailure.type]: handleFailure,
     [postRegisterRequest.type]: handlePostRequest,
     [postRegisterSuccess.type]: handlePostSuccess,
     [postRegisterFailure.type]: handleFailure,
+    [postRegisterRequest.type]: handlePostRequest,
+    [postRegisterSuccess.type]: handlePostSuccess,
+    [postRegisterFailure.type]: handleFailure,
+    [postConfirmEmailRequest.type]: handlePostRequest,
+    [postConfirmEmailSuccess.type]: handlePostSuccess,
+    [postConfirmEmailFailure.type]: handleFailure,
 });
 
 function handlePostRequest(state: AuthState) {
@@ -39,6 +51,12 @@ function handlePostRequest(state: AuthState) {
 function handlePostSuccess(state: AuthState) {
     state.isPosting = false;
     state.postSuccess = true;
+}
+
+function handlePostLoginSuccess(state: AuthState, action: PayloadAction<LoginResponse>) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    state.isConfirmed = action.payload.isConfirmed;
 }
 
 function handleFailure(state: AuthState, action: PayloadAction<string>) {

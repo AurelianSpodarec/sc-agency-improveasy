@@ -108,6 +108,7 @@ interface RefreshTokenRequest {
 export interface LoginResponse {
     token: string;
     refreshToken: string;
+    isConfirmed: boolean;
 }
 
 export interface ErrorLogRequest {

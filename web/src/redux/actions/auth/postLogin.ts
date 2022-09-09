@@ -5,7 +5,7 @@ import { AppDispatch } from 'src/redux/store';
 
 // Login
 export const postLoginRequest = createAction('postLoginRequest');
-export const postLoginSuccess = createAction('postLoginSuccess');
+export const postLoginSuccess = createAction<LoginResponse>('postLoginSuccess');
 export const postLoginFailure = createAction('postLoginFailure');
 
 export const postLogin =
@@ -18,10 +18,12 @@ export const postLogin =
                 postBody,
             );
 
-            localStorage.setItem('jwt', data.token);
-            localStorage.setItem('refreshToken', data.refreshToken);
+            if (data.isConfirmed) {
+                localStorage.setItem('jwt', data.token);
+                localStorage.setItem('refreshToken', data.refreshToken);
+            }
 
-            dispatch(postLoginSuccess());
+            dispatch(postLoginSuccess(data));
         } catch (e) {
             console.log({ e });
             handleApiErrors(dispatch, postLoginFailure, e as APIError);

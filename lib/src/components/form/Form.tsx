@@ -12,6 +12,7 @@ const Form: React.FC<FormProps> = ({
     onCancel = () => {},
     omitButtons = false,
     isPosting = false,
+    error,
 }) => {
     const dispatch = useDispatch();
     const fieldErrors = useSelector(getFieldErrors);
@@ -21,6 +22,7 @@ const Form: React.FC<FormProps> = ({
         <form onSubmit={_handleSubmit}>
             {children}
             {!!formError && <p className="form-generic-error">{formError}</p>}
+            {!!error && <p className="form-generic-error">{error}</p>}
             {!omitButtons && (
                 <ButtonRow alignment="right">
                     <ActionButton
@@ -61,6 +63,7 @@ interface FormProps {
     omitButtons?: boolean;
     onSubmit: () => void;
     onCancel?: () => void;
+    error?: string | undefined | null;
 }
 
 export default Form;
