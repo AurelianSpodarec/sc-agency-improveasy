@@ -21,6 +21,7 @@ import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
 import Login from '@pages/public/auth/login/Login';
 import Register from '@pages/public/auth/register/Register';
 import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
+import AuthRoutes from './AuthRoutes';
 
 const Routes: React.FC = () => (
     <Switch>
@@ -60,17 +61,7 @@ const Routes: React.FC = () => (
 
         {/* Auth */}
         <SubRouter path="/auth">
-            <Switch>
-                <Route exact path={`/auth/login`}>
-                    <Login />
-                </Route>
-                <Route exact path={`/auth/register`}>
-                    <Register />
-                </Route>
-                <Route exact path={`/auth/confirm-email`}>
-                    <ConfirmEmail />
-                </Route>
-            </Switch>
+            <AuthRoutes />
         </SubRouter>
 
         <DefaultRedirect to="/" />

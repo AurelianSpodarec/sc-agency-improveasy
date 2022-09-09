@@ -4,7 +4,7 @@ import Login from '@pages/public/auth/login/Login';
 import Register from '@pages/public/auth/register/Register';
 import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
 
-const RouteAuth = () => {
+const AuthRoutes = () => {
     const { path } = useRouteMatch();
     return (
         <Switch>
@@ -21,4 +21,4 @@ const RouteAuth = () => {
     );
 };
 
-export default RouteAuth;
+export default AuthRoutes;
