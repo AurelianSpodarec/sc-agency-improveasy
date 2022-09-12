@@ -1,0 +1,31 @@
+// ==========================================================================
+// # Input
+// ==========================================================================
+
+.input {
+    background-color: #F1F1F1;
+    border-radius: 55px 0;
+    height: 100%;
+    padding: 0 40px;
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+
+        &--right {
+            right: 40px;
+        }
+
+        &--left {
+            left: 40px;
+        }
+    }
+
+    &--search {
+        padding-right: 80px;
+        width: 370px;
+    }
+
+}

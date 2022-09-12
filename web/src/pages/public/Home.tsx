@@ -7,36 +7,73 @@ function Home() {
     return (
         <MainPublic>
             <Section>
-            <Container size="2xl">
-
-                <Accordion.Root type="single" collapsible>
-                    <AccordionOne value="1we" title="What is MMES?">
-                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</Text>
-                        <Text>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                    </AccordionOne>
-                    <AccordionOne value="1dsd" title="What is MMES?">
-                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</Text>
-                        <Text>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                    </AccordionOne>
-                    <AccordionOne value="232321" title="What is MMES?">
-                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</Text>
-                        <Text>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                    </AccordionOne>
-                    <AccordionOne value="sdfw31" title="What is MMES?">
-                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</Text>
-                        <Text>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                    </AccordionOne>
-                    <AccordionOne value="3432421"title="What is MMES?">
-                        <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</Text>
-                        <Text>Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text>
-                    </AccordionOne>
-                </Accordion.Root>
-                
-            </Container>
+                <Container size="2xl">
+                    <Accordion.Root type="single" collapsible>
+                        <AccordionOne value="1we" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="1dsd" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="232321" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="sdfw31" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="3432421" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                    </Accordion.Root>
+                </Container>
             </Section>
 
             <Section>
-
                 <Container>
                     <PageHeading title="Why Use?" className="text-center" />
                 </Container>
