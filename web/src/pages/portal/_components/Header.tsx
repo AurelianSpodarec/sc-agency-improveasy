@@ -62,10 +62,15 @@ const Header = () => {
         <header className="header header--portal">
             <Container style={{ height: '100%' }}>
                 <div className="header__inner flex justify-between items-center">
-                    <Link to="/" className="flex-row align-center justify-center header-link">
-                        <img src={logo} alt="sd" />
-                        <p>MEES Compliance</p>
+                    <Link to="/" className="no-underline">
+                        <div className="d-flex align-center space-x-6">
+                            <img className="header__logo-img" src={logo} alt="sd" />
+                            <p style={{ marginBottom: '0px' }} className="font-semibold">
+                                MEES Compliance
+                            </p>
+                        </div>
                     </Link>
+
                     <div className="profile flex-row align-center">
                         <ActionButton
                             onClick={e => handlerCreateProperty(e)}

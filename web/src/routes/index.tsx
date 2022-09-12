@@ -11,7 +11,7 @@ import Home from '@pages/public/Home';
 import FAQ from '@pages/public/FAQ';
 import MEES from '@pages/public/MEES';
 import Process from '@pages/public/Process';
-import WhyUs from '@pages/public/WhyUs';
+import WhyUse from '@pages/public/WhyUse';
 
 // Dashboard
 import PropertyList from '@pages/portal/Property/PropertyList/PropertyList';
@@ -38,8 +38,8 @@ const Routes: React.FC = () => (
             <Process />
         </Route>
 
-        <Route exact path="/why-us">
-            <WhyUs />
+        <Route exact path="/why-use">
+            <WhyUse />
         </Route>
 
         {/* Portal */}

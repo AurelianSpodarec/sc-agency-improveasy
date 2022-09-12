@@ -4,7 +4,7 @@ import Home from '@pages/public/Home';
 import FAQ from '@pages/public/FAQ';
 import MEES from '@pages/public/MEES';
 import Process from '@pages/public/Process';
-import WhyUs from '@pages/public/WhyUs';
+import WhyUse from '@pages/public/WhyUse';
 
 function RoutePages() {
     return (
@@ -26,7 +26,7 @@ function RoutePages() {
             </Route>
 
             <Route exact path="/why-us">
-                <WhyUs />
+                <WhyUse />
             </Route>
         </Switch>
     );

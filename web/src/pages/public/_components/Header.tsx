@@ -3,11 +3,9 @@ import { Link, useHistory } from 'react-router-dom';
 import useIsLoggedIn from 'lib/src/hooks/useIsLoggedIn';
 
 import LinkButton from 'lib/src/components/button/LinkButton';
-import ActionButton from 'lib/src/components/button/ActionButton';
 import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 import Container from '../../../components/ui/Container';
-import TextInput from 'lib/src/components/form/TextInput';
 import { Input } from '@components/ui';
 
 const Header = () => {

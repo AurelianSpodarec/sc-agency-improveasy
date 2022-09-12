@@ -3,10 +3,80 @@
 // ==========================================================================
 
 
-// .d-flex {
-//     display: flex;
-// }
 
+// Flex Wrap
+
+.flex-wrap {
+    flex-wrap: wrap
+  }
+  
+  .flex-wrap-reverse {
+    flex-wrap: wrap-reverse
+  }
+  
+  .flex-no-wrap {
+    flex-wrap: nowrap
+  }
+  
+  @media (min-width: 640px) {
+    .sm\:flex-wrap {
+      flex-wrap: wrap
+    }
+  
+    .sm\:flex-wrap-reverse {
+      flex-wrap: wrap-reverse
+    }
+  
+    .sm\:flex-no-wrap {
+      flex-wrap: nowrap
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .md\:flex-wrap {
+      flex-wrap: wrap
+    }
+  
+    .md\:flex-wrap-reverse {
+      flex-wrap: wrap-reverse
+    }
+  
+    .md\:flex-no-wrap {
+      flex-wrap: nowrap
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .lg\:flex-wrap {
+      flex-wrap: wrap
+    }
+  
+    .lg\:flex-wrap-reverse {
+      flex-wrap: wrap-reverse
+    }
+  
+    .lg\:flex-no-wrap {
+      flex-wrap: nowrap
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .xl\:flex-wrap {
+      flex-wrap: wrap
+    }
+  
+    .xl\:flex-wrap-reverse {
+      flex-wrap: wrap-reverse
+    }
+  
+    .xl\:flex-no-wrap {
+      flex-wrap: nowrap
+    }
+  }
+      
+
+
+// Flex
     
 .block {
     display: block
