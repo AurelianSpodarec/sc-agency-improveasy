@@ -1,0 +1,24 @@
+// ==========================================================================
+// # Accordion
+// ==========================================================================
+
+.accordionOne {
+  
+
+    &-item {
+        border-top: 7px solid #0D695C;
+        padding: 25px 55px;
+        &__header {
+            border: none;
+        }
+
+        &__trigger {
+            background-color: transparent;
+            width: 100%;
+        }
+
+        &__content {
+            padding-top: 32px;
+        }
+    }
+}

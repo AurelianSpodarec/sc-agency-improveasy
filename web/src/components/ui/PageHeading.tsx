@@ -1,9 +1,14 @@
 import Text from './Text';
 
-function PageHeading({ className, title, size }: any) {
+function PageHeading({ className, title, size, border = true, space = 'md' }: any) {
+    const isBorder = border ? 'page-heading--border-bottom' : '';
+
     return (
-        //  text-center
-        <header className={`${className} page-header`}>
+        <header
+            className={`${
+                className ? className : ''
+            } page-heading ${isBorder} page-heading--space-${space}`}
+        >
             <Text type="h2" size={size ? size : '2xl'} weight="bold">
                 <span>{title}</span>
             </Text>

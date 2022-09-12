@@ -1,0 +1,23 @@
+// ==========================================================================
+// # Page Heading
+// ==========================================================================
+
+.page-heading {
+    color: #0D695C;
+
+    &--space {
+        &-none {
+            padding-bottom: 0px;
+        }
+        &-md {
+            padding-bottom: 47px;
+        }
+    }
+
+    &--border-bottom {
+        & span {
+            border-bottom: 7px solid #0D695C;   
+        }
+    }
+
+}
