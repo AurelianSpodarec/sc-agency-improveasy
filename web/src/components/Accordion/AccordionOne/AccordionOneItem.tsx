@@ -1,7 +1,7 @@
 import { PageHeading } from '@components/ui';
 import * as Accordion from '@radix-ui/react-accordion';
 
-function AccordionOne({ title, children, value }: any) {
+function AccordionOneItem({ title, children, value }: any) {
     return (
         <Accordion.Item className="accordionOne-item" value={value}>
             <Accordion.Header className="accordionOne-item__header">
@@ -22,4 +22,4 @@ function AccordionOne({ title, children, value }: any) {
     );
 }
 
-export default AccordionOne;
+export default AccordionOneItem;

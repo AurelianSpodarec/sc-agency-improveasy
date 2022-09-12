@@ -1,7 +1,7 @@
 import MainPublic from './_components/MainPublic';
 
-import * as Accordion from '@radix-ui/react-accordion';
-import AccordionOne from '@components/Accordion/AccordionOne/AccordionOne';
+import AccordionOne from '@components/Accordion/AccordionOne/AcordionOne';
+import AccordionOneItem from '@components/Accordion/AccordionOne/AccordionOneItem';
 import { Container, PageHeading, Section, Text } from '@components/ui';
 
 function Home() {
@@ -9,7 +9,7 @@ function Home() {
         <MainPublic>
             <Section>
                 <Container size="2xl">
-                    <Accordion.Root type="single" collapsible>
+                    <AccordionOne type="single" collapsible>
                         <AccordionOne value="1we" title="What is MMES?">
                             <Text>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -70,7 +70,7 @@ function Home() {
                                 voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                             </Text>
                         </AccordionOne>
-                    </Accordion.Root>
+                    </AccordionOne>
                 </Container>
             </Section>
 

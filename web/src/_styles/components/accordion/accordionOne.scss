@@ -7,7 +7,7 @@
 
     &-item {
         border-top: 7px solid #0D695C;
-        padding: 25px 55px;
+       
         &__header {
             border: none;
         }
@@ -15,10 +15,12 @@
         &__trigger {
             background-color: transparent;
             width: 100%;
+            padding: 25px 55px;
         }
 
         &__content {
             padding-top: 32px;
+            padding: 0 55px;
         }
     }
 }
