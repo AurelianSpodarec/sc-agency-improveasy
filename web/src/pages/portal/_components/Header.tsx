@@ -7,7 +7,7 @@ import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 import { Container } from '@components/ui';
 
-import logo from '@content/logo/WHITE_LOGO.svg';
+import logo from '@content/logo/GREEN_LOGO.svg';
 
 const Header = () => {
     const history = useHistory();
@@ -62,11 +62,10 @@ const Header = () => {
         <header className="header header--portal">
             <Container style={{ height: '100%' }}>
                 <div className="header__inner flex justify-between items-center">
-                    <div>
-                        <Link to="/">
-                            <img src={logo} alt="sd" />
-                        </Link>
-                    </div>
+                    <Link to="/" className="flex-row align-center justify-center header-link">
+                        <img src={logo} alt="sd" />
+                        <p>MEES Compliance</p>
+                    </Link>
                     <div className="profile flex-row align-center">
                         <ActionButton
                             onClick={e => handlerCreateProperty(e)}
