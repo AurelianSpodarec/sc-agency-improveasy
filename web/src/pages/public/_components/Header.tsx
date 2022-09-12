@@ -23,7 +23,7 @@ const Header = () => {
                     </div>
 
                     <div className="userAvatar">
-                        <img className="userAvatar__img" src="" />
+                        <img className="userAvatar__img" src="" alt="" />
                     </div>
 
                     <div className="profile flex-row align-center">
