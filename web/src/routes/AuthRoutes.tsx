@@ -14,7 +14,7 @@ const AuthRoutes = () => {
             <Route exact path={`${path}/register`}>
                 <Register />
             </Route>
-            <Route exact path={`${path}/confirm-email`}>
+            <Route exact path={`${path}/confirm-email/:token`}>
                 <ConfirmEmail />
             </Route>
         </Switch>

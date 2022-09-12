@@ -39,7 +39,7 @@ const Header = () => {
                                 placeholder="Search"
                                 className="input--search"
                                 name="@"
-                                icon={<img src="/images/icons/SEARCH_ICON.svg" />}
+                                icon={<img src="/images/icons/SEARCH_ICON.svg" alt="" />}
                             />
                         </div>
 
@@ -50,7 +50,7 @@ const Header = () => {
                                 <>
                                     <LinkButton
                                         source="primary"
-                                        href="/auth/register"
+                                        href="/auth/login"
                                         className="winged"
                                     >
                                         Get Started

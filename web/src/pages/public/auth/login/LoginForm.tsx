@@ -13,6 +13,8 @@ const LoginForm: React.FC = () => {
         isPosting,
         customValidate,
         error,
+        showConfirmEmail,
+        resendEmail,
     } = useLogin();
 
     return (
@@ -43,6 +45,17 @@ const LoginForm: React.FC = () => {
                     Login
                 </ActionButton>
             </ButtonRow>
+
+            {showConfirmEmail && (
+                <>
+                    <p>Your account is not comfirmed, please click the link in your email.</p>
+                    <p>
+                        <button type="button" onClick={resendEmail}>
+                            Resend confimation.
+                        </button>
+                    </p>
+                </>
+            )}
         </Form>
     );
 };
