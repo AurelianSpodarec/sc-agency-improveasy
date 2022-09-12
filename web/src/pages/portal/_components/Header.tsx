@@ -1,18 +1,16 @@
 import { Link, useHistory } from 'react-router-dom';
 
-import useIsLoggedIn from 'lib/src/hooks/useIsLoggedIn';
+import useModal from './../../../context/useModal';
 
-import LinkButton from 'lib/src/components/button/LinkButton';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 import { Container } from '@components/ui';
 
-import useModal from './../../../context/useModal';
+import logo from '@content/logo/WHITE_LOGO.svg';
 
 const Header = () => {
     const history = useHistory();
-    const isLoggedIn = useIsLoggedIn();
     const modalContext = useModal();
 
     function handlerCreateProperty(e: any) {
@@ -65,13 +63,10 @@ const Header = () => {
             <Container style={{ height: '100%' }}>
                 <div className="header__inner flex justify-between items-center">
                     <div>
-                        <Link to="/"></Link>
+                        <Link to="/">
+                            <img src={logo} alt="sd" />
+                        </Link>
                     </div>
-
-                    <div className="userAvatar">
-                        <img className="userAvatar__img" src="" />
-                    </div>
-
                     <div className="profile flex-row align-center">
                         <ActionButton
                             onClick={e => handlerCreateProperty(e)}
