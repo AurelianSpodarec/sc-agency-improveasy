@@ -1,5 +1,9 @@
-import { Container, PageHeading, Section, Text } from '@components/ui';
 import MainPublic from './_components/MainPublic';
+
+import * as Accordion from '@radix-ui/react-accordion';
+import AccordionOne from '@components/Accordion/AccordionOne/AccordionOne';
+import { Container, PageHeading, Section, Text } from '@components/ui';
+import LinkButton from 'lib/src/components/button/LinkButton';
 
 function FAQ() {
     return (
@@ -24,8 +28,97 @@ function FAQ() {
                 </Container>
             </Section>
 
+            <Section size="md">
+                <Container size="2xl">
+                    <Accordion.Root type="single" collapsible>
+                        <AccordionOne value="1we" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="1dsd" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="232321" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="sdfw31" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                        <AccordionOne value="3432421" title="What is MMES?">
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                                aliquip ex ea.
+                            </Text>
+                            <Text>
+                                Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            </Text>
+                        </AccordionOne>
+                    </Accordion.Root>
+                </Container>
+            </Section>
+
             <Section>
-                <Container></Container>
+                <Container size="xl">
+                    <div className="md:d-flex space-y-10 md:space-y-0 md:space-x-20">
+                        <div className="w-full md:w-1/2">
+                            <img
+                                className="w-full rounded-primary"
+                                src="https://images.unsplash.com/photo-1613754537171-88192258d85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2871&q=80"
+                                alt="Some"
+                            />
+                        </div>
+                        <div className="w-full md:w-1/2">
+                            <div>
+                                <PageHeading title="FAQs" />
+                                <Text size="lg">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                                    enim ad minim veniam, quis nostrud.
+                                </Text>
+                            </div>
+                            {/* <button>Read more</button> */}
+                            <LinkButton className="winged">Read more</LinkButton>
+                        </div>
+                    </div>
+                </Container>
             </Section>
         </MainPublic>
     );
