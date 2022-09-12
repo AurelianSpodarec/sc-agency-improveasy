@@ -5,9 +5,15 @@ function AccordionOne({ title, children, value }: any) {
     return (
         <Accordion.Item className="accordionOne-item" value={value}>
             <Accordion.Header className="accordionOne-item__header">
-                <Accordion.Trigger className="accordionOne-item__trigger flex justify-between ">
-                    <PageHeading title={title} size="lg" border={false} />
-                    <div>Close</div>
+                <Accordion.Trigger className="accordionOne-item__trigger">
+                    <div className="d-flex justify-between">
+                        <PageHeading title={title} size="lg" border={false} space={false} />
+
+                        <div>
+                            <div>Open</div>
+                            <div>Close</div>
+                        </div>
+                    </div>
                 </Accordion.Trigger>
             </Accordion.Header>
 
