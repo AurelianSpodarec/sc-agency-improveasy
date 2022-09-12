@@ -3,6 +3,7 @@ import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
+import { Link } from 'react-router-dom';
 import useLogin from './hooks/useLogin';
 
 const LoginForm: React.FC = () => {
@@ -40,11 +41,14 @@ const LoginForm: React.FC = () => {
                     customValidate={customValidate}
                 />
             </FormRow>
-            <ButtonRow alignment="right">
+            <div className="d-flex justify-between">
+                <p>
+                    Don't have an account? <Link to="/auth/register">Register</Link>
+                </p>
                 <ActionButton icon="sign-in" isPosting={isPosting}>
                     Login
                 </ActionButton>
-            </ButtonRow>
+            </div>
 
             {showConfirmEmail && (
                 <>

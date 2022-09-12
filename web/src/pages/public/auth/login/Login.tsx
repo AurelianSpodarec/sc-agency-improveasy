@@ -11,9 +11,6 @@ const Login: React.FC = () => (
                 <Title>Login</Title>
                 <LoginForm />
             </Container>
-            <p>
-                Don't have an account? <Link to="/auth/register">Register</Link>
-            </p>
         </Section>
     </MainPublic>
 );

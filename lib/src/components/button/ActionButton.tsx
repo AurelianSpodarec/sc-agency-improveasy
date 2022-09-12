@@ -1,6 +1,6 @@
 const ActionButton: React.FC<ActionButtonProps> = ({
     children,
-    type = 'submit',
+    type = 'button',
     source = 'primary',
     className = '',
     icon,
