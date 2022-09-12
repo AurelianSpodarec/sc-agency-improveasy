@@ -17,50 +17,22 @@ function Footer() {
                                     <ul>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Business Finance</Text>
+                                                <Text type="span">Business Finance</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Consumer Finance</Text>
+                                                <Text type="span">Consumer Finance</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>ECO</Text>
+                                                <Text type="span">ECO</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Affiliate Partners</Text>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <Text weight="bold" style={{ marginBottom: '20px' }}>
-                                        For Business
-                                    </Text>
-                                    <ul>
-                                        <li>
-                                            <a href="#" className="footer__section-link">
-                                                <Text>Business Finance</Text>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="footer__section-link">
-                                                <Text>Consumer Finance</Text>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="footer__section-link">
-                                                <Text>ECO</Text>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" className="footer__section-link">
-                                                <Text>Affiliate Partners</Text>
+                                                <Text type="span">Affiliate Partners</Text>
                                             </a>
                                         </li>
                                     </ul>
@@ -73,22 +45,50 @@ function Footer() {
                                     <ul>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Business Finance</Text>
+                                                <Text type="span">Business Finance</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Consumer Finance</Text>
+                                                <Text type="span">Consumer Finance</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>ECO</Text>
+                                                <Text type="span">ECO</Text>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" className="footer__section-link">
-                                                <Text>Affiliate Partners</Text>
+                                                <Text type="span">Affiliate Partners</Text>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <Text weight="bold" style={{ marginBottom: '20px' }}>
+                                        For Business
+                                    </Text>
+                                    <ul>
+                                        <li>
+                                            <a href="#" className="footer__section-link">
+                                                <Text type="span">Business Finance</Text>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="footer__section-link">
+                                                <Text type="span">Consumer Finance</Text>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="footer__section-link">
+                                                <Text type="span">ECO</Text>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" className="footer__section-link">
+                                                <Text type="span">Affiliate Partners</Text>
                                             </a>
                                         </li>
                                     </ul>

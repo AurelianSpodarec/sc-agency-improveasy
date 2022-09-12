@@ -1,12 +1,13 @@
+import { SyntheticEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import useIsLoggedIn from 'lib/src/hooks/useIsLoggedIn';
-
 import LinkButton from 'lib/src/components/button/LinkButton';
-import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
-import Container from '../../../components/ui/Container';
-import { Input } from '@components/ui';
+
+import { Input, Container } from '@components/ui';
+import { IconLogoPublic } from './../../../_content/icons/logo/IconLogoPublic';
+import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
 
 const Header = () => {
     const history = useHistory();
@@ -18,11 +19,7 @@ const Header = () => {
                 <div className="header__inner d-flex justify-between items-center">
                     <div className="header__logo">
                         <Link to="/">
-                            <img
-                                className="header__logo-img"
-                                src="/images/logo/WHITE_LOGO.svg"
-                                alt="sd"
-                            />
+                            <IconLogoPublic className="header__logo-img" />
                             <div className="sr-only">Public Header Logo</div>
                         </Link>
                     </div>
@@ -32,16 +29,16 @@ const Header = () => {
                             <img className="userAvatar__img" src="" alt="" />
                         </div>
 
-                        <div>
+                        <div className="hidden lg:block">
                             <Input
                                 placeholder="Search"
                                 className="input--search"
                                 name="@"
-                                icon={<img src="/images/icons/SEARCH_ICON.svg" alt="" />}
+                                icon={<IconMagnifyingGlass />}
                             />
                         </div>
 
-                        <div className="profile flex-row align-center">
+                        <div className="hidden md:block flex-row align-center">
                             {isLoggedIn ? (
                                 <div>User avatar</div>
                             ) : (

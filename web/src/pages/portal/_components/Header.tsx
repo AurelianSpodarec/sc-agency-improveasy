@@ -7,7 +7,7 @@ import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 import { Container } from '@components/ui';
 
-import logo from '@content/logo/GREEN_LOGO.svg';
+import logo from '@content/icons/logo/GREEN_LOGO.svg';
 
 const Header = () => {
     const history = useHistory();
@@ -65,13 +65,13 @@ const Header = () => {
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
                             <img className="header__logo-img" src={logo} alt="sd" />
-                            <p style={{ marginBottom: '0px' }} className="font-semibold">
+                            <span style={{ marginBottom: '0px' }} className="font-semibold">
                                 MEES Compliance
-                            </p>
+                            </span>
                         </div>
                     </Link>
 
-                    <div className="profile flex-row align-center">
+                    <div className="flex-row align-center">
                         <ActionButton
                             onClick={e => handlerCreateProperty(e)}
                             className="winged"
