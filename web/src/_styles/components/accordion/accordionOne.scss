@@ -3,14 +3,17 @@
 // ==========================================================================
 
 .accordionOne {
+  
 
     &-item {
+        border-top: 7px solid #0D695C;
         &__header {
-
+            border: none;
         }
 
         &__trigger {
             background-color: transparent;
+            width: 100%;
         }
 
         &__content {

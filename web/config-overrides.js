@@ -13,6 +13,7 @@ module.exports = function (config, env) {
                 '@selectors': path.resolve(__dirname, 'src/redux/selectors'),
                 '@pages': path.resolve(__dirname, 'src/pages'),
                 '@components': path.resolve(__dirname, 'src/components'),
+                '@ui': path.resolve(__dirname, 'src/ui'),
                 '@routes': path.resolve(__dirname, 'src/routes'),
                 '@styles': path.resolve(__dirname, 'src/_styles'),
                 '@content': path.resolve(__dirname, 'src/_content'),
