@@ -1,5 +1,6 @@
+import { resendConfirmEmail } from './../../../../../redux/actions/auth/resendConfirmEmail';
 import { getAuthError, getAuthIsConfirmed } from './../../../../../redux/selectors/auth';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
@@ -16,10 +17,19 @@ const useLogin = () => {
     const error = useSelector(getAuthError);
     const isConfirmed = useSelector(getAuthIsConfirmed);
 
-    const [formState, handleChange] = useForm({
+    const [showConfirmEmail, setShowConfirmEmail] = useState(false);
+
+    const [formState, onChange] = useForm({
         email: '',
         password: '',
     });
+
+    const handleChange = (name: keyof typeof formState, value: any) => {
+        if (name === 'email') {
+            setShowConfirmEmail(false);
+        }
+        onChange(name, value);
+    };
 
     const prevPostSuccess = usePrevious(postSuccess);
     useEffect(() => {
@@ -27,10 +37,10 @@ const useLogin = () => {
             if (isConfirmed) {
                 history.push('/dashboard');
             } else {
-                history.push('/auth/confirm-email');
+                setShowConfirmEmail(true);
             }
         }
-    }, [postSuccess, prevPostSuccess, isConfirmed, history]);
+    }, [postSuccess, prevPostSuccess, isConfirmed, history, showConfirmEmail]);
 
     const customValidate = useCallback(() => {
         // eslint-disable-next-line
@@ -40,6 +50,10 @@ const useLogin = () => {
         dispatch(postLogin(formState));
     };
 
+    const resendEmail = () => {
+        dispatch(resendConfirmEmail(formState.email));
+    };
+
     return {
         formState,
         handleChange,
@@ -47,6 +61,8 @@ const useLogin = () => {
         isPosting,
         customValidate,
         error,
+        showConfirmEmail,
+        resendEmail,
     };
 };
 

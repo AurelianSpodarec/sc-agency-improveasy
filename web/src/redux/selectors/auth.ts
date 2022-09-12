@@ -4,3 +4,5 @@ export const getAuthIsPosting = (state: RootState): boolean => state.authReducer
 export const getAuthPostSuccess = (state: RootState): boolean => state.authReducer.postSuccess;
 export const getAuthIsConfirmed = (state: RootState): boolean => state.authReducer.isConfirmed;
 export const getAuthError = (state: RootState): string | null => state.authReducer.error;
+export const getAuthConfirmEmailError = (state: RootState): string | null =>
+    state.authReducer.confrimEmailError;

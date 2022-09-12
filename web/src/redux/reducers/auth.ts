@@ -10,6 +10,9 @@ import {
     postConfirmEmailRequest,
     postConfirmEmailSuccess,
     postConfirmEmailFailure,
+    resendConfirmEmailRequest,
+    resendConfirmEmailSuccess,
+    resendConfirmEmailFailure,
 } from '@actions/auth';
 import { LoginResponse } from 'lib/src/utils/api';
 
@@ -18,6 +21,7 @@ interface AuthState {
     postSuccess: boolean;
     error: string | null;
     isConfirmed: boolean;
+    confrimEmailError: string | null;
 }
 
 const initialState: AuthState = {
@@ -25,27 +29,43 @@ const initialState: AuthState = {
     postSuccess: false,
     error: null,
     isConfirmed: false,
+    confrimEmailError: null,
 };
 
 export default createReducer(initialState, {
     [postLoginRequest.type]: handlePostRequest,
     [postLoginSuccess.type]: handlePostLoginSuccess,
-    [postLoginFailure.type]: handleFailure,
+    [postLoginFailure.type]: handlePostFailure,
     [postRegisterRequest.type]: handlePostRequest,
     [postRegisterSuccess.type]: handlePostSuccess,
-    [postRegisterFailure.type]: handleFailure,
+    [postRegisterFailure.type]: handlePostFailure,
     [postRegisterRequest.type]: handlePostRequest,
     [postRegisterSuccess.type]: handlePostSuccess,
-    [postRegisterFailure.type]: handleFailure,
+    [postRegisterFailure.type]: handlePostFailure,
     [postConfirmEmailRequest.type]: handlePostRequest,
     [postConfirmEmailSuccess.type]: handlePostSuccess,
-    [postConfirmEmailFailure.type]: handleFailure,
+    [postConfirmEmailFailure.type]: handleConfirmEmailFailure,
+    [postConfirmEmailRequest.type]: handlePostRequest,
+    [postConfirmEmailSuccess.type]: handlePostSuccess,
+    [postConfirmEmailFailure.type]: handleConfirmEmailFailure,
+    [postConfirmEmailRequest.type]: handlePostRequest,
+    [postConfirmEmailSuccess.type]: handlePostSuccess,
+    [postConfirmEmailFailure.type]: handleConfirmEmailFailure,
+    [resendConfirmEmailRequest.type]: handlePostRequest,
+    [resendConfirmEmailSuccess.type]: handlePostSuccess,
+    [resendConfirmEmailFailure.type]: handlePostFailure,
 });
 
 function handlePostRequest(state: AuthState) {
     state.isPosting = true;
     state.postSuccess = false;
     state.error = null;
+    state.confrimEmailError = null;
+}
+
+function handleConfirmEmailFailure(state: AuthState, action: PayloadAction<string>) {
+    state.isPosting = false;
+    state.confrimEmailError = action.payload;
 }
 
 function handlePostSuccess(state: AuthState) {
@@ -59,7 +79,7 @@ function handlePostLoginSuccess(state: AuthState, action: PayloadAction<LoginRes
     state.isConfirmed = action.payload.isConfirmed;
 }
 
-function handleFailure(state: AuthState, action: PayloadAction<string>) {
+function handlePostFailure(state: AuthState, action: PayloadAction<string>) {
     state.isPosting = false;
     state.error = action.payload;
 }

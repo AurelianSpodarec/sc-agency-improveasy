@@ -81,11 +81,7 @@ const Header = () => {
                             </ActionButton>
                         ) : (
                             <>
-                                <LinkButton
-                                    source="primary"
-                                    href="/auth/register"
-                                    className="winged"
-                                >
+                                <LinkButton source="primary" href="/auth/login" className="winged">
                                     Get Started
                                 </LinkButton>
                             </>
