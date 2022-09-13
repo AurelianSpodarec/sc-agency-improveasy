@@ -32,66 +32,70 @@ function FAQ() {
             <Section size="md">
                 <Container size="2xl">
                     <AccordionOne type="single" collapsible>
-                        <AccordionOneItem value="1we" title="What is MMES?">
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea.
-                            </Text>
-                            <Text>
-                                Commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </Text>
-                        </AccordionOneItem>
-                        <AccordionOneItem value="1dsd" title="What is MMES?">
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea.
-                            </Text>
-                            <Text>
-                                Commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </Text>
-                        </AccordionOneItem>
-                        <AccordionOneItem value="232321" title="What is MMES?">
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea.
-                            </Text>
-                            <Text>
-                                Commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </Text>
-                        </AccordionOneItem>
-                        <AccordionOneItem value="sdfw31" title="What is MMES?">
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea.
-                            </Text>
-                            <Text>
-                                Commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </Text>
-                        </AccordionOneItem>
-                        <AccordionOneItem value="3432421" title="What is MMES?">
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea.
-                            </Text>
-                            <Text>
-                                Commodo consequat. Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                            </Text>
-                        </AccordionOneItem>
+                        {({ isOpen }: any) => (
+                            <>
+                                <AccordionOneItem value="1we" title="What is MMES?">
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea.
+                                    </Text>
+                                    <Text>
+                                        Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </Text>
+                                </AccordionOneItem>
+                                <AccordionOneItem value="1dsd" title="What is MMES?">
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea.
+                                    </Text>
+                                    <Text>
+                                        Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </Text>
+                                </AccordionOneItem>
+                                <AccordionOneItem value="232321" title="What is MMES?">
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea.
+                                    </Text>
+                                    <Text>
+                                        Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </Text>
+                                </AccordionOneItem>
+                                <AccordionOneItem value="sdfw31" title="What is MMES?">
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea.
+                                    </Text>
+                                    <Text>
+                                        Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </Text>
+                                </AccordionOneItem>
+                                <AccordionOneItem value="3432421" title="What is MMES?">
+                                    <Text>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                        do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                        ullamco laboris nisi ut aliquip ex ea.
+                                    </Text>
+                                    <Text>
+                                        Commodo consequat. Duis aute irure dolor in reprehenderit in
+                                        voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                    </Text>
+                                </AccordionOneItem>
+                            </>
+                        )}
                     </AccordionOne>
                 </Container>
             </Section>
