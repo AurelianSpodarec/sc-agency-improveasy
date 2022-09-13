@@ -16,6 +16,9 @@ import {
     postSendForgotPasswordRequest,
     postSendForgotPasswordSuccess,
     postSendForgotPasswordFailure,
+    postResetPasswordRequest,
+    postResetPasswordSuccess,
+    postResetPasswordFailure,
 } from '@actions/auth';
 import { LoginResponse } from 'lib/src/utils/api';
 
@@ -60,6 +63,9 @@ export default createReducer(initialState, {
     [postSendForgotPasswordRequest.type]: handlePostRequest,
     [postSendForgotPasswordSuccess.type]: handlePostSuccess,
     [postSendForgotPasswordFailure.type]: handlePostFailure,
+    [postResetPasswordRequest.type]: handlePostRequest,
+    [postResetPasswordSuccess.type]: handlePostSuccess,
+    [postResetPasswordFailure.type]: handlePostFailure,
 });
 
 function handlePostRequest(state: AuthState) {
