@@ -1,4 +1,4 @@
-function Input({ className, name, placeholder, position = 'right', icon }: any) {
+function Input({ className, name, placeholder, position = 'right', icon }: InputProps) {
     return (
         <div className="h-full relative">
             <input
@@ -12,3 +12,11 @@ function Input({ className, name, placeholder, position = 'right', icon }: any) 
 }
 
 export default Input;
+
+interface InputProps {
+    className?: string;
+    name: string;
+    placeholder?: string;
+    position?: 'right' | 'left';
+    icon?: any;
+}

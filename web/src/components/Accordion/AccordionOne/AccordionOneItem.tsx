@@ -11,7 +11,7 @@ function AccordionOneItem({ item, isOpen }: any) {
             <Accordion.Header className="accordionOne-item__header">
                 <Accordion.Trigger className="accordionOne-item__trigger">
                     <div className="d-flex align-center justify-between">
-                        <PageHeading title={title} size="lg" border={false} space={false} />
+                        <PageHeading title={title} size="lg" border={false} space={'none'} />
 
                         <div className="accordionOne-item__icon">
                             {isOpen === id ? <IconCross /> : <IconPlus />}

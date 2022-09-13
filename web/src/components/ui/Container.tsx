@@ -1,4 +1,6 @@
-function Container({ children, style, size }: any) {
+import { ReactNode } from 'react';
+
+function Container({ children, style, size }: ContainerProps) {
     const options: any = {
         fluid: 'fluid',
         sm: 'sm',
@@ -10,9 +12,6 @@ function Container({ children, style, size }: any) {
         '2xl': '2xl',
     };
 
-    // if(options[size]) {
-    //     console.error("Container - provided value", size, "doesn't exist");
-    // }
     return (
         // @ts-ignore
         <div
@@ -25,3 +24,9 @@ function Container({ children, style, size }: any) {
 }
 
 export default Container;
+
+interface ContainerProps {
+    children: ReactNode;
+    style?: object;
+    size?: string;
+}

@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 const types: any = {
     p: 'p',
     span: 'span',
@@ -33,7 +35,7 @@ const weights: any = {
     black: 'black',
 };
 
-function Text({ title, children, type, size, weight, className, style }: any) {
+function Text({ title, children, type, size, weight = 'normal', className, style }: TextProps) {
     // @ts-ignore
     const Tag = types[type] || types.p; // @ts-ignore
     const customClassName = `${className} text--${sizes[size] || sizes.base} font-${
@@ -49,3 +51,22 @@ function Text({ title, children, type, size, weight, className, style }: any) {
 }
 
 export default Text;
+
+interface TextProps {
+    title?: string;
+    children?: ReactNode;
+    type?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    size?: 'xs' | 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
+    weight?:
+        | 'thin'
+        | 'extralight'
+        | 'light'
+        | 'normal'
+        | 'medium'
+        | 'semibold'
+        | 'bold'
+        | 'extrabold'
+        | 'black';
+    className?: string;
+    style?: object;
+}

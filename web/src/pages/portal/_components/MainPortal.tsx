@@ -1,6 +1,7 @@
+import { ReactNode } from 'react';
 import Header from './Header';
 
-function MainPortal({ children }: any) {
+function MainPortal({ children }: MainPortalProps) {
     return (
         <div className="main-portal">
             <Header />
@@ -10,3 +11,7 @@ function MainPortal({ children }: any) {
 }
 
 export default MainPortal;
+
+interface MainPortalProps {
+    children: ReactNode;
+}

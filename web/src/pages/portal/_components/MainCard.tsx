@@ -1,6 +1,7 @@
 import { PageHeading } from '@components/ui';
+import { ReactNode } from 'react';
 
-function MainCard({ title, children }: any) {
+function MainCard({ title, children }: MainCardProps) {
     return (
         <div className="main-card">
             <div className="main-card__heading">
@@ -13,3 +14,8 @@ function MainCard({ title, children }: any) {
 }
 
 export default MainCard;
+
+interface MainCardProps {
+    title: string;
+    children: ReactNode;
+}

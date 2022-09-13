@@ -1,4 +1,6 @@
-function Section({ className, style, children, size }: any) {
+import { ReactNode } from 'react';
+
+function Section({ className, style, children, size }: SectionProps) {
     const options: any = {
         fluid: 'fluid',
         sm: 'sm',
@@ -27,3 +29,10 @@ function Section({ className, style, children, size }: any) {
 }
 
 export default Section;
+
+interface SectionProps {
+    className?: string;
+    style?: object;
+    children: ReactNode;
+    size?: 'fluid' | 'sm' | 'base' | 'xs' | 'md' | 'lg' | 'xl' | '2xl';
+}
