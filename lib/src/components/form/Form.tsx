@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 const Form: React.FC<FormProps> = ({
     children,
     onSubmit,
-    onCancel = () => {},
+    onCancel,
     omitButtons = false,
     isPosting = false,
     error,
@@ -32,14 +32,15 @@ const Form: React.FC<FormProps> = ({
             {!!error && <p className="form-generic-error">{error}</p>}
             {!omitButtons && (
                 <ButtonRow alignment="right">
-                    <ActionButton
-                        source='secondary'
-                        type="button"
-                        onClick={_handleCancel}
-                        disabled={isPosting}
-                    >
-                        Cancel
-                    </ActionButton>
+                    {!!onCancel && (<ActionButton
+                            source='secondary'
+                            type="button"
+                            onClick={_handleCancel}
+                            disabled={isPosting}
+                        >
+                            Cancel
+                        </ActionButton>)
+                    }
                     <ActionButton isPosting={isPosting}>Submit</ActionButton>
                 </ButtonRow>
             )}
@@ -49,7 +50,7 @@ const Form: React.FC<FormProps> = ({
     function _handleCancel(e: React.MouseEvent) {
         e.preventDefault();
 
-        if (!isPosting) onCancel();
+        if (!isPosting && onCancel) onCancel();
     }
 
     function _handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -69,7 +70,7 @@ interface FormProps {
     isPosting?: boolean;
     omitButtons?: boolean;
     onSubmit: () => void;
-    onCancel?: () => void;
+    onCancel?: () => void | undefined;
     error?: string | undefined | null;
 }
 
