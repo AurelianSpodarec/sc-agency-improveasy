@@ -17,7 +17,6 @@ export const resendConfirmEmail =
 
             dispatch(resendConfirmEmailSuccess());
         } catch (e) {
-            console.log({ e });
             handleApiErrors(dispatch, resendConfirmEmailFailure, e as APIError);
         }
     };
