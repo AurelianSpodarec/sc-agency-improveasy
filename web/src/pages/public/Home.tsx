@@ -201,7 +201,7 @@ function Home() {
                     <div className="md:d-flex space-y-10 md:space-y-0 md:space-x-20">
                         <div className="w-full md:w-1/2">
                             <img
-                                className="w-full rounded-primary"
+                                className="w-full rounded--secondary"
                                 src="https://images.unsplash.com/photo-1613754537171-88192258d85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2871&q=80"
                                 alt="Some"
                             />

@@ -6,17 +6,15 @@
 .footer {
     background-color: #264653;
     color: #FFFFFF;
-    padding: 0 30px;
-    // font-size: 22px;
-    // line-height: 26px;
-    // text-align: left;
+
+    @media (min-width: 767px) {
+        padding: 0 32px;
+    }
 
     &__section-links {
         color: #FFFFFF;
         margin-bottom: 40px;
     }
-    
-     
 
     &__section-link {
         width: 100%;

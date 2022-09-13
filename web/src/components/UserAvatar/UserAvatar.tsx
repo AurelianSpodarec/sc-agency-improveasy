@@ -3,6 +3,8 @@ function UserAvatar() {
 }
 export default UserAvatar;
 
+// import { SyntheticEvent } from 'react';
+// import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 // function logout(e: SyntheticEvent) {
 //     e.preventDefault();
 //     clearJwtAndRefreshToken();

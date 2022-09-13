@@ -15,12 +15,20 @@
         &__trigger {
             background-color: transparent;
             width: 100%;
-            padding: 25px 55px;
-        }
+            padding: 16px;
 
+            @media (min-width: 767px) {                
+                padding: 25px 55px;
+            }
+        }
+        
         &__content {
             padding-top: 32px;
-            padding: 0 55px;
+            padding: 16px;
+            @media (min-width: 767px) {
+                padding: 0 55px;
+                padding-bottom: 32px
+            }
         }
     }
 }

@@ -1,17 +1,14 @@
-import { SyntheticEvent } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import useIsLoggedIn from 'lib/src/hooks/useIsLoggedIn';
 import LinkButton from 'lib/src/components/button/LinkButton';
-import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 
 import { Input, Container } from '@components/ui';
-import { IconLogoPublic } from './../../../_content/icons/logo/IconLogoPublic';
-import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
 import UserAvatar from '@components/UserAvatar/UserAvatar';
+import { IconLogoPublic } from '@content/icons/logo/IconLogoPublic';
+import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
 
 const Header = () => {
-    const history = useHistory();
     const isLoggedIn = useIsLoggedIn();
 
     return (
