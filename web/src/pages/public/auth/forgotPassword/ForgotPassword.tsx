@@ -3,6 +3,7 @@ import MainPublic from '@pages/public/_components/MainPublic';
 import Title from 'lib/src/components/typography/Title';
 import useForgotPassword from './hooks/useForgotPassword';
 import ForgotPasswordForm from './ForgotPasswordForm';
+import ForgotPasswordSuccess from './ForgotPasswordSuccess';
 
 const ForgotPassword: React.FC = () => {
     const {
@@ -18,9 +19,9 @@ const ForgotPassword: React.FC = () => {
         <MainPublic>
             <Section>
                 <Container>
-                    <Title>Forgot Password</Title>
+                    <Title>Forgot Password {showSuccess && 'Success'}</Title>
                     {showSuccess ? (
-                        <p>Success</p>
+                        <ForgotPasswordSuccess />
                     ) : (
                         <ForgotPasswordForm
                             email={email}
