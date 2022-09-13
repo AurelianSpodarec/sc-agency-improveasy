@@ -8,6 +8,7 @@ import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 import { Input, Container } from '@components/ui';
 import { IconLogoPublic } from './../../../_content/icons/logo/IconLogoPublic';
 import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
+import UserAvatar from '@components/UserAvatar/UserAvatar';
 
 const Header = () => {
     const history = useHistory();
@@ -40,7 +41,7 @@ const Header = () => {
 
                         <div className="hidden md:block flex-row align-center">
                             {isLoggedIn ? (
-                                <div>User avatar</div>
+                                <UserAvatar />
                             ) : (
                                 <>
                                     <LinkButton
@@ -58,12 +59,6 @@ const Header = () => {
             </Container>
         </header>
     );
-
-    function logout(e: SyntheticEvent) {
-        e.preventDefault();
-        clearJwtAndRefreshToken();
-        history.replace('/');
-    }
 };
 
 export default Header;
