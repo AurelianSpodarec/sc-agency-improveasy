@@ -25,7 +25,6 @@ export const postLogin =
 
             dispatch(postLoginSuccess(data));
         } catch (e) {
-            console.log({ e });
             handleApiErrors(dispatch, postLoginFailure, e as APIError);
         }
     };

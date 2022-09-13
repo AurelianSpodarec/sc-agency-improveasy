@@ -26,7 +26,6 @@ export const postConfirmEmail =
 
             dispatch(postConfirmEmailSuccess());
         } catch (e) {
-            console.log({ e });
             handleApiErrors(dispatch, postConfirmEmailFailure, e as APIError);
         }
     };

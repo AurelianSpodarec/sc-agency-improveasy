@@ -17,7 +17,6 @@ export const postSendForgotPassword =
             await api.post('Auth/Forgot-Password', { email });
             dispatch(postSendForgotPasswordSuccess());
         } catch (e) {
-            console.log({ err: e });
             handleApiErrors(dispatch, postSendForgotPasswordFailure, e as APIError);
         }
     };

@@ -18,7 +18,6 @@ export const postResetPassword =
 
             dispatch(postResetPasswordSuccess());
         } catch (e) {
-            console.log({ e });
             handleApiErrors(dispatch, postResetPasswordFailure, e as APIError);
         }
     };

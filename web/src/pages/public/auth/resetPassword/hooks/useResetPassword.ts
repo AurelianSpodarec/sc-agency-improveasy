@@ -28,7 +28,6 @@ const useConfirmEmail = () => {
     }, [success, prevSuccess, history]);
 
     const handleSubmit = () => {
-        console.log('hihi');
         dispatch(postResetPassword(token, formState.newPassword));
     };
 
