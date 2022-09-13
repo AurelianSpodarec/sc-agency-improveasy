@@ -1,4 +1,6 @@
 import { PageHeading } from '@components/ui';
+import IconCross from '@content/icons/IconCross';
+import IconPlus from '@content/icons/IconPlus';
 import * as Accordion from '@radix-ui/react-accordion';
 
 function AccordionOneItem({ item, isOpen }: any) {
@@ -11,10 +13,8 @@ function AccordionOneItem({ item, isOpen }: any) {
                     <div className="d-flex align-center justify-between">
                         <PageHeading title={title} size="lg" border={false} space={false} />
 
-                        <div>
-                            {isOpen === id ? 'open' : 'close'}
-                            {/* <div>Open</div> */}
-                            {/* <div>Close</div> */}
+                        <div className="accordionOne-item__icon">
+                            {isOpen === id ? <IconCross /> : <IconPlus />}
                         </div>
                     </div>
                 </Accordion.Trigger>
