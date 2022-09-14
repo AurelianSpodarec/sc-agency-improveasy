@@ -23,22 +23,19 @@ const Header = () => {
                     </div>
 
                     <div className="d-flex">
-                        <div className="userAvatar">
-                            <img className="userAvatar__img" src="" alt="" />
-                        </div>
-
-                        <div className="hidden lg:block">
-                            <Input
-                                placeholder="Search"
-                                className="input--search"
-                                name="@"
-                                icon={<IconMagnifyingGlass />}
-                            />
-                        </div>
-
                         <div className="hidden md:block flex-row align-center">
-                            {isLoggedIn ? (
-                                <UserAvatar />
+                            {!isLoggedIn ? (
+                                <div className="d-flex justify-between align-center">
+                                    <div className="hidden lg:block">
+                                        <Input
+                                            placeholder="Search"
+                                            className="input--search"
+                                            name="@"
+                                            icon={<IconMagnifyingGlass />}
+                                        />
+                                    </div>
+                                    <UserAvatar />
+                                </div>
                             ) : (
                                 <>
                                     <LinkButton
