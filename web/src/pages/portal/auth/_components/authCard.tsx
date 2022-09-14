@@ -1,24 +1,29 @@
+import { IconLogoPublic } from '@content/icons/logo/IconLogoPublic';
 import { ReactNode } from 'react';
 
 function AuthCard({
     children,
-    image = 'https://images.unsplash.com/photo-1613754537171-88192258d85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2871&q=80',
-}: AuthCardProps) {
+    image = 'https://www.solarpanelinstallers.co.uk/wp-content/uploads/2021/11/Row-of-red-brick-english-houses-with-solar-panels-installed.jpg',
+}: // image = 'https://media.istockphoto.com/photos/conserving-the-environment-during-his-commute-picture-id1349671527?k=20&m=1349671527&s=612x612&w=0&h=Dw1C6Rc_QBXbL9KckGbwtlFYrsl-8tgdEXzN0nRanFA=',
+// image = 'https://media.istockphoto.com/photos/architect-and-engeneer-on-construciton-siteconstruction-manager-and-picture-id936399142?s=612x612',
+AuthCardProps) {
     return (
-        // <MainPortal>
-        // <Container>
-
-        <div className="d-flex space-x-10">
-            <div className="w-full lg:w-1/2">
+        <div className="authLogin">
+            <div className="authLogin__image">
                 <img className="w-full" src={image} alt="yes" />
+                <div className="overlay__black"></div>
             </div>
-            <div className="w-full lg:w-1/2">
-                <div>{children}</div>
+
+            <div className="authLogin__main">
+                <div className="authLogin__logo-wrap">
+                    <IconLogoPublic className="authLogin__logo" />
+                </div>
+
+                <div className="authLogin__content">
+                    <div className="authLogin__content-inner">{children}</div>
+                </div>
             </div>
         </div>
-
-        // </Container>
-        // </MainPortal>
     );
 }
 

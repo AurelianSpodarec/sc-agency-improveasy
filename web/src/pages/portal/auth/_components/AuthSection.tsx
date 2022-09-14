@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 function AuthSection({ children }: AuthSectionProps) {
-    return <section>{children}</section>;
+    return <section className="authLogin__section">{children}</section>;
 }
 
 export default AuthSection;

@@ -31,6 +31,7 @@ const Register: React.FC = (): JSX.Element => {
         phone: '',
     });
 
+    // TODO: Create a function to abstract this as it duplicates across files
     const prevPostSuccess = usePrevious(postSuccess);
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
