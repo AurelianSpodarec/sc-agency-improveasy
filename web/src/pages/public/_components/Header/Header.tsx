@@ -17,7 +17,7 @@ const Header = () => {
         <header className="header header--public">
             <Container style={{ height: '100%' }}>
                 <div className="header__inner d-flex justify-between items-center">
-                    <div className="d-flex align-center">
+                    <div className="d-flex justify-between align-center w-full lg:w-auto">
                         <div className="header__logo">
                             <Link to="/">
                                 <IconLogoPublic className="header__logo-img" />
@@ -30,7 +30,7 @@ const Header = () => {
                     </div>
 
                     <div className="d-flex">
-                        <div className="hidden md:block flex-row align-center">
+                        <div className="hidden lg:block flex-row align-center">
                             {isLoggedIn ? (
                                 <div className="d-flex justify-between align-center">
                                     {/* <div className="hidden lg:block">
