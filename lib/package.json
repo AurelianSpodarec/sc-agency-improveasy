@@ -16,14 +16,6 @@
         ]
     },
     "dependencies": {
-        "@types/axios": "^0.14.0",
-        "@types/jwt-decode": "^3.1.0",
-        "@types/node": "^12.19.12",
-        "@types/react": "^18.0.0",
-        "@types/react-datepicker": "^4.4.2",
-        "@types/react-dom": "^18.0.0",
-        "@types/react-redux": "^7.1.15",
-        "@types/react-router-dom": "^5.1.7"
     },
     "peerDependencies": {
         "@reduxjs/toolkit": "^1.8.3",
@@ -56,6 +48,14 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "@typescript-eslint/eslint-plugin": "^5.31.0",
         "@typescript-eslint/parser": "^5.31.0",
-        "prettier": "^2.7.1"
+        "prettier": "^2.7.1",
+        "@types/axios": "^0.14.0",
+        "@types/jwt-decode": "^3.1.0",
+        "@types/node": "^12.19.12",
+        "@types/react": "^18.0.0",
+        "@types/react-datepicker": "^4.4.2",
+        "@types/react-dom": "^18.0.0",
+        "@types/react-redux": "^7.1.15",
+        "@types/react-router-dom": "^5.1.7"
     }
 }
