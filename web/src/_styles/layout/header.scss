@@ -12,6 +12,22 @@
         height: 90px;
     }
 
+    &-public {
+        &__menu {
+            text-decoration: none;
+            margin-left: 40px;
+            &-a {
+                color: #f1f1f1;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
     &--public {
         background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
     }

@@ -1,5 +1,5 @@
 import Footer from '@pages/public/_components/Footer';
-import Header from '@pages/public/_components/Header';
+import Header from '@pages/public/_components/Header/Header';
 
 function MainPublic({ children }: any) {
     return (
