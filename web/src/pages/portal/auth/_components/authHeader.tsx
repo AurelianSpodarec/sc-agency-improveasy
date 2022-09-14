@@ -1,7 +1,9 @@
+import { IconLogoPublic } from '@content/icons/logo/IconLogoPublic';
+
 function AuthHeader({ title }: any) {
     return (
         <header>
-            <span>Logo</span>
+            <IconLogoPublic />
             <span>{title}</span>
         </header>
     );

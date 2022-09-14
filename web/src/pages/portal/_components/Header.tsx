@@ -1,16 +1,15 @@
+import { SyntheticEvent } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import useModal from './../../../context/useModal';
 
+import IconLogoPortal from '@content/icons/logo/IconLogoPortal';
+
 import ActionButton from 'lib/src/components/button/ActionButton';
-import { SyntheticEvent } from 'react';
-import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
+
 import { Container } from '@components/ui';
 
-import logo from '@content/icons/logo/GREEN_LOGO.svg';
-
 const Header = () => {
-    const history = useHistory();
     const modalContext = useModal();
 
     function handlerCreateProperty(e: any) {
@@ -64,7 +63,7 @@ const Header = () => {
                 <div className="header__inner flex justify-between items-center">
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
-                            <img className="header__logo-img" src={logo} alt="sd" />
+                            <IconLogoPortal className="header__logo-img" />
                             <span style={{ marginBottom: '0px' }} className="font-semibold">
                                 MEES Compliance
                             </span>
@@ -84,12 +83,6 @@ const Header = () => {
             </Container>
         </header>
     );
-
-    function logout(e: SyntheticEvent) {
-        e.preventDefault();
-        clearJwtAndRefreshToken();
-        history.replace('/');
-    }
 };
 
 export default Header;

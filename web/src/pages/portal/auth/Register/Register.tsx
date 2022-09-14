@@ -13,8 +13,8 @@ import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
 
 import { HandleSubmit } from 'src/types/shared/Functions';
-import AuthCard from '../_components/authCard';
-import AuthHeader from '../_components/authHeader';
+
+import { AuthCard, AuthSection, AuthHeader } from '../_components';
 
 const Register: React.FC = (): JSX.Element => {
     const history = useHistory();
@@ -41,67 +41,69 @@ const Register: React.FC = (): JSX.Element => {
     return (
         <AuthCard>
             <AuthHeader title="Login" />
-            <Form
-                onSubmit={() => dispatch(postRegister(formState))}
-                isPosting={isPosting}
-                omitButtons
-            >
-                <div>
-                    <FormRow>
-                        <TextInput
-                            name="firstName"
-                            value={formState.firstName}
-                            label="First name"
-                            onChange={handleChange}
-                            required
-                        />
-                    </FormRow>
-                    <FormRow>
-                        <TextInput
-                            name="lastName"
-                            value={formState.lastName}
-                            label="Last name"
-                            onChange={handleChange}
-                            required
-                        />
-                    </FormRow>
-                    <FormRow>
-                        <TextInput
-                            name="email"
-                            type="email"
-                            value={formState.email}
-                            label="Email address"
-                            onChange={handleChange}
-                            required
-                        />
-                    </FormRow>
-                    <FormRow>
-                        <TextInput
-                            name="password"
-                            value={formState.password}
-                            label="Password"
-                            onChange={handleChange}
-                            type="password"
-                            required
-                        />
-                    </FormRow>
-                    <FormRow>
-                        <TextInput
-                            name="phone"
-                            value={formState.phone}
-                            label="Phone"
-                            onChange={handleChange}
-                            required
-                        />
-                    </FormRow>
-                </div>
-                <div className="d-flex justify-between">
-                    <p>
-                        Already have an account? <Link to="/auth/login">Log in</Link>
-                    </p>
-                    <ActionButton isPosting={isPosting}>Register</ActionButton>
-                </div>
-            </Form>
+            <AuthSection>
+                <Form
+                    onSubmit={() => dispatch(postRegister(formState))}
+                    isPosting={isPosting}
+                    omitButtons
+                >
+                    <div>
+                        <FormRow>
+                            <TextInput
+                                name="firstName"
+                                value={formState.firstName}
+                                label="First name"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="lastName"
+                                value={formState.lastName}
+                                label="Last name"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="email"
+                                type="email"
+                                value={formState.email}
+                                label="Email address"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="password"
+                                value={formState.password}
+                                label="Password"
+                                onChange={handleChange}
+                                type="password"
+                                required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="phone"
+                                value={formState.phone}
+                                label="Phone"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
+                    </div>
+                    <div className="d-flex justify-between">
+                        <p>
+                            Already have an account? <Link to="/auth/login">Log in</Link>
+                        </p>
+                        <ActionButton isPosting={isPosting}>Register</ActionButton>
+                    </div>
+                </Form>
+            </AuthSection>
         </AuthCard>
     );
 };

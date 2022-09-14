@@ -2,8 +2,7 @@ import Form from 'lib/src/components/form/Form';
 
 import useConfirmEmail from './hooks/useConfirmEmail';
 
-import AuthCard from '../_components/authCard';
-import AuthHeader from '../_components/authHeader';
+import { AuthCard, AuthHeader, AuthSection } from '../_components';
 
 const ConfirmEmail: React.FC = () => {
     const { isPosting, error } = useConfirmEmail();
@@ -11,9 +10,11 @@ const ConfirmEmail: React.FC = () => {
     return (
         <AuthCard>
             <AuthHeader title="Confirm Email" />
-            <Form onSubmit={() => {}} isPosting={isPosting} error={error} omitButtons>
-                {isPosting && <i className="fal fa-spinner fa-spin"></i>}
-            </Form>
+            <AuthSection>
+                <Form onSubmit={() => {}} isPosting={isPosting} error={error} omitButtons>
+                    {isPosting && <i className="fal fa-spinner fa-spin"></i>}
+                </Form>
+            </AuthSection>
         </AuthCard>
     );
 };

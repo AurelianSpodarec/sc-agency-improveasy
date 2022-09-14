@@ -1,13 +1,9 @@
-import Title from 'lib/src/components/typography/Title';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-
-import MainPublic from '@pages/public/_components/MainPublic';
 import useResetPassword from './hooks/useResetPassword';
-import { Container, Section } from '@components/ui';
-import AuthCard from '../_components/authCard';
-import AuthHeader from '../_components/authHeader';
+
+import { AuthCard, AuthHeader } from '../_components';
 
 const ResetPassword: React.FC = () => {
     const {
@@ -15,20 +11,14 @@ const ResetPassword: React.FC = () => {
         error,
         formState: { newPassword },
         handleChange,
-        showSuccess,
+        // showSuccess,
         handleSubmit,
     } = useResetPassword();
 
     return (
         <AuthCard>
             <AuthHeader title="Reset password" />
-            {/* {showSuccess ? (
-                <p>
-                    <p>Success!</p>
-                    Your password has been reset.
-                    {/* <Link to="/auth/login">Login</Link> */}
-            {/* </p> */}
-            {/* // ) : ( */}
+            {/* TODO: Show success message */}
 
             <Form onSubmit={handleSubmit} isPosting={isPosting} error={error}>
                 <FormRow>

@@ -1,9 +1,6 @@
-import Title from 'lib/src/components/typography/Title';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-
-import AuthCard from '../_components/authCard';
 
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +9,8 @@ import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
 import { getAuthError, getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
 import { postSendForgotPassword } from '@actions/auth';
-import AuthHeader from '../_components/authHeader';
+
+import { AuthCard, AuthHeader, AuthSection } from '../_components';
 
 const ForgotPassword: React.FC = () => {
     const dispatch = useDispatch();
@@ -21,7 +19,6 @@ const ForgotPassword: React.FC = () => {
     const error = useSelector(getAuthError);
 
     const [showSuccess, setShowSuccess] = useState(false);
-
     const [formState, handleChange] = useForm({
         email: '',
     });
@@ -37,14 +34,7 @@ const ForgotPassword: React.FC = () => {
         <AuthCard>
             <AuthHeader title="Forgot Password" />
 
-            <Title>Forgot Password {showSuccess && 'Success'}</Title>
-            {showSuccess ? (
-                <p>
-                    <p>Success!</p>
-                    If the provided address exists in our system you will recieve an email with a
-                    link to reset your password.
-                </p>
-            ) : (
+            <AuthSection>
                 <Form
                     onSubmit={() => dispatch(postSendForgotPassword(formState.email))}
                     isPosting={isPosting}
@@ -61,7 +51,9 @@ const ForgotPassword: React.FC = () => {
                         />
                     </FormRow>
                 </Form>
-            )}
+            </AuthSection>
+
+            {/* TODO: Success message */}
         </AuthCard>
     );
 };

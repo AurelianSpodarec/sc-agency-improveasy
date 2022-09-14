@@ -1,14 +1,12 @@
-import AuthHeader from '../_components/authHeader';
-
-import { Container, Section } from '@components/ui';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
+import ActionButton from 'lib/src/components/button/ActionButton';
 
 import useLogin from './hooks/useLogin';
 import { Link } from 'react-router-dom';
-import MainPortal from '@pages/portal/_components/MainPortal';
-import AuthCard from '../_components/authCard';
+
+import { AuthCard, AuthSection, AuthHeader } from '../_components';
 
 const Login: React.FC = () => {
     const {
@@ -25,7 +23,7 @@ const Login: React.FC = () => {
         <AuthCard>
             <AuthHeader title="Login" />
 
-            <section>
+            <AuthSection>
                 <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
                     <FormRow>
                         <TextInput
@@ -49,30 +47,9 @@ const Login: React.FC = () => {
                             rightLabel={<Link to="/auth/forgot-password">Forgot password?</Link>}
                         />
                     </FormRow>
-                    {/*  
-                    <div className="d-flex justify-between">
-                        <p>
-                            Don't have an account? <Link to="/auth/register">Register</Link>
-                        </p>
-                        <ActionButton icon="sign-in" isPosting={isPosting}>
-                            Login
-                        </ActionButton>
-                    </div> */}
-
-                    {/* {showConfirmEmail && (
-                        <>
-                            <p>
-                                Your account is not comfirmed, please click the link in your email.
-                            </p>
-                            <p>
-                                <button type="button" onClick={resendEmail}>
-                                    Resend confimation.
-                                </button>
-                            </p>
-                        </>
-                    )} */}
+                    {/* TODO: If not email verified, show message */}
                 </Form>
-            </section>
+            </AuthSection>
 
             <footer className="d-flex justify-between">
                 <div>Remember Me</div>
@@ -80,6 +57,8 @@ const Login: React.FC = () => {
                     Not a member? <Link to="/auth/register">Sign up now</Link>
                 </div>
             </footer>
+
+            <ActionButton className="winged">Login</ActionButton>
         </AuthCard>
     );
 };
