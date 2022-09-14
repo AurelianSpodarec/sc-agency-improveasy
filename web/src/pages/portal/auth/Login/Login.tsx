@@ -1,12 +1,13 @@
+import AuthHeader from '../_components/authHeader';
+
 import { Container, Section } from '@components/ui';
-import MainPublic from '@pages/public/_components/MainPublic';
-import Title from 'lib/src/components/typography/Title';
-import ActionButton from 'lib/src/components/button/ActionButton';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
-import { Link } from 'react-router-dom';
+
 import useLogin from './hooks/useLogin';
+import { Link } from 'react-router-dom';
+import MainPortal from '@pages/portal/_components/MainPortal';
 
 const Login: React.FC = () => {
     const {
@@ -19,12 +20,12 @@ const Login: React.FC = () => {
         showConfirmEmail,
         resendEmail,
     } = useLogin();
-
     return (
-        <MainPublic>
-            <Section>
-                <Container>
-                    <Title>Login</Title>
+        <MainPortal>
+            <Container>
+                <AuthHeader title="Login" />
+
+                <section>
                     <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
                         <FormRow>
                             <TextInput
@@ -45,37 +46,42 @@ const Login: React.FC = () => {
                                 type="password"
                                 required
                                 customValidate={customValidate}
+                                rightLabel={
+                                    <Link to="/auth/forgot-password">Forgot password?</Link>
+                                }
                             />
                         </FormRow>
+                        {/*  
+                    <div className="d-flex justify-between">
                         <p>
-                            <Link to="/auth/forgot-password">Forgot password?</Link>
+                            Don't have an account? <Link to="/auth/register">Register</Link>
                         </p>
-                        <div className="d-flex justify-between">
-                            <p>
-                                Don't have an account? <Link to="/auth/register">Register</Link>
-                            </p>
-                            <ActionButton icon="sign-in" isPosting={isPosting}>
-                                Login
-                            </ActionButton>
-                        </div>
+                        <ActionButton icon="sign-in" isPosting={isPosting}>
+                            Login
+                        </ActionButton>
+                    </div> */}
 
-                        {showConfirmEmail && (
-                            <>
-                                <p>
-                                    Your account is not comfirmed, please click the link in your
-                                    email.
-                                </p>
-                                <p>
-                                    <button type="button" onClick={resendEmail}>
-                                        Resend confimation.
-                                    </button>
-                                </p>
-                            </>
-                        )}
+                        {/* {showConfirmEmail && (
+                        <>
+                            <p>
+                                Your account is not comfirmed, please click the link in your email.
+                            </p>
+                            <p>
+                                <button type="button" onClick={resendEmail}>
+                                    Resend confimation.
+                                </button>
+                            </p>
+                        </>
+                    )} */}
                     </Form>
-                </Container>
-            </Section>
-        </MainPublic>
+                </section>
+
+                <footer className="d-flex justify-between">
+                    <div>Remember Me</div>
+                    <div>Not a member? Sign up now</div>
+                </footer>
+            </Container>
+        </MainPortal>
     );
 };
 

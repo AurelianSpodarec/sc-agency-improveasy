@@ -1,11 +1,16 @@
-const FormField: React.FC<FormFieldProps> = ({ children, name, label, required, error }) => (
+const FormField: React.FC<FormFieldProps> = ({ rightLabel,children, name, label, required, error }) => (
     <div className="form-field">
-        {!!label && (
-            <label htmlFor={name} className="form-label">
-                {label}
-                {required && <span className="form-asterisk">*</span>}
-            </label>
-        )}
+
+        <div className="d-flex justify-between">
+
+            {!!label && (
+                <label htmlFor={name} className="form-label">
+                    {label}
+                    {required && <span className="form-asterisk">*</span>}
+                </label>                
+            )}
+            { rightLabel && rightLabel }
+        </div>
 
         {children}
 
@@ -19,6 +24,7 @@ interface FormFieldProps {
     label?: string;
     required?: boolean;
     error?: string | null;
+    rightLabel?: any;
 }
 
 export default FormField;

@@ -1,10 +1,7 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
-import Login from '@pages/public/auth/login/Login';
-import Register from '@pages/public/auth/register/Register';
-import ConfirmEmail from '@pages/public/auth/confirmEmail/ConfirmEmail';
-import ForgotPassword from '@pages/public/auth/forgotPassword/ForgotPassword';
-import ResetPassword from '@pages/public/auth/resetPassword/ResetPassword';
+import Login from '@pages/portal/auth/Login/Login';
+import Register from '@pages/portal/auth/Register/Register';
 
 const AuthRoutes = () => {
     const { path } = useRouteMatch();
@@ -16,6 +13,7 @@ const AuthRoutes = () => {
             <Route exact path={`${path}/register`}>
                 <Register />
             </Route>
+            {/* 
             <Route exact path={`${path}/forgot-password`}>
                 <ForgotPassword />
             </Route>
@@ -24,7 +22,7 @@ const AuthRoutes = () => {
             </Route>
             <Route exact path={`${path}/confirm-email/:token`}>
                 <ConfirmEmail />
-            </Route>
+            </Route> */}
         </Switch>
     );
 };

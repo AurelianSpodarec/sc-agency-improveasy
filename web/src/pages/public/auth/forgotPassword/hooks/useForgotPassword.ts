@@ -1,5 +1,5 @@
-import { postSendForgotPassword } from './../../../../../redux/actions/auth/postSendForgotPassword';
-import { getAuthError } from './../../../../../redux/selectors/auth';
+import { postSendForgotPassword } from '../../../../../redux/actions/auth/postSendForgotPassword';
+import { getAuthError } from '../../../../../redux/selectors/auth';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 

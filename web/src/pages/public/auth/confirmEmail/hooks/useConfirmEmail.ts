@@ -1,4 +1,4 @@
-import { postConfirmEmail } from './../../../../../redux/actions/auth/postConfirmEmail';
+import { postConfirmEmail } from '../../../../../redux/actions/auth/postConfirmEmail';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
