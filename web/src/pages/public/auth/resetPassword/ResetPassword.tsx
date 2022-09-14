@@ -3,7 +3,6 @@ import useResetPassword from './hooks/useResetPassword';
 import MainPublic from '@pages/public/_components/MainPublic';
 import { Container, Section } from '@components/ui';
 import ResetPasswordForm from './ResetPasswordForm';
-import ResetPasswordSuccess from './ResetPasswordSuccess';
 
 const ResetPassword: React.FC = () => {
     const {
@@ -22,7 +21,11 @@ const ResetPassword: React.FC = () => {
                     <Title>Reset Password</Title>
 
                     {showSuccess ? (
-                        <ResetPasswordSuccess />
+                        <p>
+                            <p>Success!</p>
+                            Your password has been reset.
+                            {/* <Link to="/auth/login">Login</Link> */}
+                        </p>
                     ) : (
                         <ResetPasswordForm
                             newPassword={newPassword}

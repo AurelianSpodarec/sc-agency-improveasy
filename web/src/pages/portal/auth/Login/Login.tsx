@@ -8,6 +8,7 @@ import TextInput from 'lib/src/components/form/TextInput';
 import useLogin from './hooks/useLogin';
 import { Link } from 'react-router-dom';
 import MainPortal from '@pages/portal/_components/MainPortal';
+import AuthCard from '../_components/authCard';
 
 const Login: React.FC = () => {
     const {
@@ -21,37 +22,34 @@ const Login: React.FC = () => {
         resendEmail,
     } = useLogin();
     return (
-        <MainPortal>
-            <Container>
-                <AuthHeader title="Login" />
+        <AuthCard>
+            <AuthHeader title="Login" />
 
-                <section>
-                    <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
-                        <FormRow>
-                            <TextInput
-                                name="email"
-                                type="email"
-                                value={email}
-                                label="Email address"
-                                onChange={handleChange}
-                                required
-                            />
-                        </FormRow>
-                        <FormRow>
-                            <TextInput
-                                name="password"
-                                value={password}
-                                label="Password"
-                                onChange={handleChange}
-                                type="password"
-                                required
-                                customValidate={customValidate}
-                                rightLabel={
-                                    <Link to="/auth/forgot-password">Forgot password?</Link>
-                                }
-                            />
-                        </FormRow>
-                        {/*  
+            <section>
+                <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
+                    <FormRow>
+                        <TextInput
+                            name="email"
+                            type="email"
+                            value={email}
+                            label="Email address"
+                            onChange={handleChange}
+                            required
+                        />
+                    </FormRow>
+                    <FormRow>
+                        <TextInput
+                            name="password"
+                            value={password}
+                            label="Password"
+                            onChange={handleChange}
+                            type="password"
+                            required
+                            customValidate={customValidate}
+                            rightLabel={<Link to="/auth/forgot-password">Forgot password?</Link>}
+                        />
+                    </FormRow>
+                    {/*  
                     <div className="d-flex justify-between">
                         <p>
                             Don't have an account? <Link to="/auth/register">Register</Link>
@@ -61,7 +59,7 @@ const Login: React.FC = () => {
                         </ActionButton>
                     </div> */}
 
-                        {/* {showConfirmEmail && (
+                    {/* {showConfirmEmail && (
                         <>
                             <p>
                                 Your account is not comfirmed, please click the link in your email.
@@ -73,15 +71,16 @@ const Login: React.FC = () => {
                             </p>
                         </>
                     )} */}
-                    </Form>
-                </section>
+                </Form>
+            </section>
 
-                <footer className="d-flex justify-between">
-                    <div>Remember Me</div>
-                    <div>Not a member? Sign up now</div>
-                </footer>
-            </Container>
-        </MainPortal>
+            <footer className="d-flex justify-between">
+                <div>Remember Me</div>
+                <div>
+                    Not a member? <Link to="/auth/register">Sign up now</Link>
+                </div>
+            </footer>
+        </AuthCard>
     );
 };
 
