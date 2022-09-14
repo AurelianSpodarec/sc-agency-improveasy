@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function HeaderDesktop() {
     return (
-        <nav className="header-public__menu">
+        <nav className="hidden lg:block header-public__menu">
             <ul className="d-flex space-x-8">
                 <li className="header-public__menu-li">
                     <Link className="header-public__menu-a" to="/why-use">

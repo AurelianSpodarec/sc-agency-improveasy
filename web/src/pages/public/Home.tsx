@@ -78,7 +78,7 @@ function Home() {
                 </Container>
 
                 <Container>
-                    <div className="d-flex justify-between">
+                    <div className="lg:d-flex justify-between">
                         <div className="text-center" style={{ width: '255px', height: '255px' }}>
                             <div
                                 className="bg-gradient--primary rounded--full"

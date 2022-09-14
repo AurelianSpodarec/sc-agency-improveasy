@@ -6,8 +6,9 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import { Input, Container } from '@components/ui';
 import UserAvatar from '@components/UserAvatar/UserAvatar';
 import { IconLogoPublic } from '@content/icons/logo/IconLogoPublic';
-import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
+// import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
 import HeaderDesktop from './Desktop/HeaderDesktop';
+import HeaderMobile from './Mobile/HeaderMobile';
 
 const Header = () => {
     const isLoggedIn = useIsLoggedIn();
@@ -25,6 +26,7 @@ const Header = () => {
                         </div>
 
                         <HeaderDesktop />
+                        <HeaderMobile />
                     </div>
 
                     <div className="d-flex">
