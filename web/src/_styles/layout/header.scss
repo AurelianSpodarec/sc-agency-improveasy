@@ -17,12 +17,16 @@
             text-decoration: none;
             margin-left: 40px;
             &-a {
-                color: #f1f1f1;
+                color: #dadada;
                 text-decoration: none;
                 font-weight: bold;
                 font-size: 18px;
                 &:hover {
                     color: #ffffff;
+                }
+
+                &.active {
+                    color: white;
                 }
             }
         }

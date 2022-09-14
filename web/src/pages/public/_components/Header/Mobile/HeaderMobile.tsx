@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 function HeaderMobile() {
@@ -18,44 +18,77 @@ function HeaderMobile() {
             <div className={`menuMobile ${menuIsOpen ? 'is-open' : ''}`}>
                 <div className="d-flex justify-between">
                     <div></div>
-                    <button onClick={() => closeMenu()}>Close</button>
+                    <button className="menuMobile__button-close" onClick={() => closeMenu()}>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="menuMobile__button-close-svg"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
                 </div>
 
                 <div>
-                    <button type="button">
-                        <Link to="dashboard/auth/login">Client Portal</Link>
-                    </button>
+                    {/* <button type="button">
+                        <NavLink to="dashboard/auth/login">Client Portal</Link>
+                    </button> */}
+                    <div>{/* TOOD: User avatar */}</div>
                     <nav className="menuMobile__nav">
                         <li className="menuMobile__li">
-                            <Link className="menuMobile__link" to="/why-use">
+                            <NavLink className="menuMobile__link" to="/why-use">
                                 Why Use
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="menuMobile__li">
-                            <Link className="menuMobile__link" to="/mees">
+                            <NavLink className="menuMobile__link is-active" to="/mees">
                                 MEES
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="menuMobile__li">
-                            <Link className="menuMobile__link" to="/process">
+                            <NavLink className="menuMobile__link" to="/process">
                                 Process
-                            </Link>
+                            </NavLink>
                         </li>
                         <li className="menuMobile__li">
-                            <Link className="menuMobile__link" to="/faq">
+                            <NavLink className="menuMobile__link" to="/faq">
                                 FAQ
-                            </Link>
+                            </NavLink>
                         </li>
                     </nav>
-                    <footer>
+                    {/* <footer>
                         <a href="mailto:info@improveasy.com">info@improveasy.com</a>
                         <a href="tel:0800 024 8505">0800 024 8505</a>
                         <span>&copy; Improveasy</span>
-                    </footer>
+                    </footer> */}
                 </div>
             </div>
-            <button className="lg:hidden" onClick={() => toggleMenuState()} type="button">
-                Open Menu
+            <button
+                className="menuMobile__button-open lg:hidden"
+                onClick={() => toggleMenuState()}
+                type="button"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                >
+                    <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                    />
+                </svg>
             </button>
         </div>
     );

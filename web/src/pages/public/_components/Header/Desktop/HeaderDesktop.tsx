@@ -1,28 +1,28 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function HeaderDesktop() {
     return (
         <nav className="hidden lg:block header-public__menu">
             <ul className="d-flex space-x-8">
                 <li className="header-public__menu-li">
-                    <Link className="header-public__menu-a" to="/why-use">
+                    <NavLink className="header-public__menu-a" to="/why-use">
                         Why Use
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="header-public__menu-li">
-                    <Link className="header-public__menu-a" to="/mees">
+                    <NavLink className="header-public__menu-a" to="/mees">
                         MEES
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="header-public__menu-li">
-                    <Link className="header-public__menu-a" to="/process">
+                    <NavLink className="header-public__menu-a" to="/process">
                         Process
-                    </Link>
+                    </NavLink>
                 </li>
                 <li className="header-public__menu-li">
-                    <Link className="header-public__menu-a" to="/faq">
+                    <NavLink className="header-public__menu-a" to="/faq">
                         FAQ
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
