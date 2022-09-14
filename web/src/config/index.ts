@@ -12,6 +12,7 @@ const configs = {
 
 export default configs[env];
 
+console.log({ config: configs[env], env });
 export interface Config {
     API_URL: string;
 }
