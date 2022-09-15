@@ -2,18 +2,11 @@ import React from 'react';
 
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
-import MultiSelect from 'lib/src/components/form/MultiSelect';
 import TextInput from 'lib/src/components/form/TextInput';
 import Modal from 'lib/src/components/modal/Modal';
-import { userRoles } from 'lib/src/shared/enums/dropdownEnums';
 
 import { User } from 'src/types/shared/User';
 import useUpdateUser from './hooks/useUpdateUser';
-
-const userRoleOptions = Object.entries(userRoles).map(([key, value]) => ({
-    value: +value,
-    label: key,
-}));
 
 const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
     const {
@@ -21,7 +14,7 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
         handleChange,
         closeModal,
         isPosting,
-        formState: { email, firstName, lastName, roles },
+        formState: { email, firstName, lastName },
     } = useUpdateUser(user);
 
     return (
@@ -55,16 +48,6 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
                         onChange={handleChange}
                         label="Last Name"
                         placeholder="Last Name"
-                        required
-                    />
-                </FormRow>
-                <FormRow>
-                    <MultiSelect
-                        name="roles"
-                        value={roles}
-                        options={userRoleOptions}
-                        onChange={handleChange}
-                        label="User roles"
                         required
                     />
                 </FormRow>

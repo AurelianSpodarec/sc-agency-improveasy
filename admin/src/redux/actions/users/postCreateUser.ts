@@ -1,6 +1,5 @@
 import { createAction, Dispatch } from '@reduxjs/toolkit';
 import { api, handleApiErrors } from 'lib/src/utils/api';
-import { userRoles } from 'lib/src/shared/enums/dropdownEnums';
 import { User } from 'src/types/shared/User';
 import { APIError } from 'lib/src/types/APIError';
 
@@ -26,5 +25,4 @@ interface CreateUserRequestModel {
     password: string;
     firstName: string;
     lastName: string;
-    roles: userRoles[];
 }

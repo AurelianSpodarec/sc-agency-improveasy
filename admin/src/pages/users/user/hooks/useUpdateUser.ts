@@ -8,14 +8,12 @@ import { updateUser } from '@actions/users';
 import { getUserIsPosting, getUserPostSuccess, getUsersError } from '@selectors/users';
 import { useHistory } from 'react-router-dom';
 import { User } from 'src/types/shared/User';
-import { userRoles } from 'lib/src/shared/enums/dropdownEnums';
 
 export default function useUpdateUser({
     id,
     email,
     firstName,
     lastName,
-    roles,
 }: User): UseUpdateUserReturn {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -24,7 +22,7 @@ export default function useUpdateUser({
         history.replace(`/users/${id}`);
     }, [history, id]);
 
-    const [formState, handleChange] = useForm({ email, firstName, lastName, roles });
+    const [formState, handleChange] = useForm({ email, firstName, lastName });
 
     const handleSubmit = useCallback(() => {
         dispatch(updateUser(id, formState));
@@ -55,13 +53,12 @@ interface FormState {
     email: string;
     firstName: string;
     lastName: string;
-    roles: userRoles[];
 }
 
 interface UseUpdateUserReturn {
     handleSubmit: () => void;
     formState: FormState;
-    handleChange: <T>(name: 'firstName' | 'lastName' | 'email' | 'roles', value: T) => void;
+    handleChange: <T>(name: 'firstName' | 'lastName' | 'email', value: T) => void;
     closeModal: () => void;
     isPosting: boolean;
     error: string | null;

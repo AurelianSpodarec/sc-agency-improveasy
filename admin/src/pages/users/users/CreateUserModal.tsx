@@ -1,16 +1,13 @@
 import Modal from 'lib/src/components/modal/Modal';
-import { convertEnumToDropdownOption, userRoles } from 'lib/src/shared/enums/dropdownEnums';
 import useCreateUser from './hooks/useCreateUser';
 import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
 import MultiSelect from 'lib/src/components/form/MultiSelect';
 
-const roleOptions = convertEnumToDropdownOption(userRoles);
-
 const CreateUserModal: React.FC<CreateUserProps> = ({ closeModal }) => {
     const {
-        formState: { email, password, confirmPassword, firstName, lastName, roles },
+        formState: { email, password, confirmPassword, firstName, lastName },
         handleChange,
         handleSubmit,
         isPosting,
@@ -66,16 +63,6 @@ const CreateUserModal: React.FC<CreateUserProps> = ({ closeModal }) => {
                         label="Confirm Password"
                         type="password"
                         customValidate={validateConfirmPassword}
-                        required
-                    />
-                </FormRow>
-                <FormRow>
-                    <MultiSelect
-                        name="roles"
-                        value={roles}
-                        options={roleOptions}
-                        onChange={handleChange}
-                        label=" roles"
                         required
                     />
                 </FormRow>

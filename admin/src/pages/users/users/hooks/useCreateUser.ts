@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import { createUser } from '@actions/users/postCreateUser';
 import { getUserIsPosting, getUserPostSuccess, getUsersError } from '@selectors/users';
 import { CloseModal, HandleSubmit, ValidateConfirmPassword } from 'src/types/shared/Functions';
-import { userRoles } from 'lib/src/shared/enums/dropdownEnums';
 
 const initialState: FormState = {
     email: '',
@@ -14,7 +13,6 @@ const initialState: FormState = {
     confirmPassword: '',
     firstName: '',
     lastName: '',
-    roles: [],
 };
 
 export default function useCreateUser(closeModal: CloseModal): UseCreateUserReturn {
@@ -62,7 +60,6 @@ interface FormState {
     confirmPassword: string;
     firstName: string;
     lastName: string;
-    roles: userRoles[];
 }
 
 interface UseCreateUserReturn {
