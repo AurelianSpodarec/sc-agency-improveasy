@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Title from 'lib/src/components/typography/Title';
-import { userRoles, enumKeys } from 'lib/src/shared/enums/dropdownEnums';
 
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import ContentBlock from '@components/layout/contentBlock/ContentBlock';
@@ -10,12 +9,10 @@ import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import { User as UserTypes } from 'src/types/shared/User';
 
-const userRolesLookup = enumKeys(userRoles);
-
 const User: React.FC<UserProps> = ({ user }) => {
     if (!user) return null;
 
-    const { id, firstName, lastName, email, roles } = user;
+    const { id, firstName, lastName, email } = user;
     return (
         <>
             <Title>
@@ -31,9 +28,6 @@ const User: React.FC<UserProps> = ({ user }) => {
                         <p>
                             <a href={`mailto:${email}`}>{email}</a>
                         </p>
-                    </ContentItem>
-                    <ContentItem label="Roles">
-                        <p>{roles.map(role => userRolesLookup[role]).join(', ')}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>
