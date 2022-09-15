@@ -38,7 +38,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 />
             </FormRow>
             <ButtonRow alignment="right">
-                <ActionButton icon="sign-in" isPosting={isPosting}>
+                <ActionButton icon="sign-in" isPosting={isPosting} type="submit">
                     Login
                 </ActionButton>
             </ButtonRow>
