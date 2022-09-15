@@ -20,6 +20,7 @@ const TextInput: React.FC<TextInputProps> = ({
     disabled,
     customValidate,
     rightLabel,
+    className = '',
 }) => {
     const memoizedValidate = useCallback(_validate, [
         minNumber,
@@ -38,11 +39,16 @@ const TextInput: React.FC<TextInputProps> = ({
     });
 
     return (
-        <FormField rightLabel={rightLabel} name={name} label={label} required={required} error={error}>
-        
+        <FormField
+            rightLabel={rightLabel}
+            name={name}
+            label={label}
+            required={required}
+            error={error}
+        >
             <input
                 type={type}
-                className={`form-input text-area ${error ? 'error' : ''}`}
+                className={`form-input text-area ${className} ${error ? 'error' : ''}`}
                 placeholder={placeholder}
                 name={name}
                 id={name}
@@ -51,7 +57,6 @@ const TextInput: React.FC<TextInputProps> = ({
                 onBlur={handleBlur}
                 disabled={disabled}
             />
-            
         </FormField>
     );
 
@@ -99,7 +104,8 @@ const TextInput: React.FC<TextInputProps> = ({
 
 function validateEmail(val: string) {
     // eslint-disable-next-line
-    const reg = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const reg =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return reg.test(val);
 }
 
@@ -113,6 +119,7 @@ interface TextInputProps extends FormInputProps<string> {
     minNumber?: number;
     maxNumber?: number;
     rightLabel?: any;
+    className?: string;
 }
 
 export default TextInput;

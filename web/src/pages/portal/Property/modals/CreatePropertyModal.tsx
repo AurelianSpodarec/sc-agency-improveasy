@@ -24,28 +24,46 @@ const CreatePropertyModal = () => {
     return (
         <Modal title="Create Property">
             <Form onSubmit={() => console.log('submit')} onCancel={closeModal}>
-                <FormField name="addressLine1" label="Address Line 1">
+                <FormField name="addressLine1">
                     <TextInput
                         name="addressLine1"
                         value={addressLine1}
                         onChange={handleChange}
+                        placeholder="Address Line 1"
+                        className="winged"
                         required
                     />
                 </FormField>
 
-                <FormField name="addressLine2" label="Address Line 2">
+                <FormField name="addressLine2">
                     <TextInput
                         name="addressLine2"
                         value={addressLine2}
                         onChange={handleChange}
+                        placeholder="Address Line 2"
+                        className="winged"
                         required
                     />
                 </FormField>
-                <FormField name="city" label="City">
-                    <TextInput name="city" value={city} onChange={handleChange} required />
+                <FormField name="city">
+                    <TextInput
+                        name="city"
+                        value={city}
+                        onChange={handleChange}
+                        placeholder="City"
+                        className="winged"
+                        required
+                    />
                 </FormField>
-                <FormField name="postcode" label="Postcode">
-                    <TextInput name="postcode" value={postcode} onChange={handleChange} required />
+                <FormField name="postcode">
+                    <TextInput
+                        name="postcode"
+                        value={postcode}
+                        onChange={handleChange}
+                        placeholder="Postcode"
+                        className="winged"
+                        required
+                    />
                 </FormField>
                 <FormField name="bypassEPC" label="Bypass EPC">
                     <Checkbox name="bypassEPC" value={bypassEPC} onChange={handleChange} />
@@ -59,35 +77,43 @@ const CreatePropertyModal = () => {
                 </FormField>
                 {useAccountDetailsForAccess && (
                     <>
-                        <FormField name="firstName" label="First Name">
+                        <FormField name="firstName">
                             <TextInput
                                 name="firstName"
                                 value={firstName}
                                 onChange={handleChange}
+                                placeholder="First Name"
+                                className="winged"
                                 required
                             />
                         </FormField>
-                        <FormField name="lastName" label="Last Name">
+                        <FormField name="lastName">
                             <TextInput
                                 name="lastName"
                                 value={lastName}
                                 onChange={handleChange}
+                                placeholder="Last Name"
+                                className="winged"
                                 required
                             />
                         </FormField>
-                        <FormField name="email" label="Email">
+                        <FormField name="email">
                             <TextInput
                                 name="email"
                                 value={email}
                                 onChange={handleChange}
+                                placeholder="Email"
+                                className="winged"
                                 required
                             />
                         </FormField>
-                        <FormField name="phone" label="Phone">
+                        <FormField name="phone">
                             <TextInput
                                 name="phone"
                                 value={phone}
                                 onChange={handleChange}
+                                placeholder="Phone"
+                                className="winged"
                                 required
                             />
                         </FormField>
