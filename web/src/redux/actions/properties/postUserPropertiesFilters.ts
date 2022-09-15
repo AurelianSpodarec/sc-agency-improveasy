@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { APIError } from 'lib/src/types/APIError';
-import { api, handleApiErrors, LoginResponse } from 'lib/src/utils/api';
+import { api, handleApiErrors } from 'lib/src/utils/api';
 import { AppDispatch } from 'src/redux/store';
 
 import { IProperty, IPropertyFilterRequest } from '../../../types/shared/Properties';
