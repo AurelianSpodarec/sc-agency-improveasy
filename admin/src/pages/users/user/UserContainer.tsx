@@ -1,5 +1,3 @@
-import { useParams } from 'react-router-dom';
-
 import UpdateUserPasswordModal from './UpdateUserPasswordModal';
 import DeleteUserModal from './DeleteUserModal';
 import UpdateUserModal from './UpdateUserModal';
@@ -7,24 +5,27 @@ import UpdateUserModal from './UpdateUserModal';
 import User from './User';
 import useFetchUser from './hooks/useFetchUser';
 
-const UserContainer: React.FC = () => {
-    const { action } = useParams<ParamTypes>();
+interface Props {
+    showDeleteModal?: boolean;
+    showEditModel?: boolean;
+    showEditPasswordModal?: boolean;
+}
 
+const UserContainer: React.FC<Props> = ({
+    showDeleteModal = false,
+    showEditModel = false,
+    showEditPasswordModal = false,
+}) => {
     const { user } = useFetchUser();
 
     return (
         <>
             <User user={user} />
-            {action === 'delete' && <DeleteUserModal user={user} />}
-            {!!user && action === 'edit-password' && <UpdateUserPasswordModal user={user} />}
-            {!!user && action === 'edit' && <UpdateUserModal user={user} />}
+            {!!user && showDeleteModal && <DeleteUserModal user={user} />}
+            {!!user && showEditPasswordModal && <UpdateUserPasswordModal user={user} />}
+            {!!user && showEditModel && <UpdateUserModal user={user} />}
         </>
     );
 };
-
-interface ParamTypes {
-    id: string;
-    action: string;
-}
 
 export default UserContainer;

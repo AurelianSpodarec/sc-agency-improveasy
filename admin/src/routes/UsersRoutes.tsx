@@ -13,8 +13,14 @@ const UsersRoutes: React.FC = () => {
             <Route exact path={`${path}/:id`}>
                 <UserContainer />
             </Route>
-            <Route exact path={`${path}/:id/:action`}>
-                <UserContainer />
+            <Route exact path={`${path}/:id/edit`}>
+                <UserContainer showEditModel />
+            </Route>
+            <Route exact path={`${path}/:id/edit-password`}>
+                <UserContainer showEditPasswordModal />
+            </Route>
+            <Route exact path={`${path}/:id/delete`}>
+                <UserContainer showDeleteModal />
             </Route>
             <DefaultRedirect to={path} />
         </Switch>

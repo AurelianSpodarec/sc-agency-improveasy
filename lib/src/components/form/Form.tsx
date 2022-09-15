@@ -44,7 +44,7 @@ const Form: React.FC<FormProps> = ({
                             Cancel
                         </ActionButton>
                     )}
-                    <ActionButton isPosting={isPosting} className={submitButtonClassName}>
+                    <ActionButton isPosting={isPosting} className={submitButtonClassName} type="submit">
                         Submit
                     </ActionButton>
                 </ButtonRow>
