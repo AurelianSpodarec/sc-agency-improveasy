@@ -23,14 +23,6 @@ export const adminUserRoleNames: { [key: number]: string | undefined | null } = 
     [adminUserRoles.superAdmin]: 'Super Admin',
 };
 
-export enum userRoles {
-    basic = 10,
-}
-
-export const userRoleNames = {
-    [userRoles.basic]: 'Basic',
-};
-
 interface SuperAdminRolesEnumModel {
     superAdmin: number;
     admin: number;

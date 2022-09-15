@@ -3,7 +3,6 @@ import ButtonRow from 'lib/src/components/button/ButtonRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import Table from 'lib/src/components/table/Table';
 import { User } from 'src/types/shared/User';
-import { userRoleNames } from 'lib/src/shared/enums/dropdownEnums';
 
 const UsersTable: React.FC<UsersTableProps> = ({ users, isFetching }) => {
     return <Table columns={columns} rows={Object.values(users)} isLoading={isFetching} />;
@@ -20,6 +19,7 @@ const columns = [
         heading: 'Name',
         getValue: (row: User) => `${row.firstName} ${row.lastName}`,
         getSort: (a: User, b: User) => a.firstName.localeCompare(b.firstName),
+        searchable: true,
     },
     {
         key: 2,
@@ -32,12 +32,7 @@ const columns = [
         key: 3,
         heading: 'Email',
         getValue: (row: User) => row.email,
-    },
-    {
-        key: 4,
-        heading: 'Roles',
-        getValue: (row: User) =>
-            row.roles.map(roleEnum => userRoleNames[roleEnum] || '').join(', '),
+        seachable: true,
     },
     {
         key: 5,
