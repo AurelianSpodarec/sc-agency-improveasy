@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import Oak from 'lib/src/_content/logos/oak.png';
 import useDarkMode from 'lib/src/hooks/useDarkMode';
 import ToggleSwitch from 'lib/src/components/form/ToggleSwitch';
+import IconLogo from '@content/_icons/IconLogo';
 
 const Header: React.FC = () => {
     const [darkMode, setDarkMode] = useDarkMode();
@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         <header className="header">
             <div className="logo">
                 <Link to="/" className="logo">
-                    <img alt="company logo" src={Oak} />
+                    <IconLogo />
                 </Link>
             </div>
             <div className="dark-mode-switch">

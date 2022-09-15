@@ -5,6 +5,7 @@
     flex: 0 0 75px;
     width: 100%;
     background-color: var(--background-header);
+    padding: 0 20px;
 
     .logo {
         display: flex;
@@ -22,7 +23,6 @@
     }
 
     .dark-mode-switch {
-        margin-right: 20px;
         display: flex;
         align-items: center;
     }
