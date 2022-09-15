@@ -1,4 +1,4 @@
-import { PageHeading } from '@components/ui';
+import { PageHeading, Text } from '@components/ui';
 import IconCross from '@content/icons/IconCross';
 import IconPlus from '@content/icons/IconPlus';
 import * as Accordion from '@radix-ui/react-accordion';
@@ -21,7 +21,7 @@ function AccordionOneItem({ item, isOpen }: any) {
             </Accordion.Header>
 
             <Accordion.Content className="accordionOne-item__content">
-                {description}
+                <Text size="base">{description}</Text>
             </Accordion.Content>
         </Accordion.Item>
     );

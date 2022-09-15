@@ -33,6 +33,94 @@
     background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
 }
 
+
+.bg-gradient {
+    &--primary {
+        background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
+    }
+    &--secondary {
+        background-image: linear-gradient(40.91deg, #E76F51 0%, #F4A261 100%);
+    }
+
+    &--teritary {
+        background-image: linear-gradient(40.91deg, #F4A261 0%, #E9C469 100%);
+    }
+}
+
+.rounded {
+    &--full {
+        border-radius: 9999px;
+    }
+}
+
+// .bg-gradient
+
+.overlay__black {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
+.authLogin {
+    height: 100vh;
+    overflow: hidden;
+
+    &__header {
+        margin-bottom: 30px;
+    }
+
+    &__section {
+        margin-bottom: 30px;
+    }
+
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    &__logo-wrap {
+        width: 50%;
+        display: flex;
+    }
+
+    &__logo {
+        width: 350px;
+        // transform: translateY(50%);
+    }
+
+    &__main {
+        // position: absolute;
+        background: transparent;
+        display: flex;
+        z-index: 500;
+        width: 1250px;
+        height: auto;
+        margin: auto;
+        top: 50%;
+        transform: translateY(-50%);
+        // right: 80px;
+        
+    }
+
+    &__content {
+        width: 50%;
+        background-color: white;
+        border-radius: 10px;
+    }
+
+    &__content-inner {
+        padding: 50px;
+    }
+}
+
+
 .text-white {
     color: white;
 }

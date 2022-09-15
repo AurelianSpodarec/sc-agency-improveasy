@@ -1,6 +1,7 @@
 import Text from './Text';
 
 function PageHeading({
+    style,
     className,
     title,
     type,
@@ -12,6 +13,7 @@ function PageHeading({
 
     return (
         <header
+            style={style}
             className={`${
                 className ? className : ''
             } page-heading ${isBorder} page-heading--space-${space}`}
@@ -26,6 +28,7 @@ function PageHeading({
 export default PageHeading;
 
 interface PageHeadingProps {
+    style?: object;
     className?: string;
     title: string;
     type?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

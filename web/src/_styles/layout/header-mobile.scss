@@ -1,0 +1,60 @@
+// ==========================================================================
+// # Header Public Menu
+// ==========================================================================
+
+.menuMobile {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #282d31;
+    transform: translateX(120%);
+    transition: 0.25s ease-in-out;
+
+    &.is-open {
+        transform: translateX(0)
+    }
+
+    &__button-open {
+        color: orange;
+        height: 40px;
+        background: none;
+    }
+
+    &__button-close {
+        top: 15px;
+        right: 10px;
+        background: none;
+        height: 40px;
+        &-svg {
+            height: 100%;
+            color: orange;
+            fill: orange;
+        }
+    }
+
+    &__nav {
+        padding: 2rem;
+        list-style: none;
+        overflow-y: auto;
+        height: 100%;
+        text-align: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        width: 100%;
+        color: white;
+        font-size: 1.2em;
+        display: block;
+        padding: 12px 5px;
+        border-radius: 30px;
+
+        &.active {
+            background-color: #32363a;
+            color: white;
+        }
+    }
+}
