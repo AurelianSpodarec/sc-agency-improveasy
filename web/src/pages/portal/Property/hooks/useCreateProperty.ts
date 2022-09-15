@@ -2,6 +2,7 @@ import useForm from 'lib/src/hooks/useForm';
 
 import { useHistory } from 'react-router-dom';
 import { useCallback } from 'react';
+import { IAccessDetails } from '../../../../types/shared/Properties';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -37,12 +38,7 @@ interface ICreatePropertyForm {
     postcode: string;
     bypassEPC: boolean;
     useAccountDetailsForAccess: boolean;
-    accessDetails: {
-        firstName: string;
-        lastName: string;
-        email: string;
-        phone: string;
-    };
+    accessDetails: IAccessDetails;
 }
 
 export default useCreateProperty;

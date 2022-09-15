@@ -1,3 +1,5 @@
+type epcRating = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | null;
+
 export interface IProperty {
     id: number;
     userID: number;
@@ -7,10 +9,19 @@ export interface IProperty {
     postcode: string;
     statusUpdatedOn: Date;
     useAccountDetailsForAccess: boolean;
+    currentEPCRating: epcRating;
+    potentialEPCRating: epcRating;
     hasEPC: boolean;
-    createdOn: Date;
+    accessDetails: IAccessDetails;
     status: PropertyStatusType;
-    isHomeOwner: boolean;
+    createdOn: Date;
+}
+
+export interface IAccessDetails {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
 }
 
 export enum EPCFilters {
