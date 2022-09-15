@@ -1,13 +1,14 @@
-import { resendConfirmEmail } from '../../../../../redux/actions/auth/resendConfirmEmail';
-import { getAuthError, getAuthIsConfirmed } from '../../../../../redux/selectors/auth';
 import { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { postLogin } from '@actions/auth/postLogin';
+import { resendConfirmEmail } from '@actions/auth/resendConfirmEmail';
+import { getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
+import { getAuthError, getAuthIsConfirmed } from '@selectors/auth';
 
 import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
-import { postLogin } from '@actions/auth/postLogin';
-import { getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
 
 const useLogin = () => {
     const dispatch = useDispatch();

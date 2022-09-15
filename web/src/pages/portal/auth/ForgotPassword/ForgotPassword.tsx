@@ -11,6 +11,8 @@ import { getAuthError, getAuthIsPosting, getAuthPostSuccess } from '@selectors/a
 import { postSendForgotPassword } from '@actions/auth';
 
 import { AuthCard, AuthHeader, AuthSection } from '../_components';
+import { Link } from 'react-router-dom';
+import ActionButton from 'lib/src/components/button/ActionButton';
 
 const ForgotPassword: React.FC = () => {
     const dispatch = useDispatch();
@@ -32,13 +34,18 @@ const ForgotPassword: React.FC = () => {
 
     return (
         <AuthCard>
-            <AuthHeader title="Forgot Password" />
+            <AuthHeader title="Forgot Password">
+                <p>
+                    Already have an account? <Link to="/auth/login">Log In</Link>
+                </p>
+            </AuthHeader>
 
             <AuthSection>
                 <Form
                     onSubmit={() => dispatch(postSendForgotPassword(formState.email))}
                     isPosting={isPosting}
                     error={error}
+                    omitButtons
                 >
                     <FormRow>
                         <TextInput
@@ -50,6 +57,12 @@ const ForgotPassword: React.FC = () => {
                             required
                         />
                     </FormRow>
+                    <div className="d-flex justify-between">
+                        <div></div>
+                        <ActionButton type="submit" className="winged">
+                            Submit
+                        </ActionButton>
+                    </div>
                 </Form>
             </AuthSection>
 

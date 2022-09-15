@@ -10,10 +10,15 @@ const ConfirmEmail: React.FC = () => {
     return (
         <AuthCard>
             <AuthHeader title="Confirm Email" />
+            [username] [lastname] Welcome to Improveasy!
             <AuthSection>
                 <Form onSubmit={() => {}} isPosting={isPosting} error={error} omitButtons>
                     {isPosting && <i className="fal fa-spinner fa-spin"></i>}
                 </Form>
+                <div>
+                    We created an account for you. Please confirm your e-mail addrss and use our
+                    service to the maximum
+                </div>
             </AuthSection>
         </AuthCard>
     );

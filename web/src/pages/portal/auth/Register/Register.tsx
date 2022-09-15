@@ -14,7 +14,7 @@ import usePrevious from 'lib/src/hooks/usePrevious';
 
 import { HandleSubmit } from 'src/types/shared/Functions';
 
-import { AuthCard, AuthSection, AuthHeader } from '../_components';
+import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
 
 const Register: React.FC = (): JSX.Element => {
     const history = useHistory();
@@ -41,7 +41,10 @@ const Register: React.FC = (): JSX.Element => {
 
     return (
         <AuthCard>
-            <AuthHeader title="Login" />
+            <AuthHeader title="Register">
+                <AuthSubHeader subtitle="Already have an account?" to="/auth/login" cta="Sign in" />
+            </AuthHeader>
+
             <AuthSection>
                 <Form
                     onSubmit={() => dispatch(postRegister(formState))}
@@ -51,14 +54,22 @@ const Register: React.FC = (): JSX.Element => {
                     <div>
                         <FormRow>
                             <TextInput
+                                name="email"
+                                type="email"
+                                value={formState.email}
+                                label="Email address"
+                                onChange={handleChange}
+                                required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
                                 name="firstName"
                                 value={formState.firstName}
                                 label="First name"
                                 onChange={handleChange}
                                 required
                             />
-                        </FormRow>
-                        <FormRow>
                             <TextInput
                                 name="lastName"
                                 value={formState.lastName}
@@ -67,12 +78,13 @@ const Register: React.FC = (): JSX.Element => {
                                 required
                             />
                         </FormRow>
+
                         <FormRow>
                             <TextInput
-                                name="email"
-                                type="email"
-                                value={formState.email}
-                                label="Email address"
+                                name="phone"
+                                value={formState.phone}
+                                type="tel"
+                                label="Phone"
                                 onChange={handleChange}
                                 required
                             />
@@ -87,21 +99,13 @@ const Register: React.FC = (): JSX.Element => {
                                 required
                             />
                         </FormRow>
-                        <FormRow>
-                            <TextInput
-                                name="phone"
-                                value={formState.phone}
-                                label="Phone"
-                                onChange={handleChange}
-                                required
-                            />
-                        </FormRow>
                     </div>
+
                     <div className="d-flex justify-between">
-                        <p>
-                            Already have an account? <Link to="/auth/login">Log in</Link>
-                        </p>
-                        <ActionButton isPosting={isPosting}>Register</ActionButton>
+                        <div></div>
+                        <ActionButton type="submit" className="winged" isPosting={isPosting}>
+                            Register
+                        </ActionButton>
                     </div>
                 </Form>
             </AuthSection>

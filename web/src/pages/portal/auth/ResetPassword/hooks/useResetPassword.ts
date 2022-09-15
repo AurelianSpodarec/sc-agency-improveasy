@@ -1,4 +1,4 @@
-import { postResetPassword } from '../../../../../redux/actions/auth/postResetPassword';
+import { postResetPassword } from './../../../../../redux/actions/auth/postResetPassword';
 import useForm from 'lib/src/hooks/useForm';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,11 +15,10 @@ const useConfirmEmail = () => {
     const error = useSelector(getAuthConfirmEmailError);
 
     const [showSuccess, setShowSuccess] = useState(false);
-
     const [formState, handleChange] = useForm({ newPassword: '' });
-
     const { token } = useParams<{ token: string }>();
 
+    // TODO: Abstract as it repeats in multiple files
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {

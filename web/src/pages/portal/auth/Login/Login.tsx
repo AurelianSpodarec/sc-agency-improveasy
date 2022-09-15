@@ -6,7 +6,7 @@ import ActionButton from 'lib/src/components/button/ActionButton';
 import useLogin from './hooks/useLogin';
 import { Link } from 'react-router-dom';
 
-import { AuthCard, AuthSection, AuthHeader } from '../_components';
+import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
 
 const Login: React.FC = () => {
     const {
@@ -19,9 +19,18 @@ const Login: React.FC = () => {
         showConfirmEmail,
         resendEmail,
     } = useLogin();
+
+    console.log(showConfirmEmail);
+
     return (
         <AuthCard>
-            <AuthHeader title="Login" />
+            <AuthHeader title="Login">
+                <AuthSubHeader
+                    subtitle="Dont have an account?"
+                    to="/auth/register"
+                    cta="Sign up now"
+                />
+            </AuthHeader>
 
             <AuthSection>
                 <Form onSubmit={handleSubmit} isPosting={isPosting} error={error} omitButtons>
@@ -48,17 +57,24 @@ const Login: React.FC = () => {
                         />
                     </FormRow>
                     {/* TODO: If not email verified, show message */}
+                    <div className="d-flex">
+                        <input type="checkbox" />
+                        <div>Remember Me</div>
+                    </div>
+
+                    <div className="d-flex justify-between">
+                        <div></div>
+                        <ActionButton
+                            type="submit"
+                            icon="sign-in"
+                            className="winged"
+                            isPosting={isPosting}
+                        >
+                            Login
+                        </ActionButton>
+                    </div>
                 </Form>
             </AuthSection>
-
-            <footer className="d-flex justify-between">
-                <div>Remember Me</div>
-                <div>
-                    Not a member? <Link to="/auth/register">Sign up now</Link>
-                </div>
-            </footer>
-
-            <ActionButton className="winged">Login</ActionButton>
         </AuthCard>
     );
 };
