@@ -1,5 +1,19 @@
-function AuthValidationMessage({ children }: any) {
-    return <div>{children}</div>;
+function AuthValidationMessage({ children, type, message }: any) {
+    const messages = [
+        {
+            message: 'Reset password email sent',
+        },
+        {
+            message: 'Your password has been reset',
+        },
+    ];
+
+    return (
+        <div>
+            <div>{message}</div>
+            {children}
+        </div>
+    );
 }
 
 export default AuthValidationMessage;

@@ -14,11 +14,11 @@ const useConfirmEmail = () => {
     const error = useSelector(getAuthConfirmEmailError);
 
     const { token } = useParams<{ token: string }>();
+
     useEffect(() => {
         dispatch(postConfirmEmail(token));
     }, [token, dispatch, history]);
 
-    // TODO: Refactor as it repeats across pages
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {

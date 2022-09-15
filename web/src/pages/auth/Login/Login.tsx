@@ -57,6 +57,7 @@ const Login: React.FC = () => {
                         />
                     </FormRow>
                     {/* TODO: If not email verified, show message */}
+
                     <div className="d-flex">
                         <input type="checkbox" />
                         <div>Remember Me</div>

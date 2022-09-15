@@ -24,14 +24,13 @@ const Register: React.FC = (): JSX.Element => {
     const postSuccess = useSelector(getAuthPostSuccess);
 
     const [formState, handleChange] = useForm({
-        firstName: '',
-        lastName: '',
+        firstName: 'test',
+        lastName: 'test',
         email: '',
-        password: '',
-        phone: '',
+        password: 'Asdasd123Aqwa',
+        phone: '077777777',
     });
 
-    // TODO: Create a function to abstract this as it duplicates across files
     const prevPostSuccess = usePrevious(postSuccess);
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
@@ -62,22 +61,21 @@ const Register: React.FC = (): JSX.Element => {
                                 required
                             />
                         </FormRow>
-                        <FormRow>
-                            <TextInput
-                                name="firstName"
-                                value={formState.firstName}
-                                label="First name"
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextInput
-                                name="lastName"
-                                value={formState.lastName}
-                                label="Last name"
-                                onChange={handleChange}
-                                required
-                            />
-                        </FormRow>
+
+                        <TextInput
+                            name="firstName"
+                            value={formState.firstName}
+                            label="First name"
+                            onChange={handleChange}
+                            required
+                        />
+                        <TextInput
+                            name="lastName"
+                            value={formState.lastName}
+                            label="Last name"
+                            onChange={handleChange}
+                            required
+                        />
 
                         <FormRow>
                             <TextInput
