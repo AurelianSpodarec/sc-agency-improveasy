@@ -5,7 +5,6 @@ import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 import Checkbox from 'lib/src/components/form/Checkbox';
 import ModalHeader from '@pages/portal/modals/ModalHeader';
-import { PageHeading } from '@components/ui';
 
 const CreatePropertyModal = () => {
     const {
@@ -25,7 +24,11 @@ const CreatePropertyModal = () => {
     return (
         <Modal>
             <ModalHeader text="Create Property" closeModal={closeModal} />
-            <Form onSubmit={() => console.log('submit')} onCancel={closeModal}>
+            <Form
+                onSubmit={() => console.log('submit')}
+                buttonAlignment="center"
+                submitButtonClassName="winged"
+            >
                 <TextInput
                     name="addressLine1"
                     value={addressLine1}
