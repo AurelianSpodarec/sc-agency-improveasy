@@ -2,7 +2,6 @@ import { Container, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
-import ConfirmModal from 'lib/src/components/modal/ConfirmModal';
 
 const propertyListing = [
     {
