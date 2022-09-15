@@ -21,8 +21,8 @@ function PropertyList({ showCreateModal }: IProps) {
                             </div>
 
                             <div className="w-2/3">
-                                <MainCard title="Result">
-                                    <table>
+                                <MainCard title="Result" className="grey-background">
+                                    <table className="properties-table">
                                         <thead>
                                             <tr>
                                                 <th>Address</th>

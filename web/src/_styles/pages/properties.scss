@@ -1,0 +1,12 @@
+.properties-table {
+    @include mainFontSemiBold();
+    font-size: 120%;
+
+    thead {
+        background-color: var(--header-background);
+
+        th {
+            color: var(--color-green-400)
+        }
+    }
+}
