@@ -28,15 +28,24 @@
             &::placeholder {
                 color: var(--typography-placeholder);
             }
+
+            &.error {
+                border-color: var(--highlight-form-error);
+                border-width: 2px;
+            }
         }
 
         &.required::after {
             content: '*';
             position: absolute;
-            left: 5%;
+            left: 6%;
             top: 15%;
             color: #f00;
             font-size: 180%;
+        }
+
+        .form-error {
+            display: none;
         }
     }
 }
