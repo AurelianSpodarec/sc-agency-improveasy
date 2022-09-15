@@ -5,6 +5,7 @@ import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 import Checkbox from 'lib/src/components/form/Checkbox';
 import ModalHeader from '@pages/portal/modals/ModalHeader';
+import { PageHeading } from '@components/ui';
 
 const CreatePropertyModal = () => {
     const {

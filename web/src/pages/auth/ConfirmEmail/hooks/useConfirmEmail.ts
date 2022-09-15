@@ -21,7 +21,7 @@ const useConfirmEmail = () => {
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {
-            history.push('/dashboard');
+            history.push('/portal');
         }
     }, [success, prevSuccess, history]);
 
