@@ -48,7 +48,7 @@ const useLogin = () => {
     }, [formState.email]);
 
     const handleSubmit = () => {
-        dispatch(postLogin(formState));
+        const a = dispatch(postLogin(formState));
     };
 
     const resendEmail = () => {
