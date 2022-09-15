@@ -1,4 +1,4 @@
-export const IconMagnifyingGlass = props => (
+export const IconMagnifyingGlass = (props: any) => (
     <svg
         width="21px"
         height="21px"

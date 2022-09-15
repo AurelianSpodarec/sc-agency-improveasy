@@ -1,5 +1,6 @@
-import { postConfirmEmail } from '../../../../../redux/actions/auth/postConfirmEmail';
-import { useEffect } from 'react';
+import { postResetPassword } from '../../../../redux/actions/auth/postResetPassword';
+import useForm from 'lib/src/hooks/useForm';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -13,21 +14,29 @@ const useConfirmEmail = () => {
     const success = useSelector(getAuthPostSuccess);
     const error = useSelector(getAuthConfirmEmailError);
 
+    const [showSuccess, setShowSuccess] = useState(false);
+    const [formState, handleChange] = useForm({ newPassword: '' });
     const { token } = useParams<{ token: string }>();
-    useEffect(() => {
-        dispatch(postConfirmEmail(token));
-    }, [token, dispatch, history]);
 
+    // TODO: Abstract as it repeats in multiple files
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {
-            history.push('/dashboard');
+            setShowSuccess(true);
         }
     }, [success, prevSuccess, history]);
+
+    const handleSubmit = () => {
+        dispatch(postResetPassword(token, formState.newPassword));
+    };
 
     return {
         isPosting,
         error,
+        handleChange,
+        formState,
+        handleSubmit,
+        showSuccess,
     };
 };
 

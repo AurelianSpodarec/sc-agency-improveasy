@@ -1,4 +1,4 @@
-export const IconLogoPublic = props => (
+export const IconLogoPublic = (props: any) => (
     <svg
         id="Layer_2"
         xmlns="http://www.w3.org/2000/svg"
