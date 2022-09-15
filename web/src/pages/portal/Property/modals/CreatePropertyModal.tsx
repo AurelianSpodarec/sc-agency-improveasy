@@ -60,13 +60,15 @@ const CreatePropertyModal = () => {
                     name="bypassEPC"
                     value={bypassEPC}
                     onChange={handleChange}
-                    label="Bypass EPC"
+                    leftPlaceholder="Bypass EPC"
+                    className="justify-center"
                 />
                 <Checkbox
                     name="useAccountDetailsForAccess"
                     value={useAccountDetailsForAccess}
                     onChange={handleChange}
-                    label="Use Account Details for Access"
+                    leftPlaceholder="Use Account Details for Access"
+                    className="justify-center"
                 />
                 {useAccountDetailsForAccess && (
                     <>

@@ -11,6 +11,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
     required = false,
     disabled = false,
     customValidate,
+    className = '',
+    leftPlaceholder,
 }) => {
     const [error, showError] = useFieldValidation({
         name,
@@ -30,9 +32,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
                     onChange={handleChange}
                     disabled={disabled}
                 />
-                <label className={`content ${disabled ? 'disabled' : ''}`} htmlFor={name}>
+                <label
+                    className={`content ${disabled ? 'disabled' : ''} ${className}`}
+                    htmlFor={name}
+                >
+                    {!!leftPlaceholder && <p>{leftPlaceholder}</p>}
                     <div className="outer-box">
-                        <i className={`inner-box far fa-check ${value ? 'active' : ''}`}></i>
+                        <i className={`inner-box fa fa-check ${value ? 'active' : ''}`}></i>
                     </div>
                     {!!placeholder && <p>{placeholder}</p>}
                 </label>
@@ -50,6 +56,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 interface CheckboxProps extends FormInputProps<boolean> {
     label?: string;
     placeholder?: string;
+    className?: string;
+    leftPlaceholder?: string;
 }
 
 export default Checkbox;
