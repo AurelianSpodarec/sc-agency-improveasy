@@ -6,8 +6,11 @@ import useFetchProperties from '@pages/portal/Property/hooks/useFetchProperties'
 import MEESRating from '@pages/portal/Property/PropertyList/MEESRating';
 import { IProperty } from '../../../../types/shared/Properties';
 import dayjs from 'dayjs';
+import { useHistory } from 'react-router-dom';
 
 function PropertyList({ showCreateModal }: IProps) {
+    const history = useHistory();
+
     const { properties } = useFetchProperties();
 
     return (
@@ -41,7 +44,15 @@ function PropertyList({ showCreateModal }: IProps) {
                                                 error={null}
                                             >
                                                 {properties.map((section: IProperty) => (
-                                                    <tr key={section.id} className="bg-gray-50">
+                                                    <tr
+                                                        key={section.id}
+                                                        className="bg-gray-50"
+                                                        onClick={() =>
+                                                            history.push(
+                                                                `/portal/properties/${section.id}`,
+                                                            )
+                                                        }
+                                                    >
                                                         <td>
                                                             {`${section.addressLine1}, ${section.addressLine2}`}
                                                         </td>
