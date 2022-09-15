@@ -20,11 +20,11 @@ const Nav: React.FC = () => {
 
                 <NavGroup text="Property management">
                     <NavItem to="/properties" text="Properties" icon="users-cog" />
-                    <NavItem to="/landlords" text="Landlords/ Homeowners" icon="users-cog" />
                 </NavGroup>
 
                 <NavGroup text="User management">
                     <NavItem to="/admin-users" text="Admins" icon="users-cog" />
+                    <NavItem to="/users" text="Property Owners" icon="users-cog" />
                 </NavGroup>
 
                 <NavGroup text="Settings">
