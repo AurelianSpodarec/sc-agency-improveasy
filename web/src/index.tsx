@@ -13,7 +13,6 @@ import { initApi } from 'lib/src/utils/api';
 import config from './config';
 
 import ErrorBoundary from 'lib/src/pages/error/ErrorBoundary';
-import ModalProvider from './context/modalContext';
 
 const { API_URL } = config;
 
@@ -26,9 +25,7 @@ root.render(
     <ErrorBoundary>
         <Router>
             <Provider store={store}>
-                <ModalProvider>
-                    <App />
-                </ModalProvider>
+                <App />
             </Provider>
         </Router>
     </ErrorBoundary>,
