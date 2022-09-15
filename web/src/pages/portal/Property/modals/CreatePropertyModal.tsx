@@ -3,8 +3,8 @@ import useCreateProperty from '@pages/portal/Property/hooks/useCreateProperty';
 import Modal from 'lib/src/components/modal/Modal';
 import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
-import FormField from 'lib/src/components/form/FormField';
 import Checkbox from 'lib/src/components/form/Checkbox';
+import ModalHeader from '@pages/portal/modals/ModalHeader';
 
 const CreatePropertyModal = () => {
     const {
@@ -22,8 +22,13 @@ const CreatePropertyModal = () => {
     } = useCreateProperty();
 
     return (
-        <Modal title="Create Property">
-            <Form onSubmit={() => console.log('submit')} onCancel={closeModal}>
+        <Modal>
+            <ModalHeader text="Create Property" closeModal={closeModal} />
+            <Form
+                onSubmit={() => console.log('submit')}
+                buttonAlignment="center"
+                submitButtonClassName="winged"
+            >
                 <TextInput
                     name="addressLine1"
                     value={addressLine1}

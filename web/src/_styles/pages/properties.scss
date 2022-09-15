@@ -1,0 +1,19 @@
+.properties-table {
+    @include mainFontSemiBold();
+    font-size: 120%;
+
+    thead {
+        background-color: var(--grey-background);
+
+        th {
+            color: var(--color-green-400);
+        }
+    }
+
+    tr {
+        &:hover {
+            cursor: pointer;
+            background-color: var(--grey-background);
+        }
+    }
+}

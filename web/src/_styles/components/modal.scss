@@ -2,5 +2,26 @@
     .modal-body {
         background-color: var(--background-body);
         color: var(--typography-primary);
+        border-radius: 55px 0;
+
+        .modal-header {
+            margin: 0 0 48px 16px;
+
+            h3 {
+                font-size: 180%;
+                color: var(--color-green-400);
+                @include mainFontSemiBold();
+                border-bottom: 7px solid var(--color-green-400);
+            }
+
+            .header-button {
+                color: var(--color-green-400);
+                background-color: transparent;
+
+                i {
+                    font-size: 160%;
+                }
+            }
+        }
     }
 }

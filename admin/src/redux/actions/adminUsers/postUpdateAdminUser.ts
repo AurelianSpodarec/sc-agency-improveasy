@@ -13,7 +13,7 @@ export const updateAdminUser =
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(updateAdminUserRequest());
         try {
-            const { data }: UpdateAdminResponse = await api.patch(`adminUsers/${id}`, postbody);
+            const { data }: UpdateAdminResponse = await api.put(`adminUsers/${id}`, postbody);
 
             dispatch(updateAdminUserSuccess(data));
         } catch (e) {

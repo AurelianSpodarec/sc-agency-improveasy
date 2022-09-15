@@ -8,15 +8,16 @@ import ContentItem from '@components/layout/contentBlock/ContentItem';
 import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import { User as UserTypes } from 'src/types/shared/User';
+import dayjs from 'dayjs';
 
 const User: React.FC<UserProps> = ({ user }) => {
     if (!user) return null;
 
-    const { id, firstName, lastName, email } = user;
+    const { id, firstName, lastName, email, isConfirmed, createdOn } = user;
     return (
         <>
             <Title>
-                User - {firstName} {lastName}
+                Property Owner - {firstName} {lastName}
             </Title>
 
             <ContentBlock>
@@ -28,6 +29,14 @@ const User: React.FC<UserProps> = ({ user }) => {
                         <p>
                             <a href={`mailto:${email}`}>{email}</a>
                         </p>
+                    </ContentItem>
+                </ContentRow>
+                <ContentRow>
+                    <ContentItem label="Registered on">
+                        <p>{dayjs(createdOn).format('DD/MM/YYYY')}</p>
+                    </ContentItem>
+                    <ContentItem label="Is Confirmed">
+                        <p>{isConfirmed ? 'Yes' : 'No'}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>

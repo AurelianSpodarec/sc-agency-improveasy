@@ -36,7 +36,7 @@ const useLogin = () => {
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
             if (isConfirmed) {
-                history.push('/dashboard');
+                history.push('/portal');
             } else {
                 setShowConfirmEmail(true);
             }

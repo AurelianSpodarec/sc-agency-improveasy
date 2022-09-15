@@ -14,7 +14,7 @@ export const updateUser =
         dispatch(updateUserRequest());
 
         try {
-            const { data }: UpdateUserResponse = await api.patch(`users/${id}`, postbody);
+            const { data }: UpdateUserResponse = await api.put(`users/${id}`, postbody);
 
             dispatch(updateUserSuccess(data));
         } catch (e) {

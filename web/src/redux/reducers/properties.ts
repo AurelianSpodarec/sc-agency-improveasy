@@ -6,8 +6,14 @@ import {
     postUserPropertiesFiltersSuccess,
 } from '@actions/properties/postUserPropertiesFilters';
 import { convertArrToObj } from 'lib/src/utils/generic';
+import {
+    fetchUserPropertiesFailure,
+    fetchUserPropertiesRequest,
+    fetchUserPropertiesSuccess,
+} from '@actions/properties/fetchUserProperties';
 
 interface IPropertyState {
+    isFetching: boolean;
     isPosting: boolean;
     postSuccess: boolean;
     error: string | null;
@@ -15,6 +21,7 @@ interface IPropertyState {
 }
 
 const initialState: IPropertyState = {
+    isFetching: false,
     isPosting: false,
     postSuccess: false,
     error: null,
@@ -22,10 +29,24 @@ const initialState: IPropertyState = {
 };
 
 export default createReducer(initialState, {
+    [fetchUserPropertiesRequest.type]: handleFetchRequest,
+    [fetchUserPropertiesSuccess.type]: handleFetchSuccess,
+    [fetchUserPropertiesFailure.type]: handleFailure,
     [postUserPropertiesFiltersRequest.type]: handlePostRequest,
     [postUserPropertiesFiltersSuccess.type]: handlePostFiltersSuccess,
     [postUserPropertiesFiltersFailure.type]: handleFailure,
 });
+
+function handleFetchRequest(state: IPropertyState) {
+    state.isFetching = true;
+    state.error = null;
+}
+
+function handleFetchSuccess(state: IPropertyState, action: PayloadAction<IProperty[]>) {
+    state.isFetching = false;
+    state.error = null;
+    state.properties = convertArrToObj(action.payload);
+}
 
 function handlePostRequest(state: IPropertyState) {
     state.isPosting = true;
