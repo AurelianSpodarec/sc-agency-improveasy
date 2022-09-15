@@ -15,6 +15,40 @@
     background-color: var(--background-form-error);
 }
 
+.form-field {
+    &.winged {
+        .form-input {
+            border-radius: 55px 0;
+            padding-left: 8%;
+            background-color: var(--color-gray-700);
+            border-color: transparent;
+            font-size: 160%;
+            @include mainFontSemiBold();
+
+            &::placeholder {
+                color: var(--typography-placeholder);
+            }
+
+            &.error {
+                border-color: var(--highlight-form-error);
+                border-width: 2px;
+            }
+        }
+
+        &.required::after {
+            content: '*';
+            position: absolute;
+            left: 6%;
+            top: 15%;
+            color: #f00;
+            font-size: 180%;
+        }
+
+        .form-error {
+            display: none;
+        }
+    }
+}
 // inputs, textarea and select
 .form-input, .form-select {
     color: var(--typography-primary);
@@ -27,19 +61,6 @@
 
     &.error {
         border-color: var(--highlight-form-error);
-    }
-
-    &.winged {
-        border-radius: 55px 0;
-        padding-left: 8%;
-        background-color: var(--color-gray-700);
-        border-color: transparent;
-        font-size: 160%;
-        @include mainFontSemiBold();
-
-        &::placeholder {
-            color: var(--typography-placeholder);
-        }
     }
 }
 

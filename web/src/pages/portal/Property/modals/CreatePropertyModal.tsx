@@ -24,99 +24,84 @@ const CreatePropertyModal = () => {
     return (
         <Modal title="Create Property">
             <Form onSubmit={() => console.log('submit')} onCancel={closeModal}>
-                <FormField name="addressLine1">
-                    <TextInput
-                        name="addressLine1"
-                        value={addressLine1}
-                        onChange={handleChange}
-                        placeholder="Address Line 1"
-                        className="winged"
-                        required
-                    />
-                </FormField>
+                <TextInput
+                    name="addressLine1"
+                    value={addressLine1}
+                    onChange={handleChange}
+                    placeholder="Address Line 1"
+                    className="winged"
+                    required
+                />
 
-                <FormField name="addressLine2">
-                    <TextInput
-                        name="addressLine2"
-                        value={addressLine2}
-                        onChange={handleChange}
-                        placeholder="Address Line 2"
-                        className="winged"
-                        required
-                    />
-                </FormField>
-                <FormField name="city">
-                    <TextInput
-                        name="city"
-                        value={city}
-                        onChange={handleChange}
-                        placeholder="City"
-                        className="winged"
-                        required
-                    />
-                </FormField>
-                <FormField name="postcode">
-                    <TextInput
-                        name="postcode"
-                        value={postcode}
-                        onChange={handleChange}
-                        placeholder="Postcode"
-                        className="winged"
-                        required
-                    />
-                </FormField>
-                <FormField name="bypassEPC" label="Bypass EPC">
-                    <Checkbox name="bypassEPC" value={bypassEPC} onChange={handleChange} />
-                </FormField>
-                <FormField name="useAccountDetailsForAccess" label="Use Account Details for Access">
-                    <Checkbox
-                        name="useAccountDetailsForAccess"
-                        value={useAccountDetailsForAccess}
-                        onChange={handleChange}
-                    />
-                </FormField>
+                <TextInput
+                    name="addressLine2"
+                    value={addressLine2}
+                    onChange={handleChange}
+                    placeholder="Address Line 2"
+                    className="winged"
+                />
+                <TextInput
+                    name="city"
+                    value={city}
+                    onChange={handleChange}
+                    placeholder="City"
+                    className="winged"
+                    required
+                />
+                <TextInput
+                    name="postcode"
+                    value={postcode}
+                    onChange={handleChange}
+                    placeholder="Postcode"
+                    className="winged"
+                    required
+                />
+                <Checkbox
+                    name="bypassEPC"
+                    value={bypassEPC}
+                    onChange={handleChange}
+                    label="Bypass EPC"
+                />
+                <Checkbox
+                    name="useAccountDetailsForAccess"
+                    value={useAccountDetailsForAccess}
+                    onChange={handleChange}
+                    label="Use Account Details for Access"
+                />
                 {useAccountDetailsForAccess && (
                     <>
-                        <FormField name="firstName">
-                            <TextInput
-                                name="firstName"
-                                value={firstName}
-                                onChange={handleChange}
-                                placeholder="First Name"
-                                className="winged"
-                                required
-                            />
-                        </FormField>
-                        <FormField name="lastName">
-                            <TextInput
-                                name="lastName"
-                                value={lastName}
-                                onChange={handleChange}
-                                placeholder="Last Name"
-                                className="winged"
-                                required
-                            />
-                        </FormField>
-                        <FormField name="email">
-                            <TextInput
-                                name="email"
-                                value={email}
-                                onChange={handleChange}
-                                placeholder="Email"
-                                className="winged"
-                                required
-                            />
-                        </FormField>
-                        <FormField name="phone">
-                            <TextInput
-                                name="phone"
-                                value={phone}
-                                onChange={handleChange}
-                                placeholder="Phone"
-                                className="winged"
-                                required
-                            />
-                        </FormField>
+                        <TextInput
+                            name="firstName"
+                            value={firstName}
+                            onChange={handleChange}
+                            placeholder="First Name"
+                            className="winged"
+                            required
+                        />
+                        <TextInput
+                            name="lastName"
+                            value={lastName}
+                            onChange={handleChange}
+                            placeholder="Last Name"
+                            className="winged"
+                            required
+                        />
+                        <TextInput
+                            name="email"
+                            value={email}
+                            onChange={handleChange}
+                            placeholder="Email"
+                            className="winged"
+                            required
+                        />
+                        <TextInput
+                            name="phone"
+                            value={phone}
+                            onChange={handleChange}
+                            placeholder="Phone"
+                            className="winged"
+                            required
+                        />
                     </>
                 )}
             </Form>
