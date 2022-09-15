@@ -14,6 +14,8 @@ const Form: React.FC<FormProps> = ({
     omitButtons = false,
     isPosting = false,
     error,
+    buttonAlignment = 'right',
+    submitButtonClassName = '',
 }) => {
     const dispatch = useDispatch();
     const fieldErrors = useSelector(getFieldErrors);
@@ -21,9 +23,9 @@ const Form: React.FC<FormProps> = ({
 
     useEffect(() => {
         return () => {
-            dispatch(clearFormError())
+            dispatch(clearFormError());
         };
-    }, [dispatch])
+    }, [dispatch]);
 
     return (
         <form onSubmit={_handleSubmit}>
@@ -31,17 +33,20 @@ const Form: React.FC<FormProps> = ({
             {!!formError && <p className="form-generic-error">{formError}</p>}
             {!!error && <p className="form-generic-error">{error}</p>}
             {!omitButtons && (
-                <ButtonRow alignment="right">
-                    {!!onCancel && (<ActionButton
-                            source='secondary'
+                <ButtonRow alignment={buttonAlignment}>
+                    {!!onCancel && (
+                        <ActionButton
+                            source="secondary"
                             type="button"
                             onClick={_handleCancel}
                             disabled={isPosting}
                         >
                             Cancel
-                        </ActionButton>)
-                    }
-                    <ActionButton isPosting={isPosting}>Submit</ActionButton>
+                        </ActionButton>
+                    )}
+                    <ActionButton isPosting={isPosting} className={submitButtonClassName}>
+                        Submit
+                    </ActionButton>
                 </ButtonRow>
             )}
         </form>
@@ -72,6 +77,8 @@ interface FormProps {
     onSubmit: () => void;
     onCancel?: () => void | undefined;
     error?: string | undefined | null;
+    buttonAlignment?: 'left' | 'center' | 'right';
+    submitButtonClassName?: string;
 }
 
 export default Form;

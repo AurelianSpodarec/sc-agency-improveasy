@@ -116,6 +116,7 @@
 // checkbox and radio buttons
 .form-checkbox, .form-radio {
     .content {
+        align-items: center;
         .outer-box {
             border-color: var(--stroke-form-input);
             background-color: var(--background-form-input);
@@ -125,6 +126,19 @@
             .outer-box {
                 background-color: var(--background-form-input-disabled);
             }
+        }
+
+        p {
+            flex: unset;
+            margin-bottom: 0;
+            margin-right: 8px;
+            @include mainFontSemiBold();
+            font-size: 140%;
+            color: var(--typography-placeholder);
+        }
+
+        .inner-box {
+            color: var(--color-green-400);
         }
     }
 }

@@ -1,4 +1,4 @@
-import { postResetPassword } from './../../../../../redux/actions/auth/postResetPassword';
+import { postResetPassword } from '../../../../redux/actions/auth/postResetPassword';
 import useForm from 'lib/src/hooks/useForm';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
