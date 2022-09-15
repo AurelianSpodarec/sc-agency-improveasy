@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import IconLogoPortal from '@content/icons/logo/IconLogoPortal';
 
-import ActionButton from 'lib/src/components/button/ActionButton';
+import LinkButton from 'lib/src/components/button/LinkButton';
 
 import { Container } from '@components/ui';
 
@@ -21,13 +21,9 @@ const Header = () => {
                     </Link>
 
                     <div className="flex-row align-center">
-                        <ActionButton
-                            onClick={() => console.log('open modal')}
-                            className="winged"
-                            icon="home"
-                        >
+                        <LinkButton href="/portal/properties/create" className="winged" icon="home">
                             Create Property
-                        </ActionButton>
+                        </LinkButton>
                     </div>
                 </div>
             </Container>

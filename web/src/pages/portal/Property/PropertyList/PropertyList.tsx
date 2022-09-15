@@ -1,6 +1,7 @@
 import { Container, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
+import { useParams } from 'react-router-dom';
 
 const propertyListing = [
     {
@@ -45,7 +46,8 @@ const propertyListing = [
     },
 ];
 
-function PropertyList() {
+function PropertyList({ showCreateModal }: IProps) {
+    console.log(showCreateModal);
     return (
         <MainPortal>
             <Section>
@@ -155,6 +157,10 @@ function PropertyList() {
             </Section>
         </MainPortal>
     );
+}
+
+interface IProps {
+    showCreateModal?: boolean;
 }
 
 export default PropertyList;

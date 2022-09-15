@@ -51,6 +51,10 @@ const Routes: React.FC = () => (
             <PropertyList />
         </Route>
 
+        <Route exact path="/portal/properties/create">
+            <PropertyList showCreateModal />
+        </Route>
+
         <Route exact path="/portal/properties/:id">
             <PropertyView />
         </Route>
