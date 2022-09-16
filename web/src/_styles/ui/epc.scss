@@ -1,0 +1,83 @@
+.content {
+    width: 50%;
+  }
+  
+  .line {
+    color: white;
+    height: 20px;
+    margin-top: 2px;
+    text-align: right;
+  }
+  
+  /* Each line */
+  .a {
+    width: 70%;
+    background-color: rgb(13, 118, 51);
+  }
+  
+  .b {
+    width: 75%;
+    background-color: rgb(21, 143, 50);
+  }
+  
+  .c {
+    width: 80%;
+    transition: all .2s ease-in-out;
+    background-color: rgb(114, 174, 42);
+  }
+  
+  .d {
+    width: 85%;
+    background-color: rgb(244, 231, 31);
+  }
+  
+  .e {
+    width: 90%;
+    background-color: rgb(233, 141, 22);
+  }
+  
+  .f {
+    width: 95%;
+    background-color: rgb(231, 80, 23);
+  }
+  
+  .g {
+    width: 100%;
+    background-color: rgb(209, 29, 24);
+  }
+  
+  /* Letter */
+  .a:before {
+    margin-right: 5px;
+    content: "A"
+  }
+  
+  .b:before {
+    margin-right: 5px;
+    content: "B"
+  }
+  
+  .c:before {
+    margin-right: 5px;
+    content: "C"
+  }
+  
+  .d:before {
+    margin-right: 5px;
+    content: "D"
+  }
+  
+  .e:before {
+    margin-right: 5px;
+    content: "E"
+  }
+  
+  .f:before {
+    margin-right: 5px;
+    content: "F"
+  }
+  
+  .g:before {
+    margin-right: 5px;
+    content: "G"
+  }
