@@ -27,5 +27,9 @@
     &.winged {
         border-radius: 55px 0;
         box-shadow: 5px 7px 5px 0 rgba(0, 0, 0, 0.26);
+
+        .text {
+            white-space: nowrap;
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import useForm from 'lib/src/hooks/useForm';
@@ -11,7 +12,6 @@ import {
     selectPropertiesIsPosting,
     selectPropertiesPostSuccess,
 } from '@selectors/properties';
-import { useEffect } from 'react';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -28,26 +28,27 @@ const initialForm: ICreatePropertyForm = {
     },
 };
 
+enum ModalContent {
+    Form = 1,
+    EPCSearchComplete,
+}
+
 const useCreateProperty = () => {
     const history = useHistory();
     const dispatch = useDispatch();
 
     const isPosting = useSelector(selectPropertiesIsPosting);
+    const prevIsPosting = usePrevious(isPosting);
     const postSuccess = useSelector(selectPropertiesPostSuccess);
     const prevPostSuccess = usePrevious(postSuccess);
     const error = useSelector(selectPropertiesError);
 
     const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
+    const [modalContent, setModalContent] = useState<ModalContent>(1);
 
-    useEffect(() => {
-        if (postSuccess && !prevPostSuccess) {
-            history.push('/portal/properties');
-        }
-    }, [history, postSuccess, prevPostSuccess]);
-
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         history.push('/portal/properties');
-    };
+    }, [history]);
 
     const handleChange = (name: keyof ICreatePropertyForm, value: string | number | boolean) => {
         if (name.includes('accessDetails')) {
@@ -62,8 +63,30 @@ const useCreateProperty = () => {
         }
     };
 
+    useEffect(() => {
+        if (!isPosting && prevIsPosting) {
+            if (error) {
+                console.log(error);
+            }
+        }
+    }, [
+        postSuccess,
+        prevPostSuccess,
+        closeModal,
+        formState.bypassEPC,
+        error,
+        isPosting,
+        prevIsPosting,
+    ]);
+
     const handleSubmit = () => {
         dispatch(postCreateUserProperty(formState));
+    };
+
+    const handleContinueAnyway = () => {
+        handleChange('bypassEPC', true);
+
+        handleSubmit();
     };
 
     return {
@@ -73,6 +96,9 @@ const useCreateProperty = () => {
         handleSubmit,
         isPosting,
         error,
+        modalContent,
+        setModalContent,
+        handleContinueAnyway,
     };
 };
 

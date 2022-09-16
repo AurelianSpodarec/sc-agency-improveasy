@@ -1,122 +1,80 @@
 import useCreateProperty from '@pages/portal/Property/hooks/useCreateProperty';
 
 import Modal from 'lib/src/components/modal/Modal';
-import Form from 'lib/src/components/form/Form';
-import TextInput from 'lib/src/components/form/TextInput';
-import Checkbox from 'lib/src/components/form/Checkbox';
 import ModalHeader from '@pages/portal/modals/ModalHeader';
+
+import CreatePropertyForm from './CreatePropertyForm';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
+import ActionButton from 'lib/src/components/button/ActionButton';
 
 const CreatePropertyModal = () => {
     const {
-        formState: {
-            addressLine1,
-            addressLine2,
-            city,
-            postcode,
-            bypassEPC,
-            useAccountDetailsForAccess,
-            accessDetails: { firstName, lastName, email, phone },
-        },
+        formState,
         handleChange,
         closeModal,
         handleSubmit,
         isPosting,
         error,
+        modalContent,
+        setModalContent,
+        handleContinueAnyway,
     } = useCreateProperty();
 
     return (
-        <Modal>
+        <Modal size="small-medium">
             <ModalHeader text="Create Property" closeModal={closeModal} />
-            <Form
-                onSubmit={handleSubmit}
-                buttonAlignment="center"
-                submitButtonClassName="winged"
-                isPosting={isPosting}
-                error={error}
-            >
-                <TextInput
-                    name="addressLine1"
-                    value={addressLine1}
-                    onChange={handleChange}
-                    placeholder="Address Line 1"
-                    className="winged"
-                    required
-                />
 
-                <TextInput
-                    name="addressLine2"
-                    value={addressLine2}
-                    onChange={handleChange}
-                    placeholder="Address Line 2"
-                    className="winged"
+            {modalContent === 1 ? (
+                <CreatePropertyForm
+                    formState={formState}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    isPosting={isPosting}
+                    error={error}
                 />
-                <TextInput
-                    name="city"
-                    value={city}
-                    onChange={handleChange}
-                    placeholder="City"
-                    className="winged"
-                    required
-                />
-                <TextInput
-                    name="postcode"
-                    value={postcode}
-                    onChange={handleChange}
-                    placeholder="Postcode"
-                    className="winged"
-                    required
-                />
-                <Checkbox
-                    name="bypassEPC"
-                    value={bypassEPC}
-                    onChange={handleChange}
-                    leftPlaceholder="Bypass EPC"
-                    className="justify-center"
-                />
-                <Checkbox
-                    name="useAccountDetailsForAccess"
-                    value={useAccountDetailsForAccess}
-                    onChange={handleChange}
-                    leftPlaceholder="Use Account Details for Access"
-                    className="justify-center"
-                />
-                {useAccountDetailsForAccess && (
-                    <>
-                        <TextInput
-                            name="accessDetails.firstName"
-                            value={firstName}
-                            onChange={handleChange}
-                            placeholder="First Name"
+            ) : (
+                <section className="flex-column align-center horizontal-padding">
+                    <h2 className="heading">
+                        Unable to locate EPC for{' '}
+                        {`${formState.addressLine1} ${formState.addressLine2}`}
+                    </h2>
+
+                    <p className="flex-column align-center text-center semi-bold-content">
+                        <br />
+                        Unfortunately, we were unable to locate your property’s EPC rating.
+                        <br />
+                        <br />
+                        This may be due to:
+                        <p className="list-wrapper">
+                            <ol>
+                                <li> Incorrect address information</li>
+                                <li> An EPC has been done in the last 3 months</li>
+                                <li> The property does not have an EPC</li>
+                            </ol>
+                        </p>
+                    </p>
+
+                    <ButtonRow>
+                        <ActionButton className="winged" onClick={() => setModalContent(1)}>
+                            Edit Address
+                        </ActionButton>
+                        <ActionButton
                             className="winged"
-                            required
-                        />
-                        <TextInput
-                            name="accessDetails.lastName"
-                            value={lastName}
-                            onChange={handleChange}
-                            placeholder="Last Name"
+                            source="secondary"
+                            onClick={() => closeModal()}
+                        >
+                            Cancel
+                        </ActionButton>
+                        <ActionButton
                             className="winged"
-                            required
-                        />
-                        <TextInput
-                            name="accessDetails.email"
-                            value={email}
-                            onChange={handleChange}
-                            placeholder="Email"
-                            className="winged"
-                            required
-                        />
-                        <TextInput
-                            name="accessDetails.phone"
-                            value={phone}
-                            onChange={handleChange}
-                            placeholder="Phone"
-                            className="winged"
-                            required
-                        />
-                    </>
-                )}
-            </Form>
+                            source="positive"
+                            onClick={handleContinueAnyway}
+                        >
+                            Continue Anyway
+                        </ActionButton>
+                    </ButtonRow>
+                </section>
+            )}
         </Modal>
     );
 };
