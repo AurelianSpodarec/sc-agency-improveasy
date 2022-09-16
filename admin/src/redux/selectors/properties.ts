@@ -8,3 +8,6 @@ export const getPropertiesIsFetching = (state: RootState) => state.propertiesRed
 export const getPropertiesFetchError = (state: RootState) => state.propertiesReducer.fetchError;
 export const getProperties = (state: RootState) =>
     Object.values(state.propertiesReducer.properties);
+
+export const getPropertiesByUserID = (state: RootState, userID: number) =>
+    Object.values(state.propertiesReducer.properties).filter(p => p.userID === userID);
