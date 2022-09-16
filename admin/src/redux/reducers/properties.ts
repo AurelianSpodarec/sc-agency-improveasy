@@ -1,3 +1,5 @@
+import { convertArrToObj } from 'lib/src/utils/generic';
+import { Property } from './../../types/shared/Property';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 import {
@@ -12,6 +14,7 @@ interface PropertiesState {
     postError: string | null;
     isFetching: boolean;
     fetchError: string | null;
+    properties: Record<number, Property>;
 }
 
 const initialState: PropertiesState = {
@@ -20,6 +23,7 @@ const initialState: PropertiesState = {
     postError: null,
     isFetching: false,
     fetchError: null,
+    properties: {},
 };
 
 export default createReducer(initialState, {
@@ -34,9 +38,10 @@ function handlePostRequest(state: PropertiesState) {
     state.postError = null;
 }
 
-function handlePostSuccess(state: PropertiesState) {
+function handlePostSuccess(state: PropertiesState, action: PayloadAction<Property>) {
     state.isPosting = false;
     state.postSuccess = true;
+    state.properties[action.payload.id] = action.payload;
 }
 
 function handlePostFailure(state: PropertiesState, action: PayloadAction<string>) {
@@ -50,9 +55,10 @@ function handleFetchRequest(state: PropertiesState) {
     state.postError = null;
 }
 
-function handleFetchSuccess(state: PropertiesState) {
+function handleFetchSuccess(state: PropertiesState, action: PayloadAction<Property[]>) {
     state.isPosting = false;
     state.postSuccess = true;
+    state.properties = convertArrToObj(action.payload);
 }
 
 function handleFetchFailure(state: PropertiesState, action: PayloadAction<string>) {
