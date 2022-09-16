@@ -66,3 +66,7 @@ export interface IPropertyFilterRequest {
     meesComplianceFilters: FilterByMEESCompliance;
     propertyStatusFilters: PropertyStatusType;
 }
+
+export interface ICreatePropertyRequest extends Omit<ICreatePropertyForm, 'accessDetails'> {
+    accessDetails: IAccessDetails | null;
+}
