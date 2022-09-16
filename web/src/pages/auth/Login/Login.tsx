@@ -20,7 +20,7 @@ const Login: React.FC = () => {
         resendEmail,
     } = useLogin();
 
-    console.log(showConfirmEmail);
+    // console.log('woo', error, customValidate, showConfirmEmail);
 
     return (
         <AuthCard>
@@ -56,7 +56,9 @@ const Login: React.FC = () => {
                             rightLabel={<Link to="/auth/forgot-password">Forgot password?</Link>}
                         />
                     </FormRow>
-                    {/* TODO: If not email verified, show message */}
+
+                    <div>{showConfirmEmail}</div>
+                    {/* TODO: Please confrm your email */}
 
                     <div className="d-flex">
                         <input type="checkbox" />
