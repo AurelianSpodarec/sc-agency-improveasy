@@ -56,18 +56,16 @@ function handlePostFailure(state: PropertiesState, action: PayloadAction<string>
 }
 
 function handleFetchRequest(state: PropertiesState) {
-    state.isPosting = true;
-    state.postSuccess = false;
-    state.postError = null;
+    state.isFetching = true;
+    state.fetchError = null;
 }
 
 function handleFetchSuccess(state: PropertiesState, action: PayloadAction<Property[]>) {
-    state.isPosting = false;
-    state.postSuccess = true;
+    state.isFetching = false;
     state.properties = convertArrToObj(action.payload);
 }
 
 function handleFetchFailure(state: PropertiesState, action: PayloadAction<string>) {
-    state.isPosting = false;
-    state.postError = action.payload;
+    state.isFetching = false;
+    state.fetchError = action.payload;
 }
