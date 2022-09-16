@@ -3,7 +3,6 @@ import React from 'react';
 import ContentBlock from '@components/layout/contentBlock/ContentBlock';
 
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
-import DataCheck from '@components/common/DataCheck';
 import useFetchUserProperties from './hooks/useFetchUserProperties';
 import Table from 'lib/src/components/table/Table';
 import { Property } from 'src/types/shared/Property';
@@ -16,14 +15,13 @@ const UserProperties: React.FC = () => {
         <ContentBlock>
             <CreateHeader>Properties</CreateHeader>
 
-            <DataCheck dataExists error={fetchError} isFetching={false}>
-                <Table
-                    columns={columns}
-                    rows={properties}
-                    isLoading={isFetching}
-                    pageSizes={[10, 25, 50]}
-                />
-            </DataCheck>
+            <Table
+                columns={columns}
+                rows={properties}
+                isLoading={isFetching}
+                error={fetchError}
+                pageSizes={[10, 25, 50]}
+            />
         </ContentBlock>
     );
 };

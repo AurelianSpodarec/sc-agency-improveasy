@@ -9,6 +9,7 @@ const Table = <TColumn, TRow extends { key?: number; id: number }>({
     isLoading = false,
     pageSizes = [10, 25, 100],
     noDataMessage = 'There is no data to display',
+    error
 }: TableProps<TRow>): JSX.Element => {
     const {
         paginatedRows,
@@ -48,7 +49,12 @@ const Table = <TColumn, TRow extends { key?: number; id: number }>({
                             </td>
                         </tr>
                     )}
-                    {isEmpty && !isLoading && (
+                    {error && !isLoading  && (
+                        <tr className="no-data-row">
+                            <td colSpan={columns.length}>{error}</td>
+                        </tr>
+                    )}
+                    {isEmpty && !isLoading && !error && (
                         <tr className="no-data-row">
                             <td colSpan={columns.length}>{noDataMessage}</td>
                         </tr>
@@ -101,6 +107,7 @@ interface TableProps<T> {
     isLoading?: boolean;
     pageSizes?: number[];
     noDataMessage?: string;
+    error?: string | null;
 }
 
 export default Table;
