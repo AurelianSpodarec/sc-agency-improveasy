@@ -19,15 +19,20 @@ const CreatePropertyModal = () => {
         },
         handleChange,
         closeModal,
+        handleSubmit,
+        isPosting,
+        error,
     } = useCreateProperty();
 
     return (
         <Modal>
             <ModalHeader text="Create Property" closeModal={closeModal} />
             <Form
-                onSubmit={() => console.log('submit')}
+                onSubmit={handleSubmit}
                 buttonAlignment="center"
                 submitButtonClassName="winged"
+                isPosting={isPosting}
+                error={error}
             >
                 <TextInput
                     name="addressLine1"

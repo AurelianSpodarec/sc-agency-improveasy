@@ -1,8 +1,17 @@
-import useForm from 'lib/src/hooks/useForm';
-
 import { useHistory } from 'react-router-dom';
-import { useCallback } from 'react';
-import { IAccessDetails } from '../../../../types/shared/Properties';
+import { useDispatch, useSelector } from 'react-redux';
+import useForm from 'lib/src/hooks/useForm';
+import usePrevious from 'lib/src/hooks/usePrevious';
+
+import { ICreatePropertyForm } from '../../../../types/shared/Properties';
+
+import { postCreateUserProperty } from '@actions/properties/postCreateUserProperty';
+import {
+    selectPropertiesError,
+    selectPropertiesIsPosting,
+    selectPropertiesPostSuccess,
+} from '@selectors/properties';
+import { useEffect } from 'react';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -21,12 +30,24 @@ const initialForm: ICreatePropertyForm = {
 
 const useCreateProperty = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const isPosting = useSelector(selectPropertiesIsPosting);
+    const postSuccess = useSelector(selectPropertiesPostSuccess);
+    const prevPostSuccess = usePrevious(postSuccess);
+    const error = useSelector(selectPropertiesError);
 
     const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
 
-    const closeModal = useCallback(() => {
+    useEffect(() => {
+        if (postSuccess && !prevPostSuccess) {
+            history.push('/portal/properties');
+        }
+    }, [history, postSuccess, prevPostSuccess]);
+
+    const closeModal = () => {
         history.push('/portal/properties');
-    }, [history]);
+    };
 
     const handleChange = (name: keyof ICreatePropertyForm, value: string | number | boolean) => {
         if (name.includes('accessDetails')) {
@@ -41,19 +62,18 @@ const useCreateProperty = () => {
         }
     };
 
-    console.log(formState);
+    const handleSubmit = () => {
+        dispatch(postCreateUserProperty(formState));
+    };
 
-    return { formState, handleChange, closeModal };
+    return {
+        formState,
+        handleChange,
+        closeModal,
+        handleSubmit,
+        isPosting,
+        error,
+    };
 };
-
-interface ICreatePropertyForm {
-    addressLine1: string;
-    addressLine2: string;
-    city: string;
-    postcode: string;
-    bypassEPC: boolean;
-    useAccountDetailsForAccess: boolean;
-    accessDetails: IAccessDetails;
-}
 
 export default useCreateProperty;
