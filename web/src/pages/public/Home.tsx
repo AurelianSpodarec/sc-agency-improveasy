@@ -31,19 +31,17 @@ function Home() {
         <MainPublic>
             <Section>
                 <Container size="lg">
-                    <div className="text-center">
-                        <Text type="h1" size="3xl" weight="bold">
-                            Increase your rental properties EPC to a minimum band C in 5 easy steps.
-                        </Text>
-                        <img
-                            style={{ borderRadius: '25px' }}
-                            width="100%"
-                            src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
-                            alt="yes"
-                        />
+                    <Text type="h1" size="3xl" weight="bold">
+                        Increase your rental properties EPC to a minimum band C in 5 easy steps.
+                    </Text>
+                    <img
+                        style={{ borderRadius: '25px' }}
+                        width="100%"
+                        src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
+                        alt="yes"
+                    />
 
-                        <ActionButton className="winged">Get Started</ActionButton>
-                    </div>
+                    <ActionButton className="winged">Get Started</ActionButton>
                 </Container>
             </Section>
 
@@ -78,14 +76,19 @@ function Home() {
                 </Container>
 
                 <Container>
-                    <div className="lg:d-flex justify-between">
-                        <div className="text-center" style={{ width: '255px', height: '255px' }}>
-                            <div
-                                className="bg-gradient--primary rounded--full"
-                                style={{ padding: '65px', height: '240px', width: '100%' }}
-                            >
+                    <div className="processBalls">
+                        <div className="processBalls__item">
+                            <div className="processBalls-chain">
+                                <div className="processBalls-chain__inner space-x-2">
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                </div>
+                            </div>
+
+                            <div className="processBalls__icon-wrap rounded--full">
                                 <svg
-                                    style={{ fill: 'white', height: '100%' }}
+                                    className="processBalls__icon"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
                                 >
@@ -97,13 +100,17 @@ function Home() {
                             </Text>
                         </div>
 
-                        <div className="text-center" style={{ width: '255px', height: '255px' }}>
-                            <div
-                                className="bg-gradient--primary rounded--full"
-                                style={{ padding: '65px', height: '240px', width: '100%' }}
-                            >
+                        <div className="processBalls__item">
+                            <div className="processBalls-chain">
+                                <div className="processBalls-chain__inner space-x-2">
+                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
+                                </div>
+                            </div>
+                            <div className="processBalls__icon-wrap rounded--full">
                                 <svg
-                                    style={{ fill: 'white', height: '100%' }}
+                                    className="processBalls__icon"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
                                 >
@@ -115,13 +122,17 @@ function Home() {
                             </Text>
                         </div>
 
-                        <div className="text-center" style={{ width: '255px', height: '255px' }}>
-                            <div
-                                className="bg-gradient--primary rounded--full"
-                                style={{ padding: '65px', height: '240px', width: '100%' }}
-                            >
+                        <div className="processBalls__item">
+                            <div className="processBalls-chain">
+                                <div className="processBalls-chain__inner space-x-2">
+                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
+                                </div>
+                            </div>
+                            <div className="processBalls__icon-wrap rounded--full">
                                 <svg
-                                    style={{ fill: 'white', height: '100%' }}
+                                    className="processBalls__icon"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
                                 >
@@ -133,13 +144,17 @@ function Home() {
                             </Text>
                         </div>
 
-                        <div className="text-center" style={{ width: '255px', height: '255px' }}>
-                            <div
-                                className="bg-gradient--primary rounded--full"
-                                style={{ padding: '65px', height: '240px', width: '100%' }}
-                            >
+                        <div className="processBalls__item">
+                            <div className="processBalls-chain">
+                                <div className="processBalls-chain__inner space-x-2">
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
+                                </div>
+                            </div>
+                            <div className="processBalls__icon-wrap rounded--full">
                                 <svg
-                                    style={{ fill: 'white', height: '100%' }}
+                                    className="processBalls__icon"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
                                 >
@@ -151,13 +166,10 @@ function Home() {
                             </Text>
                         </div>
 
-                        <div className="text-center" style={{ width: '255px', height: '255px' }}>
-                            <div
-                                className="bg-gradient--primary rounded--full"
-                                style={{ padding: '65px', height: '240px', width: '100%' }}
-                            >
+                        <div className="processBalls__item">
+                            <div className="processBalls__icon-wrap rounded--full">
                                 <svg
-                                    style={{ fill: 'white', height: '100%' }}
+                                    className="processBalls__icon"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
                                 >

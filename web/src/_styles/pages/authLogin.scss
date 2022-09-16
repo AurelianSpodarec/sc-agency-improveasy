@@ -37,11 +37,9 @@
             display: none;
         }
         width: 350px;
-        // transform: translateY(50%);
     }
 
     &__main {
-        // position: absolute;
         @media (min-width: 767px) {
             background: transparent;
             display: flex;
@@ -52,8 +50,6 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        // right: 80px;
-        
     }
 
     &__content {
