@@ -10,12 +10,12 @@ export const fetchPropertiesSuccess = createAction<Property[]>('fetchPropertiesS
 export const fetchPropertiesFailure = createAction<string>('fetchPropertiesFailure');
 
 export const fetchProperties =
-    (userID: number) =>
+    () =>
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(fetchPropertiesRequest());
 
         try {
-            const { data } = await api.get<Property[]>(`properties`);
+            const { data } = await api.get<Property[]>('properties');
 
             dispatch(fetchPropertiesSuccess(data));
         } catch (e) {
