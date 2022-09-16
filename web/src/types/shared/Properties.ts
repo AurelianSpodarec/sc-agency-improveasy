@@ -17,6 +17,15 @@ export interface IProperty {
     createdOn: Date;
 }
 
+export interface ICreatePropertyForm {
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    postcode: string;
+    bypassEPC: boolean;
+    useAccountDetailsForAccess: boolean;
+    accessDetails: IAccessDetails;
+}
 export interface IAccessDetails {
     firstName: string;
     lastName: string;

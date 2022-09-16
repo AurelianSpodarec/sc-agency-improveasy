@@ -12,19 +12,19 @@ export const initApi = (apiUrl: string) => {
     API_URL = apiUrl;
 };
 
-const get = async <TResponseBody>(url: string): Promise<AxiosResponse<TResponseBody>> => 
+const get = async <TResponseBody>(url: string): Promise<AxiosResponse<TResponseBody>> =>
     axios.get<TResponseBody>(`${API_URL}/${url}`, await getConfig());
 
-const post = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) => 
+const post = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
     axios.post<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
 
-const put = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) => 
+const put = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
     axios.put<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
 
-const patch = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) => 
+const patch = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
     axios.patch<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
 
-const del = async <TResponseBody>(url: string) => 
+const del = async <TResponseBody>(url: string) =>
     axios.delete<TResponseBody>(`${API_URL}/${url}`, await getConfig());
 
 const logError = async (body: ErrorLogRequest) => {
@@ -41,7 +41,7 @@ export const api = {
     logError,
 };
 
-const getConfig = async () =>{
+const getConfig = async () => {
     const jwt = await getToken();
 
     return {
@@ -63,7 +63,7 @@ export const handleApiErrors = <A extends Action>(
             ? dispatch(addFormError(response.data))
             : dispatch(setFieldErrors(response.data.errors));
 
-        return dispatch(failureAction(null));
+        return dispatch(failureAction(message));
     }
     if (response && response.status === 401) {
         dispatch(failureAction('Unauthorized'));
@@ -81,29 +81,29 @@ const getToken = async () => {
     if (!jwt || !refreshToken) {
         return jwt;
     }
-    
+
     try {
         const now = new Date().getTime() / 1000;
         const { exp = 0 } = jwtDecode<JwtPayload>(jwt);
         const minutesUntilExpiration = (exp - now) / 60;
-        
-        if (minutesUntilExpiration > 2){
+
+        if (minutesUntilExpiration > 2) {
             return jwt;
         }
     } catch (error) {
         return null;
     }
-   
-    
+
     const { data } = await axios.post<RefreshTokenRequest, AxiosResponse<LoginResponse>>(
-        `${API_URL}/auth/refresh-token`, { refreshToken, expiredToken: jwt },
-        );
+        `${API_URL}/auth/refresh-token`,
+        { refreshToken, expiredToken: jwt },
+    );
 
     localStorage.setItem('jwt', data.token);
     localStorage.setItem('refreshToken', data.refreshToken);
 
     return data.token;
-}
+};
 
 interface RefreshTokenRequest {
     refreshToken: string;
