@@ -38,6 +38,8 @@ const Register: React.FC = (): JSX.Element => {
         }
     }, [postSuccess, prevPostSuccess, history]);
 
+    console.log('Register', postSuccess, isPosting);
+
     return (
         <AuthCard>
             <AuthHeader title="Register">
