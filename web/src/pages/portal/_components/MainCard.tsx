@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 
 function MainCard({ title, children, className = '' }: MainCardProps) {
     return (
-        <div className="main-card">
-            <div className={`main-card__heading ${className}`}>
+        <div className={`main-card ${className}`}>
+            <div className={`main-card__heading`}>
                 <PageHeading size="md" title={title} />
             </div>
 
