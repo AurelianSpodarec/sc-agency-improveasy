@@ -1,4 +1,5 @@
-import { Container, DataCheck, Section } from '@components/ui';
+import AccordionFilter from '@components/Accordion/AccordionFilter/AccordionFilter';
+import { Container, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
@@ -7,6 +8,7 @@ import MEESRating from '@pages/portal/Property/PropertyList/MEESRating';
 import { IProperty } from '../../../../types/shared/Properties';
 import dayjs from 'dayjs';
 import { useHistory } from 'react-router-dom';
+import DataCheck from '@components/ui/DataCheck';
 
 function PropertyList({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -20,7 +22,9 @@ function PropertyList({ showCreateModal }: IProps) {
                     <Container>
                         <div className="d-flex space-x-4">
                             <div className="w-1/3">
-                                <MainCard title="Filter">hi</MainCard>
+                                <MainCard title="Filter">
+                                    <AccordionFilter />
+                                </MainCard>
                             </div>
 
                             <div className="w-2/3">

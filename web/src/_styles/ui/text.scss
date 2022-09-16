@@ -14,8 +14,8 @@
 
     &--base {
 
-        font-size: 15px;
-        line-height: 18px;
+        font-size: 17px;
+        line-height: 21px;
         @media (min-width: 767px) {
             font-size: 21px;
             line-height: 25px;
@@ -46,8 +46,12 @@
     }
 
     &--3xl {
-        font-size: 50px;
-        line-height: 60px;
+        font-size: 35px;
+        line-hgith: 42px;
+        @media (min-width: 767px) {
+            font-size: 50px;
+            line-height: 60px;
+        }
     }
 
     &--4xl {

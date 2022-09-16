@@ -22,11 +22,26 @@ const initialForm: ICreatePropertyForm = {
 const useCreateProperty = () => {
     const history = useHistory();
 
-    const [formState, handleChange] = useForm<ICreatePropertyForm>(initialForm);
+    const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
 
     const closeModal = useCallback(() => {
         history.push('/portal/properties');
     }, [history]);
+
+    const handleChange = (name: keyof ICreatePropertyForm, value: string | number | boolean) => {
+        if (name.includes('accessDetails')) {
+            const accessDetailsName = name.split('.')[1];
+
+            _handleChange('accessDetails', {
+                ...formState.accessDetails,
+                [accessDetailsName]: value,
+            });
+        } else {
+            _handleChange(name, value);
+        }
+    };
+
+    console.log(formState);
 
     return { formState, handleChange, closeModal };
 };

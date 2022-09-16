@@ -14,6 +14,7 @@ const useConfirmEmail = () => {
     const error = useSelector(getAuthConfirmEmailError);
 
     const { token } = useParams<{ token: string }>();
+
     useEffect(() => {
         dispatch(postConfirmEmail(token));
     }, [token, dispatch, history]);

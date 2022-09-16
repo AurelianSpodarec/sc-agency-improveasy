@@ -78,7 +78,7 @@ const CreatePropertyModal = () => {
                 {useAccountDetailsForAccess && (
                     <>
                         <TextInput
-                            name="firstName"
+                            name="accessDetails.firstName"
                             value={firstName}
                             onChange={handleChange}
                             placeholder="First Name"
@@ -86,7 +86,7 @@ const CreatePropertyModal = () => {
                             required
                         />
                         <TextInput
-                            name="lastName"
+                            name="accessDetails.lastName"
                             value={lastName}
                             onChange={handleChange}
                             placeholder="Last Name"
@@ -94,7 +94,7 @@ const CreatePropertyModal = () => {
                             required
                         />
                         <TextInput
-                            name="email"
+                            name="accessDetails.email"
                             value={email}
                             onChange={handleChange}
                             placeholder="Email"
@@ -102,7 +102,7 @@ const CreatePropertyModal = () => {
                             required
                         />
                         <TextInput
-                            name="phone"
+                            name="accessDetails.phone"
                             value={phone}
                             onChange={handleChange}
                             placeholder="Phone"
