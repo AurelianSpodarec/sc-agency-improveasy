@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { Action, ActionCreator, Dispatch } from 'redux';
 import { setFieldErrors } from '../redux/actions/fieldErrors';
@@ -12,20 +12,20 @@ export const initApi = (apiUrl: string) => {
     API_URL = apiUrl;
 };
 
-const get = async <TResponseBody>(url: string): Promise<AxiosResponse<TResponseBody>> =>
-    axios.get<TResponseBody>(`${API_URL}/${url}`, await getConfig());
+const get = async <TResponseBody>(url: string, params?: any): Promise<AxiosResponse<TResponseBody>> =>
+    axios.get<TResponseBody>(`${API_URL}/${url}`, await getConfig(params));
 
-const post = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
-    axios.post<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
+const post = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody, params?: any) =>
+    axios.post<TResponseBody>(`${API_URL}/${url}`, data, await getConfig(params));
 
-const put = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
-    axios.put<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
+const put = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody, params?: any) =>
+    axios.put<TResponseBody>(`${API_URL}/${url}`, data, await getConfig(params));
 
-const patch = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody) =>
-    axios.patch<TResponseBody>(`${API_URL}/${url}`, data, await getConfig());
+const patch = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody, params?: any) =>
+    axios.patch<TResponseBody>(`${API_URL}/${url}`, data, await getConfig(params));
 
-const del = async <TResponseBody>(url: string) =>
-    axios.delete<TResponseBody>(`${API_URL}/${url}`, await getConfig());
+const del = async <TResponseBody>(url: string, params?: any) =>
+    axios.delete<TResponseBody>(`${API_URL}/${url}`, await getConfig(params));
 
 const logError = async (body: ErrorLogRequest) => {
     // todo error request body
@@ -41,13 +41,14 @@ export const api = {
     logError,
 };
 
-const getConfig = async () => {
+const getConfig = async (params: any = {}): Promise<AxiosRequestConfig> => {
     const jwt = await getToken();
 
     return {
         headers: {
             Authorization: `Bearer ${jwt}`,
         },
+        params,
     };
 };
 
