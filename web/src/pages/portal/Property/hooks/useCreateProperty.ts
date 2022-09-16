@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
 
-import { ICreatePropertyForm } from '../../../../types/shared/Properties';
+import { ICreatePropertyForm, ICreatePropertyRequest } from '../../../../types/shared/Properties';
 
 import { postCreateUserProperty } from '@actions/properties/postCreateUserProperty';
 import {
@@ -80,7 +80,16 @@ const useCreateProperty = () => {
     ]);
 
     const handleSubmit = () => {
-        dispatch(postCreateUserProperty(formState));
+        let postBody: ICreatePropertyRequest = formState;
+
+        if (formState.useAccountDetailsForAccess) {
+            postBody = {
+                ...formState,
+                accessDetails: null,
+            };
+        }
+
+        dispatch(postCreateUserProperty(postBody));
     };
 
     const handleContinueAnyway = () => {

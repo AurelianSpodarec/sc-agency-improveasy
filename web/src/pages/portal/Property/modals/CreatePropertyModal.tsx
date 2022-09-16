@@ -23,7 +23,6 @@ const CreatePropertyModal = () => {
     return (
         <Modal size="small-medium">
             <ModalHeader text="Create Property" closeModal={closeModal} />
-
             {modalContent === 1 ? (
                 <CreatePropertyForm
                     formState={formState}
