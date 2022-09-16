@@ -26,7 +26,8 @@ interface UsersState {
     isFetching: boolean;
     isPosting: boolean;
     postSuccess: boolean;
-    error: string | null;
+    fetchError: string | null;
+    postError: string | null;
     users: { [key: number]: User };
 }
 
@@ -34,7 +35,8 @@ const initialState: UsersState = {
     isFetching: false,
     isPosting: false,
     postSuccess: false,
-    error: null,
+    fetchError: null,
+    postError: null,
     users: {},
 };
 
@@ -61,10 +63,12 @@ export default createReducer(initialState, {
 
 function handleFetchRequest(state: UsersState) {
     state.isFetching = true;
+    state.fetchError = null;
 }
 
 function handlePostRequest(state: UsersState) {
     state.isPosting = true;
+    state.postError = null;
     state.postSuccess = false;
 }
 function handleDeleteRequest(state: UsersState) {
@@ -73,15 +77,15 @@ function handleDeleteRequest(state: UsersState) {
 }
 
 function handleFetchError(state: UsersState, action: PayloadAction<string>) {
-    state.error = action.payload;
+    state.fetchError = action.payload;
     state.isFetching = false;
 }
 function handlePostError(state: UsersState, action: PayloadAction<string>) {
-    state.error = action.payload;
+    state.postError = action.payload;
     state.isPosting = false;
 }
 function handleDeleteError(state: UsersState, action: PayloadAction<string>) {
-    state.error = action.payload;
+    state.postError = action.payload;
     state.isPosting = false;
 }
 

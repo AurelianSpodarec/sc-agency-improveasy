@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import usePrevious from 'lib/src/hooks/usePrevious';
 import { deleteUser } from '@actions/users/deleteUser';
-import { getUserPostSuccess, getUserIsPosting, getUsersError } from '@selectors/users';
+import { getUserPostSuccess, getUserIsPosting, getUsersPostError } from '@selectors/users';
 import { useHistory } from 'react-router-dom';
 
 export default function useDeleteUser(userID: number): UseDeleteUserReturn {
@@ -15,7 +15,7 @@ export default function useDeleteUser(userID: number): UseDeleteUserReturn {
     }, [dispatch, userID]);
 
     const isPosting = useSelector(getUserIsPosting);
-    const error = useSelector(getUsersError);
+    const error = useSelector(getUsersPostError);
     const deleteSuccess = useSelector(getUserPostSuccess);
     const prevDeleteSuccess = usePrevious(deleteSuccess);
 

@@ -4,6 +4,7 @@ import UpdateUserModal from './UpdateUserModal';
 
 import User from './User';
 import useFetchUser from './hooks/useFetchUser';
+import DataCheck from '@components/common/DataCheck';
 
 interface Props {
     showDeleteModal?: boolean;
@@ -16,11 +17,13 @@ const UserContainer: React.FC<Props> = ({
     showEditModel = false,
     showEditPasswordModal = false,
 }) => {
-    const { user } = useFetchUser();
+    const { user, isFetching, fetchError } = useFetchUser();
 
     return (
         <>
-            <User user={user} />
+            <DataCheck dataExists={!!user} isFetching={isFetching} error={fetchError}>
+                <User user={user} />
+            </DataCheck>
             {!!user && showDeleteModal && <DeleteUserModal user={user} />}
             {!!user && showEditPasswordModal && <UpdateUserPasswordModal user={user} />}
             {!!user && showEditModel && <UpdateUserModal user={user} />}
