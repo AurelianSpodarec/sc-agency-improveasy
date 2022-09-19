@@ -1,4 +1,4 @@
-import useCreateProperty from '@pages/portal/Property/hooks/useCreateProperty';
+import useCreateProperty from '@pages/portal/properties/hooks/useCreateProperty';
 
 import Modal from 'lib/src/components/modal/Modal';
 import Form from 'lib/src/components/form/Form';

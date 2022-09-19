@@ -14,8 +14,8 @@ import Process from '@pages/public/Process';
 import WhyUse from '@pages/public/WhyUse';
 
 // Dashboard
-import PropertyList from '@pages/portal/Property/PropertyList/PropertyList';
-import PropertyView from '@pages/portal/Property/PropertyView/PropertyView';
+import Properties from '@pages/portal/properties/properties/Properties';
+import Property from '@pages/portal/properties/property/Property';
 
 import AuthRoutes from './AuthRoutes';
 
@@ -44,19 +44,19 @@ const Routes: React.FC = () => (
 
         {/* Portal */}
         <Route exact path="/portal">
-            <PropertyList />
+            <Properties />
         </Route>
 
         <Route exact path="/portal/properties">
-            <PropertyList />
+            <Properties />
         </Route>
 
         <Route exact path="/portal/properties/create">
-            <PropertyList showCreateModal />
+            <Properties showCreateModal />
         </Route>
 
         <Route exact path="/portal/properties/:id">
-            <PropertyView />
+            <Property />
         </Route>
 
         {/* Auth */}

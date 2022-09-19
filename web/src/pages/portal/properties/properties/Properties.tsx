@@ -3,14 +3,14 @@ import { Container, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
-import useFetchProperties from '@pages/portal/Property/hooks/useFetchProperties';
-import MEESRating from '@pages/portal/Property/PropertyList/MEESRating';
+import useFetchProperties from '@pages/portal/properties/hooks/useFetchProperties';
+import MEESRating from '@pages/portal/properties/properties/MEESRating';
 import { IProperty } from '../../../../types/shared/Properties';
 import dayjs from 'dayjs';
 import { useHistory } from 'react-router-dom';
 import DataCheck from '@components/ui/DataCheck';
 
-function PropertyList({ showCreateModal }: IProps) {
+function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
 
     const { properties } = useFetchProperties();
@@ -92,4 +92,4 @@ interface IProps {
     showCreateModal?: boolean;
 }
 
-export default PropertyList;
+export default Properties;

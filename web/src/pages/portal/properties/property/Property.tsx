@@ -3,7 +3,7 @@ import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import AccordionPages from './_components/AccordionPages/AccordionPages';
 
-function PropertyView() {
+function Property() {
     return (
         <MainPortal>
             <Section>
@@ -22,4 +22,4 @@ function PropertyView() {
     );
 }
 
-export default PropertyView;
+export default Property;
