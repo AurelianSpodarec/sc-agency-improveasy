@@ -5,6 +5,7 @@ import IconLogoPortal from '@content/icons/logo/IconLogoPortal';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
 import { Container } from '@components/ui';
+import UserAvatar from '@components/UserAvatar/UserAvatar';
 
 const Header = () => {
     return (
@@ -20,10 +21,17 @@ const Header = () => {
                         </div>
                     </Link>
 
-                    <div className="flex-row align-center">
-                        <LinkButton href="/portal/properties/create" className="winged" icon="home">
-                            Create Property
-                        </LinkButton>
+                    <div className="flex-row space-x-4">
+                        <div className="flex-row align-center">
+                            <LinkButton
+                                href="/portal/properties/create"
+                                className="winged"
+                                icon="home"
+                            >
+                                Create Property
+                            </LinkButton>
+                        </div>
+                        <UserAvatar />
                     </div>
                 </div>
             </Container>
