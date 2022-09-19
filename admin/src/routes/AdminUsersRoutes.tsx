@@ -21,7 +21,7 @@ const AdminUsersRoutes: React.FC = () => {
             <Route exact path={`${path}/:id/:action`}>
                 <AdminUserContainer />
             </Route>
-            <DefaultRedirect to={path} />
+            <DefaultRedirect to="/" />
         </Switch>
     );
 };

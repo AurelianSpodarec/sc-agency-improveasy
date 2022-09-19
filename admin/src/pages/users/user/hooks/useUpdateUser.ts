@@ -5,7 +5,7 @@ import usePrevious from 'lib/src/hooks/usePrevious';
 import useForm from 'lib/src/hooks/useForm';
 
 import { updateUser } from '@actions/users';
-import { getUserIsPosting, getUserPostSuccess, getUsersError } from '@selectors/users';
+import { getUserIsPosting, getUserPostSuccess, getUsersPostError } from '@selectors/users';
 import { useHistory } from 'react-router-dom';
 import { User } from 'src/types/shared/User';
 
@@ -29,7 +29,7 @@ export default function useUpdateUser({
     }, [dispatch, id, formState]);
 
     const isPosting = useSelector(getUserIsPosting);
-    const error = useSelector(getUsersError);
+    const error = useSelector(getUsersPostError);
     const postSuccess = useSelector(getUserPostSuccess);
     const prevPostSuccess = usePrevious(postSuccess);
 

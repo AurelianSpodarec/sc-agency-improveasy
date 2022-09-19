@@ -6,6 +6,7 @@ import darkModeReducer from 'lib/src/redux/reducers/darkMode';
 import authReducer from './auth';
 import adminUsersReducer from './adminUsers';
 import usersReducer from './users';
+import propertiesReducer from './properties';
 
 const rootReducer = combineReducers({
     fieldErrorsReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     usersReducer,
     redirectsReducer,
     darkModeReducer,
+    propertiesReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -1,0 +1,31 @@
+import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
+import {
+    getPropertiesIsFetching,
+    getPropertiesFetchError,
+    getPropertiesByUserID,
+} from './../../../../redux/selectors/properties';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useAppSelector } from '../../../../redux/store';
+
+const useFetchUserProperties = () => {
+    const { id } = useParams<{ id: string }>();
+    const dispatch = useDispatch();
+
+    const isFetching = useSelector(getPropertiesIsFetching);
+    const fetchError = useSelector(getPropertiesFetchError);
+    const properties = useAppSelector(state => getPropertiesByUserID(state, +id));
+
+    useEffect(() => {
+        dispatch(fetchUserProperties(+id));
+    }, [id, dispatch]);
+
+    return {
+        isFetching,
+        fetchError,
+        properties,
+    };
+};
+
+export default useFetchUserProperties;

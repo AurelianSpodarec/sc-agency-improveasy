@@ -6,6 +6,7 @@ import SubRouter from './SubRouter';
 import UsersRoutes from './UsersRoutes';
 import Dashboard from '@pages/dashboard/Dashboard';
 import DefaultRedirect from './DefaultRedirect';
+import PropertiesRoutes from './ProperitesRoutes';
 
 const Routes: React.FC = () => (
     <Switch>
@@ -22,7 +23,7 @@ const Routes: React.FC = () => (
             <AdminUsersRoutes />
         </SubRouter>
         <SubRouter path="/properties" auth>
-            <AdminUsersRoutes />
+            <PropertiesRoutes />
         </SubRouter>
         <DefaultRedirect to="/" />
     </Switch>

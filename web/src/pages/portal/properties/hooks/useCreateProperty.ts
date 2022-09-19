@@ -1,8 +1,17 @@
-import useForm from 'lib/src/hooks/useForm';
-
+import { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useCallback } from 'react';
-import { IAccessDetails } from '../../../../types/shared/Properties';
+import { useDispatch, useSelector } from 'react-redux';
+import useForm from 'lib/src/hooks/useForm';
+import usePrevious from 'lib/src/hooks/usePrevious';
+
+import { ICreatePropertyForm, ICreatePropertyRequest } from '../../../../types/shared/Properties';
+
+import { postCreateUserProperty } from '@actions/properties/postCreateUserProperty';
+import {
+    selectPropertiesError,
+    selectPropertiesIsPosting,
+    selectPropertiesPostSuccess,
+} from '@selectors/properties';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -19,10 +28,23 @@ const initialForm: ICreatePropertyForm = {
     },
 };
 
+enum ModalContent {
+    Form = 1,
+    EPCSearchComplete,
+}
+
 const useCreateProperty = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+
+    const isPosting = useSelector(selectPropertiesIsPosting);
+    const prevIsPosting = usePrevious(isPosting);
+    const postSuccess = useSelector(selectPropertiesPostSuccess);
+    const prevPostSuccess = usePrevious(postSuccess);
+    const error = useSelector(selectPropertiesError);
 
     const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
+    const [modalContent, setModalContent] = useState<ModalContent>(1);
 
     const closeModal = useCallback(() => {
         history.push('/portal/properties');
@@ -41,19 +63,52 @@ const useCreateProperty = () => {
         }
     };
 
-    console.log(formState);
+    useEffect(() => {
+        if (!isPosting && prevIsPosting) {
+            if (error) {
+                console.log(error);
+            }
+        }
+    }, [
+        postSuccess,
+        prevPostSuccess,
+        closeModal,
+        formState.bypassEPC,
+        error,
+        isPosting,
+        prevIsPosting,
+    ]);
 
-    return { formState, handleChange, closeModal };
+    const handleSubmit = () => {
+        let postBody: ICreatePropertyRequest = formState;
+
+        if (formState.useAccountDetailsForAccess) {
+            postBody = {
+                ...formState,
+                accessDetails: null,
+            };
+        }
+
+        dispatch(postCreateUserProperty(postBody));
+    };
+
+    const handleContinueAnyway = () => {
+        handleChange('bypassEPC', true);
+
+        handleSubmit();
+    };
+
+    return {
+        formState,
+        handleChange,
+        closeModal,
+        handleSubmit,
+        isPosting,
+        error,
+        modalContent,
+        setModalContent,
+        handleContinueAnyway,
+    };
 };
-
-interface ICreatePropertyForm {
-    addressLine1: string;
-    addressLine2: string;
-    city: string;
-    postcode: string;
-    bypassEPC: boolean;
-    useAccountDetailsForAccess: boolean;
-    accessDetails: IAccessDetails;
-}
 
 export default useCreateProperty;

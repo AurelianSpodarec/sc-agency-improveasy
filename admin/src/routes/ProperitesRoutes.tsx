@@ -1,17 +1,17 @@
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import Login from '@pages/auth/login/Login';
 import DefaultRedirect from './DefaultRedirect';
+import Properties from '@pages/properties/properties/Properties';
 
-const AuthRoutes: React.FC = () => {
+const PropertiesRoutes: React.FC = () => {
     const { path } = useRouteMatch();
     return (
         <Switch>
-            <Route exact path={`${path}/login`}>
-                <Login />
+            <Route exact path={`${path}`}>
+                <Properties />
             </Route>
             <DefaultRedirect to="/" />
         </Switch>
     );
 };
 
-export default AuthRoutes;
+export default PropertiesRoutes;
