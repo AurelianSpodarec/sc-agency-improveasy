@@ -1,0 +1,32 @@
+// ==========================================================================
+// # User Avatar
+// ==========================================================================
+
+.userAvatar {
+    
+    &__image {
+        border: 1px solid white;
+        border-radius: 9999px;
+        height: 45px;
+        width: 45px;
+        background-color: white;
+    }
+
+    &__placeholder-avatar {
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        fill: black;
+    }
+
+    &__menu {
+        visibility: hidden;
+        background: white;
+        z-index: 1000;
+        position: absolute;
+        bottom: -25px;
+        &.is-open {
+            visibility: visible;
+        }
+    }
+}
