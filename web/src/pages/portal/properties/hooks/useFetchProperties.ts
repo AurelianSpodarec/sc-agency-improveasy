@@ -18,7 +18,7 @@ const useFetchProperties = () => {
 
     useEffect(() => {
         dispatch(fetchUserProperties());
-    }, []);
+    }, [dispatch]);
 
     return { properties, isFetching, error };
 };

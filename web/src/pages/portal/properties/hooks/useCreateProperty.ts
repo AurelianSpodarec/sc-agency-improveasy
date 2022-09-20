@@ -4,14 +4,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
 
-import { ICreatePropertyForm, ICreatePropertyRequest } from '../../../../types/shared/Properties';
+import {
+    ICreatePropertyForm,
+    ICreatePropertyRequest,
+    ModalContent,
+} from '../../../../types/shared/Properties';
 
 import { postCreateUserProperty } from '@actions/properties/postCreateUserProperty';
 import {
+    selectLastCreatedPropertyId,
     selectPropertiesError,
     selectPropertiesIsPosting,
     selectPropertiesPostSuccess,
+    selectSingleProperty,
 } from '@selectors/properties';
+import { RootState } from '@reducers/index';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -28,11 +35,6 @@ const initialForm: ICreatePropertyForm = {
     },
 };
 
-enum ModalContent {
-    Form = 1,
-    EPCSearchComplete,
-}
-
 const useCreateProperty = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -45,6 +47,11 @@ const useCreateProperty = () => {
 
     const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
     const [modalContent, setModalContent] = useState<ModalContent>(1);
+
+    const lastCreatedPropertyId = useSelector(selectLastCreatedPropertyId);
+    const lastCreatedProperty = useSelector((state: RootState) =>
+        selectSingleProperty(state, lastCreatedPropertyId || 0),
+    );
 
     const closeModal = useCallback(() => {
         history.push('/portal/properties');
@@ -65,8 +72,16 @@ const useCreateProperty = () => {
 
     useEffect(() => {
         if (!isPosting && prevIsPosting) {
-            if (error) {
-                console.log(error);
+            if (error && error.includes('404')) {
+                setModalContent(ModalContent.EPCFailure);
+            }
+        }
+
+        if (postSuccess && !prevPostSuccess) {
+            if (lastCreatedProperty.hasEPC) {
+                setModalContent(ModalContent.EPCSuccess);
+            } else {
+                closeModal();
             }
         }
     }, [
@@ -77,6 +92,7 @@ const useCreateProperty = () => {
         error,
         isPosting,
         prevIsPosting,
+        lastCreatedProperty,
     ]);
 
     const handleSubmit = () => {
@@ -108,6 +124,7 @@ const useCreateProperty = () => {
         modalContent,
         setModalContent,
         handleContinueAnyway,
+        lastCreatedProperty,
     };
 };
 

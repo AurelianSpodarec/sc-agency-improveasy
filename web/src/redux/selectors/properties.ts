@@ -7,3 +7,7 @@ export const selectPropertiesPostSuccess = (state: RootState) =>
 export const selectPropertiesError = (state: RootState) => state.propertiesReducer.error;
 
 export const selectProperties = (state: RootState) => state.propertiesReducer.properties;
+export const selectSingleProperty = (state: RootState, id: number) =>
+    state.propertiesReducer.properties[id];
+export const selectLastCreatedPropertyId = (state: RootState) =>
+    state.propertiesReducer.lastCreatedID;
