@@ -8,7 +8,7 @@ import { Property } from 'src/types/shared/Property';
 
 const Properties: React.FC = () => {
     const { isFetching, fetchError, properties } = useFetchProperties();
-    console.log({ fetchError });
+
     return (
         <>
             <CreateHeader>
