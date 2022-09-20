@@ -21,6 +21,7 @@ const TextInput: React.FC<TextInputProps> = ({
     customValidate,
     rightLabel,
     className = '',
+    onFocus,
 }) => {
     const memoizedValidate = useCallback(_validate, [
         minNumber,
@@ -57,6 +58,7 @@ const TextInput: React.FC<TextInputProps> = ({
                 onChange={handleChange}
                 onBlur={handleBlur}
                 disabled={disabled}
+                onFocus={onFocus}
             />
         </FormField>
     );
@@ -121,6 +123,7 @@ interface TextInputProps extends FormInputProps<string> {
     maxNumber?: number;
     rightLabel?: any;
     className?: string;
+    onFocus?: () => void;
 }
 
 export default TextInput;

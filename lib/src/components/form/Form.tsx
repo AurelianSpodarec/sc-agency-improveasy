@@ -31,7 +31,7 @@ const Form: React.FC<FormProps> = ({
         <form onSubmit={_handleSubmit}>
             {children}
             {!!formError && <p className="form-generic-error">{formError}</p>}
-            {!!error && <p className="form-generic-error">{error}</p>}
+            {!!error && !formError && <p className="form-generic-error">{error}</p>}
             {!omitButtons && (
                 <ButtonRow alignment={buttonAlignment}>
                     {!!onCancel && (
@@ -44,7 +44,11 @@ const Form: React.FC<FormProps> = ({
                             Cancel
                         </ActionButton>
                     )}
-                    <ActionButton isPosting={isPosting} className={submitButtonClassName} type="submit">
+                    <ActionButton
+                        isPosting={isPosting}
+                        className={submitButtonClassName}
+                        type="submit"
+                    >
                         Submit
                     </ActionButton>
                 </ButtonRow>

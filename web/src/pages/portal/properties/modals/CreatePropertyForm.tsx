@@ -2,6 +2,8 @@ import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 import Checkbox from 'lib/src/components/form/Checkbox';
 import { ICreatePropertyForm } from 'src/types/shared/Properties';
+import { useState } from 'react';
+import AddressLookup, { IAddress } from '@components/ui/AddressLookup';
 
 const CreatePropertyForm = ({
     formState: {
@@ -18,6 +20,16 @@ const CreatePropertyForm = ({
     isPosting,
     error,
 }: IProps) => {
+    const [showAddressFields, setShowAddressFields] = useState(false);
+
+    const handleAddressSelect = (address: IAddress) => {
+        handleChange('addressLine1', address.addressLine1 || '');
+        handleChange('addressLine2', address.addressLine2 || '');
+        handleChange('city', address.town || '');
+        handleChange('postcode', address.postCode || '');
+        setShowAddressFields(true);
+    };
+
     return (
         <Form
             onSubmit={handleSubmit}
@@ -26,38 +38,45 @@ const CreatePropertyForm = ({
             isPosting={isPosting}
             error={error}
         >
-            <TextInput
-                name="addressLine1"
-                value={addressLine1}
-                onChange={handleChange}
-                placeholder="Address Line 1"
-                className="winged"
-                required
+            <AddressLookup
+                setShowAddressFields={setShowAddressFields}
+                onSelect={handleAddressSelect}
             />
-
-            <TextInput
-                name="addressLine2"
-                value={addressLine2}
-                onChange={handleChange}
-                placeholder="Address Line 2"
-                className="winged"
-            />
-            <TextInput
-                name="city"
-                value={city}
-                onChange={handleChange}
-                placeholder="City"
-                className="winged"
-                required
-            />
-            <TextInput
-                name="postcode"
-                value={postcode}
-                onChange={handleChange}
-                placeholder="Postcode"
-                className="winged"
-                required
-            />
+            {showAddressFields && (
+                <>
+                    <TextInput
+                        name="addressLine1"
+                        value={addressLine1}
+                        onChange={handleChange}
+                        placeholder="Address Line 1"
+                        className="winged"
+                        required
+                    />
+                    <TextInput
+                        name="addressLine2"
+                        value={addressLine2}
+                        onChange={handleChange}
+                        placeholder="Address Line 2"
+                        className="winged"
+                    />
+                    <TextInput
+                        name="city"
+                        value={city}
+                        onChange={handleChange}
+                        placeholder="City"
+                        className="winged"
+                        required
+                    />
+                    <TextInput
+                        name="postcode"
+                        value={postcode}
+                        onChange={handleChange}
+                        placeholder="Postcode"
+                        className="winged"
+                        required
+                    />
+                </>
+            )}
             <Checkbox
                 name="bypassEPC"
                 value={bypassEPC}
