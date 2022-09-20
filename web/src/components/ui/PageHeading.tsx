@@ -10,13 +10,11 @@ function PageHeading({
     space = 'md',
 }: PageHeadingProps) {
     const isBorder = border ? 'page-heading--border-bottom' : '';
-
+    const spaceClass = space ? 'page-heading--space-md' : `page-heading--space-${space}`;
     return (
         <header
             style={style}
-            className={`${
-                className ? className : ''
-            } page-heading ${isBorder} page-heading--space-${space}`}
+            className={`${className ? className : ''} page-heading ${isBorder} ${spaceClass}`}
         >
             <Text type="h2" size={size} weight="bold">
                 <span>{title}</span>
