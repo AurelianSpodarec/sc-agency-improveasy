@@ -1,4 +1,5 @@
 import * as Accordion from '@radix-ui/react-accordion';
+import Checkbox from 'lib/src/components/form/Checkbox';
 import { useState } from 'react';
 import AccordionFilterItem from './AccordtionFilterItem';
 
@@ -21,7 +22,10 @@ function AccordionFilter({ data = [], type }: any) {
             collapsible
         >
             <AccordionFilterItem title="EPC Current" value="sds">
-                Hsdsdsdsi
+                {/* <Checkbox name="hi" value={true} onChange={() => console.log('hi')}>
+                    A
+                </Checkbox> */}
+                <div></div>
             </AccordionFilterItem>
             <AccordionFilterItem title="EPC Potential" value="ksds">
                 bosdso

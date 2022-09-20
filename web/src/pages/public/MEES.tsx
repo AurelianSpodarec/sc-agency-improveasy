@@ -36,7 +36,7 @@ function MEES() {
                 </Container>
 
                 <Container>
-                    <div className="processBalls">
+                    <div className="processBalls md:space-x-4">
                         <div className="processBalls__item">
                             <div className="processBalls-chain">
                                 <div className="processBalls-chain__inner space-x-2">
