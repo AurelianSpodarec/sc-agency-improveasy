@@ -64,6 +64,8 @@ const ForgotPassword: React.FC = () => {
                         </ActionButton>
                     </div>
                 </Form>
+
+                {showSuccess ? 'Password reset sent' : ''}
             </AuthSection>
 
             {/* TODO: Success message */}

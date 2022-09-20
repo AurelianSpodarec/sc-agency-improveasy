@@ -73,6 +73,19 @@ const Login: React.FC = () => {
                             Login
                         </ActionButton>
                     </div>
+
+                    {showConfirmEmail && (
+                        <>
+                            <p>
+                                Your account is not comfirmed, please click the link in your email.
+                            </p>
+                            <p>
+                                <button type="button" onClick={resendEmail}>
+                                    Resend confimation.
+                                </button>
+                            </p>
+                        </>
+                    )}
                 </Form>
             </AuthSection>
         </AuthCard>
