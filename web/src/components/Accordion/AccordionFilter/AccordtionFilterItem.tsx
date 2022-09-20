@@ -9,7 +9,7 @@ function AccordionFilterItem({ title, id, children, item, value, isOpen }: any) 
             <Accordion.Header className="accordionFilter-item__header">
                 <Accordion.Trigger className="accordionFilter-item__trigger">
                     <div className="d-flex align-center justify-between">
-                        <PageHeading title={title} size="lg" border={true} space={'none'} />
+                        <PageHeading title={title} size="lg" border={true} space="none" />
 
                         <div className="accordionFilter-item__icon">
                             {isOpen === id ? <ChevronDown /> : <ChevronUp />}

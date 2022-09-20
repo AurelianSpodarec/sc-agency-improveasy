@@ -6,7 +6,10 @@
   
     padding-bottom: 25px;
     &-item {
-        // border-top: 2px solid #ededed; // todo: add this to page heading
+        &:last-of-type {
+            padding-bottom: 25px;
+        }
+        border-top: 2px solid #ededed; // todo: add this to page heading
         &__header {
             border: none;
         }
