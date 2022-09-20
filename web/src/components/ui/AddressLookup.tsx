@@ -70,6 +70,7 @@ const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IProps) =>
     }, [dispatch]);
 
     const handleChange = (value: string) => {
+        setShowAddressFields(false);
         setText(value);
         if (value) dispatch(postcodeFind({ postcode: value }));
         if (addressAdded) setAddressAdded(false);
