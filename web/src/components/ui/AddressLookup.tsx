@@ -94,11 +94,17 @@ const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IProps) =>
                 name="addressSearch"
                 value={text}
                 onChange={(_, value) => handleChange(value || '')}
-                placeholder="Enter Postcode"
+                placeholder="Enter Postcode for search"
                 className="winged"
                 onFocus={() => setIsFocussed(true)}
                 required
             />
+
+            <div className="flex-row justify-center">
+                <button className="text-button" onClick={() => setShowAddressFields(true)}>
+                    Manually enter address
+                </button>
+            </div>
 
             {isFocussed && !!text && !addressAdded && (
                 <div className="suggestion-list">

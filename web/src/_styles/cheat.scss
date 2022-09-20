@@ -95,4 +95,10 @@
     height: 100%;
 }
 
-
+.text-button {
+    @include mainFont();
+    font-size: 120%;
+    background-color: transparent;
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
