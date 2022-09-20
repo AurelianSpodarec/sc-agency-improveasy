@@ -67,8 +67,6 @@ const ForgotPassword: React.FC = () => {
 
                 {showSuccess ? 'Password reset sent' : ''}
             </AuthSection>
-
-            {/* TODO: Success message */}
         </AuthCard>
     );
 };

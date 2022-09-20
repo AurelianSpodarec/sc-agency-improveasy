@@ -74,18 +74,21 @@ const Login: React.FC = () => {
                         </ActionButton>
                     </div>
 
-                    {showConfirmEmail && (
-                        <>
-                            <p>
-                                Your account is not comfirmed, please click the link in your email.
-                            </p>
-                            <p>
-                                <button type="button" onClick={resendEmail}>
-                                    Resend confimation.
-                                </button>
-                            </p>
-                        </>
-                    )}
+                    <div style={{ marginTop: '30px' }}>
+                        {showConfirmEmail && (
+                            <>
+                                <p>
+                                    Your account is not comfirmed, please click the link in your
+                                    email.
+                                </p>
+                                <p>
+                                    <ActionButton className="winged" onClick={resendEmail}>
+                                        Resend confimation.
+                                    </ActionButton>
+                                </p>
+                            </>
+                        )}
+                    </div>
                 </Form>
             </AuthSection>
         </AuthCard>
