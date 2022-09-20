@@ -64,7 +64,7 @@ export const handleApiErrors = <A extends Action>(
             ? dispatch(addFormError(response.data))
             : dispatch(setFieldErrors(response.data.errors));
 
-        return dispatch(failureAction(message));
+        return dispatch(failureAction(null));
     }
     if (response && response.status === 401) {
         dispatch(failureAction('Unauthorized'));

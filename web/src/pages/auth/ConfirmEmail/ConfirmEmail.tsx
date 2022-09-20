@@ -9,6 +9,7 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 const ConfirmEmail: React.FC = () => {
     const { isPosting, error } = useConfirmEmail();
 
+    console.log('error', error);
     return (
         <AuthCard>
             <AuthHeader title="Confirm Email" />
@@ -19,10 +20,11 @@ const ConfirmEmail: React.FC = () => {
                         {isPosting && <i className="fal fa-spinner fa-spin"></i>}
                     </Form>
                     <div>
-                        We created an account for you. Please confirm your e-mail addrss and use our
-                        service to the maximum
+                        We created an account for you. Please confirm your e-mail address and use
+                        our service to the maximum
                     </div>
                 </div>
+
                 <div className="d-flex justify-between">
                     <div></div>
                     <LinkButton href="/auth/login" className="winged">

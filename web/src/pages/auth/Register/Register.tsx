@@ -38,7 +38,7 @@ const Register: React.FC = (): JSX.Element => {
         }
     }, [postSuccess, prevPostSuccess, history]);
 
-    console.log('Register', postSuccess, isPosting);
+    console.log('Register', prevPostSuccess, postSuccess, isPosting);
 
     return (
         <AuthCard>
@@ -114,19 +114,3 @@ const Register: React.FC = (): JSX.Element => {
 };
 
 export default Register;
-
-interface RegisterProps {
-    formState: {
-        firstName: string;
-        lastName: string;
-        email: string;
-        password: string;
-        phone: string;
-    };
-    handleChange: <T>(
-        name: 'email' | 'password' | 'firstName' | 'lastName' | 'phone',
-        value: T,
-    ) => void;
-    handleSubmit: HandleSubmit;
-    isPosting: boolean;
-}
