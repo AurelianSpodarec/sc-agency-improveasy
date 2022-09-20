@@ -95,23 +95,20 @@ const useCreateProperty = () => {
         lastCreatedProperty,
     ]);
 
-    const handleSubmit = () => {
-        let postBody: ICreatePropertyRequest = formState;
+    const handleSubmit = (bypassEPC?: true) => {
+        let postBody: ICreatePropertyRequest = {
+            ...formState,
+            bypassEPC: bypassEPC || formState.bypassEPC,
+        };
 
         if (formState.useAccountDetailsForAccess) {
             postBody = {
-                ...formState,
+                ...postBody,
                 accessDetails: null,
             };
         }
 
         dispatch(postCreateUserProperty(postBody));
-    };
-
-    const handleContinueAnyway = () => {
-        handleChange('bypassEPC', true);
-
-        handleSubmit();
     };
 
     return {
@@ -123,7 +120,6 @@ const useCreateProperty = () => {
         error,
         modalContent,
         setModalContent,
-        handleContinueAnyway,
         lastCreatedProperty,
     };
 };

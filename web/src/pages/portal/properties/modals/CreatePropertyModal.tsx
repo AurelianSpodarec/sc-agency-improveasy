@@ -18,7 +18,6 @@ const CreatePropertyModal = () => {
         error,
         modalContent,
         setModalContent,
-        handleContinueAnyway,
         lastCreatedProperty,
     } = useCreateProperty();
 
@@ -40,7 +39,7 @@ const CreatePropertyModal = () => {
                     }`}
                     setModalContent={setModalContent}
                     closeModal={closeModal}
-                    handleContinueAnyway={handleContinueAnyway}
+                    handleContinueAnyway={() => handleSubmit(true)}
                 />
             ) : (
                 <CreatePropertyEPCSuccess
