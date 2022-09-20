@@ -20,8 +20,6 @@ const Login: React.FC = () => {
         resendEmail,
     } = useLogin();
 
-    // console.log('woo', error, customValidate, showConfirmEmail);
-
     return (
         <AuthCard>
             <AuthHeader title="Login">
@@ -57,7 +55,6 @@ const Login: React.FC = () => {
                         />
                     </FormRow>
 
-                    <div>{showConfirmEmail}</div>
                     {/* TODO: Please confrm your email */}
 
                     <div className="d-flex">

@@ -1,24 +1,26 @@
 import { PageHeading, Text } from '@components/ui';
-import IconCross from '@content/icons/IconCross';
-import IconPlus from '@content/icons/IconPlus';
+import ChevronDown from '@content/icons/ChevronDown';
+import ChevronUp from '@content/icons/ChevronUp';
 import * as Accordion from '@radix-ui/react-accordion';
 
 function AccordionFilterItem({ title, id, children, item, value, isOpen }: any) {
     return (
-        <Accordion.Item className="accordionOne-item" value={value}>
-            <Accordion.Header className="accordionOne-item__header">
-                <Accordion.Trigger className="accordionOne-item__trigger">
+        <Accordion.Item className="accordionFilter-item" value={value}>
+            <Accordion.Header className="accordionFilter-item__header">
+                <Accordion.Trigger className="accordionFilter-item__trigger">
                     <div className="d-flex align-center justify-between">
-                        <PageHeading title={title} size="lg" border={false} space={'none'} />
+                        <PageHeading title={title} size="lg" border={true} space={'none'} />
 
-                        <div className="accordionOne-item__icon">
-                            {isOpen === id ? <IconCross /> : <IconPlus />}
+                        <div className="accordionFilter-item__icon">
+                            {isOpen === id ? <ChevronDown /> : <ChevronUp />}
                         </div>
                     </div>
                 </Accordion.Trigger>
             </Accordion.Header>
 
-            <Accordion.Content className="accordionOne-item__content">{children}</Accordion.Content>
+            <Accordion.Content className="accordionFilter-item__content">
+                {children}
+            </Accordion.Content>
         </Accordion.Item>
     );
 }

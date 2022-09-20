@@ -16,7 +16,7 @@ function AccordionFilter({ data = [], type }: any) {
     return (
         <Accordion.Root
             onValueChange={(e: any) => onValueChange(e)}
-            style={{ borderBottom: '7px solid #0D695C' }}
+            style={{ border: '2px solid #ededed', borderRadius: '10px' }}
             type={type}
             collapsible
         >
