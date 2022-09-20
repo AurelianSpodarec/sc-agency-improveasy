@@ -9,6 +9,17 @@
     @include mainFontSemiBold;
     font-size: 140%;
   }
+
+  &.potential-wrapper {
+
+    &:first-child {
+      width: 75%;
+    }
+    
+    &:last-child{
+      width: 100%!important;
+    }
+  }
 }
 
 /* Each line */
