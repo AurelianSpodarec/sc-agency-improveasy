@@ -23,6 +23,7 @@ interface IPropertyState {
     postSuccess: boolean;
     error: string | null;
     properties: Record<number, IProperty>;
+    lastCreatedID: number | null;
 }
 
 const initialState: IPropertyState = {
@@ -31,6 +32,7 @@ const initialState: IPropertyState = {
     postSuccess: false,
     error: null,
     properties: {},
+    lastCreatedID: null,
 };
 
 export default createReducer(initialState, {
@@ -60,6 +62,7 @@ function handlePostRequest(state: IPropertyState) {
     state.isPosting = true;
     state.postSuccess = false;
     state.error = null;
+    state.lastCreatedID = null;
 }
 
 function handlePostFiltersSuccess(state: IPropertyState, action: PayloadAction<IProperty[]>) {
@@ -74,6 +77,7 @@ function handlePostPropertySuccess(state: IPropertyState, action: PayloadAction<
     state.postSuccess = true;
     state.error = null;
     state.properties[action.payload.id] = action.payload;
+    state.lastCreatedID = action.payload.id;
 }
 
 function handleFailure(state: IPropertyState, action: PayloadAction<string>) {

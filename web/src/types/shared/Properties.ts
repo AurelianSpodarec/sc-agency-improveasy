@@ -1,5 +1,3 @@
-type epcRating = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | null;
-
 export interface IProperty {
     id: number;
     userID: number;
@@ -9,8 +7,8 @@ export interface IProperty {
     postcode: string;
     statusUpdatedOn: Date;
     useAccountDetailsForAccess: boolean;
-    currentEPCRating: epcRating;
-    potentialEPCRating: epcRating;
+    currentEPCRating: EPCRatings;
+    potentialEPCRating: EPCRatings;
     hasEPC: boolean;
     accessDetails: IAccessDetails;
     status: PropertyStatusType;
@@ -70,3 +68,11 @@ export interface IPropertyFilterRequest {
 export interface ICreatePropertyRequest extends Omit<ICreatePropertyForm, 'accessDetails'> {
     accessDetails: IAccessDetails | null;
 }
+
+export enum ModalContent {
+    Form = 1,
+    EPCSuccess,
+    EPCFailure,
+}
+
+export type EPCRatings = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | null;
