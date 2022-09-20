@@ -6,6 +6,7 @@ import propertiesReducer from './properties';
 import darkModeReducer from 'lib/src/redux/reducers/darkMode';
 import fieldErrorsReducer from 'lib/src/redux/reducers/fieldErrors';
 import redirectsReducer from 'lib/src/redux/reducers/redirects';
+import postcodeFinderReducer from './postcodeFinder';
 
 const rootReducer = combineReducers({
     authReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     darkModeReducer,
     fieldErrorsReducer,
     redirectsReducer,
+    postcodeFinderReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
