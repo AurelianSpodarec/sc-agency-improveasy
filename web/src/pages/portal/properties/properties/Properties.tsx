@@ -20,8 +20,8 @@ function Properties({ showCreateModal }: IProps) {
             <MainPortal>
                 <Section>
                     <Container>
-                        <div className="d-flex space-x-4">
-                            <div className="w-1/3">
+                        <div className="d-flex space-x-4 ">
+                            <div className="w-1/4">
                                 <MainCard title="Filter">
                                     <AccordionFilter />
                                 </MainCard>
