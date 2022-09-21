@@ -13,7 +13,7 @@ import DataCheck from '@components/ui/DataCheck';
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
 
-    const { properties } = useFetchProperties();
+    const { properties, isFetching, error } = useFetchProperties();
 
     return (
         <>
@@ -44,8 +44,8 @@ function Properties({ showCreateModal }: IProps) {
                                         <tbody>
                                             <DataCheck
                                                 dataExists={!!properties.length}
-                                                isFetching={true}
-                                                error={null}
+                                                isFetching={isFetching}
+                                                error={error}
                                             >
                                                 {properties.map((section: IProperty) => (
                                                     <tr
