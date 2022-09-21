@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import usePropertyAddressDetails from './_hooks/usePropertyAddressDetails';
+import { useCallback } from 'react';
+import usePropertyAddressDetailsForm from './_hooks/usePropertyAddressDetailsForm';
 
 import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
@@ -18,7 +18,7 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
         revertChanges,
         isPosting,
         error,
-    } = usePropertyAddressDetails(property);
+    } = usePropertyAddressDetailsForm(property);
 
     const handleAddressSelect = useCallback(
         (address: IAddress) => {

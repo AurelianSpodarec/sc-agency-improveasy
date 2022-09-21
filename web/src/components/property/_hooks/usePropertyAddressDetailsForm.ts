@@ -5,7 +5,7 @@ import { updatePropertyAddress } from '@actions/properties/updatePropertyAddress
 import { IProperty } from 'src/types/shared/Properties';
 import { selectPropertiesError, selectPropertiesIsPosting } from '@selectors/properties';
 
-const usePropertyAddressDetails = (property: IProperty) => {
+const usePropertyAddressDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
 
     const initialForm: IUpdateAddressDetailsProps = {
@@ -38,4 +38,4 @@ interface IUpdateAddressDetailsProps {
     postcode: string;
 }
 
-export default usePropertyAddressDetails;
+export default usePropertyAddressDetailsForm;

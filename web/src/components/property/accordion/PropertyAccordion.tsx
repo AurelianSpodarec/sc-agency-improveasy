@@ -4,6 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { IProperty } from 'src/types/shared/Properties';
 import PropertyAccordionItem from './PropertyAccordionItem';
 import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
+import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
 
 export enum PropertyAccordionValue {
     TENANT = '1',
@@ -36,7 +37,7 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
             >
                 <div className="flex-row justify-between">
                     <PropertyAddressDetailsForm property={data} />
-                    <PropertyAddressDetailsForm property={data} />
+                    <PropertyAccessDetailsForm property={data} />
                 </div>
             </PropertyAccordionItem>
             <PropertyAccordionItem
