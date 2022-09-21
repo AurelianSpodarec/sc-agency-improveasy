@@ -2,50 +2,13 @@
 // # Cheat
 // ==========================================================================
 
-
-.modal-createProperty {
-    width: 600px;
-    margin: auto;
-    padding: 20px;
-    background-color: white;
-}
-
-
-.box {
-    background-color: red;
-    @include breakpoint(medium down) {
-        background-color: yellow;
-    }
-}
+ 
 
 .no-underline {
     text-decoration-line: none;
 }
 
-.userAvatar {
-    &__img {
-        box-shadow: #0E3D38;
-    }
-}
- 
 
-.bg-gradient-primary {
-    background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
-}
-
-
-.bg-gradient {
-    &--primary {
-        background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
-    }
-    &--secondary {
-        background-image: linear-gradient(40.91deg, #E76F51 0%, #F4A261 100%);
-    }
-
-    &--teritary {
-        background-image: linear-gradient(40.91deg, #F4A261 0%, #E9C469 100%);
-    }
-}
 
 .rounded {
     &--full {
@@ -53,16 +16,6 @@
     }
 }
 
-// .bg-gradient
-
-.overlay__black {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.55);
-}
 
 .horizontal-padding {
     padding: 0 20px;

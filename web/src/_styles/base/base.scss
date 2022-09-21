@@ -20,3 +20,16 @@ p {
 a {
     color: black;
 }
+
+.bg-gradient {
+    &--primary {
+        background-image: linear-gradient(40.91deg, #264652 0%, #2A9C8E 100%);
+    }
+    &--secondary {
+        background-image: linear-gradient(40.91deg, #E76F51 0%, #F4A261 100%);
+    }
+
+    &--teritary {
+        background-image: linear-gradient(40.91deg, #F4A261 0%, #E9C469 100%);
+    }
+}

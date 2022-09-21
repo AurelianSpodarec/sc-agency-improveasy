@@ -190,7 +190,7 @@ function Home() {
                 </Container>
             </Section>
 
-            <Section size="2xl" className="bg-gradient-primary">
+            <Section size="2xl" className="bg-gradient--primary">
                 <Container>
                     <div className="d-flex justify-between">
                         <div className="d-flex flex-wrap lg:flex-no-wrap space-y-20 lg:space-y-0 space-x-0 lg:space-x-20 lg:space-y-0">

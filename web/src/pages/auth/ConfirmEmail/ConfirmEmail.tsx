@@ -19,10 +19,10 @@ const ConfirmEmail: React.FC = () => {
                     <Form onSubmit={() => {}} isPosting={isPosting} error={error} omitButtons>
                         {isPosting && <i className="fal fa-spinner fa-spin"></i>}
                     </Form>
-                    <div>
+                    {/* <div>
                         We created an account for you. Please confirm your e-mail address and use
                         our service to the maximum
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="d-flex justify-between">

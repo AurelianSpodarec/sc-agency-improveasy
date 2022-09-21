@@ -2,6 +2,10 @@
 // # Main - Order in this file matters
 // ==========================================================================
 
+
+// ==========================================================================
+// Mixins
+// ==========================================================================
 @import 'helpers/mixins';
 @import 'helpers/sc-mixins';
 
@@ -13,7 +17,6 @@
 @import 'variables/units';
 @import 'variables/breakpoints';
 @import 'variables/fonts';
-
 
 
 // ==========================================================================
@@ -38,6 +41,7 @@
 @import 'ui/page-heading';
 @import 'ui/epc';
 @import 'ui/address-lookup';
+
 
 // ==========================================================================
 // Base
@@ -67,7 +71,6 @@
 @import 'components/modal';
 @import 'components/table';
 @import 'components/main-card';
-@import 'components/typography';
 @import 'components/processBalls';
 @import 'components/userAvatar';
 

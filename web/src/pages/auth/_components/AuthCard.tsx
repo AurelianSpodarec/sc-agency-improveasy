@@ -9,7 +9,7 @@ function AuthCard({
         <div className="authLogin">
             <div className="authLogin__image">
                 <img className="w-full" src={image} alt="yes" />
-                <div className="overlay__black"></div>
+                <div className="authLogin__overlay"></div>
             </div>
 
             <div className="authLogin__main">

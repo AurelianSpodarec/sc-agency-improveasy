@@ -11,6 +11,7 @@ function PageHeading({
 }: PageHeadingProps) {
     const isBorder = border ? 'page-heading--border-bottom' : '';
     const spaceClass = space ? 'page-heading--space-md' : `page-heading--space-${space}`;
+
     return (
         <header
             style={style}
