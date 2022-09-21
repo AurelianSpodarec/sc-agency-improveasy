@@ -16,7 +16,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
         isPosting,
         error,
         revertChanges,
-    } = usePropertyAccessDetailsForm(property.accessDetails);
+    } = usePropertyAccessDetailsForm(property.id, property.accessDetails);
 
     return (
         <div className="inset-box-shadow flex-6" style={{ marginRight: 25 }}>

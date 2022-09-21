@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectPropertiesIsPosting, selectPropertiesError } from '@selectors/properties';
 import { IAccessDetails } from 'src/types/shared/Properties';
+import { updatePropertyAccessDetails } from '@actions/properties/updatePropertyAccessDetails';
 
-const usePropertyAccessDetailsForm = (accessDetails: IAccessDetails) => {
+const usePropertyAccessDetailsForm = (id: number, accessDetails: IAccessDetails) => {
     const dispatch = useDispatch();
 
     const initialForm: IAccessDetails = {
@@ -20,7 +21,7 @@ const usePropertyAccessDetailsForm = (accessDetails: IAccessDetails) => {
     const error = useSelector(selectPropertiesError);
 
     const handleSubmit = () => {
-        console.log(form);
+        dispatch(updatePropertyAccessDetails(id, form));
     };
 
     const revertChanges = () => {
