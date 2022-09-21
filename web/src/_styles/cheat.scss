@@ -61,3 +61,12 @@
     color: var(--color-green-400);
     @include mainFontSemiBold();
 }
+
+.divider {
+    position: absolute;
+    bottom: -5px;
+    background-color: #0D695C;
+    border-radius: 5.5px 0;
+    width: 100%;
+    height: 7px;
+}

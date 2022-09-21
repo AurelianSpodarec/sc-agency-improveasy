@@ -9,17 +9,16 @@ function PageHeading({
     border = true,
     space = 'md',
 }: PageHeadingProps) {
-    console.log(space);
-    const isBorder = border ? 'page-heading--border-bottom' : '';
     const spaceClass = space ? `page-heading--space-${space}` : 'page-heading--space-md';
 
     return (
         <header
             style={style}
-            className={`${className ? className : ''} page-heading ${isBorder} ${spaceClass}`}
+            className={`${className ? className : ''} page-heading ${spaceClass}`}
         >
             <Text type="h2" size={size} weight="bold">
                 <span>{title}</span>
+                {border && <div className="divider" />}
             </Text>
         </header>
     );
