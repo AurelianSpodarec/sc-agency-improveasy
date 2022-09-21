@@ -31,7 +31,7 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
             collapsible
         >
             <PropertyAccordionItem
-                title="Access Details"
+                title="Address/Access Details"
                 value={PropertyAccordionValue.TENANT}
                 isOpen={openValue === PropertyAccordionValue.TENANT}
             >
