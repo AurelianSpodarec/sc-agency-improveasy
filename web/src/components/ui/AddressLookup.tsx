@@ -15,6 +15,7 @@ import {
 } from '@selectors/postcodeFinder';
 import TextInput from 'lib/src/components/form/TextInput';
 import DataCheck from './DataCheck';
+import { PostcodeSuggestion } from 'src/types/shared/PostcodeFinder';
 
 const SuggestionItem = ({
     suggestion,
@@ -22,7 +23,7 @@ const SuggestionItem = ({
     setAddressAdded,
     handleAddressSelection,
     inputRef,
-}: any) => {
+}: ISuggestionItemProps) => {
     const dispatch = useDispatch();
     const { id, text, description, type } = suggestion;
 
@@ -50,7 +51,7 @@ const SuggestionItem = ({
     );
 };
 
-const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IProps) => {
+const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IAddressLookupProps) => {
     const dispatch = useDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -113,7 +114,7 @@ const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IProps) =>
                         error={error}
                         dataExists={!!suggestions.length}
                     >
-                        {suggestions.map((suggestion: any) => (
+                        {suggestions.map((suggestion: PostcodeSuggestion) => (
                             <SuggestionItem
                                 key={suggestion.id}
                                 suggestion={suggestion}
@@ -137,8 +138,17 @@ export interface IAddress {
     county?: string;
 }
 
-interface IProps {
+interface IAddressLookupProps {
     setShowAddressFields: (showAddressFields: boolean) => void;
     onSelect?: (address: IAddress) => void;
 }
+
+interface ISuggestionItemProps {
+    suggestion: PostcodeSuggestion;
+    setText: (text: string) => void;
+    setAddressAdded: (addressAdded: boolean) => void;
+    handleAddressSelection?: () => void;
+    inputRef: React.RefObject<HTMLInputElement>;
+}
+
 export default AddressLookup;

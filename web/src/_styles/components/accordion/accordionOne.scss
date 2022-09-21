@@ -3,11 +3,7 @@
 // ==========================================================================
 
 .accordionOne {
-  
-
     &-item {
-        border-top: 7px solid #0D695C;
-       
         &__header {
             border: none;
         }
@@ -24,6 +20,18 @@
 
         &__icon {
             color: #007768;
+
+            .chevron {
+                &.up {
+                    transform: rotate(-180deg);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                &.down {
+                    transform: rotate(0deg);
+                    transition: transform 0.3s ease-in-out;
+                }
+            }
         }
         
         &__content {

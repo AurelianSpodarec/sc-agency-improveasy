@@ -18,11 +18,16 @@ const DataCheck: React.FC<DataCheckProps> = ({
         );
     if (isFetching && !dataExists)
         return (
-            <div className="flex flex-row align-center justify-center">
+            <div className="flex flex-row align-center justify-center" style={{ padding: 25 }}>
                 <Loading />
             </div>
         );
-    if (!dataExists) return <p>{noDataMessage}</p>;
+    if (!dataExists)
+        return (
+            <div className="flex-row align-center justify-center" style={{ padding: 25 }}>
+                <p>{noDataMessage}</p>
+            </div>
+        );
     return <>{children}</>;
 };
 

@@ -16,6 +16,11 @@ import {
     postCreateUserPropertyRequest,
     postCreateUserPropertySuccess,
 } from '@actions/properties/postCreateUserProperty';
+import {
+    fetchPropertyByIDFailure,
+    fetchPropertyByIDRequest,
+    fetchPropertyByIDSuccess,
+} from '@actions/properties/fetchPropertyByID';
 
 interface IPropertyState {
     isFetching: boolean;
@@ -45,6 +50,9 @@ export default createReducer(initialState, {
     [postCreateUserPropertyRequest.type]: handlePostRequest,
     [postCreateUserPropertySuccess.type]: handlePostPropertySuccess,
     [postCreateUserPropertyFailure.type]: handleFailure,
+    [fetchPropertyByIDRequest.type]: handleFetchRequest,
+    [fetchPropertyByIDSuccess.type]: handleFetchSingleProperty,
+    [fetchPropertyByIDFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
@@ -78,6 +86,12 @@ function handlePostPropertySuccess(state: IPropertyState, action: PayloadAction<
     state.error = null;
     state.properties[action.payload.id] = action.payload;
     state.lastCreatedID = action.payload.id;
+}
+
+function handleFetchSingleProperty(state: IPropertyState, action: PayloadAction<IProperty>) {
+    state.isFetching = false;
+    state.error = null;
+    state.properties[action.payload.id] = action.payload;
 }
 
 function handleFailure(state: IPropertyState, action: PayloadAction<string>) {

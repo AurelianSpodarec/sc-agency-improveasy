@@ -9,11 +9,12 @@
     @include mainFontSemiBold;
     font-size: 140%;
   }
+}
 
-  &.potential-wrapper {
-
+.potential-wrapper {
+  .line {
     &:first-child {
-      width: 75%;
+      width: 80%!important;
     }
     
     &:last-child{
