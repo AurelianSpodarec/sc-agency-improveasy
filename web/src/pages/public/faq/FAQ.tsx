@@ -1,4 +1,4 @@
-import MainPublic from './_components/MainPublic';
+import MainPublic from '../_components/MainPublic';
 
 import { Container, PageHeading, Section, Text } from '@components/ui';
 import LinkButton from 'lib/src/components/button/LinkButton';

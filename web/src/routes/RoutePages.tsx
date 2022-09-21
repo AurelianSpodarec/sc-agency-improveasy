@@ -1,10 +1,10 @@
 import { Switch, Route } from 'react-router-dom';
 
-import Home from '@pages/public/Home';
-import FAQ from '@pages/public/FAQ';
-import MEES from '@pages/public/MEES';
-import Process from '@pages/public/Process';
-import WhyUse from '@pages/public/WhyUse';
+import Home from '@pages/public/home/Home';
+import FAQ from '@pages/public/faq/FAQ';
+import MEES from '@pages/public/mees/MEES';
+import Process from '@pages/public/process/Process';
+import WhyUse from '@pages/public/whyUse/WhyUse';
 
 function RoutePages() {
     return (

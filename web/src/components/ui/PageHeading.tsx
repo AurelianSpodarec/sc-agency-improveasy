@@ -9,8 +9,9 @@ function PageHeading({
     border = true,
     space = 'md',
 }: PageHeadingProps) {
+    console.log(space);
     const isBorder = border ? 'page-heading--border-bottom' : '';
-    const spaceClass = space ? 'page-heading--space-md' : `page-heading--space-${space}`;
+    const spaceClass = space ? `page-heading--space-${space}` : 'page-heading--space-md';
 
     return (
         <header

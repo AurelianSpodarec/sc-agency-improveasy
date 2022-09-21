@@ -4,8 +4,8 @@ import { ReactNode } from 'react';
 function MainCard({ title, children, className = '' }: MainCardProps) {
     return (
         <div className={`main-card ${className}`}>
-            <div className={`main-card__heading`}>
-                <PageHeading size="md" title={title} />
+            <div className={`main-card__heading`} style={{ backgroundColor: '#E4E4E4' }}>
+                <PageHeading size="md" space="none" title={title} />
             </div>
 
             <div className="main-card__content">{children}</div>

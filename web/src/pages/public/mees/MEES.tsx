@@ -1,6 +1,6 @@
 import { Container, PageHeading, Section, Text } from '@components/ui';
 import LinkButton from 'lib/src/components/button/LinkButton';
-import MainPublic from './_components/MainPublic';
+import MainPublic from '../_components/MainPublic';
 
 function MEES() {
     return (

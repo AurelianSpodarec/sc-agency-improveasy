@@ -7,11 +7,11 @@ import SubRouter from './utils/SubRouter';
 // import RoutePortal from './RoutePortal';
 
 // Public
-import Home from '@pages/public/Home';
-import FAQ from '@pages/public/FAQ';
-import MEES from '@pages/public/MEES';
-import Process from '@pages/public/Process';
-import WhyUse from '@pages/public/WhyUse';
+import Home from '@pages/public/home/Home';
+import FAQ from '@pages/public/faq/FAQ';
+import MEES from '@pages/public/mees/MEES';
+import Process from '@pages/public/process/Process';
+import WhyUse from '@pages/public/whyUse/WhyUse';
 
 // Dashboard
 import Properties from '@pages/portal/properties/properties/Properties';

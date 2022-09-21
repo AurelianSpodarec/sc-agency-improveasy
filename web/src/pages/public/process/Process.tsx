@@ -1,4 +1,4 @@
-import MainPublic from './_components/MainPublic';
+import MainPublic from '../_components/MainPublic';
 
 function Process() {
     return <MainPublic>process</MainPublic>;
