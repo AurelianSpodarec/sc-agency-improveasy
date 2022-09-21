@@ -39,9 +39,9 @@ function Properties({ showCreateModal }: IProps) {
                                                 <th>Address</th>
                                                 <th>City</th>
                                                 <th>Postcode</th>
-                                                <th>EPC (current)</th>
-                                                <th>EPC (potential)</th>
-                                                <th>MEES</th>
+                                                <th>Current EPC Rating</th>
+                                                <th>Potential EPC Rating</th>
+                                                <th>MEES Compliant</th>
                                                 <th>Last updated</th>
                                             </tr>
                                         </thead>
