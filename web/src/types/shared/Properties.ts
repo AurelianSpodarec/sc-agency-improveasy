@@ -31,6 +31,10 @@ export interface IAccessDetails {
     phone: string;
 }
 
+export interface IUpdatePropertyAccessDetailsForm extends IAccessDetails {
+    useAccountDetailsForAccess: boolean;
+}
+
 export enum EPCFilters {
     All = 1,
     A,

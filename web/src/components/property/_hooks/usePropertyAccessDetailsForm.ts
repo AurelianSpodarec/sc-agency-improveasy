@@ -2,17 +2,18 @@ import useForm from 'lib/src/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectPropertiesIsPosting, selectPropertiesError } from '@selectors/properties';
-import { IAccessDetails } from 'src/types/shared/Properties';
+import { IProperty, IUpdatePropertyAccessDetailsForm } from 'src/types/shared/Properties';
 import { updatePropertyAccessDetails } from '@actions/properties/updatePropertyAccessDetails';
 
-const usePropertyAccessDetailsForm = (id: number, accessDetails: IAccessDetails) => {
+const usePropertyAccessDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
 
-    const initialForm: IAccessDetails = {
-        firstName: accessDetails.firstName,
-        lastName: accessDetails.lastName,
-        email: accessDetails.email,
-        phone: accessDetails.phone,
+    const initialForm: IUpdatePropertyAccessDetailsForm = {
+        firstName: property.accessDetails.firstName,
+        lastName: property.accessDetails.lastName,
+        email: property.accessDetails.email,
+        phone: property.accessDetails.phone,
+        useAccountDetailsForAccess: property.useAccountDetailsForAccess,
     };
 
     const [form, handleChange, resetData] = useForm(initialForm);
@@ -21,7 +22,7 @@ const usePropertyAccessDetailsForm = (id: number, accessDetails: IAccessDetails)
     const error = useSelector(selectPropertiesError);
 
     const handleSubmit = () => {
-        dispatch(updatePropertyAccessDetails(id, form));
+        dispatch(updatePropertyAccessDetails(property.id, form));
     };
 
     const revertChanges = () => {

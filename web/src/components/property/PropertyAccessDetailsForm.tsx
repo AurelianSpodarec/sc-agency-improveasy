@@ -7,6 +7,7 @@ import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 
 import { IProperty } from 'src/types/shared/Properties';
+import Checkbox from 'lib/src/components/form/Checkbox';
 
 const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) => {
     const {
@@ -16,13 +17,14 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
         isPosting,
         error,
         revertChanges,
-    } = usePropertyAccessDetailsForm(property.id, property.accessDetails);
+    } = usePropertyAccessDetailsForm(property);
 
     return (
         <div className="inset-box-shadow flex-6" style={{ marginRight: 25 }}>
             <div className="flex-row justify-center">
                 <PageHeading title="Access Details" size="lg" />
             </div>
+
             <Form onSubmit={handleSubmit} omitButtons isPosting={isPosting} error={error}>
                 <TextInput
                     name="firstName"
@@ -55,6 +57,13 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     placeholder="Phone"
                     className="winged"
                     required
+                />
+                <Checkbox
+                    name="useAccountDetailsForAccess"
+                    value={false}
+                    onChange={handleChange}
+                    leftPlaceholder="Use Account Details for Access"
+                    className="justify-center"
                 />
                 <ButtonRow>
                     <ActionButton
