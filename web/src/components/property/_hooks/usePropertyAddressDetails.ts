@@ -15,7 +15,7 @@ const usePropertyAddressDetails = (property: IProperty) => {
         postcode: property.postcode,
     };
 
-    const [form, handleChange] = useForm(initialForm);
+    const [form, handleChange, resetData] = useForm(initialForm);
 
     const isPosting = useSelector(selectPropertiesIsPosting);
     const error = useSelector(selectPropertiesError);
@@ -24,7 +24,11 @@ const usePropertyAddressDetails = (property: IProperty) => {
         dispatch(updatePropertyAddress(property.id, form));
     };
 
-    return { form, handleChange, handleSubmit, isPosting, error };
+    const revertChanges = () => {
+        resetData(initialForm);
+    };
+
+    return { form, handleChange, handleSubmit, isPosting, error, revertChanges };
 };
 
 interface IUpdateAddressDetailsProps {

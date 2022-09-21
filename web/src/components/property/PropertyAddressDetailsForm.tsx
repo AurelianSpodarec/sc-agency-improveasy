@@ -15,6 +15,7 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
         form: { addressLine1, addressLine2, city, postcode },
         handleChange,
         handleSubmit,
+        revertChanges,
         isPosting,
         error,
     } = usePropertyAddressDetails(property);
@@ -73,7 +74,12 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
                 />
 
                 <ButtonRow>
-                    <ActionButton className="winged" source="positive" isPosting={isPosting}>
+                    <ActionButton
+                        className="winged"
+                        source="positive"
+                        isPosting={isPosting}
+                        onClick={revertChanges}
+                    >
                         Revert
                     </ActionButton>
                     <ActionButton className="winged dark-green" type="submit" isPosting={isPosting}>
