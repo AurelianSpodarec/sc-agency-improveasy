@@ -55,3 +55,9 @@
     text-decoration: underline;
     margin-bottom: 10px;
 }
+
+.heading {
+    font-size: 160%;
+    color: var(--color-green-400);
+    @include mainFontSemiBold();
+}
