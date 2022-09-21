@@ -7,6 +7,8 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import { Container } from '@components/ui';
 import UserAvatar from '@components/UserAvatar/UserAvatar';
 
+import logo from './../../../_content/icons/logo/logogreen.png';
+
 const Header = () => {
     return (
         <header className="header header--portal">
@@ -14,7 +16,7 @@ const Header = () => {
                 <div className="header__inner flex justify-between items-center">
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
-                            <IconLogoPortal className="header__logo-img" />
+                            <img src={logo} alt="logo" className="header__logo-img" />
                             <span style={{ marginBottom: '0px' }} className="font-semibold">
                                 MEES Compliance
                             </span>
