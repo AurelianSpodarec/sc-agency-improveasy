@@ -65,7 +65,7 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.currentEPCRating}</td>
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <MEESRating mees={'{{no}}'} />
+                                                            <MEESRating mees={section.hasEPC} />
                                                         </td>
                                                         <td>
                                                             {dayjs(section.statusUpdatedOn).format(
