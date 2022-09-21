@@ -2,7 +2,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 
 import ChevronDown from '@content/icons/ChevronDown';
 import { PageHeading } from '@components/ui';
-import { AccordionValue } from './PropertyAccordion';
+import { PropertyAccordionValue } from './PropertyAccordion';
 
 function PropertyAccordionItem({ title, children, value, isOpen }: IAccordionItemProps) {
     return (
@@ -30,7 +30,7 @@ function PropertyAccordionItem({ title, children, value, isOpen }: IAccordionIte
 interface IAccordionItemProps {
     title: string;
     children: React.ReactNode;
-    value: AccordionValue;
+    value: PropertyAccordionValue;
     isOpen: boolean;
 }
 

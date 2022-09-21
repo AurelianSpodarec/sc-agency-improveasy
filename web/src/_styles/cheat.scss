@@ -67,9 +67,14 @@
 
 .divider {
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     background-color: #0D695C;
     border-radius: 5.5px 0;
     width: 100%;
     height: 7px;
+}
+
+.inset-box-shadow {
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    padding: 45px;
 }

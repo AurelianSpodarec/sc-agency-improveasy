@@ -19,7 +19,7 @@
     &.winged {
         .form-input {
             border-radius: 55px 0;
-            padding-left: 8%;
+            padding-left: 9%;
             background-color: var(--color-gray-700);
             border-color: transparent;
             font-size: 160%;
@@ -46,6 +46,12 @@
 
         .form-error {
             display: none;
+        }
+    }
+
+    &.font-sm {
+        .form-input {
+            font-size: 130%;
         }
     }
 }

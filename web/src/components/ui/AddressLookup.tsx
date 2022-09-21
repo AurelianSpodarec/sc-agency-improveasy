@@ -51,7 +51,7 @@ const SuggestionItem = ({
     );
 };
 
-const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IAddressLookupProps) => {
+const AddressLookup = ({ setShowAddressFields, onSelect, className = '' }: IAddressLookupProps) => {
     const dispatch = useDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -79,7 +79,9 @@ const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IAddressLo
 
     useEffect(() => {
         if (!address || initLoad) return;
+
         const { line1, line2, provinceName, city, postalCode } = address;
+
         onSelect({
             addressLine1: line1,
             addressLine2: line2,
@@ -96,7 +98,7 @@ const AddressLookup = ({ setShowAddressFields, onSelect = () => {} }: IAddressLo
                 value={text}
                 onChange={(_, value) => handleChange(value || '')}
                 placeholder="Enter Postcode for search"
-                className="winged"
+                className={`winged ${className}`}
                 onFocus={() => setIsFocussed(true)}
                 required
             />
@@ -140,7 +142,8 @@ export interface IAddress {
 
 interface IAddressLookupProps {
     setShowAddressFields: (showAddressFields: boolean) => void;
-    onSelect?: (address: IAddress) => void;
+    onSelect: (address: IAddress) => void;
+    className?: string;
 }
 
 interface ISuggestionItemProps {

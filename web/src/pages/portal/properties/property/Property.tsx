@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import PropertyAccordion from '@components/property/accordion/PropertyAccordion';
 import MainPortal from '@pages/portal/_components/MainPortal';
@@ -7,7 +8,6 @@ import MainCard from '@pages/portal/_components/MainCard';
 import { Section } from '@components/ui';
 
 import { RootState } from '@reducers/index';
-import { useEffect } from 'react';
 import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
 
 function Property() {
@@ -19,7 +19,7 @@ function Property() {
 
     useEffect(() => {
         dispatch(fetchPropertyByID(+id));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     return (
         <MainPortal>

@@ -3,18 +3,19 @@ import { useState } from 'react';
 import * as Accordion from '@radix-ui/react-accordion';
 import { IProperty } from 'src/types/shared/Properties';
 import PropertyAccordionItem from './PropertyAccordionItem';
+import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 
-export enum AccordionValue {
+export enum PropertyAccordionValue {
     TENANT = '1',
     EPC = '2',
 }
 
 function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
-    const [openValue, setOpenValue] = useState<AccordionValue | null>(null);
+    const [openValue, setOpenValue] = useState<PropertyAccordionValue | null>(null);
 
     function onValueChange(e: string | string[]) {
         if (!openValue) {
-            if (e === AccordionValue.TENANT || e === AccordionValue.EPC) {
+            if (e === PropertyAccordionValue.TENANT || e === PropertyAccordionValue.EPC) {
                 setOpenValue(e);
             }
         } else {
@@ -30,17 +31,18 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
         >
             <PropertyAccordionItem
                 title="Access Details"
-                value={AccordionValue.TENANT}
-                isOpen={openValue === AccordionValue.TENANT}
+                value={PropertyAccordionValue.TENANT}
+                isOpen={openValue === PropertyAccordionValue.TENANT}
             >
-                {/*
-                    Tennent and access details form
-                */}
+                <div className="flex-row justify-between">
+                    <PropertyAddressDetailsForm />
+                    <PropertyAddressDetailsForm />
+                </div>
             </PropertyAccordionItem>
             <PropertyAccordionItem
                 title="EPC Rating"
-                value={AccordionValue.EPC}
-                isOpen={openValue === AccordionValue.EPC}
+                value={PropertyAccordionValue.EPC}
+                isOpen={openValue === PropertyAccordionValue.EPC}
             >
                 {/*
                 EPC Info

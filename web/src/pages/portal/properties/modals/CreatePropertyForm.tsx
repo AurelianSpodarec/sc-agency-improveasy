@@ -1,8 +1,9 @@
 import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 import Checkbox from 'lib/src/components/form/Checkbox';
+import { useCallback, useState } from 'react';
+
 import { ICreatePropertyForm } from 'src/types/shared/Properties';
-import { useState } from 'react';
 import AddressLookup, { IAddress } from '@components/ui/AddressLookup';
 
 const CreatePropertyForm = ({
@@ -22,13 +23,16 @@ const CreatePropertyForm = ({
 }: IProps) => {
     const [showAddressFields, setShowAddressFields] = useState(false);
 
-    const handleAddressSelect = (address: IAddress) => {
-        handleChange('addressLine1', address.addressLine1 || '');
-        handleChange('addressLine2', address.addressLine2 || '');
-        handleChange('city', address.town || '');
-        handleChange('postcode', address.postCode || '');
-        setShowAddressFields(true);
-    };
+    const handleAddressSelect = useCallback(
+        (address: IAddress) => {
+            handleChange('addressLine1', address.addressLine1 || '');
+            handleChange('addressLine2', address.addressLine2 || '');
+            handleChange('city', address.town || '');
+            handleChange('postcode', address.postCode || '');
+            setShowAddressFields(true);
+        },
+        [handleChange],
+    );
 
     return (
         <Form
