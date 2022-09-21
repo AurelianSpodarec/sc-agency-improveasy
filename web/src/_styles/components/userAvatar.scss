@@ -5,18 +5,18 @@
 .userAvatar {
     
     &__image {
-        border: 1px solid white;
+        border: 1px solid #407175;
         border-radius: 9999px;
         height: 45px;
         width: 45px;
-        background-color: white;
+        background-color: #265153;
     }
 
     &__placeholder-avatar {
         height: 100%;
         width: 100%;
         padding: 10px;
-        fill: black;
+        fill: white;
     }
 
     &__menu {

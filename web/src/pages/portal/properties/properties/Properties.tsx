@@ -20,15 +20,19 @@ function Properties({ showCreateModal }: IProps) {
             <MainPortal>
                 <Section>
                     <Container>
-                        <div className="d-flex space-x-4">
-                            <div className="w-1/3">
+                        <div className="lg:d-flex space-x-4">
+                            <div className="lg:w-1/3">
                                 <MainCard title="Filter">
                                     <AccordionFilter />
                                 </MainCard>
                             </div>
 
-                            <div className="w-2/3">
-                                <MainCard title="Result" className="grey-background">
+                            <div className="lg:w-2/3">
+                                <MainCard
+                                    title="Result"
+                                    className="grey-background"
+                                    contentClass="overflow-x-auto"
+                                >
                                     <table className="properties-table">
                                         <thead>
                                             <tr>

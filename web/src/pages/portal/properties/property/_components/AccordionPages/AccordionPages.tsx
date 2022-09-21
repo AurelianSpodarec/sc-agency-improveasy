@@ -20,7 +20,7 @@ function AccordionPages({ data = [], type }: any) {
             type={type}
             collapsible
         >
-            <AccordionPageItem title="Tenant Details" value="sds">
+            <AccordionPageItem title="Access Details" value="sds">
                 Hsdsdsdsi
             </AccordionPageItem>
             <AccordionPageItem title="EPC Rating" value="ksds">

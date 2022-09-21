@@ -17,23 +17,28 @@ const Header = () => {
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
                             <img src={logo} alt="logo" className="header__logo-img" />
-                            <span style={{ marginBottom: '0px' }} className="font-semibold">
+                            <span
+                                style={{ marginBottom: '0px' }}
+                                className="hidden lg:block font-semibold"
+                            >
                                 MEES Compliance
                             </span>
                         </div>
                     </Link>
 
-                    <div className="flex-row space-x-4">
-                        <div className="flex-row align-center">
-                            <LinkButton
-                                href="/portal/properties/create"
-                                className="winged"
-                                icon="home"
-                            >
-                                Create Property
-                            </LinkButton>
+                    <div className="hidden lg:block">
+                        <div className="flex-row space-x-4">
+                            <div className="flex-row align-center">
+                                <LinkButton
+                                    href="/portal/properties/create"
+                                    className="winged"
+                                    icon="home"
+                                >
+                                    Create Property
+                                </LinkButton>
+                            </div>
+                            <UserAvatar />
                         </div>
-                        <UserAvatar />
                     </div>
                 </div>
             </Container>
