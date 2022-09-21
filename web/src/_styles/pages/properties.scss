@@ -1,19 +1,44 @@
 .properties-table {
     @include mainFontSemiBold();
     font-size: 120%;
-
     thead {
         background-color: var(--grey-background);
+        display: table;
+        width: calc(100% - 17px);
 
         th {
             color: var(--color-green-400);
         }
     }
 
-    tr {
-        &:hover {
-            cursor: pointer;
-            background-color: var(--grey-background);
+    th, td {
+        padding: 5px;
+        width: calc(100% / 7);
+        text-align: center;
+        padding: 25px 0;
+    }
+
+    tbody {
+        display: block; 
+        max-height: 70vh;
+        overflow-y: scroll; 
+
+        tr {
+            display: table;
+            width: 100%;
+            box-sizing: border-box;
+
+            td {
+                text-align: center;
+                border-bottom: none;
+                padding: 25px;
+                border: 1px solid var(--stroke-table-row);;
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: var(--grey-background);
+            }
         }
     }
 }

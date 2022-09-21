@@ -27,7 +27,7 @@ function Properties({ showCreateModal }: IProps) {
                                 </MainCard>
                             </div>
 
-                            <div className="w-2/3">
+                            <div className="w-3/4">
                                 <MainCard title="Result" className="grey-background">
                                     <table className="properties-table">
                                         <thead>
