@@ -51,7 +51,12 @@ const SuggestionItem = ({
     );
 };
 
-const AddressLookup = ({ setShowAddressFields, onSelect, className = '' }: IAddressLookupProps) => {
+const AddressLookup = ({
+    setShowAddressFields = () => {},
+    onSelect,
+    className = '',
+    hideManualEntryButton,
+}: IAddressLookupProps) => {
     const dispatch = useDispatch();
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -100,15 +105,15 @@ const AddressLookup = ({ setShowAddressFields, onSelect, className = '' }: IAddr
                 placeholder="Enter Postcode for search"
                 className={`winged ${className}`}
                 onFocus={() => setIsFocussed(true)}
-                required
             />
 
-            <div className="flex-row justify-center">
-                <button className="text-button" onClick={() => setShowAddressFields(true)}>
-                    Manually enter address
-                </button>
-            </div>
-
+            {!hideManualEntryButton && (
+                <div className="flex-row justify-center">
+                    <button className="text-button" onClick={() => setShowAddressFields(true)}>
+                        Manually enter address
+                    </button>
+                </div>
+            )}
             {isFocussed && !!text && !addressAdded && (
                 <div className="suggestion-list">
                     <DataCheck
@@ -141,9 +146,10 @@ export interface IAddress {
 }
 
 interface IAddressLookupProps {
-    setShowAddressFields: (showAddressFields: boolean) => void;
+    setShowAddressFields?: (showAddressFields: boolean) => void;
     onSelect: (address: IAddress) => void;
     className?: string;
+    hideManualEntryButton?: boolean;
 }
 
 interface ISuggestionItemProps {

@@ -8,14 +8,16 @@ import { PageHeading } from '@components/ui';
 import AddressLookup, { IAddress } from '@components/ui/AddressLookup';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import ActionButton from 'lib/src/components/button/ActionButton';
+import { IProperty } from 'src/types/shared/Properties';
 
-const PropertyAddressDetailsForm = () => {
+const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
     const {
         form: { addressLine1, addressLine2, city, postcode },
         handleChange,
-    } = usePropertyAddressDetails();
-
-    const [showAddressFields, setShowAddressFields] = useState(false);
+        handleSubmit,
+        isPosting,
+        error,
+    } = usePropertyAddressDetails(property);
 
     const handleAddressSelect = useCallback(
         (address: IAddress) => {
@@ -23,7 +25,6 @@ const PropertyAddressDetailsForm = () => {
             handleChange('addressLine2', address.addressLine2 || '');
             handleChange('city', address.town || '');
             handleChange('postcode', address.postCode || '');
-            setShowAddressFields(true);
         },
         [handleChange],
     );
@@ -33,58 +34,49 @@ const PropertyAddressDetailsForm = () => {
             <div className="flex-row justify-center">
                 <PageHeading title="Address Details" size="lg" />
             </div>
-            <Form
-                onSubmit={function (): void {
-                    throw new Error('Function not implemented.');
-                }}
-                omitButtons
-            >
+            <Form onSubmit={handleSubmit} omitButtons isPosting={isPosting} error={error}>
                 <AddressLookup
-                    setShowAddressFields={setShowAddressFields}
                     onSelect={handleAddressSelect}
                     className="font-sm"
+                    hideManualEntryButton
                 />
-                {showAddressFields && (
-                    <>
-                        <TextInput
-                            name="addressLine1"
-                            value={addressLine1}
-                            onChange={handleChange}
-                            placeholder="Address Line 1"
-                            className="winged font-sm"
-                            required
-                        />
-                        <TextInput
-                            name="addressLine2"
-                            value={addressLine2}
-                            onChange={handleChange}
-                            placeholder="Address Line 2"
-                            className="winged font-sm"
-                        />
-                        <TextInput
-                            name="city"
-                            value={city}
-                            onChange={handleChange}
-                            placeholder="City"
-                            className="winged font-sm"
-                            required
-                        />
-                        <TextInput
-                            name="postcode"
-                            value={postcode}
-                            onChange={handleChange}
-                            placeholder="Postcode"
-                            className="winged font-sm"
-                            required
-                        />
-                    </>
-                )}
+                <TextInput
+                    name="addressLine1"
+                    value={addressLine1}
+                    onChange={handleChange}
+                    placeholder="Address Line 1"
+                    className="winged font-sm"
+                    required
+                />
+                <TextInput
+                    name="addressLine2"
+                    value={addressLine2}
+                    onChange={handleChange}
+                    placeholder="Address Line 2"
+                    className="winged font-sm"
+                />
+                <TextInput
+                    name="city"
+                    value={city}
+                    onChange={handleChange}
+                    placeholder="City"
+                    className="winged font-sm"
+                    required
+                />
+                <TextInput
+                    name="postcode"
+                    value={postcode}
+                    onChange={handleChange}
+                    placeholder="Postcode"
+                    className="winged font-sm"
+                    required
+                />
 
                 <ButtonRow>
-                    <ActionButton className="winged" source="positive">
+                    <ActionButton className="winged" source="positive" isPosting={isPosting}>
                         Revert
                     </ActionButton>
-                    <ActionButton className="winged dark-green" type="submit">
+                    <ActionButton className="winged dark-green" type="submit" isPosting={isPosting}>
                         Save Changes
                     </ActionButton>
                 </ButtonRow>
@@ -92,5 +84,9 @@ const PropertyAddressDetailsForm = () => {
         </div>
     );
 };
+
+interface IPropertyAddressForm {
+    property: IProperty;
+}
 
 export default PropertyAddressDetailsForm;

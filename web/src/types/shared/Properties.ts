@@ -76,3 +76,10 @@ export enum ModalContent {
 }
 
 export type EPCRatings = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | null;
+
+export interface IUpdatePropertyAddress {
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    postcode: string;
+}

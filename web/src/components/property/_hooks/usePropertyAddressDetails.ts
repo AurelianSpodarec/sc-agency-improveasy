@@ -1,16 +1,30 @@
 import useForm from 'lib/src/hooks/useForm';
+import { useDispatch, useSelector } from 'react-redux';
 
-const initialForm: IUpdateAddressDetailsProps = {
-    addressLine1: '',
-    addressLine2: '',
-    city: '',
-    postcode: '',
-};
+import { updatePropertyAddress } from '@actions/properties/updatePropertyAddress';
+import { IProperty } from 'src/types/shared/Properties';
+import { selectPropertiesError, selectPropertiesIsPosting } from '@selectors/properties';
 
-const usePropertyAddressDetails = () => {
+const usePropertyAddressDetails = (property: IProperty) => {
+    const dispatch = useDispatch();
+
+    const initialForm: IUpdateAddressDetailsProps = {
+        addressLine1: property.addressLine1,
+        addressLine2: property.addressLine2,
+        city: property.city,
+        postcode: property.postcode,
+    };
+
     const [form, handleChange] = useForm(initialForm);
 
-    return { form, handleChange };
+    const isPosting = useSelector(selectPropertiesIsPosting);
+    const error = useSelector(selectPropertiesError);
+
+    const handleSubmit = () => {
+        dispatch(updatePropertyAddress(property.id, form));
+    };
+
+    return { form, handleChange, handleSubmit, isPosting, error };
 };
 
 interface IUpdateAddressDetailsProps {

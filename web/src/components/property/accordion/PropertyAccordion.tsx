@@ -35,8 +35,8 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
                 isOpen={openValue === PropertyAccordionValue.TENANT}
             >
                 <div className="flex-row justify-between">
-                    <PropertyAddressDetailsForm />
-                    <PropertyAddressDetailsForm />
+                    <PropertyAddressDetailsForm property={data} />
+                    <PropertyAddressDetailsForm property={data} />
                 </div>
             </PropertyAccordionItem>
             <PropertyAccordionItem

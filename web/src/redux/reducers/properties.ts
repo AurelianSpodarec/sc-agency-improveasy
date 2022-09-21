@@ -21,6 +21,11 @@ import {
     fetchPropertyByIDRequest,
     fetchPropertyByIDSuccess,
 } from '@actions/properties/fetchPropertyByID';
+import {
+    updatePropertyAddressFailure,
+    updatePropertyAddressRequest,
+    updatePropertyAddressSuccess,
+} from '@actions/properties/updatePropertyAddress';
 
 interface IPropertyState {
     isFetching: boolean;
@@ -53,6 +58,9 @@ export default createReducer(initialState, {
     [fetchPropertyByIDRequest.type]: handleFetchRequest,
     [fetchPropertyByIDSuccess.type]: handleFetchSingleProperty,
     [fetchPropertyByIDFailure.type]: handleFailure,
+    [updatePropertyAddressRequest.type]: handlePostRequest,
+    [updatePropertyAddressSuccess.type]: handlePostPropertySuccess,
+    [updatePropertyAddressFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
