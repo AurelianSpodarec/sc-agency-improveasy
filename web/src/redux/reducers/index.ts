@@ -7,8 +7,10 @@ import darkModeReducer from 'lib/src/redux/reducers/darkMode';
 import fieldErrorsReducer from 'lib/src/redux/reducers/fieldErrors';
 import redirectsReducer from 'lib/src/redux/reducers/redirects';
 import postcodeFinderReducer from './postcodeFinder';
+import accountReducer from './account';
 
 const rootReducer = combineReducers({
+    accountReducer,
     authReducer,
     propertiesReducer,
     darkModeReducer,

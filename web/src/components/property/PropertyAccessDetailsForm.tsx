@@ -11,12 +11,13 @@ import Checkbox from 'lib/src/components/form/Checkbox';
 
 const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) => {
     const {
-        form: { firstName, lastName, email, phone },
+        form: { firstName, lastName, email, phone, useAccountDetailsForAccess },
         handleChange,
         handleSubmit,
         isPosting,
         error,
         revertChanges,
+        handleSelectAccountDetails,
     } = usePropertyAccessDetailsForm(property);
 
     return (
@@ -60,8 +61,8 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                 />
                 <Checkbox
                     name="useAccountDetailsForAccess"
-                    value={false}
-                    onChange={handleChange}
+                    value={useAccountDetailsForAccess}
+                    onChange={handleSelectAccountDetails}
                     leftPlaceholder="Use Account Details for Access"
                     className="justify-center"
                 />

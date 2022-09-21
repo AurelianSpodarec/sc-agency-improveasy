@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
@@ -9,6 +9,7 @@ import { Section } from '@components/ui';
 
 import { RootState } from '@reducers/index';
 import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
+import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 
 function Property() {
     const dispatch = useDispatch();
@@ -18,7 +19,10 @@ function Property() {
     const property = useSelector((state: RootState) => state.propertiesReducer.properties[+id]);
 
     useEffect(() => {
-        dispatch(fetchPropertyByID(+id));
+        batch(() => {
+            dispatch(fetchPropertyByID(+id));
+            dispatch(fetchAccountDetails());
+        });
     }, [dispatch, id]);
 
     return (
