@@ -31,9 +31,11 @@ interface UserDropdownEnumModel {
     basic: number;
 }
 
-export const convertEnumToDropdownOption = (
-    enums: Record<string, string | number>,
-): DropdownOption<number>[] => {
+interface GenericEnumModel {
+    [key: string]: number | string;
+}
+
+export const convertEnumToDropdownOption = (enums: GenericEnumModel): DropdownOption<number>[] => {
     const filteredArr: DropdownOption<number>[] = [];
 
     Object.entries(enums).forEach(([key, value]) => {

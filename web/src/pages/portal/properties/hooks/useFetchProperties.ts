@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import useForm from 'lib/src/hooks/useForm';
 
 import {
     selectProperties,
@@ -7,20 +8,57 @@ import {
     selectPropertiesIsFetching,
 } from '@selectors/properties';
 
-import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
+import {
+    FetchPropertiesRequest,
+    fetchUserProperties,
+} from '@actions/properties/fetchUserProperties';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
     const isFetching = useSelector(selectPropertiesIsFetching);
     const error = useSelector(selectPropertiesError);
 
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const initialForm = {
+        currentEPCFilters: [],
+        potentialEPCFilters: [],
+        meesComplianceFilters: [],
+        propertyStatusFilters: [],
+    };
+
+    const [form, handleChange, resetData] = useForm<FetchPropertiesRequest>(initialForm);
+
     const properties = Object.values(useSelector(selectProperties));
 
-    useEffect(() => {
-        dispatch(fetchUserProperties());
-    }, [dispatch]);
+    const filteredProperties = properties.filter(property => {
+        return Object.values(property).some(value => {
+            if (typeof value === 'string') {
+                return value.toLowerCase().includes(searchTerm.toLowerCase());
+            }
+            return false;
+        });
+    });
 
-    return { properties, isFetching, error };
+    useEffect(() => {
+        dispatch(fetchUserProperties(form));
+    }, [dispatch, form]);
+
+    const handleClearFilters = () => {
+        resetData(initialForm);
+        setSearchTerm('');
+    };
+
+    return {
+        properties: filteredProperties,
+        isFetching,
+        error,
+        searchTerm,
+        setSearchTerm,
+        handleClearFilters,
+        form,
+        handleChange,
+    };
 };
 
 export default useFetchProperties;
