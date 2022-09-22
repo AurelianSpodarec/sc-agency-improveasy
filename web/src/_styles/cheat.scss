@@ -84,20 +84,41 @@
 }
 
 
-.properties-back-button {
+.properties-back {
     border-left: 37px solid #E76F51;
     background-color: #FFFFFF;
     border-radius: 0 15px 15px 0;
     width: 267px;
     height: 116px;
-    display: flex;
+    display: block;
     align-items: center;
     text-align: center;
-    a {
+    text-decoration: none;
+
+    &__wrap {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        margin-left: 50px;
+    }
+
+    &__house {
+        width: 33px;
+        height: 33px;
+        transform: translateY(-3px);
+    }
+
+    &__chevron {
+        width: 20px;
+        height: 20px;
+        fill: #0D695C;
+    }
+
+    &__text {
         color:#0D695C;
         text-decoration: none;
         font-size: 25px;
         font-weight: bold;
-
     }
 }
