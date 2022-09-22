@@ -13,7 +13,6 @@ function Container({ children, style, size }: ContainerProps) {
     };
 
     return (
-        // @ts-ignore
         <div
             style={style}
             className={`container ${size ? `container--${options[size]}` : 'container--fluid'}`}

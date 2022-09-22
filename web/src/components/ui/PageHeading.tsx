@@ -6,19 +6,21 @@ function PageHeading({
     title,
     type,
     size = '2xl',
+    borderFull = false,
     border = true,
     space = 'md',
 }: PageHeadingProps) {
+    const isBorder = border ? 'page-heading--border-bottom' : '';
     const spaceClass = space ? `page-heading--space-${space}` : 'page-heading--space-md';
 
     return (
         <header
             style={style}
-            className={`${className ? className : ''} page-heading ${spaceClass}`}
+            className={`${className ? className : ''} page-heading ${isBorder} ${spaceClass}`}
         >
             <Text type="h2" size={size} weight="bold">
                 <span>{title}</span>
-                {border && <div className="divider" />}
+                {borderFull && <div className="divider" />}
             </Text>
         </header>
     );
@@ -33,5 +35,6 @@ interface PageHeadingProps {
     type?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
     size?: 'xs' | 'sm' | 'md' | 'base' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl';
     border?: boolean;
+    borderFull?: boolean;
     space?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '';
 }
