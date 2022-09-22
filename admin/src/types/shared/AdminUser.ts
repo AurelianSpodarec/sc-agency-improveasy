@@ -1,5 +1,3 @@
-import { adminUserRoles } from 'lib/src/shared/enums/dropdownEnums';
-
 export interface AdminUser {
     id: number;
     firstName: string;
