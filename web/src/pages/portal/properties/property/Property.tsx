@@ -1,5 +1,5 @@
 import { batch, useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import PropertyAccordion from '@components/property/accordion/PropertyAccordion';
@@ -32,8 +32,8 @@ function Property() {
             <Section>
                 <div className="d-flex space-x-40">
                     <div>
-                        <div>
-                            <span>Home</span>
+                        <div className="properties-back-button">
+                            <Link to="/portal/properties">Back to listing</Link>
                         </div>
                     </div>
                     <MainCard

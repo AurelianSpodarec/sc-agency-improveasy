@@ -82,3 +82,22 @@
 .semi-bold {
     @include mainFontSemiBold();
 }
+
+
+.properties-back-button {
+    border-left: 37px solid #E76F51;
+    background-color: #FFFFFF;
+    border-radius: 0 15px 15px 0;
+    width: 267px;
+    height: 116px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    a {
+        color:#0D695C;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+
+    }
+}
