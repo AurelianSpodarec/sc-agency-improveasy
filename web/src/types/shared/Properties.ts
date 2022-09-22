@@ -87,3 +87,23 @@ export interface IUpdatePropertyAddress {
     city: string;
     postcode: string;
 }
+
+export interface IEPC {
+    id: number;
+    builtForm: string;
+    certificateNumber: string;
+    certificateValidUntil: string;
+    constructionAgeBand: number | null;
+    createdOn: string;
+    currentEnergyEfficiency: number;
+    currentRating: string;
+    floorDescription: string;
+    isManualEntry: boolean;
+    potentialEnergyEfficiency: number;
+    potentialRating: string;
+    propertyID: number;
+    propertyType: string;
+    ratingCreatedOn: string;
+    wallDescription: string;
+    isDeleted: boolean;
+}

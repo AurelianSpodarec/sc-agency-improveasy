@@ -32,7 +32,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     value={firstName}
                     onChange={handleChange}
                     placeholder="First Name"
-                    className="winged"
+                    className="winged font-sm"
                     required
                 />
                 <TextInput
@@ -40,7 +40,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     value={lastName}
                     onChange={handleChange}
                     placeholder="Last Name"
-                    className="winged"
+                    className="winged font-sm"
                     required
                 />
                 <TextInput
@@ -48,7 +48,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     value={email}
                     onChange={handleChange}
                     placeholder="Email"
-                    className="winged"
+                    className="winged font-sm"
                     required
                 />
                 <TextInput
@@ -56,7 +56,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     value={phone}
                     onChange={handleChange}
                     placeholder="Phone"
-                    className="winged"
+                    className="winged font-sm"
                     required
                 />
                 <Checkbox
@@ -68,7 +68,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                 />
                 <ButtonRow>
                     <ActionButton
-                        className="winged"
+                        className="winged font-sm"
                         source="positive"
                         isPosting={isPosting}
                         onClick={revertChanges}

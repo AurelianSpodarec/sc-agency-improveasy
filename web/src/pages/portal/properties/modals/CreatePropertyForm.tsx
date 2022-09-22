@@ -5,6 +5,7 @@ import { useCallback, useState } from 'react';
 
 import { ICreatePropertyForm } from 'src/types/shared/Properties';
 import AddressLookup, { IAddress } from '@components/ui/AddressLookup';
+import { PageHeading } from '@components/ui';
 
 const CreatePropertyForm = ({
     formState: {
@@ -97,6 +98,9 @@ const CreatePropertyForm = ({
             />
             {!useAccountDetailsForAccess && (
                 <>
+                    <div className="flex-row">
+                        <PageHeading title="Access Details" size="lg" />
+                    </div>
                     <TextInput
                         name="accessDetails.firstName"
                         value={firstName}

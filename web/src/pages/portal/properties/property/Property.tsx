@@ -10,6 +10,7 @@ import { Section } from '@components/ui';
 import { RootState } from '@reducers/index';
 import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
+import { fetchPropertyEPCRating } from '@actions/propertyInformation/fetchPropertyEPCRating';
 
 function Property() {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function Property() {
         batch(() => {
             dispatch(fetchPropertyByID(+id));
             dispatch(fetchAccountDetails());
+            dispatch(fetchPropertyEPCRating(+id));
         });
     }, [dispatch, id]);
 
