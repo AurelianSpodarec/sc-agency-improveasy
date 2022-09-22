@@ -13,6 +13,6 @@ const Rating = ({ text, rating }: IProps) => {
 
 interface IProps {
     rating: EPCRatings;
-    text: 'Potential' | 'Current';
+    text?: string;
 }
 export default Rating;
