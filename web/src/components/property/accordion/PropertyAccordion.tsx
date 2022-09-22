@@ -18,10 +18,8 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
     const [openValue, setOpenValue] = useState<PropertyAccordionValue | null>(null);
 
     function onValueChange(e: string | string[]) {
-        if (!openValue) {
-            if (e === PropertyAccordionValue.TENANT || e === PropertyAccordionValue.EPC) {
-                setOpenValue(e);
-            }
+        if (e === PropertyAccordionValue.TENANT || e === PropertyAccordionValue.EPC) {
+            setOpenValue(e);
         } else {
             setOpenValue(null);
         }

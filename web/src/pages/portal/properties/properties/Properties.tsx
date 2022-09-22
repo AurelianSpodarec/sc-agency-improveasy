@@ -9,6 +9,7 @@ import { IProperty } from '../../../../types/shared/Properties';
 import dayjs from 'dayjs';
 import { useHistory } from 'react-router-dom';
 import DataCheck from '@components/ui/DataCheck';
+import PropertiesFilters from './PropertiesFilters';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -23,7 +24,7 @@ function Properties({ showCreateModal }: IProps) {
                         <div className="lg:d-flex space-x-4">
                             <div className="lg:w-1/3">
                                 <MainCard title="Filter">
-                                    <AccordionFilter />
+                                    <PropertiesFilters />
                                 </MainCard>
                             </div>
 
