@@ -1,13 +1,14 @@
 import Title from 'lib/src/components/typography/Title';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
-import React from 'react';
+import React, { useRef } from 'react';
 import useFetchProperties from './hooks/useFetchProperties';
-import ApiFilterTable from 'lib/src/components/table/ApiFilterTable';
+import ApiFilterTable, { ApiFilterTableHandle } from 'lib/src/components/table/ApiFilterTable';
 import { TableColumns } from 'src/types/table';
 import { Property } from 'src/types/shared/Property';
 
 const Properties: React.FC = () => {
     const { isFetching, fetchError, properties, handleFetch } = useFetchProperties();
+    const tableRef = useRef<ApiFilterTableHandle>(null);
 
     return (
         <>
@@ -15,6 +16,7 @@ const Properties: React.FC = () => {
                 <Title>Properties</Title>
             </CreateHeader>
             <ApiFilterTable
+                ref={tableRef}
                 isLoading={isFetching}
                 error={fetchError}
                 rows={properties}

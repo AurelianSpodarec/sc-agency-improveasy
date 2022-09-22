@@ -4,6 +4,10 @@ import TablePagination from './TablePagination';
 import TableSearch from './TableSearch';
 import useApiFilterTable from './useApiFilterTable';
 
+export interface ApiFilterTableHandle {
+    setPageNumber:  (pageNum: number) => void;
+}
+
 const ApiFilterTable = <TRow extends { key?: number; id: number }>({
     columns = [],
     rows = [],
@@ -29,7 +33,7 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
         fetchData
     });
 
-    useImperativeHandle(ref, () => ({
+    useImperativeHandle(ref, () : ApiFilterTableHandle => ({
         setPageNumber(pageNum: number){
             setPage(pageNum);
         }
