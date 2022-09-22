@@ -6,6 +6,8 @@ import ApiFilterTable from 'lib/src/components/table/ApiFilterTable';
 import { TableColumns } from 'src/types/table';
 import { Property } from 'src/types/shared/Property';
 import MultiSelect from 'lib/src/components/form/MultiSelect';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
+import LinkButton from 'lib/src/components/button/LinkButton';
 
 const Properties: React.FC = () => {
     const {
@@ -27,6 +29,7 @@ const Properties: React.FC = () => {
             <CreateHeader>
                 <Title>Properties</Title>
             </CreateHeader>
+
             <div className="table-filters">
                 <MultiSelect
                     name="currentEPCFilters"
@@ -80,6 +83,25 @@ const columns: TableColumns<Property> = [
         key: 1,
         heading: 'Address line 1',
         getValue: row => row.addressLine1,
+    },
+    {
+        key: 2,
+        heading: 'Address line 2',
+        getValue: row => row.addressLine1,
+    },
+    {
+        key: 3,
+        heading: 'Postcode',
+        getValue: row => row.postcode,
+    },
+    {
+        key: 4,
+        heading: '',
+        getValue: row => (
+            <ButtonRow alignment="right">
+                <LinkButton href={`/properties/${row.id}`}>View</LinkButton>
+            </ButtonRow>
+        ),
     },
 ];
 
