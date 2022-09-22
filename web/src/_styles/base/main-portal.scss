@@ -5,9 +5,9 @@
 .main-portal {
     background: linear-gradient(270deg, rgba(231,111,81,1) 0%, rgba(237,184,103,1) 50%, rgba(17,109,95,1) 100%);
     overflow: hidden;
+    height: 100%;
 
     @media (min-width: 1200px) {
-        height: 100%;
         height: -webkit-fill-available;
         overflow: auto;
     }

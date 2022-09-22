@@ -30,8 +30,8 @@ function Property() {
     return (
         <MainPortal>
             <Section>
-                <div className="d-flex space-x-40">
-                    <div>
+                <div className="d-flex space-x-12">
+                    <div className="hidden lg:block">
                         <div className="properties-back-button">
                             <Link to="/portal/properties">Back to listing</Link>
                         </div>
