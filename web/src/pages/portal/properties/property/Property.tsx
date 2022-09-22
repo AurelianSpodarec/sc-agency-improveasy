@@ -33,7 +33,16 @@ function Property() {
                 <div className="d-flex space-x-12">
                     <div className="hidden lg:block">
                         <div className="properties-back-button">
-                            <Link to="/portal/properties">Back to listing</Link>
+                            <div className="d-flex items-center space-x-4">
+                                <Link to="/portal/properties">Back to listing</Link>
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="20px"
+                                    viewBox="0 0 384 512"
+                                >
+                                    <path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <MainCard
