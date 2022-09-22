@@ -6,6 +6,7 @@ import useApiFilterTable from './useApiFilterTable';
 
 export interface ApiFilterTableHandle {
     setPageNumber:  (pageNum: number) => void;
+    refreshData: () => void;
 }
 
 const ApiFilterTable = <TRow extends { key?: number; id: number }>({
@@ -34,8 +35,16 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
     });
 
     useImperativeHandle(ref, () : ApiFilterTableHandle => ({
-        setPageNumber(pageNum: number){
+        setPageNumber: (pageNum: number) => {
             setPage(pageNum);
+        },
+        refreshData: () => {
+            if (page !== 1){
+                setPage(1);
+            }
+            else {
+                fetchData(page, pageSize, searchTerm);
+            }
         }
       }));
 

@@ -32,7 +32,7 @@ interface UserDropdownEnumModel {
 }
 
 export const convertEnumToDropdownOption = (
-    enums: SuperAdminRolesEnumModel | UserDropdownEnumModel,
+    enums: Record<string, string | number>,
 ): DropdownOption<number>[] => {
     const filteredArr: DropdownOption<number>[] = [];
 

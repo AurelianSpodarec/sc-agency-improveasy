@@ -1,20 +1,26 @@
+import { convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums';
 import {
     getPropertiesIsFetching,
     getPropertiesFetchError,
     getProperties,
 } from './../../../../redux/selectors/properties';
-import { useEffect, useCallback } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppSelector } from '../../../../redux/store';
+import useForm from 'lib/src/hooks/useForm';
 import {
     fetchProperties,
-    FetchPropertiesRequest,
     FilterByCurrentEPC,
     FilterByMEESCompliance,
     FilterByPotentialEPC,
     FilterByPropertyStatus,
 } from '@actions/properties';
-import useForm from 'lib/src/hooks/useForm';
+import { ApiFilterTableHandle } from 'lib/src/components/table/ApiFilterTable';
+
+const epcFilterOptions = convertEnumToDropdownOption(FilterByCurrentEPC);
+const meesComplianceOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
+const potentialEpcOptions = convertEnumToDropdownOption(FilterByPotentialEPC);
+const propertyStatusOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
 
 const initialState = {
     currentEPCFilters: [],
@@ -26,6 +32,8 @@ const initialState = {
 const useFetchProperties = () => {
     const dispatch = useDispatch();
 
+    const tableRef = useRef<ApiFilterTableHandle>(null);
+
     const isFetching = useSelector(getPropertiesIsFetching);
     const fetchError = useSelector(getPropertiesFetchError);
     const properties = useAppSelector(getProperties);
@@ -34,17 +42,28 @@ const useFetchProperties = () => {
 
     const handleFetch = useCallback(
         (page: number, pageSize: number, searchTerm: string) => {
-            const params = { ...initialState, page, limit: pageSize };
+            const params = { ...formState, page, limit: pageSize };
             dispatch(fetchProperties(params));
         },
-        [dispatch],
+        [dispatch, formState],
     );
+
+    useEffect(() => {
+        tableRef.current?.refreshData();
+    }, [formState]);
 
     return {
         isFetching,
         fetchError,
         properties,
         handleFetch,
+        formState,
+        handleChange,
+        tableRef,
+        epcFilterOptions,
+        meesComplianceOptions,
+        potentialEpcOptions,
+        propertyStatusOptions,
     };
 };
 
