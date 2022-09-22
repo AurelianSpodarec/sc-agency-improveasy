@@ -38,7 +38,7 @@ function Property() {
                     </div>
                     <MainCard
                         title={`${property?.addressLine1}, ${property?.postcode}`}
-                        className="w-2/3"
+                        className="w-10/12"
                     >
                         <PropertyAccordion data={property} />
                     </MainCard>

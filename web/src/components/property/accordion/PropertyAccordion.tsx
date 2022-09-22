@@ -5,6 +5,8 @@ import { IProperty } from 'src/types/shared/Properties';
 import PropertyAccordionItem from './PropertyAccordionItem';
 import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
+import PropertyEPCChart from '../PropertyEPCChart';
+import PropertyCertificate from '../PropertyCertificate';
 
 export enum PropertyAccordionValue {
     TENANT = '1',
@@ -45,9 +47,10 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
                 value={PropertyAccordionValue.EPC}
                 isOpen={openValue === PropertyAccordionValue.EPC}
             >
-                {/*
-                EPC Info
-                */}
+                <div className="flex-row justify-between">
+                    <PropertyEPCChart />
+                    <PropertyCertificate />
+                </div>
             </PropertyAccordionItem>
         </Accordion.Root>
     );
