@@ -1,26 +1,20 @@
 // ==========================================================================
-// # Accordion Filter
+// # Accordion
 // ==========================================================================
 
-.accordionFilter {
-    padding-bottom: 25px;
-    
+.accordionTwo {
     &-item {
-        border-top: 2px solid #ededed;
-        
-        &:last-of-type {
-            padding-bottom: 25px;
-        }
-
+       
         &__header {
-            border: none;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 25px;
         }
 
         &__trigger {
             background-color: transparent;
             width: 100%;
-            padding: 16px 16px 0;
-
+            padding: 16px;
+            
             @media (min-width: 767px) {                
                 padding: 25px 55px 0;
             }
@@ -28,6 +22,19 @@
 
         &__icon {
             color: #007768;
+
+            .chevron {
+                margin-left: 35px;
+                &.up {
+                    transform: rotate(-180deg);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                &.down {
+                    transform: rotate(0deg);
+                    transition: transform 0.3s ease-in-out;
+                }
+            }
         }
         
         &__content {
