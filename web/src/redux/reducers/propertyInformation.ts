@@ -1,5 +1,5 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { IEPC } from '../../types/shared/Properties';
+import { IEPC, IPropertyRatingRecommendations } from '../../types/shared/Properties';
 
 import {
     fetchPropertyEPCRatingFailure,
@@ -16,6 +16,11 @@ import {
     patchRequestSurveyRequest,
     patchRequestSurveySuccess,
 } from '@actions/propertyInformation/patchRequestSurvey';
+import {
+    fetchPropertyRatingRecommendationsFailure,
+    fetchPropertyRatingRecommendationsRequest,
+    fetchPropertyRatingRecommendationsSuccess,
+} from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
 
 interface IPropertyState {
     isFetching: boolean;
@@ -23,6 +28,7 @@ interface IPropertyState {
     postSuccess: boolean;
     error: string | null;
     propertyEPCRating: IEPC | null;
+    propertyRatingRecommendations: IPropertyRatingRecommendations | null;
 }
 
 const initialState: IPropertyState = {
@@ -31,6 +37,7 @@ const initialState: IPropertyState = {
     postSuccess: false,
     error: null,
     propertyEPCRating: null,
+    propertyRatingRecommendations: null,
 };
 
 export default createReducer(initialState, {
@@ -43,6 +50,9 @@ export default createReducer(initialState, {
     [patchRequestSurveyRequest.type]: handlePostRequest,
     [patchRequestSurveySuccess.type]: handlePostSuccess,
     [patchRequestSurveyFailure.type]: handleFailure,
+    [fetchPropertyRatingRecommendationsRequest.type]: handleFetchRequest,
+    [fetchPropertyRatingRecommendationsSuccess.type]: handleFetchRatingsSuccess,
+    [fetchPropertyRatingRecommendationsFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
@@ -70,4 +80,12 @@ function handlePostSuccess(state: IPropertyState) {
     state.isPosting = false;
     state.postSuccess = true;
     state.error = null;
+}
+
+function handleFetchRatingsSuccess(
+    state: IPropertyState,
+    action: PayloadAction<IPropertyRatingRecommendations>,
+) {
+    state.isFetching = false;
+    state.propertyRatingRecommendations = action.payload;
 }

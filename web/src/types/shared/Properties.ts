@@ -107,3 +107,7 @@ export interface IEPC {
     wallDescription: string;
     isDeleted: boolean;
 }
+
+export interface IPropertyRatingRecommendations {
+    id: number;
+}

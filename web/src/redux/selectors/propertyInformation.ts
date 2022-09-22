@@ -11,3 +11,5 @@ export const selectPropertyInformationError = (state: RootState) =>
 
 export const selectPropertyEPCRating = (state: RootState) =>
     state.propertyInformationReducer.propertyEPCRating;
+export const selectPropertyRatingRecommendations = (state: RootState) =>
+    state.propertyInformationReducer.propertyRatingRecommendations;
