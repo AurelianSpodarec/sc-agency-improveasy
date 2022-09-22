@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
 import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
+import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
+import { Input } from '@components/ui';
 
 enum FilterAccordionValue {
     EPC_CURRENT = '1',
@@ -27,6 +29,15 @@ const PropertiesFilters = () => {
     return (
         <>
             <AccordionTwo onValueChange={onValueChange}>
+                <div className="d-flex justify-between">
+                    <Input
+                        placeholder="Search"
+                        className="input--search"
+                        name="@"
+                        icon={<IconMagnifyingGlass />}
+                    />
+                    <button>Clear filters</button>
+                </div>
                 <AccordionTwoItem
                     title="EPC Current"
                     value={FilterAccordionValue.EPC_CURRENT}

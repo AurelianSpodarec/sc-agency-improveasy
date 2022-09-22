@@ -1,4 +1,3 @@
-import AccordionFilter from '@components/Accordion/AccordionFilter/AccordionFilter';
 import { Container, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
