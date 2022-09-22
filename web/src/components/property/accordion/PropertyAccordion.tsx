@@ -14,7 +14,7 @@ export enum PropertyAccordionValue {
     EPC = '2',
 }
 
-function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
+function PropertyAccordion({ property }: IPropertyAccordionProps) {
     const [openValue, setOpenValue] = useState<PropertyAccordionValue | null>(null);
 
     function onValueChange(e: string | string[]) {
@@ -28,15 +28,15 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
     }
 
     return (
-        <AccordionTwo onValueChange={onValueChange} type="single">
+        <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
                 title="Access Details"
                 value={PropertyAccordionValue.TENANT}
                 isOpen={openValue === PropertyAccordionValue.TENANT}
             >
                 <div className="flex-row justify-between">
-                    <PropertyAddressDetailsForm property={data} />
-                    <PropertyAccessDetailsForm property={data} />
+                    <PropertyAddressDetailsForm property={property} />
+                    <PropertyAccessDetailsForm property={property} />
                 </div>
             </AccordionTwoItem>
             <AccordionTwoItem
@@ -60,8 +60,7 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
     );
 }
 interface IPropertyAccordionProps {
-    data: IProperty;
-    type?: 'single' | 'multiple';
+    property: IProperty;
 }
 
 export default PropertyAccordion;
