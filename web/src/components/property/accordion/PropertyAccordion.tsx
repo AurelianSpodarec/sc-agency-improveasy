@@ -7,6 +7,7 @@ import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
 import PropertyEPCChart from '../PropertyEPCChart';
 import PropertyCertificate from '../PropertyCertificate';
+import { PageHeading } from '@components/ui';
 
 export enum PropertyAccordionValue {
     TENANT = '1',
@@ -51,6 +52,13 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
                     <PropertyEPCChart />
                     <PropertyCertificate />
                 </div>
+                <br />
+
+                <PageHeading title="Potential Rating Improvements" size="lg" />
+                <p className="semi-bold">
+                    If you have installed any of these recommendations this may have an impact on
+                    your current EPC rating
+                </p>
             </PropertyAccordionItem>
         </Accordion.Root>
     );

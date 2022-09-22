@@ -22,13 +22,21 @@ const PropertyEPCChart = () => {
     return (
         <>
             <div className="flex-6 epc-graph">
-                <p>Very energy efficient - low running costs</p>
+                <p className="semi-bold">
+                    An Energy Performance Certificate shows how energy efficient your property is.
+                    Your property will be given an energy efficiency rating between A and G with A
+                    being the most energy efficient with the lowest energy bills and G being the
+                    least energy efficient with the highest energy bills. The average EPC rating for
+                    a home in the UK is D.
+                </p>
+                <br />
+                <p className="semi-bold">Very energy efficient - low running costs</p>
                 <EPCRatingWrapper>
                     {ratings.map(({ text, rating }) => (
                         <Rating text={`(${text})`} rating={rating} />
                     ))}
                 </EPCRatingWrapper>
-                <p>Not energy efficient - higher running costs</p>
+                <p className="semi-bold">Not energy efficient - higher running costs</p>
             </div>
         </>
     );
