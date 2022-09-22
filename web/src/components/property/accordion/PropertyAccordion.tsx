@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import * as Accordion from '@radix-ui/react-accordion';
 import { IProperty } from 'src/types/shared/Properties';
-import PropertyAccordionItem from './PropertyAccordionItem';
 import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
 import PropertyEPCChart from '../PropertyEPCChart';
 import PropertyCertificate from '../PropertyCertificate';
 import { PageHeading } from '@components/ui';
+import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
+import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
 
 export enum PropertyAccordionValue {
     TENANT = '1',
@@ -28,12 +28,8 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
     }
 
     return (
-        <Accordion.Root
-            onValueChange={(e: string | string[]) => onValueChange(e)}
-            type={type}
-            collapsible
-        >
-            <PropertyAccordionItem
+        <AccordionTwo onValueChange={onValueChange} type="single">
+            <AccordionTwoItem
                 title="Access Details"
                 value={PropertyAccordionValue.TENANT}
                 isOpen={openValue === PropertyAccordionValue.TENANT}
@@ -42,8 +38,8 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
                     <PropertyAddressDetailsForm property={data} />
                     <PropertyAccessDetailsForm property={data} />
                 </div>
-            </PropertyAccordionItem>
-            <PropertyAccordionItem
+            </AccordionTwoItem>
+            <AccordionTwoItem
                 title="EPC Rating"
                 value={PropertyAccordionValue.EPC}
                 isOpen={openValue === PropertyAccordionValue.EPC}
@@ -59,11 +55,10 @@ function PropertyAccordion({ data, type = 'single' }: IPropertyAccordionProps) {
                     If you have installed any of these recommendations this may have an impact on
                     your current EPC rating
                 </p>
-            </PropertyAccordionItem>
-        </Accordion.Root>
+            </AccordionTwoItem>
+        </AccordionTwo>
     );
 }
-
 interface IPropertyAccordionProps {
     data: IProperty;
     type?: 'single' | 'multiple';

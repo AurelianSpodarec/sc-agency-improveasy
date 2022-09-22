@@ -2,9 +2,8 @@ import * as Accordion from '@radix-ui/react-accordion';
 
 import ChevronDown from '@content/icons/ChevronDown';
 import { PageHeading } from '@components/ui';
-import { PropertyAccordionValue } from './PropertyAccordion';
 
-function PropertyAccordionItem({ title, children, value, isOpen }: IAccordionItemProps) {
+function AccordionTwoItem({ title, children, value, isOpen }: IAccordionItemProps) {
     return (
         <Accordion.Item className="accordionOne-item" value={value}>
             <Accordion.Header className="accordionOne-item__header">
@@ -30,8 +29,8 @@ function PropertyAccordionItem({ title, children, value, isOpen }: IAccordionIte
 interface IAccordionItemProps {
     title: string;
     children: React.ReactNode;
-    value: PropertyAccordionValue;
+    value: string;
     isOpen: boolean;
 }
 
-export default PropertyAccordionItem;
+export default AccordionTwoItem;
