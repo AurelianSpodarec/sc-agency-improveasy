@@ -9,6 +9,7 @@ import {
     fetchPropertiesRequest,
     fetchPropertiesSuccess,
     fetchPropertiesFailure,
+    PropertiesResponse,
 } from '@actions/properties';
 
 interface PropertiesState {
@@ -18,6 +19,7 @@ interface PropertiesState {
     isFetching: boolean;
     fetchError: string | null;
     properties: Record<number, Property>;
+    itemCount: number;
 }
 
 const initialState: PropertiesState = {
@@ -27,6 +29,7 @@ const initialState: PropertiesState = {
     isFetching: false,
     fetchError: null,
     properties: {},
+    itemCount: 0,
 };
 
 export default createReducer(initialState, {
@@ -60,12 +63,14 @@ function handleFetchRequest(state: PropertiesState) {
     state.fetchError = null;
 }
 
-function handleFetchSuccess(state: PropertiesState, action: PayloadAction<Property[]>) {
+function handleFetchSuccess(state: PropertiesState, action: PayloadAction<PropertiesResponse>) {
     state.isFetching = false;
-    state.properties = convertArrToObj(action.payload);
+    state.properties = convertArrToObj(action.payload.items);
+    state.itemCount = action.payload.itemCount;
 }
 
 function handleFetchFailure(state: PropertiesState, action: PayloadAction<string>) {
     state.isFetching = false;
     state.fetchError = action.payload;
+    state.itemCount = 0;
 }

@@ -5,6 +5,7 @@ export const getPropertiesPostSuccess = (state: RootState) => state.authReducer.
 export const getPropertiesPostError = (state: RootState) => state.propertiesReducer.postError;
 
 export const getPropertiesIsFetching = (state: RootState) => state.propertiesReducer.isFetching;
+export const getPropertiesItemCount = (state: RootState) => state.propertiesReducer.itemCount;
 export const getPropertiesFetchError = (state: RootState) => state.propertiesReducer.fetchError;
 export const getProperties = (state: RootState) =>
     Object.values(state.propertiesReducer.properties);

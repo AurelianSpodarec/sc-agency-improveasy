@@ -3,6 +3,7 @@ import {
     getPropertiesIsFetching,
     getPropertiesFetchError,
     getProperties,
+    getPropertiesItemCount,
 } from './../../../../redux/selectors/properties';
 import { useCallback, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,6 +38,7 @@ const useFetchProperties = () => {
     const isFetching = useSelector(getPropertiesIsFetching);
     const fetchError = useSelector(getPropertiesFetchError);
     const properties = useAppSelector(getProperties);
+    const itemCount = useSelector(getPropertiesItemCount);
 
     const [formState, handleChange] = useForm(initialState);
 
@@ -64,6 +66,7 @@ const useFetchProperties = () => {
         meesComplianceOptions,
         potentialEpcOptions,
         propertyStatusOptions,
+        itemCount,
     };
 };
 

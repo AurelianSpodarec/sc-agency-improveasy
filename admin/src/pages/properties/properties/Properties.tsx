@@ -22,6 +22,7 @@ const Properties: React.FC = () => {
         meesComplianceOptions,
         potentialEpcOptions,
         propertyStatusOptions,
+        itemCount,
     } = useFetchProperties();
 
     return (
@@ -71,7 +72,7 @@ const Properties: React.FC = () => {
                 error={fetchError}
                 rows={properties}
                 columns={columns}
-                maxPage={10}
+                totalItems={itemCount}
                 fetchData={handleFetch}
             />
         </>
@@ -87,7 +88,7 @@ const columns: TableColumns<Property> = [
     {
         key: 2,
         heading: 'Address line 2',
-        getValue: row => row.addressLine1,
+        getValue: row => row.addressLine2,
     },
     {
         key: 3,

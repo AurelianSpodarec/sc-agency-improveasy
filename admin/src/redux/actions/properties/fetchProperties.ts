@@ -6,7 +6,7 @@ import { api, handleApiErrors } from 'lib/src/utils/api';
 import { AppDispatch } from 'src/redux/store';
 
 export const fetchPropertiesRequest = createAction('fetchPropertiesRequest');
-export const fetchPropertiesSuccess = createAction<Property[]>('fetchPropertiesSuccess');
+export const fetchPropertiesSuccess = createAction<PropertiesResponse>('fetchPropertiesSuccess');
 export const fetchPropertiesFailure = createAction<string>('fetchPropertiesFailure');
 
 export const fetchProperties =
@@ -17,13 +17,13 @@ export const fetchProperties =
         try {
             const { data } = await api.get<PropertiesResponse>('properties', params);
 
-            dispatch(fetchPropertiesSuccess(data.items));
+            dispatch(fetchPropertiesSuccess(data));
         } catch (e) {
             handleApiErrors(dispatch, fetchPropertiesFailure, e as APIError);
         }
     };
 
-interface PropertiesResponse {
+export interface PropertiesResponse {
     items: Property[];
     itemCount: number;
 }

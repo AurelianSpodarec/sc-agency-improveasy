@@ -5,7 +5,8 @@ import { DropdownOption } from '../../types/shared/DropdownOption';
 export default function useApiFilterTable<T>({ 
     rows = [], 
     pageSizes = [],
-    fetchData 
+    fetchData ,
+    totalItems
 }: useApiFilterTableProps<T>) {
     const [pageSize, setPageSize] = useState(pageSizes[0] || 10);
     const [page, setPage] = useState(1);
@@ -36,12 +37,16 @@ export default function useApiFilterTable<T>({
         [...pageSizes],
     );
 
-    const paginationDescription = useMemo(() => {
-        const rowCount = rows.length;
-        const startRow = rowCount ? (page - 1) * pageSize + 1 : 0;
-        const endRow = startRow + pageSize > rowCount ? rowCount : startRow + pageSize - 1;
+    const maxPage = useMemo(() => Math.ceil(totalItems / pageSize), [
+        totalItems,
+        pageSize,
+    ]);
 
-        return `${startRow}-${endRow} of ${rowCount}`;
+    const paginationDescription = useMemo(() => {
+        const startRow = totalItems ? (page - 1) * pageSize + 1 : 0;
+        const endRow = startRow + pageSize > totalItems ? totalItems : startRow + pageSize - 1;
+
+        return `${startRow}-${endRow} of ${totalItems}`;
     }, [rows, page, pageSize]);
 
     const handleSetPageSize = useCallback(
@@ -61,6 +66,8 @@ export default function useApiFilterTable<T>({
         paginationDescription,
         searchTerm,
         setSearchTerm,
+        maxPage,
+        
     };
 }
 
@@ -68,4 +75,5 @@ interface useApiFilterTableProps<T> {
     rows: T[];
     pageSizes: number[];
     fetchData: (page: number, pageSize: number, searchTerm: string) => void;
+    totalItems: number;
 }

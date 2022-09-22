@@ -16,7 +16,7 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
     pageSizes = [10, 25, 100],
     noDataMessage = 'There is no data to display',
     error,
-    maxPage,
+    totalItems,
     fetchData
 }: TableProps<TRow>, ref: any): JSX.Element => {
     const {
@@ -28,9 +28,11 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
         paginationDescription,
         searchTerm,
         setSearchTerm,
+        maxPage
     } = useApiFilterTable<TRow>({
         rows,
         pageSizes,
+        totalItems,
         fetchData
     });
 
@@ -115,7 +117,7 @@ interface TableProps<T> {
     pageSizes?: number[];
     noDataMessage?: string;
     error?: string | null;
-    maxPage: number;
+    totalItems: number;
     fetchData: (page: number, pageSize: number, searchTerm: string) => void;
 }
 
