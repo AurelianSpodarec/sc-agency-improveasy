@@ -3,17 +3,21 @@
 // ==========================================================================
 
 .input {
-    background-color: #F1F1F1;
     border-radius: 55px 0;
-    height: 100%;
-    padding: 0 40px;
-    border: none;
+    padding: 2% 0 2% 9%;
+    background-color: var(--color-gray-700);
+    border-color: transparent;
+    font-size: 120%;
+    @include mainFontSemiBold();
+
+    &::placeholder {
+        color: var(--typography-placeholder);
+    }
 
     &__icon {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
+        top: 25%;
+        transform: translate(-50%);
 
         &--right {
             right: 40px;

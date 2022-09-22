@@ -13,7 +13,16 @@ import PropertiesFilters from './PropertiesFilters';
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
 
-    const { properties, isFetching, error } = useFetchProperties();
+    const {
+        properties,
+        isFetching,
+        error,
+        searchTerm,
+        setSearchTerm,
+        handleClearFilters,
+        form,
+        handleChange,
+    } = useFetchProperties();
 
     return (
         <>
@@ -23,7 +32,13 @@ function Properties({ showCreateModal }: IProps) {
                         <div className="lg:d-flex space-x-4">
                             <div className="lg:w-1/3">
                                 <MainCard title="Filter">
-                                    <PropertiesFilters />
+                                    <PropertiesFilters
+                                        searchTerm={searchTerm}
+                                        setSearchTerm={setSearchTerm}
+                                        handleClearFilters={handleClearFilters}
+                                        form={form}
+                                        handleChange={handleChange}
+                                    />
                                 </MainCard>
                             </div>
 

@@ -23,7 +23,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
 interface ActionButtonProps {
     children: React.ReactNode;
     type?: 'submit' | 'button' | 'reset';
-    source?: 'primary' | 'secondary' | 'positive' | 'negative';
+    source?: 'primary' | 'secondary' | 'positive' | 'negative' | 'text';
     className?: string;
     icon?: string;
     isPosting?: boolean;
