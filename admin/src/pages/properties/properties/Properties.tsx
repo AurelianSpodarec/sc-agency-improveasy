@@ -7,7 +7,7 @@ import { TableColumns } from 'src/types/table';
 import { Property } from 'src/types/shared/Property';
 
 const Properties: React.FC = () => {
-    const { isFetching, fetchError, properties } = useFetchProperties();
+    const { isFetching, fetchError, properties, handleFetch } = useFetchProperties();
 
     return (
         <>
@@ -20,7 +20,7 @@ const Properties: React.FC = () => {
                 rows={properties}
                 columns={columns}
                 maxPage={10}
-                fetchData={() => {}}
+                fetchData={handleFetch}
             />
         </>
     );

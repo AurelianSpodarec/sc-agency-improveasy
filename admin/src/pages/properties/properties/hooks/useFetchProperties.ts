@@ -3,7 +3,7 @@ import {
     getPropertiesFetchError,
     getProperties,
 } from './../../../../redux/selectors/properties';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppSelector } from '../../../../redux/store';
 import {
@@ -16,9 +16,7 @@ import {
 } from '@actions/properties';
 import useForm from 'lib/src/hooks/useForm';
 
-const initialState: FetchPropertiesRequest = {
-    page: 1,
-    limit: 25,
+const initialState = {
     currentEPCFilters: [],
     potentialEPCFilters: [],
     meesComplianceFilters: [],
@@ -34,14 +32,19 @@ const useFetchProperties = () => {
 
     const [formState, handleChange] = useForm(initialState);
 
-    useEffect(() => {
-        dispatch(fetchProperties(initialState));
-    }, [dispatch, formState]);
+    const handleFetch = useCallback(
+        (page: number, pageSize: number, searchTerm: string) => {
+            const params = { ...initialState, page, limit: pageSize };
+            dispatch(fetchProperties(params));
+        },
+        [dispatch],
+    );
 
     return {
         isFetching,
         fetchError,
         properties,
+        handleFetch,
     };
 };
 

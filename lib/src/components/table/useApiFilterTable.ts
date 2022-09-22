@@ -1,3 +1,4 @@
+import usePrevious from '../../hooks/usePrevious';
 import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { DropdownOption } from '../../types/shared/DropdownOption';
 
@@ -15,18 +16,20 @@ export default function useApiFilterTable<T>({
         setPage(1);
     }, [...pageSizes, setPageSize, setPage]);
 
+    const prevSearchTerm = usePrevious(searchTerm);
     const searchTimeout = useRef<number | null>(null);
     useEffect(() => {
-        window.clearTimeout(searchTimeout.current || 0);
-        searchTimeout.current = window.setTimeout(() => {
-            setPage(1);
-            fetchData(1, pageSize, searchTerm);
-        }, 1000);
-    }, []);
-
-    useEffect(() => {
-        fetchData(page, pageSize, searchTerm);
-    }, []);
+        if (searchTerm !== prevSearchTerm){
+            window.clearTimeout(searchTimeout.current || 0);
+            searchTimeout.current = window.setTimeout(() => {
+                setPage(1);
+                fetchData(1, pageSize, searchTerm);
+            }, 1000);
+        }
+        else {
+            fetchData(page, pageSize, searchTerm);
+        }
+    }, [prevSearchTerm, searchTerm, page, pageSize]);
 
     const pageSizeOpts: DropdownOption<number>[] = useMemo(
         () => pageSizes.map<DropdownOption<number>>(ps => ({ label: ps.toString(), value: ps })),
