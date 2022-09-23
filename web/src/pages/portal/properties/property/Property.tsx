@@ -33,7 +33,7 @@ function Property() {
         <MainPortal>
             <Section>
                 <div className="d-flex space-x-12">
-                    <div className="hidden lg:block">
+                    <div className="hidden xl:block">
                         <Link className="properties-back" to="/portal/properties">
                             <div className="properties-back__wrap d-flex items-center space-x-4">
                                 <img className="properties-back__house" src={house} alt="house" />

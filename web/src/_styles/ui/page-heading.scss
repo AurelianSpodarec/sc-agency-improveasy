@@ -20,7 +20,10 @@
 
     &--border-bottom {
         & span {
-            border-bottom: 7px solid #0D695C;   
+            border-bottom: 7px solid #0D695C;
+            border-collapse: collapse;
+            border-top-left-radius: 200px 50px;
+            border-bottom-right-radius: 11px 11px;
             z-index: 8;
         }
     }
