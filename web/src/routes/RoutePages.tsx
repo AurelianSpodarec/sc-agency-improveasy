@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '@pages/public/home/Home';
 import FAQ from '@pages/public/faq/FAQ';
 import MEES from '@pages/public/mees/MEES';
-import Process from '@pages/public/process/Process';
 import WhyUse from '@pages/public/whyUse/WhyUse';
 
 function RoutePages() {
@@ -19,10 +18,6 @@ function RoutePages() {
 
             <Route exact path="/mees">
                 <MEES />
-            </Route>
-
-            <Route exact path="/process">
-                <Process />
             </Route>
 
             <Route exact path="/why-us">
