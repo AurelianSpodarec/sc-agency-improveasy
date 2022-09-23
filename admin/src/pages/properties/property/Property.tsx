@@ -7,17 +7,26 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Title from 'lib/src/components/typography/Title';
 import { Property as PropertyResponse } from 'src/types/shared/Property';
+import { User } from 'src/types/shared/User';
 
 interface Props {
     property: PropertyResponse;
+    user: User;
 }
 
-const Property: React.FC<Props> = ({ property }) => {
+const Property: React.FC<Props> = ({ property, user }) => {
     return (
         <>
             <Title>Property</Title>
 
             <ContentBlock>
+                <ContentRow>
+                    <ContentItem label="Owner">
+                        <p>
+                            {user.firstName} {user.lastName}
+                        </p>
+                    </ContentItem>
+                </ContentRow>
                 <ContentRow>
                     <ContentItem label="Address Line 1">
                         <p>{property.addressLine1}</p>

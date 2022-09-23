@@ -1,5 +1,5 @@
 import Property from './Property';
-import useFetchProperty from './hooks/useFetchProperty';
+import useFetchPropertyDetails from './hooks/useFetchPropertyDetails';
 import DataCheck from '@components/common/DataCheck';
 
 interface Props {
@@ -13,12 +13,12 @@ const PropertyContainer: React.FC<Props> = ({
     showEditModel = false,
     showEditPasswordModal = false,
 }) => {
-    const { property, isFetching, fetchError } = useFetchProperty();
+    const { property, user, isFetching, fetchError } = useFetchPropertyDetails();
 
     return (
         <>
-            <DataCheck dataExists={!!property} isFetching={isFetching} error={fetchError}>
-                <Property property={property} />
+            <DataCheck dataExists={!!(property && user)} isFetching={isFetching} error={fetchError}>
+                <Property property={property} user={user} />
             </DataCheck>
         </>
     );
