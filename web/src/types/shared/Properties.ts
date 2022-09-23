@@ -36,7 +36,6 @@ export interface IUpdatePropertyAccessDetailsForm extends IAccessDetails {
 }
 
 export enum EPCFilters {
-    All = 1,
     A,
     B,
     C,
@@ -45,21 +44,6 @@ export enum EPCFilters {
     F,
     G,
     None,
-}
-
-export enum FilterByMEESCompliance {
-    All = 1,
-    Compliant,
-    NonCompliant,
-    Unknown,
-}
-
-export enum PropertyStatusType {
-    New = 1,
-    Compliant,
-    NonCompliant,
-    RequestedEPC,
-    BookedEPC,
 }
 
 export interface IPropertyFilterRequest {
@@ -110,4 +94,42 @@ export interface IEPC {
 
 export interface IPropertyRatingRecommendations {
     id: number;
+}
+
+export interface FetchPropertiesRequest {
+    currentEPCFilters: IEPCFilters[];
+    potentialEPCFilters: IEPCFilters[];
+    meesComplianceFilters: FilterByMEESCompliance[];
+    propertyStatusFilters: PropertyStatusType[];
+}
+
+export enum IEPCFilters {
+    A = 1,
+    B = 2,
+    C = 3,
+    D = 4,
+    E = 5,
+    F = 6,
+    G = 7,
+    None = 8,
+}
+
+export enum FilterByMEESCompliance {
+    Compliant = 1,
+    NonCompliant = 2,
+    Unknown = 3,
+}
+
+export enum PropertyStatusType {
+    Compliant = 1,
+    NonCompliant = 2,
+    RequestedEPC = 3,
+    BookedEPC = 4,
+}
+
+export enum PropertyStatusTypeLabel {
+    'Compliant' = 1,
+    'Non Compliant' = 2,
+    'Requested EPC' = 3,
+    'Booked EPC' = 4,
 }
