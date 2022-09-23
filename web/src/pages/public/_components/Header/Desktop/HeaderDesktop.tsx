@@ -15,11 +15,6 @@ function HeaderDesktop() {
                     </NavLink>
                 </li>
                 <li className="header-public__menu-li">
-                    <NavLink className="header-public__menu-a" to="/process">
-                        Process
-                    </NavLink>
-                </li>
-                <li className="header-public__menu-li">
                     <NavLink className="header-public__menu-a" to="/faq">
                         FAQ
                     </NavLink>

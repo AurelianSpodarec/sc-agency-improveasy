@@ -49,8 +49,8 @@ const useFetchProperties = () => {
         setSearchTerm('');
     };
 
-    const handleChange = (name: keyof FetchPropertiesRequest, value: number) => {
-        const currentFilters: number[] = form[name];
+    const handleChange = (name: keyof FetchPropertiesRequest, value: number | null) => {
+        const currentFilters: any = form[name];
 
         if (currentFilters.includes(value)) {
             const newFilters = [...form[name]].filter(filter => filter !== value);

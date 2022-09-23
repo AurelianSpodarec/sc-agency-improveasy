@@ -28,28 +28,15 @@ const PropertiesFilters = ({
     form,
     handleChange,
 }: IProps) => {
-    const [openValue, setOpenValue] = useState<FilterAccordionValue | null>(null);
+    const [openValue, setOpenValue] = useState<string | string[] | null>(null);
 
     const epcFilterOptions = convertEnumToDropdownOption(IEPCFilters);
     const meesFilterOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
     const statusFilterOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
 
-    function onValueChange(e: string | string[]) {
-        if (
-            e === FilterAccordionValue.EPC_CURRENT ||
-            e === FilterAccordionValue.EPC_POTENTIAL ||
-            e === FilterAccordionValue.MEES ||
-            e === FilterAccordionValue.STATUS
-        ) {
-            setOpenValue(e);
-        } else {
-            setOpenValue(null);
-        }
-    }
-
     return (
         <>
-            <AccordionTwo onValueChange={onValueChange} type="multiple">
+            <AccordionTwo onValueChange={e => setOpenValue(e)} type="multiple">
                 <div className="d-flex justify-between search-wrapper space-x-2">
                     <Input
                         placeholder="Search"
@@ -66,7 +53,11 @@ const PropertiesFilters = ({
                 <AccordionTwoItem
                     title="EPC Current"
                     value={FilterAccordionValue.EPC_CURRENT}
-                    isOpen={openValue === FilterAccordionValue.EPC_CURRENT}
+                    isOpen={
+                        openValue?.length
+                            ? openValue.includes(FilterAccordionValue.EPC_CURRENT)
+                            : openValue === FilterAccordionValue.EPC_CURRENT
+                    }
                 >
                     <div className="grid grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -83,7 +74,11 @@ const PropertiesFilters = ({
                 <AccordionTwoItem
                     title="EPC Potential"
                     value={FilterAccordionValue.EPC_POTENTIAL}
-                    isOpen={openValue === FilterAccordionValue.EPC_POTENTIAL}
+                    isOpen={
+                        openValue?.length
+                            ? openValue.includes(FilterAccordionValue.EPC_POTENTIAL)
+                            : openValue === FilterAccordionValue.EPC_POTENTIAL
+                    }
                 >
                     <div className="grid grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -100,7 +95,11 @@ const PropertiesFilters = ({
                 <AccordionTwoItem
                     title="MEESE"
                     value={FilterAccordionValue.MEES}
-                    isOpen={openValue === FilterAccordionValue.MEES}
+                    isOpen={
+                        openValue?.length
+                            ? openValue.includes(FilterAccordionValue.MEES)
+                            : openValue === FilterAccordionValue.MEES
+                    }
                 >
                     <div className="grid grid-cols-2">
                         {meesFilterOptions.map(option => (
@@ -117,7 +116,11 @@ const PropertiesFilters = ({
                 <AccordionTwoItem
                     title="Status"
                     value={FilterAccordionValue.STATUS}
-                    isOpen={openValue === FilterAccordionValue.STATUS}
+                    isOpen={
+                        openValue?.length
+                            ? openValue.includes(FilterAccordionValue.STATUS)
+                            : openValue === FilterAccordionValue.STATUS
+                    }
                 >
                     <div className="grid grid-cols-2">
                         {statusFilterOptions.map((option, index) => (
