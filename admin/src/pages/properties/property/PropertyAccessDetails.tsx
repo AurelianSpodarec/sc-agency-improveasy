@@ -8,50 +8,55 @@ import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Title from 'lib/src/components/typography/Title';
 import { Property as PropertyResponse } from 'src/types/shared/Property';
 import { User } from 'src/types/shared/User';
+import CreateHeader from '@components/layout/createHeader/CreateHeader';
+import dayjs from 'dayjs';
 
 interface Props {
     property: PropertyResponse;
     user: User;
 }
 
-const Property: React.FC<Props> = ({ property, user }) => {
+const PropertyAccessDetails: React.FC<Props> = ({ property, user }) => {
+    const { firstName, lastName, email, phone } = property.accessDetails;
+
     return (
         <>
-            <Title>Property</Title>
-
             <ContentBlock>
+                <CreateHeader>Access Details</CreateHeader>
                 <ContentRow>
-                    <ContentItem label="Owner">
+                    <ContentItem label="First Name">
+                        <p>{firstName}</p>
+                    </ContentItem>
+                    <ContentItem label="Last Name">
+                        <p>{lastName}</p>
+                    </ContentItem>
+                </ContentRow>
+                <ContentRow>
+                    <ContentItem label="Email">
+                        <p>{email}</p>
+                    </ContentItem>
+                    <ContentItem label="Phone">
+                        <p>{phone}</p>
+                    </ContentItem>
+                </ContentRow>
+                <ContentRow>
+                    <ContentItem label="Preferred Contact Time">
                         <p>
-                            {user.firstName} {user.lastName}
+                            {property.accessDetails.preferredContactTime
+                                ? dayjs(property.accessDetails.preferredContactTime).toString()
+                                : ''}
                         </p>
-                    </ContentItem>
-                </ContentRow>
-                <ContentRow>
-                    <ContentItem label="Address Line 1">
-                        <p>{property.addressLine1}</p>
-                    </ContentItem>
-                    <ContentItem label="Address Line 2">
-                        <p>{property.addressLine2}</p>
-                    </ContentItem>
-                </ContentRow>
-                <ContentRow>
-                    <ContentItem label="City">
-                        <p>{property.city}</p>
-                    </ContentItem>
-                    <ContentItem label="Postcode">
-                        <p>{property.postcode}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>
 
             <ButtonRow alignment="left">
                 <LinkButton source="secondary" href={`/properties/${property.id}/edit`}>
-                    Edit Address
+                    Edit Access Details
                 </LinkButton>
             </ButtonRow>
         </>
     );
 };
 
-export default Property;
+export default PropertyAccessDetails;
