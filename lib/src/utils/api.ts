@@ -6,6 +6,7 @@ import { addFormError } from '../redux/actions/fieldErrors';
 import { setRedirectUrl } from '../redux/actions/redirects';
 import { APIError } from '../types/APIError';
 import { clearJwtAndRefreshToken } from './jwt';
+import qs from 'qs';
 
 let API_URL = '';
 export const initApi = (apiUrl: string) => {
@@ -49,6 +50,7 @@ const getConfig = async (params: any = {}): Promise<AxiosRequestConfig> => {
             Authorization: `Bearer ${jwt}`,
         },
         params,
+        paramsSerializer: params => qs.stringify(params),
     };
 };
 

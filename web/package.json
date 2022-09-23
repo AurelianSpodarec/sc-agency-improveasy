@@ -10,6 +10,7 @@
         "dayjs": "^1.9.7",
         "jwt-decode": "^3.1.2",
         "lib": "file:../lib",
+        "qs": "^6.11.0",
         "react": "^18.2.0",
         "react-datepicker": "^4.8.0",
         "react-dom": "^18.2.0",
