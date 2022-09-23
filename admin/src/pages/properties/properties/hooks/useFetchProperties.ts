@@ -44,7 +44,7 @@ const useFetchProperties = () => {
 
     const handleFetch = useCallback(
         (page: number, pageSize: number, searchTerm: string) => {
-            const params = { ...formState, page, limit: pageSize };
+            const params = { ...formState, page, limit: pageSize, searchTerm };
             dispatch(fetchProperties(params));
         },
         [dispatch, formState],

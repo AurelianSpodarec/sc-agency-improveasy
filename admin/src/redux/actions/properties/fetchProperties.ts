@@ -31,6 +31,7 @@ export interface PropertiesResponse {
 export interface FetchPropertiesRequest {
     page: number;
     limit: number;
+    searchTerm: string;
 
     currentEPCFilters: FilterByCurrentEPC[];
     potentialEPCFilters: FilterByPotentialEPC[];

@@ -54,7 +54,7 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
 
     return (
         <>
-            {!isEmpty && <TableSearch value={searchTerm} onChange={setSearchTerm} />}
+            {<TableSearch value={searchTerm} onChange={setSearchTerm} />}
             <table>
                 <thead>
                     <tr>{columns.map(renderHeading)}</tr>
