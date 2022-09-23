@@ -45,6 +45,15 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property }) => {
                         required
                     />
                 </FormRow>
+                <FormRow>
+                    <TextInput
+                        name="preferredContactTime"
+                        value={formState.preferredContactTime}
+                        onChange={handleChange}
+                        label="Preferred contact time"
+                        required
+                    />
+                </FormRow>
             </Form>
         </Modal>
     );

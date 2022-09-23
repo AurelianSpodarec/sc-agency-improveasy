@@ -20,5 +20,5 @@ export interface PropertyAccessDetails {
     lastName: string;
     email: string;
     phone: string;
-    preferredContactTime?: Date;
+    preferredContactTime: string;
 }

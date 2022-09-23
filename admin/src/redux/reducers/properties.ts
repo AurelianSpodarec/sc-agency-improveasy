@@ -13,6 +13,9 @@ import {
     fetchPropertySuccess,
     fetchPropertyFailure,
     PropertiesResponse,
+    editPropertyAccessDetailsRequest,
+    editPropertyAccessDetailsSuccess,
+    editPropertyAccessDetailsFailure,
 } from '@actions/properties';
 
 interface PropertiesState {
@@ -45,6 +48,9 @@ export default createReducer(initialState, {
     [fetchPropertyRequest.type]: handleFetchRequest,
     [fetchPropertySuccess.type]: handleFetchSingleSuccess,
     [fetchPropertyFailure.type]: handleFetchFailure,
+    [editPropertyAccessDetailsRequest.type]: handlePostRequest,
+    [editPropertyAccessDetailsSuccess.type]: handlePostSuccess,
+    [editPropertyAccessDetailsFailure.type]: handlePostFailure,
 });
 
 function handlePostRequest(state: PropertiesState) {

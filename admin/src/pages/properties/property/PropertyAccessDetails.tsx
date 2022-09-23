@@ -38,11 +38,7 @@ const PropertyAccessDetails: React.FC<Props> = ({ property }) => {
                 </ContentRow>
                 <ContentRow>
                     <ContentItem label="Preferred Contact Time">
-                        <p>
-                            {property.accessDetails.preferredContactTime
-                                ? dayjs(property.accessDetails.preferredContactTime).toString()
-                                : ''}
-                        </p>
+                        <p>{property.accessDetails.preferredContactTime || ' - '}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>

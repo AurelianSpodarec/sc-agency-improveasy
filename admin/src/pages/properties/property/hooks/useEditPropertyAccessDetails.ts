@@ -1,3 +1,4 @@
+import { editPropertyAccessDetails } from './../../../../redux/actions/properties/editPropertyAccessDetails';
 import usePrevious from 'lib/src/hooks/usePrevious';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +33,7 @@ const useEditPropertyAccessDetails = ({ property }: { property: Property }) => {
     }, [property.id, history]);
 
     const handleSubmit = () => {
-        console.log('submit');
+        dispatch(editPropertyAccessDetails(property.id, formState));
     };
 
     const prevSuccess = usePrevious(success);
