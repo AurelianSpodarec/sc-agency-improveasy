@@ -14,7 +14,7 @@ export const fetchUserProperties =
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(fetchUserPropertiesRequest());
         try {
-            const { data } = await api.get<IProperty[]>('properties', params);
+            const { data } = await api.get<IProperty[]>('properties/filter', params);
             dispatch(fetchUserPropertiesSuccess(data));
         } catch (e) {
             handleApiErrors(dispatch, fetchUserPropertiesFailure, e as APIError);

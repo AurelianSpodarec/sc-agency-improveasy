@@ -146,6 +146,10 @@
         .inner-box {
             color: var(--color-green-400);
         }
+
+        &:hover { 
+            cursor: pointer;
+        }
     }
 }
 

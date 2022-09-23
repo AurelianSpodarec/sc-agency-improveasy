@@ -27,7 +27,7 @@ const useFetchProperties = () => {
         propertyStatusFilters: [],
     };
 
-    const [form, handleChange, resetData] = useForm<FetchPropertiesRequest>(initialForm);
+    const [form, _handleChange, resetData] = useForm<FetchPropertiesRequest>(initialForm);
 
     const properties = Object.values(useSelector(selectProperties));
 
@@ -47,6 +47,18 @@ const useFetchProperties = () => {
     const handleClearFilters = () => {
         resetData(initialForm);
         setSearchTerm('');
+    };
+
+    const handleChange = (name: keyof FetchPropertiesRequest, value: number) => {
+        const currentFilters: number[] = form[name];
+
+        if (currentFilters.includes(value)) {
+            const newFilters = [...form[name]].filter(filter => filter !== value);
+
+            _handleChange(name, newFilters);
+        } else {
+            _handleChange(name, [...form[name], value]);
+        }
     };
 
     return {
