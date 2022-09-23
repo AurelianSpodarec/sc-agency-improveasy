@@ -28,6 +28,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
     return (
         <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
+                style={{ margin: '40px 0' }}
                 title="Access Details"
                 value={PropertyAccordionValue.TENANT}
                 isOpen={openValue === PropertyAccordionValue.TENANT}
@@ -38,6 +39,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 </div>
             </AccordionTwoItem>
             <AccordionTwoItem
+                style={{ margin: '40px 0' }}
                 title="EPC Rating"
                 value={PropertyAccordionValue.EPC}
                 isOpen={openValue === PropertyAccordionValue.EPC}

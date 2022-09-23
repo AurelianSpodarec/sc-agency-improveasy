@@ -14,6 +14,7 @@ import {
 import { onChangeFunction } from 'lib/src/types/shared/FormInputProps';
 
 import { convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums';
+import Checkbox from 'lib/src/components/form/Checkbox';
 
 enum FilterAccordionValue {
     EPC_CURRENT = '1',
@@ -31,9 +32,9 @@ const PropertiesFilters = ({
 }: IProps) => {
     const [openValue, setOpenValue] = useState<FilterAccordionValue | null>(null);
 
-    const epcFilterOptions = convertEnumToDropdownOption(IEPCFilters);
-    const meesFilterOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
-    const statusFilterOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
+    // const epcFilterOptions = convertEnumToDropdownOption(IEPCFilters);
+    // const meesFilterOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
+    // const statusFilterOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
 
     function onValueChange(e: string | string[]) {
         if (
@@ -60,9 +61,6 @@ const PropertiesFilters = ({
                         value={searchTerm}
                         onChange={(_, val) => setSearchTerm(val)}
                     />
-                    {/* <ActionButton source="text" onClick={handleClearFilters}>
-                        Clear filters
-                    </ActionButton> */}
                     <button className="search__clear-inputs" onClick={handleClearFilters}>
                         Clear filters
                     </button>
@@ -73,6 +71,7 @@ const PropertiesFilters = ({
                     isOpen={openValue === FilterAccordionValue.EPC_CURRENT}
                 >
                     <div></div>
+                    {/* <Checkbox label="hi" name="hi" onChange={() => console.log('hi')} /> */}
                 </AccordionTwoItem>
                 <AccordionTwoItem
                     title="EPC Potential"
