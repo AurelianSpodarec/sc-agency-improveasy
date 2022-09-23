@@ -27,6 +27,7 @@ const Select: React.FC<SelectProps> = ({
     placeholder = 'Select...',
     required,
     customValidate,
+    omitRemove = false,
 }) => {
     const [error, showError] = useFieldValidation({
         name,
@@ -69,7 +70,7 @@ const Select: React.FC<SelectProps> = ({
                     ) : (
                         <>
                             <p>{selected.label}</p>
-                            {!disabled && (
+                            {!disabled && !omitRemove && (
                                 <button
                                     className="remove"
                                     onClick={e => {
@@ -163,6 +164,7 @@ interface SelectProps extends FormInputProps<number | null> {
     options?: DropdownOption<number>[];
     label?: string;
     placeholder?: string;
+    omitRemove?: boolean;
 }
 
 export default Select;

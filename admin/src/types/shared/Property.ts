@@ -1,3 +1,4 @@
+import { PropertyStatus } from './../../redux/actions/properties/fetchProperties';
 export interface Property {
     id: number;
     userID: number;
@@ -13,6 +14,7 @@ export interface Property {
     hasEPC: boolean;
     userFullName: string;
     accessDetails: PropertyAccessDetails;
+    status: PropertyStatus;
 }
 
 export interface PropertyAccessDetails {

@@ -33,13 +33,13 @@ export interface FetchPropertiesRequest {
     limit: number;
     searchTerm: string;
 
-    currentEPCFilters: FilterByCurrentEPC[];
-    potentialEPCFilters: FilterByPotentialEPC[];
-    meesComplianceFilters: FilterByMEESCompliance[];
-    propertyStatusFilters: FilterByPropertyStatus[];
+    currentEPCFilters: EpcRating[];
+    potentialEPCFilters: EpcRating[];
+    meesComplianceFilters: MEESCompliance[];
+    propertyStatusFilters: PropertyStatus[];
 }
 
-export enum FilterByCurrentEPC {
+export enum EpcRating {
     A = 1,
     B = 2,
     C = 3,
@@ -50,24 +50,13 @@ export enum FilterByCurrentEPC {
     None = 8,
 }
 
-export enum FilterByPotentialEPC {
-    A = 1,
-    B = 2,
-    C = 3,
-    D = 4,
-    E = 5,
-    F = 6,
-    G = 7,
-    None = 8,
-}
-
-export enum FilterByMEESCompliance {
+export enum MEESCompliance {
     Compliant = 1,
     NonCompliant = 2,
     Unknown = 3,
 }
 
-export enum FilterByPropertyStatus {
+export enum PropertyStatus {
     New = 1,
     Compliant = 2,
     NonCompliant = 3,

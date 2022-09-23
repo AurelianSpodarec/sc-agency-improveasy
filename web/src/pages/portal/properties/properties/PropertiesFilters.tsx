@@ -9,7 +9,7 @@ import { convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums'
 import Checkbox from 'lib/src/components/form/Checkbox';
 import {
     FetchPropertiesRequest,
-    FilterByMEESCompliance,
+    MEESCompliance,
     PropertyStatusType,
     IEPCFilters,
 } from '../../../../types/shared/Properties';
@@ -31,7 +31,7 @@ const PropertiesFilters = ({
     const [openValue, setOpenValue] = useState<string | string[] | null>(null);
 
     const epcFilterOptions = convertEnumToDropdownOption(IEPCFilters);
-    const meesFilterOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
+    const meesFilterOptions = convertEnumToDropdownOption(MEESCompliance);
     const statusFilterOptions = convertEnumToDropdownOption(PropertyStatusType);
 
     return (

@@ -9,19 +9,12 @@ import { useCallback, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppSelector } from '../../../../redux/store';
 import useForm from 'lib/src/hooks/useForm';
-import {
-    fetchProperties,
-    FilterByCurrentEPC,
-    FilterByMEESCompliance,
-    FilterByPotentialEPC,
-    FilterByPropertyStatus,
-} from '@actions/properties';
+import { fetchProperties, EpcRating, MEESCompliance, PropertyStatus } from '@actions/properties';
 import { ApiFilterTableHandle } from 'lib/src/components/table/ApiFilterTable';
 
-const epcFilterOptions = convertEnumToDropdownOption(FilterByCurrentEPC);
-const meesComplianceOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
-const potentialEpcOptions = convertEnumToDropdownOption(FilterByPotentialEPC);
-const propertyStatusOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
+const epcFilterOptions = convertEnumToDropdownOption(EpcRating);
+const meesComplianceOptions = convertEnumToDropdownOption(MEESCompliance);
+const propertyStatusOptions = convertEnumToDropdownOption(PropertyStatus);
 
 const initialState = {
     currentEPCFilters: [],
@@ -64,7 +57,6 @@ const useFetchProperties = () => {
         tableRef,
         epcFilterOptions,
         meesComplianceOptions,
-        potentialEpcOptions,
         propertyStatusOptions,
         itemCount,
     };

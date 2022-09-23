@@ -4,10 +4,11 @@ import ContentBlock from '@components/layout/contentBlock/ContentBlock';
 import ContentItem from '@components/layout/contentBlock/ContentItem';
 import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
-import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Title from 'lib/src/components/typography/Title';
 import { Property as PropertyResponse } from 'src/types/shared/Property';
 import { User } from 'src/types/shared/User';
+import PropertyStatusSelect from './PropertyStatusSelect';
+import CreateHeader from '@components/layout/createHeader/CreateHeader';
 
 interface Props {
     property: PropertyResponse;
@@ -17,8 +18,11 @@ interface Props {
 const Property: React.FC<Props> = ({ property, user }) => {
     return (
         <>
-            <Title>Property</Title>
+            <CreateHeader>
+                <Title>Property</Title>
+            </CreateHeader>
 
+            <PropertyStatusSelect property={property} />
             <ContentBlock>
                 <ContentRow>
                     <ContentItem label="Owner">
@@ -43,13 +47,11 @@ const Property: React.FC<Props> = ({ property, user }) => {
                         <p>{property.postcode}</p>
                     </ContentItem>
                 </ContentRow>
-            </ContentBlock>
 
-            <ButtonRow alignment="left">
                 <LinkButton source="secondary" href={`/properties/${property.id}/edit-address`}>
                     Edit Address
                 </LinkButton>
-            </ButtonRow>
+            </ContentBlock>
         </>
     );
 };

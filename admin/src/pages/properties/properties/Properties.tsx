@@ -20,7 +20,6 @@ const Properties: React.FC = () => {
         tableRef,
         epcFilterOptions,
         meesComplianceOptions,
-        potentialEpcOptions,
         propertyStatusOptions,
         itemCount,
     } = useFetchProperties();
@@ -43,7 +42,7 @@ const Properties: React.FC = () => {
                 <MultiSelect
                     name="potentialEPCFilters"
                     value={formState.potentialEPCFilters}
-                    options={potentialEpcOptions}
+                    options={epcFilterOptions}
                     onChange={handleChange}
                     label="Potential EPC"
                     placeholder="All"

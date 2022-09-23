@@ -49,7 +49,7 @@ export enum EPCFilters {
 export interface IPropertyFilterRequest {
     currentEPCFilters: EPCFilters;
     potentialEPCFilters: EPCFilters;
-    meesComplianceFilters: FilterByMEESCompliance;
+    meesComplianceFilters: MEESCompliance;
     propertyStatusFilters: PropertyStatusType;
 }
 
@@ -99,7 +99,7 @@ export interface IPropertyRatingRecommendations {
 export interface FetchPropertiesRequest {
     currentEPCFilters: IEPCFilters[];
     potentialEPCFilters: IEPCFilters[];
-    meesComplianceFilters: FilterByMEESCompliance[];
+    meesComplianceFilters: MEESCompliance[];
     propertyStatusFilters: PropertyStatusType[];
 }
 
@@ -114,7 +114,7 @@ export enum IEPCFilters {
     None = 8,
 }
 
-export enum FilterByMEESCompliance {
+export enum MEESCompliance {
     Compliant = 1,
     NonCompliant = 2,
     Unknown = 3,
