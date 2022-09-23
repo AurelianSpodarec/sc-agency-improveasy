@@ -29,29 +29,26 @@ export interface FetchPropertiesRequest {
 }
 
 export enum IEPCFilters {
-    All = 1,
-    A = 2,
-    B = 3,
-    C = 4,
-    D = 5,
-    E = 6,
-    F = 7,
-    G = 8,
-    None = 9,
+    A = 1,
+    B = 2,
+    C = 3,
+    D = 4,
+    E = 5,
+    F = 6,
+    G = 7,
+    None = 8,
 }
 
 export enum FilterByMEESCompliance {
-    All = 1,
-    Compliant = 2,
-    NonCompliant = 3,
-    Unknown = 4,
+    Compliant = 1,
+    NonCompliant = 2,
+    Unknown = 3,
 }
 
 export enum FilterByPropertyStatus {
-    All = 1,
-    New = 2,
-    Compliant = 3,
-    NonCompliant = 4,
-    RequestedEPC = 5,
-    BookedEPC = 6,
+    New = 1,
+    Compliant = 2,
+    NonCompliant = 3,
+    RequestedEPC = 4,
+    BookedEPC = 5,
 }
