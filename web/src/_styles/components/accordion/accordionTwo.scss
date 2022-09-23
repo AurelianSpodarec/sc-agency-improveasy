@@ -4,19 +4,19 @@
 
 .accordionTwo {
     &-item {
-       
+        padding-bottom: 20px;
+        
         &__header {
             border-bottom: 1px solid #e8e8e8;
-            margin-bottom: 25px;
+        
         }
 
         &__trigger {
             background-color: transparent;
             width: 100%;
             padding: 16px;
-            
             @media (min-width: 767px) {                
-                padding: 25px 55px 0;
+                padding: 15px 15px 0;
             }
         }
 

@@ -51,18 +51,21 @@ const PropertiesFilters = ({
     return (
         <>
             <AccordionTwo onValueChange={onValueChange}>
-                <div className="d-flex justify-between search-wrapper">
+                <div className="d-flex justify-between search-wrapper space-x-2">
                     <Input
                         placeholder="Search"
-                        className="input--search"
+                        className="input--search w-full"
                         name="@"
                         icon={<IconMagnifyingGlass />}
                         value={searchTerm}
                         onChange={(_, val) => setSearchTerm(val)}
                     />
-                    <ActionButton source="text" onClick={handleClearFilters}>
+                    {/* <ActionButton source="text" onClick={handleClearFilters}>
                         Clear filters
-                    </ActionButton>
+                    </ActionButton> */}
+                    <button className="search__clear-inputs" onClick={handleClearFilters}>
+                        Clear filters
+                    </button>
                 </div>
                 <AccordionTwoItem
                     title="EPC Current"

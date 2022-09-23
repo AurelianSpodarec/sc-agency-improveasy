@@ -122,3 +122,19 @@
         font-weight: bold;
     }
 }
+
+.search__clear-inputs {
+    background: none;
+    width: 100%;
+    color: #0D695C;
+    font-family: NunitoSans;
+    font-size: 20px;
+    width: auto;
+    flex: none;
+    text-decoration: underline;
+    line-height: 24px;
+}
+
+.w-full {
+    width: 100%;
+}

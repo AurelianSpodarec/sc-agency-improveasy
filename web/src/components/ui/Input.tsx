@@ -11,7 +11,7 @@ function Input({
     icon,
 }: InputProps) {
     return (
-        <div className="h-full relative">
+        <div className="h-full relative" style={{ width: '100%' }}>
             <input
                 className={`input ${className ? className : ''}`}
                 placeholder={placeholder}
