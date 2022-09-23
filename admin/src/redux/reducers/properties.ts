@@ -16,6 +16,9 @@ import {
     editPropertyAccessDetailsRequest,
     editPropertyAccessDetailsSuccess,
     editPropertyAccessDetailsFailure,
+    editPropertyAddressRequest,
+    editPropertyAddressSuccess,
+    editPropertyAddressFailure,
 } from '@actions/properties';
 
 interface PropertiesState {
@@ -51,6 +54,9 @@ export default createReducer(initialState, {
     [editPropertyAccessDetailsRequest.type]: handlePostRequest,
     [editPropertyAccessDetailsSuccess.type]: handlePostSuccess,
     [editPropertyAccessDetailsFailure.type]: handlePostFailure,
+    [editPropertyAddressRequest.type]: handlePostRequest,
+    [editPropertyAddressSuccess.type]: handlePostSuccess,
+    [editPropertyAddressFailure.type]: handlePostFailure,
 });
 
 function handlePostRequest(state: PropertiesState) {

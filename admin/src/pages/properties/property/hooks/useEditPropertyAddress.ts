@@ -1,3 +1,4 @@
+import { editPropertyAddress } from './../../../../redux/actions/properties/editPropertyAddress';
 import usePrevious from 'lib/src/hooks/usePrevious';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,13 +19,12 @@ const useEditPropertyAddress = ({ property }: { property: Property }) => {
     const error = useSelector(getPropertiesPostError);
     const success = useSelector(getPropertiesPostSuccess);
 
-    const { firstName, lastName, email, phone, preferredContactTime } = property.accessDetails;
+    const { addressLine1, addressLine2, city, postcode } = property;
     const [formState, handleChange] = useForm({
-        firstName,
-        lastName,
-        email,
-        phone,
-        preferredContactTime,
+        addressLine1,
+        addressLine2,
+        city,
+        postcode,
     });
 
     const closeModal = useCallback(() => {
@@ -32,7 +32,7 @@ const useEditPropertyAddress = ({ property }: { property: Property }) => {
     }, [property.id, history]);
 
     const handleSubmit = () => {
-        console.log('submit');
+        dispatch(editPropertyAddress(property.id, formState));
     };
 
     const prevSuccess = usePrevious(success);

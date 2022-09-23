@@ -19,29 +19,37 @@ const PropertyEditAddressModal: React.FC<Props> = ({ property }) => {
             <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting} error={error}>
                 <FormRow>
                     <TextInput
-                        name="firstName"
-                        value={formState.firstName}
+                        name="addressLine1"
+                        value={formState.addressLine1}
                         onChange={handleChange}
-                        label="First name"
+                        label="Address line 1"
                         required
                     />
                 </FormRow>
                 <FormRow>
                     <TextInput
-                        name="lastName"
-                        value={formState.lastName}
+                        name="addressLine2"
+                        value={formState.addressLine2}
                         onChange={handleChange}
-                        label="Last name"
+                        label="Address line 2"
                         required
                     />
                 </FormRow>
                 <FormRow>
                     <TextInput
-                        type="email"
-                        name="email"
-                        value={formState.email}
+                        name="city"
+                        value={formState.city}
                         onChange={handleChange}
-                        label="Email address"
+                        label="City"
+                        required
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        name="postcode"
+                        value={formState.postcode}
+                        onChange={handleChange}
+                        label="Postcode"
                         required
                     />
                 </FormRow>

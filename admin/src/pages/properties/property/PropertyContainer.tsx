@@ -22,8 +22,10 @@ const PropertyContainer: React.FC<Props> = ({
                 <Property property={property} user={user} />
                 <PropertyAccessDetails property={property} />
             </DataCheck>
-            {showEditAddressModel && <PropertyEditAddressModal property={property} />}
-            {showEditAccessDetailsModel && <PropertyEditAccessDetailsModel property={property} />}
+            {!!property && showEditAddressModel && <PropertyEditAddressModal property={property} />}
+            {!!property && showEditAccessDetailsModel && (
+                <PropertyEditAccessDetailsModel property={property} />
+            )}
         </>
     );
 };
