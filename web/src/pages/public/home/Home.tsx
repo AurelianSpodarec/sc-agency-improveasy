@@ -31,17 +31,20 @@ function Home() {
         <MainPublic>
             <Section>
                 <Container size="lg">
-                    <Text type="h1" size="3xl" weight="bold">
-                        Increase your rental properties EPC to a minimum band C in 5 easy steps.
-                    </Text>
-                    <img
-                        style={{ borderRadius: '25px' }}
-                        width="100%"
-                        src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
-                        alt="yes"
-                    />
+                    <div className="text-center">
+                        <Text type="h1" size="3xl" weight="bold">
+                            Increase your rental properties EPC to a minimum band C in 5 easy steps.
+                        </Text>
+                        <img
+                            className="page-home__banner-img"
+                            style={{ borderRadius: '25px' }}
+                            width="100%"
+                            src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
+                            alt="yes"
+                        />
 
-                    <ActionButton className="winged">Get Started</ActionButton>
+                        <ActionButton className="bg-green winged">Get Started</ActionButton>
+                    </div>
                 </Container>
             </Section>
 
@@ -179,6 +182,28 @@ function Home() {
                             <Text size="lg" weight="bold">
                                 Input property code
                             </Text>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            <Section>
+                <Container>
+                    <div className="cardTestimonial">
+                        {/* svg icon here */}
+                        <div className="cardTestimonial__text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
+                            rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
+                            voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum, autem
+                            iusto.
+                        </div>
+                        <div className="cardTestimonial__avatar-wrap">
+                            <Text className="cardTestimonial__avatar-name">Jack Smith</Text>
+                            <img
+                                className="cardTestimonial__avatar-image"
+                                src=""
+                                alt="Testimonial face"
+                            />
                         </div>
                     </div>
                 </Container>

@@ -4,7 +4,7 @@ function PageHeading({
     style,
     className,
     title,
-    type,
+    type = 'h2',
     size = '2xl',
     borderFull = false,
     border = true,
@@ -18,7 +18,7 @@ function PageHeading({
             style={style}
             className={`${className ? className : ''} page-heading ${isBorder} ${spaceClass}`}
         >
-            <Text type="h2" size={size} weight="bold">
+            <Text type={type} size={size} weight="bold">
                 <span>{title}</span>
                 {borderFull && <div className="divider" />}
             </Text>

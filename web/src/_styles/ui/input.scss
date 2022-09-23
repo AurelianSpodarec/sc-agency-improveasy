@@ -20,7 +20,7 @@
         transform: translate(-50%);
 
         &--right {
-            right: 40px;
+            right: 20px;
         }
 
         &--left {
@@ -29,8 +29,9 @@
     }
 
     &--search {
-        padding-right: 80px;
-        width: 370px;
+        width: 100%;
+        // padding-right: 30px;
+        // width: 370px;
     }
 
 }

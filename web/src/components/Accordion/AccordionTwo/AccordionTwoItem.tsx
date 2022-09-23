@@ -3,15 +3,15 @@ import * as Accordion from '@radix-ui/react-accordion';
 import ChevronDown from '@content/icons/ChevronDown';
 import { PageHeading } from '@components/ui';
 
-function AccordionTwoItem({ title, children, value, isOpen }: IAccordionItemProps) {
+function AccordionTwoItem({ title, children, value, isOpen, style }: IAccordionItemProps) {
     return (
-        <Accordion.Item className="accordionOne-item" value={value}>
-            <Accordion.Header className="accordionOne-item__header">
-                <Accordion.Trigger className="accordionOne-item__trigger">
+        <Accordion.Item className="accordionTwo-item" value={value}>
+            <Accordion.Header className="accordionTwo-item__header">
+                <Accordion.Trigger className="accordionTwo-item__trigger">
                     <div className="d-flex align-center">
                         <PageHeading title={title} size="lg" border space={'none'} />
 
-                        <div className="accordionOne-item__icon">
+                        <div className="accordionTwo-item__icon">
                             <ChevronDown
                                 fill="#0D695C"
                                 className={`chevron ${isOpen ? 'up' : 'down'}`}
@@ -21,7 +21,9 @@ function AccordionTwoItem({ title, children, value, isOpen }: IAccordionItemProp
                 </Accordion.Trigger>
             </Accordion.Header>
 
-            <Accordion.Content className="accordionOne-item__content">{children}</Accordion.Content>
+            <Accordion.Content className="accordionTwo-item__content" style={style}>
+                {children}
+            </Accordion.Content>
         </Accordion.Item>
     );
 }
@@ -31,6 +33,7 @@ interface IAccordionItemProps {
     children: React.ReactNode;
     value: string;
     isOpen: boolean;
+    style?: object;
 }
 
 export default AccordionTwoItem;

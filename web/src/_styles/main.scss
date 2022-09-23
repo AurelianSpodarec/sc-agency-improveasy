@@ -62,8 +62,8 @@
 // ==========================================================================
 // Components
 // ==========================================================================
-
 @import 'components/accordion/accordionOne';
+@import 'components/accordion/accordionTwo';
 @import 'components/accordion/accordionFilter';
 
 @import 'components/button';
@@ -74,11 +74,13 @@
 @import 'components/processBalls';
 @import 'components/userAvatar';
 
+
 // ==========================================================================
 // Pages
 // ==========================================================================
 @import 'pages/authLogin';
 @import 'pages/properties';
+
 
 // ==========================================================================
 // Cheat - random CSS

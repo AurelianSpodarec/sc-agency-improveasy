@@ -17,14 +17,15 @@ const Header = () => {
             <Container style={{ height: '100%' }}>
                 <div className="header__inner d-flex justify-between items-center">
                     <div className="d-flex justify-between align-center w-full lg:w-auto">
-                        <div className="header__logo">
-                            <Link to="/">
-                                <IconLogoPublic className="header__logo-img" />
-                                <div className="sr-only">Public Header Logo</div>
-                            </Link>
+                        <div className="d-flex align-center w-full lg:w-auto">
+                            <div className="header__logo">
+                                <Link to="/">
+                                    <IconLogoPublic className="header__logo-img" />
+                                    <div className="sr-only">Public Header Logo</div>
+                                </Link>
+                            </div>
+                            <HeaderDesktop />
                         </div>
-
-                        <HeaderDesktop />
                         <HeaderMobile />
                     </div>
 
