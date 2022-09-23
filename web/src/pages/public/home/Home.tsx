@@ -31,17 +31,20 @@ function Home() {
         <MainPublic>
             <Section>
                 <Container size="lg">
-                    <Text type="h1" size="3xl" weight="bold">
-                        Increase your rental properties EPC to a minimum band C in 5 easy steps.
-                    </Text>
-                    <img
-                        style={{ borderRadius: '25px' }}
-                        width="100%"
-                        src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
-                        alt="yes"
-                    />
+                    <div className="text-center">
+                        <Text type="h1" size="3xl" weight="bold">
+                            Increase your rental properties EPC to a minimum band C in 5 easy steps.
+                        </Text>
+                        <img
+                            className="page-home__banner-img"
+                            style={{ borderRadius: '25px' }}
+                            width="100%"
+                            src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
+                            alt="yes"
+                        />
 
-                    <ActionButton className="winged">Get Started</ActionButton>
+                        <ActionButton className="bg-green winged">Get Started</ActionButton>
+                    </div>
                 </Container>
             </Section>
 

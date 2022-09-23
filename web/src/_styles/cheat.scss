@@ -138,3 +138,20 @@
 .w-full {
     width: 100%;
 }
+
+
+.page-home {
+    &__banner-img {
+        height: 270px;
+        @media (min-width: 767px) {
+            height: 470px;
+
+        }
+        margin: 70px 0;
+        object-fit: cover;
+    }
+}
+
+.bg-green {
+    background-color: #0D695C!important;
+}
