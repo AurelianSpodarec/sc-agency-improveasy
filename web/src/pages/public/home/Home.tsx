@@ -189,6 +189,28 @@ function Home() {
 
             <Section>
                 <Container>
+                    <div className="cardTestimonial">
+                        {/* svg icon here */}
+                        <div className="cardTestimonial__text">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
+                            rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
+                            voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum, autem
+                            iusto.
+                        </div>
+                        <div className="cardTestimonial__avatar-wrap">
+                            <Text className="cardTestimonial__avatar-name">Jack Smith</Text>
+                            <img
+                                className="cardTestimonial__avatar-image"
+                                src=""
+                                alt="Testimonial face"
+                            />
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            <Section>
+                <Container>
                     <PageHeading title="So why use XXXX" />
                 </Container>
             </Section>
