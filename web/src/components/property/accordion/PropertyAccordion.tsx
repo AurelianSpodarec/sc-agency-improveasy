@@ -25,6 +25,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
         }
     }
 
+    if (!property) return <></>;
     return (
         <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
