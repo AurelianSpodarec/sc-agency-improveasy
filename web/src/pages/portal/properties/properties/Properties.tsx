@@ -31,7 +31,7 @@ function Properties({ showCreateModal }: IProps) {
             <MainPortal>
                 <Section>
                     <Container>
-                        <div className="lg:d-flex space-x-4">
+                        <div className="lg:d-flex space-y-8 lg:space-y-0 lg:space-x-4">
                             <div className="lg:w-1/3">
                                 <MainCard title="Filter">
                                     <PropertiesFilters

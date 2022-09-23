@@ -59,7 +59,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_CURRENT
                     }
                 >
-                    <div className="grid grid-cols-3">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
                             <Checkbox
                                 key={index}
@@ -80,7 +80,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_POTENTIAL
                     }
                 >
-                    <div className="grid grid-cols-3">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
                             <Checkbox
                                 key={index}
@@ -101,7 +101,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.MEES
                     }
                 >
-                    <div className="grid grid-cols-2">
+                    <div className="lg:grid lg:grid-cols-2">
                         {meesFilterOptions.map(option => (
                             <Checkbox
                                 key={option.value}
@@ -122,7 +122,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.STATUS
                     }
                 >
-                    <div className="grid grid-cols-2">
+                    <div className="grid xl:grid-cols-2">
                         {statusFilterOptions.map((option, index) => (
                             <Checkbox
                                 key={index}
