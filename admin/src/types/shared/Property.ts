@@ -11,7 +11,7 @@ export interface Property {
     currentEPCRating: string;
     potentialEPCRating: string;
     hasEPC: boolean;
-
+    userFullName: string;
     accessDetails: PropertyAccessDetails;
 }
 
