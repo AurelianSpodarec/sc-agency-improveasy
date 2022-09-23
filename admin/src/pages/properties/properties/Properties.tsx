@@ -81,6 +81,11 @@ const Properties: React.FC = () => {
 
 const columns: TableColumns<Property> = [
     {
+        key: 0,
+        heading: 'Owner',
+        getValue: row => row.userFullName,
+    },
+    {
         key: 1,
         heading: 'Address line 1',
         getValue: row => row.addressLine1,

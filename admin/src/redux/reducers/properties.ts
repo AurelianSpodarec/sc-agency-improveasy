@@ -9,6 +9,9 @@ import {
     fetchPropertiesRequest,
     fetchPropertiesSuccess,
     fetchPropertiesFailure,
+    fetchPropertyRequest,
+    fetchPropertySuccess,
+    fetchPropertyFailure,
     PropertiesResponse,
 } from '@actions/properties';
 
@@ -37,8 +40,11 @@ export default createReducer(initialState, {
     [fetchUserPropertiesSuccess.type]: handleFetchSuccess,
     [fetchUserPropertiesFailure.type]: handleFetchFailure,
     [fetchPropertiesRequest.type]: handleFetchRequest,
-    [fetchPropertiesSuccess.type]: handleFetchSuccess,
+    [fetchPropertiesSuccess.type]: handleFetchAllSuccess,
     [fetchPropertiesFailure.type]: handleFetchFailure,
+    [fetchPropertyRequest.type]: handleFetchRequest,
+    [fetchPropertySuccess.type]: handleFetchSingleSuccess,
+    [fetchPropertyFailure.type]: handleFetchFailure,
 });
 
 function handlePostRequest(state: PropertiesState) {
@@ -63,10 +69,20 @@ function handleFetchRequest(state: PropertiesState) {
     state.fetchError = null;
 }
 
-function handleFetchSuccess(state: PropertiesState, action: PayloadAction<PropertiesResponse>) {
+function handleFetchSuccess(state: PropertiesState, action: PayloadAction<Property[]>) {
+    state.isFetching = false;
+    state.properties = convertArrToObj(action.payload);
+}
+
+function handleFetchAllSuccess(state: PropertiesState, action: PayloadAction<PropertiesResponse>) {
     state.isFetching = false;
     state.properties = convertArrToObj(action.payload.items);
     state.itemCount = action.payload.itemCount;
+}
+
+function handleFetchSingleSuccess(state: PropertiesState, action: PayloadAction<Property>) {
+    state.isFetching = false;
+    state.properties[action.payload.id] = action.payload;
 }
 
 function handleFetchFailure(state: PropertiesState, action: PayloadAction<string>) {

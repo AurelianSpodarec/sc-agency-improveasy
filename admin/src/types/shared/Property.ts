@@ -3,7 +3,7 @@ export interface Property {
     userID: number;
     addressLine1: string;
     addressLine2: string;
-    addrecityssLine2: string;
+    city: string;
     postcode: string;
     statusUpdatedOn: Date;
     isDeleted: false;
@@ -11,7 +11,7 @@ export interface Property {
     currentEPCRating: string;
     potentialEPCRating: string;
     hasEPC: boolean;
-
+    userFullName: string;
     accessDetails: PropertyAccessDetails;
 }
 
