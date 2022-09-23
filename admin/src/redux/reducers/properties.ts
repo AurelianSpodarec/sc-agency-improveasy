@@ -40,7 +40,7 @@ export default createReducer(initialState, {
     [fetchUserPropertiesSuccess.type]: handleFetchSuccess,
     [fetchUserPropertiesFailure.type]: handleFetchFailure,
     [fetchPropertiesRequest.type]: handleFetchRequest,
-    [fetchPropertiesSuccess.type]: handleFetchSuccess,
+    [fetchPropertiesSuccess.type]: handleFetchAllSuccess,
     [fetchPropertiesFailure.type]: handleFetchFailure,
     [fetchPropertyRequest.type]: handleFetchRequest,
     [fetchPropertySuccess.type]: handleFetchSingleSuccess,
@@ -69,7 +69,12 @@ function handleFetchRequest(state: PropertiesState) {
     state.fetchError = null;
 }
 
-function handleFetchSuccess(state: PropertiesState, action: PayloadAction<PropertiesResponse>) {
+function handleFetchSuccess(state: PropertiesState, action: PayloadAction<Property[]>) {
+    state.isFetching = false;
+    state.properties = convertArrToObj(action.payload);
+}
+
+function handleFetchAllSuccess(state: PropertiesState, action: PayloadAction<PropertiesResponse>) {
     state.isFetching = false;
     state.properties = convertArrToObj(action.payload.items);
     state.itemCount = action.payload.itemCount;
