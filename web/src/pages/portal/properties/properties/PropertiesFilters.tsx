@@ -4,15 +4,15 @@ import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
 import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
 import { IconMagnifyingGlass } from '@content/icons/IconMagnifyingGlass';
 import { Input } from '@components/ui';
-import {
-    FetchPropertiesRequest,
-    FilterByMEESCompliance,
-    FilterByPropertyStatus,
-    IEPCFilters,
-} from '@actions/properties/fetchUserProperties';
 
 import { convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums';
 import Checkbox from 'lib/src/components/form/Checkbox';
+import {
+    FetchPropertiesRequest,
+    FilterByMEESCompliance,
+    PropertyStatusType,
+    IEPCFilters,
+} from '../../../../types/shared/Properties';
 
 enum FilterAccordionValue {
     EPC_CURRENT = '1',
@@ -32,7 +32,7 @@ const PropertiesFilters = ({
 
     const epcFilterOptions = convertEnumToDropdownOption(IEPCFilters);
     const meesFilterOptions = convertEnumToDropdownOption(FilterByMEESCompliance);
-    const statusFilterOptions = convertEnumToDropdownOption(FilterByPropertyStatus);
+    const statusFilterOptions = convertEnumToDropdownOption(PropertyStatusType);
 
     return (
         <>

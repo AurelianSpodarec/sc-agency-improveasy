@@ -4,11 +4,13 @@ import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
 import useFetchProperties from '@pages/portal/properties/hooks/useFetchProperties';
 import MEESRating from '@pages/portal/properties/properties/MEESRating';
-import { IProperty } from '../../../../types/shared/Properties';
+
 import dayjs from 'dayjs';
 import { useHistory } from 'react-router-dom';
 import DataCheck from '@components/ui/DataCheck';
 import PropertiesFilters from './PropertiesFilters';
+
+import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -57,6 +59,7 @@ function Properties({ showCreateModal }: IProps) {
                                                 <th>Current EPC Rating</th>
                                                 <th>Potential EPC Rating</th>
                                                 <th>MEES Compliant</th>
+                                                <th>Status</th>
                                                 <th>Last updated</th>
                                             </tr>
                                         </thead>
@@ -85,6 +88,13 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                             <MEESRating mees={section.hasEPC} />
+                                                        </td>
+                                                        <td>
+                                                            {
+                                                                PropertyStatusTypeLabel[
+                                                                    section.status
+                                                                ]
+                                                            }
                                                         </td>
                                                         <td>
                                                             {dayjs(section.statusUpdatedOn).format(

@@ -3,7 +3,7 @@ import { APIError } from 'lib/src/types/APIError';
 import { api, handleApiErrors } from 'lib/src/utils/api';
 import { AppDispatch } from 'src/redux/store';
 
-import { IProperty } from '../../../types/shared/Properties';
+import { FetchPropertiesRequest, IProperty } from '../../../types/shared/Properties';
 
 export const fetchUserPropertiesRequest = createAction('fetchUserPropertiesRequest');
 export const fetchUserPropertiesSuccess = createAction<IProperty[]>('fetchUserPropertiesSuccess');
@@ -20,35 +20,3 @@ export const fetchUserProperties =
             handleApiErrors(dispatch, fetchUserPropertiesFailure, e as APIError);
         }
     };
-
-export interface FetchPropertiesRequest {
-    currentEPCFilters: IEPCFilters[];
-    potentialEPCFilters: IEPCFilters[];
-    meesComplianceFilters: FilterByMEESCompliance[];
-    propertyStatusFilters: FilterByPropertyStatus[];
-}
-
-export enum IEPCFilters {
-    A = 1,
-    B = 2,
-    C = 3,
-    D = 4,
-    E = 5,
-    F = 6,
-    G = 7,
-    None = 8,
-}
-
-export enum FilterByMEESCompliance {
-    Compliant = 1,
-    NonCompliant = 2,
-    Unknown = 3,
-}
-
-export enum FilterByPropertyStatus {
-    New = 1,
-    Compliant = 2,
-    NonCompliant = 3,
-    RequestedEPC = 4,
-    BookedEPC = 5,
-}

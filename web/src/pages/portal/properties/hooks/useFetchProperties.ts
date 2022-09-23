@@ -8,10 +8,8 @@ import {
     selectPropertiesIsFetching,
 } from '@selectors/properties';
 
-import {
-    FetchPropertiesRequest,
-    fetchUserProperties,
-} from '@actions/properties/fetchUserProperties';
+import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
+import { FetchPropertiesRequest } from 'src/types/shared/Properties';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
