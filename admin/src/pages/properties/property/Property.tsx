@@ -6,39 +6,49 @@ import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Title from 'lib/src/components/typography/Title';
-import { AdminUser } from 'src/types/shared/AdminUser';
+import { Property as PropertyResponse } from 'src/types/shared/Property';
 
-const Property: React.FC<AdminUserProps> = () => {
-    const id = 1;
+interface Props {
+    property: PropertyResponse;
+}
+
+const Property: React.FC<Props> = ({ property }) => {
     return (
         <>
             <Title>Property</Title>
 
             <ContentBlock>
                 <ContentRow>
-                    <ContentItem label="Name">
-                        <p>Test</p>
+                    <ContentItem label="Address Line 1">
+                        <p>{property.addressLine1}</p>
+                    </ContentItem>
+                    <ContentItem label="Address Line 2">
+                        <p>{property.addressLine2}</p>
+                    </ContentItem>
+                </ContentRow>
+                <ContentRow>
+                    <ContentItem label="City">
+                        <p>{property.city}</p>
+                    </ContentItem>
+                    <ContentItem label="Postcode">
+                        <p>{property.postcode}</p>
                     </ContentItem>
                 </ContentRow>
             </ContentBlock>
 
             <ButtonRow alignment="left">
-                <LinkButton source="secondary" href={`/admin-users/${id}/edit`}>
+                <LinkButton source="secondary" href={`/properties/${property.id}/edit`}>
                     Edit
                 </LinkButton>
-                <LinkButton source="secondary" href={`/admin-users/${id}/edit-password`}>
+                <LinkButton source="secondary" href={`/properties/${property.id}/edit-password`}>
                     Edit password
                 </LinkButton>
-                <LinkButton source="negative" href={`/admin-users/${id}/delete`}>
+                <LinkButton source="negative" href={`/properties/${property.id}/delete`}>
                     Delete
                 </LinkButton>
             </ButtonRow>
         </>
     );
 };
-
-interface AdminUserProps {
-    user: AdminUser | undefined;
-}
 
 export default Property;
