@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Link } from 'react-router-dom';
+import { SyntheticEvent } from 'react';
+import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 
 function UserAvatar() {
+    function logout(e: SyntheticEvent) {
+        e.preventDefault();
+        clearJwtAndRefreshToken();
+    }
+
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger className="userAvatar__trigger">
@@ -15,10 +22,14 @@ function UserAvatar() {
 
             <DropdownMenu.Portal>
                 <DropdownMenu.Content className="userAvatar__menu">
-                    <Link to="/properties" className="userAvatar__menu-button" type="button">
+                    <Link to="/portal/properties" className="userAvatar__menu-button" type="button">
                         View Properties
                     </Link>
-                    <button className="userAvatar__menu-button" type="button">
+                    <button
+                        onClick={() => logout}
+                        className="userAvatar__menu-button"
+                        type="button"
+                    >
                         Logout
                     </button>
                 </DropdownMenu.Content>
@@ -27,11 +38,3 @@ function UserAvatar() {
     );
 }
 export default UserAvatar;
-
-// import { SyntheticEvent } from 'react';
-// import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
-// function logout(e: SyntheticEvent) {
-//     e.preventDefault();
-//     clearJwtAndRefreshToken();
-//     history.replace('/');
-// }
