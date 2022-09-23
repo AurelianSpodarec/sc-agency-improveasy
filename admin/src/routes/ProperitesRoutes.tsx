@@ -13,6 +13,12 @@ const PropertiesRoutes: React.FC = () => {
             <Route exact path={`${path}/:id`}>
                 <PropertyContainer />
             </Route>
+            <Route exact path={`${path}/:id/edit-address`}>
+                <PropertyContainer showEditAddressModel />
+            </Route>
+            <Route exact path={`${path}/:id/edit-access-details`}>
+                <PropertyContainer showEditAccessDetailsModel />
+            </Route>
             <DefaultRedirect to="/" />
         </Switch>
     );

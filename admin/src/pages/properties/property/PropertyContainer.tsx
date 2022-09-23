@@ -2,15 +2,17 @@ import Property from './Property';
 import useFetchPropertyDetails from './hooks/useFetchPropertyDetails';
 import DataCheck from '@components/common/DataCheck';
 import PropertyAccessDetails from './PropertyAccessDetails';
+import PropertyEditAddressModal from './PropertyEditAddressModal';
+import PropertyEditAccessDetailsModel from './PropertyEditAccessDetailsModel';
 
 interface Props {
-    showDeleteModal?: boolean;
     showEditAddressModel?: boolean;
+    showEditAccessDetailsModel?: boolean;
 }
 
 const PropertyContainer: React.FC<Props> = ({
-    showDeleteModal = false,
     showEditAddressModel = false,
+    showEditAccessDetailsModel = false,
 }) => {
     const { property, user, isFetching, fetchError } = useFetchPropertyDetails();
 
@@ -18,8 +20,10 @@ const PropertyContainer: React.FC<Props> = ({
         <>
             <DataCheck dataExists={!!(property && user)} isFetching={isFetching} error={fetchError}>
                 <Property property={property} user={user} />
-                <PropertyAccessDetails property={property} user={user} />
+                <PropertyAccessDetails property={property} />
             </DataCheck>
+            {showEditAddressModel && <PropertyEditAddressModal property={property} />}
+            {showEditAccessDetailsModel && <PropertyEditAccessDetailsModel property={property} />}
         </>
     );
 };

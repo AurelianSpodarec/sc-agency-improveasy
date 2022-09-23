@@ -5,18 +5,15 @@ import ContentItem from '@components/layout/contentBlock/ContentItem';
 import ContentRow from '@components/layout/contentBlock/ContentRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
-import Title from 'lib/src/components/typography/Title';
 import { Property as PropertyResponse } from 'src/types/shared/Property';
-import { User } from 'src/types/shared/User';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import dayjs from 'dayjs';
 
 interface Props {
     property: PropertyResponse;
-    user: User;
 }
 
-const PropertyAccessDetails: React.FC<Props> = ({ property, user }) => {
+const PropertyAccessDetails: React.FC<Props> = ({ property }) => {
     const { firstName, lastName, email, phone } = property.accessDetails;
 
     return (
@@ -51,7 +48,10 @@ const PropertyAccessDetails: React.FC<Props> = ({ property, user }) => {
             </ContentBlock>
 
             <ButtonRow alignment="left">
-                <LinkButton source="secondary" href={`/properties/${property.id}/edit`}>
+                <LinkButton
+                    source="secondary"
+                    href={`/properties/${property.id}/edit-access-details`}
+                >
                     Edit Access Details
                 </LinkButton>
             </ButtonRow>

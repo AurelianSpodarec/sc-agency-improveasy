@@ -46,7 +46,7 @@ const Property: React.FC<Props> = ({ property, user }) => {
             </ContentBlock>
 
             <ButtonRow alignment="left">
-                <LinkButton source="secondary" href={`/properties/${property.id}/edit`}>
+                <LinkButton source="secondary" href={`/properties/${property.id}/edit-address`}>
                     Edit Address
                 </LinkButton>
             </ButtonRow>
