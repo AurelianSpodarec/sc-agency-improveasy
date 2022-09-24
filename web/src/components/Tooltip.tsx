@@ -10,7 +10,10 @@ function Tooltip(props: any) {
             <div onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
                 {children}
             </div>
-            <div className={`tooltip ${isOpen ? '' : 'hidden'} `} style={{ userSelect: 'none' }}>
+            <div
+                className={`tooltip ${isOpen ? 'is-open' : 'hidden'} `}
+                style={{ userSelect: 'none' }}
+            >
                 {name}
             </div>
         </div>

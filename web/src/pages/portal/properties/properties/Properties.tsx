@@ -88,16 +88,12 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.currentEPCRating}</td>
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <MEESRating mees={section.hasEPC} />
+                                                            <Tooltip name="yes">
+                                                                <MEESRating mees={section.hasEPC} />
+                                                            </Tooltip>
                                                         </td>
                                                         <td>
-                                                            <Tooltip name="yes">
-                                                            {
-                                                                PropertyStatusTypeLabel[
-                                                                    section.status
-                                                                ]
-                                                            }
-                                                            </Tooltip>
+                                                            {PropertyStatusTypeLabel[section.status]}
                                                         </td>
                                                         <td>
                                                             {dayjs(section.statusUpdatedOn).format(
