@@ -88,7 +88,7 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.currentEPCRating}</td>
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <Tooltip name="yes">
+                                                            <Tooltip name={`${section.hasEPC ? "EPC Active" : "No EPC"}`}>
                                                                 <MEESRating mees={section.hasEPC} />
                                                             </Tooltip>
                                                         </td>
