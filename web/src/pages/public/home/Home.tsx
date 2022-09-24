@@ -210,7 +210,7 @@ function Home() {
                                 <Text className="cardTestimonial__avatar-name">Jack Smith</Text>
                                 <img
                                     className="cardTestimonial__avatar-image"
-                                    src="https://hips.hearstapps.com/prima.cdnds.net/assets/16/12/1280x640/landscape-1458732822-puppy-labrador.jpg"
+                                    src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8-4-4.jpg"
                                     alt="Testimonial face"
                                 />
                             </div>
@@ -236,7 +236,7 @@ function Home() {
                                 <Text className="cardTestimonial__avatar-name">Debra Donoven</Text>
                                 <img
                                     className="cardTestimonial__avatar-image"
-                                    src="https://hips.hearstapps.com/prima.cdnds.net/assets/16/12/1280x640/landscape-1458732822-puppy-labrador.jpg"
+                                    src="https://www.unh.edu/unhtoday/sites/default/files/styles/article_huge/public/article/2019/professional_woman_headshot.jpg?itok=3itzxHXh"
                                     alt="Testimonial face"
                                 />
                             </div>
@@ -262,7 +262,7 @@ function Home() {
                                 <Text className="cardTestimonial__avatar-name">Ria Carlon</Text>
                                 <img
                                     className="cardTestimonial__avatar-image"
-                                    src="https://hips.hearstapps.com/prima.cdnds.net/assets/16/12/1280x640/landscape-1458732822-puppy-labrador.jpg"
+                                    src="https://www.headshotlondon.co.uk/wp-content/uploads/2015/05/headshotlondonblog_examples-of-headshots.jpg"
                                     alt="Testimonial face"
                                 />
                             </div>
