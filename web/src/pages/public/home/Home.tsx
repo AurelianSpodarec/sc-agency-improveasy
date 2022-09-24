@@ -189,7 +189,7 @@ function Home() {
 
             <Section>
                 <Container>
-                    <div className="grid lg:grid-cols-3 gap-8">
+                    <div className="grid lg:grid-cols-3 gap-16">
                         <div className="cardTestimonial">
                             <div className="cardTestimonial__svg-wrap">
                                 <svg
