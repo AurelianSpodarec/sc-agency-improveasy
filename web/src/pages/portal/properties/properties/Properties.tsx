@@ -11,6 +11,7 @@ import DataCheck from '@components/ui/DataCheck';
 import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
+import Tooltip from '@components/Tooltip';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -90,11 +91,13 @@ function Properties({ showCreateModal }: IProps) {
                                                             <MEESRating mees={section.hasEPC} />
                                                         </td>
                                                         <td>
+                                                            <Tooltip name="yes">
                                                             {
                                                                 PropertyStatusTypeLabel[
                                                                     section.status
                                                                 ]
                                                             }
+                                                            </Tooltip>
                                                         </td>
                                                         <td>
                                                             {dayjs(section.statusUpdatedOn).format(
