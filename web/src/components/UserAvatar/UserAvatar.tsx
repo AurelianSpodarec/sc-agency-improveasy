@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
 
 function UserAvatar() {
+    const history = useHistory();
+
     function logout(e: SyntheticEvent) {
         e.preventDefault();
         clearJwtAndRefreshToken();
+        history.replace('/');
     }
 
     return (
