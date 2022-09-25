@@ -52,7 +52,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 <br />
 
                 <PageHeading title="Potential Rating Improvements" size="lg" />
-                <p className="semi-bold">
+                <p className="font-semibold">
                     If you have installed any of these recommendations this may have an impact on
                     your current EPC rating
                 </p>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Link, useHistory } from 'react-router-dom';
 import { SyntheticEvent } from 'react';
