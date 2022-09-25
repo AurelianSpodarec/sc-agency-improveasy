@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Tooltip(props: any) {
+function MeesTooltip(props: any) {
     const { children, name, position } = props;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,7 @@ function Tooltip(props: any) {
                 {children}
             </div>
             <div
-                className={`tooltip ${isOpen ? 'is-open' : 'hidden'} `}
+                className={`mees-tooltip ${isOpen ? 'is-open' : 'hidden'} `}
                 style={{ userSelect: 'none' }}
             >
                 {name}
@@ -20,4 +20,4 @@ function Tooltip(props: any) {
     );
 }
 
-export default Tooltip;
+export default MeesTooltip;

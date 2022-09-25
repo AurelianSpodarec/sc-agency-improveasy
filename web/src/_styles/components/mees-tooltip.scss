@@ -1,4 +1,10 @@
-.tooltip {
+// ==========================================================================
+// # MEES Tooltip
+// ==========================================================================
+
+
+
+.mees-tooltip {
     z-index: 10;
     font-size: 14px;
     width: auto;
@@ -12,5 +18,4 @@
     background-color: #FFFFFF;
     border-radius: 0 80.5px;
     box-shadow: 0 0 17px 0 rgba(0, 0, 0, 0.2);
-    // whitespace-nowrap    h-fit translate-x-full bg-gray-700 top-0 bottom-0
 }

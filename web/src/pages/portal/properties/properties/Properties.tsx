@@ -11,7 +11,7 @@ import DataCheck from '@components/ui/DataCheck';
 import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
-import Tooltip from '@components/Tooltip';
+import MeesTooltip from '@components/MeesTooltip';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -88,9 +88,9 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.currentEPCRating}</td>
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <Tooltip name={`${section.hasEPC ? "EPC Active" : "No EPC"}`}>
+                                                            <MeesTooltip name={`${section.hasEPC ? "EPC Active" : "No EPC"}`}>
                                                                 <MEESRating mees={section.hasEPC} />
-                                                            </Tooltip>
+                                                            </MeesTooltip>
                                                         </td>
                                                         <td>
                                                             {PropertyStatusTypeLabel[section.status]}
