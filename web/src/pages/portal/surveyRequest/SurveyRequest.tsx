@@ -104,18 +104,50 @@ function SurveyRequest() {
                     </Container>
                 </Section>
 
-                <Container>
-                    <h2>When to choose each option?</h2>
-                    <div>
-                        <h3>Epc</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ducimus
-                            quo exercitationem natus magni dolores blanditiis aspernatur labore
-                            fugit reprehenderit sit, quaerat quod? Aperiam totam reiciendis soluta
-                            quidem, delectus magnam.
-                        </p>
-                    </div>
-                </Container>
+                <Section>
+                    <Container>
+                        <div>
+                            <h2>Why book a Whole House Energy Survey?</h2>
+                            <span>
+                                Booking this survey will give you access to a range of services
+                                including:
+                            </span>
+
+                            <ul>
+                                <li>FUNDING IDENTIFICATION</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>
+                                We will identify and apply for any available grant funding which
+                                could fully or partially fund the cost of installing energy
+                                efficiency measures in the property. Available grants include:
+                            </h3>
+                            <ul>
+                                <li>
+                                    <span>ECO4 (Energy Company Obligation)</span>
+                                    <ul>
+                                        <li>LA Flex (Local Authority Flexible Eligibility)</li>
+                                        <li>HUG (Home Upgrade Grant)</li>
+                                    </ul>
+                                </li>
+                                <li>BUS (Boiler Upgrade Scheme)</li>
+                            </ul>
+                        </div>
+
+                        {/* <div>
+                            <h3>Epc</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+                                ducimus quo exercitationem natus magni dolores blanditiis aspernatur
+                                labore fugit reprehenderit sit, quaerat quod? Aperiam totam
+                                reiciendis soluta quidem, delectus magnam.
+                            </p>
+                        </div> */}
+                    </Container>
+                </Section>
+
                 <Section>
                     <Container>
                         <div>Contact us or 'Book'</div>
