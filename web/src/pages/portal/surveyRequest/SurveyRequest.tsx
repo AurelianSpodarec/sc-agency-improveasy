@@ -1,4 +1,5 @@
 import { Section, Container } from '@components/ui';
+import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
 
 function SurveyRequest() {
@@ -30,8 +31,12 @@ function SurveyRequest() {
                                 <tbody>
                                     <tr>
                                         <td className="surveyTable__title">EPC</td>
-                                        <td className="text">Yes</td>
-                                        <td className="numeric">no</td>
+                                        <td className="text">
+                                            <MeesRating mees={true} />
+                                        </td>
+                                        <td className="numeric">
+                                            <MeesRating mees={false} />
+                                        </td>
                                         <td className="numeric">no</td>
                                         <td className="numeric">no</td>
                                         <td className="numeric">no</td>
@@ -65,10 +70,7 @@ function SurveyRequest() {
                             </table>
                         </div>
 
-                        <p>
-                            Data from <a href="https://www.eatthismuch.com/">eat this much</a> food
-                            browser
-                        </p>
+                        <p>Only applicable to landlords</p>
                     </Container>
                 </Section>
             </MainPortal>
