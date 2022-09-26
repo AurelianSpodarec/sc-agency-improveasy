@@ -18,7 +18,7 @@ const ApiFilterTable = <TRow extends { key?: number; id: number }>({
     error,
     totalItems,
     fetchData
-}: TableProps<TRow>, ref: any): JSX.Element => {
+}: TableProps<TRow>, ref: React.Ref<ApiFilterTableHandle>): JSX.Element => {
     const {
         setPage,
         page,

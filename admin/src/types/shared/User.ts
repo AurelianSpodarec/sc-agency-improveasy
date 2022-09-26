@@ -6,6 +6,7 @@ export interface User {
     createdOn: Date;
     isConfirmed: boolean;
     confirmedOn: Date | null;
+    phone: string | null;
 }
 
 export interface UserPost {

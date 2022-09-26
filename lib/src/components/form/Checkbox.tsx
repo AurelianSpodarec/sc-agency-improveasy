@@ -48,6 +48,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
     function handleChange() {
         const newVal = !value;
+        console.log({newVal})
         onChange(name, newVal);
         showError();
     }

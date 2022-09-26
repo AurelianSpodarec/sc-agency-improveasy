@@ -8,10 +8,11 @@ import {
     getPropertiesPostError,
     getPropertiesPostSuccess,
 } from '@selectors/properties';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useForm from 'lib/src/hooks/useForm';
+import { User } from 'src/types/shared/User';
 
-const useEditPropertyAccessDetails = ({ property }: { property: Property }) => {
+const useEditPropertyAccessDetails = ({ property, user }: { property: Property; user: User }) => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -19,8 +20,10 @@ const useEditPropertyAccessDetails = ({ property }: { property: Property }) => {
     const error = useSelector(getPropertiesPostError);
     const success = useSelector(getPropertiesPostSuccess);
 
+    const [useOwnerDetails, setUseOwnerDetails] = useState(false);
+
     const { firstName, lastName, email, phone, preferredContactTime } = property.accessDetails;
-    const [formState, handleChange] = useForm({
+    const [formState, handleFormChange, resetForm] = useForm({
         firstName,
         lastName,
         email,
@@ -36,6 +39,13 @@ const useEditPropertyAccessDetails = ({ property }: { property: Property }) => {
         dispatch(editPropertyAccessDetails(property.id, formState));
     };
 
+    const handleChange = useCallback(
+        <T>(name: keyof typeof formState, value: T) => {
+            handleFormChange(name, value);
+        },
+        [handleFormChange],
+    );
+
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {
@@ -43,7 +53,28 @@ const useEditPropertyAccessDetails = ({ property }: { property: Property }) => {
         }
     }, [prevSuccess, success, closeModal]);
 
-    return { closeModal, handleSubmit, isPosting, error, formState, handleChange };
+    useEffect(() => {
+        if (useOwnerDetails) {
+            resetForm({
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                phone: user.phone || '',
+                preferredContactTime: '',
+            });
+        }
+    }, [useOwnerDetails, resetForm, user]);
+
+    return {
+        closeModal,
+        handleSubmit,
+        isPosting,
+        error,
+        formState,
+        handleChange,
+        setUseOwnerDetails,
+        useOwnerDetails,
+    };
 };
 
 export default useEditPropertyAccessDetails;

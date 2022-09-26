@@ -7,9 +7,9 @@ export default function useForm<TForm>(initialData: TForm): UseForm<TForm> {
         setFormData((prev: TForm) => ({ ...prev, [name]: value }));
     }, [])
 
-    function resetData(data: TForm) {
+    const resetData = useCallback((data: TForm) => {
         setFormData(data);
-    }
+    }, [])
 
     return [formData, handleChange, resetData];
 }
