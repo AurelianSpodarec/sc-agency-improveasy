@@ -9,7 +9,7 @@ export const selectPropertyInformationPostSuccess = (state: RootState) =>
 export const selectPropertyInformationError = (state: RootState) =>
     state.propertyInformationReducer.error;
 
-export const selectPropertyEPCRating = (state: RootState) =>
-    state.propertyInformationReducer.propertyEPCRating;
-export const selectPropertyRatingRecommendations = (state: RootState) =>
-    state.propertyInformationReducer.propertyRatingRecommendations;
+export const selectPropertyEPCRating = (state: RootState, propertyID: number) =>
+    state.propertyInformationReducer.propertyEPCRating[propertyID];
+export const selectPropertyRatingRecommendations = (state: RootState, propertyID: number) =>
+    state.propertyInformationReducer.propertyRatingRecommendations[propertyID];

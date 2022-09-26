@@ -46,7 +46,8 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 isOpen={openValue === PropertyAccordionValue.EPC}
             >
                 <div className="flex-row justify-between">
-                    <PropertyEPCChart />
+                    <PropertyEPCChart propertyID={property.id} />
+
                     <PropertyCertificate />
                 </div>
                 <br />
