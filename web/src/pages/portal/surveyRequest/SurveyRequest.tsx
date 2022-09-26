@@ -3,6 +3,88 @@ import SurveyTooltip from '@components/ui/SurveyTooltip';
 import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
 
+function TableHeadingCell({ name, toolpit }: any) {
+    return (
+        <th className="d-flex">
+            {name}
+            <SurveyTooltip title={toolpit}>
+                <span className="surveyTable__info">?</span>
+            </SurveyTooltip>
+        </th>
+    );
+}
+
+function TableHeadingList() {
+    const data = [
+        {
+            name: 'Current Energy Performance Certificate (EPC)',
+            toolpit: 'Lodged on EPC Register',
+        },
+        {
+            name: 'Energy Performance Report (EPR)',
+            toolpit: 'To identify current EPC band. Similar to an EPC but will not be lodged',
+        },
+        {
+            name: 'Improvement Plan',
+            toolpit:
+                'Detailinghow to improve the current EPC rating in the most cost-effective way.',
+        },
+        {
+            name: 'Funding finder (ECO4, Home, Upgrade Grant etc)',
+            toolpit:
+                'Identify any grants which may fully or part fund instalation of energy efficiency measures',
+        },
+        {
+            name: 'Ventilation Report',
+            toolpit: 'Identify ventilation improvements that are required',
+        },
+        {
+            name: 'Property Condition Report',
+            toolpit:
+                'Identify property defects and potential repairs that are needed prior to the installation of any measures',
+        },
+        {
+            name: 'Quotation',
+            toolpit: 'Itemised quote fr works identified in the Action Plan',
+        },
+        {
+            name: 'Final EPC Lodged',
+            toolpit: 'Post installation EPC lodged on the central register',
+        },
+        {
+            name: 'Property Database',
+            toolpit: 'Use EPC Builder to store all yor ur property details in once place',
+        },
+        {
+            name: '*Guaranteed MEES Compilant',
+            toolpit: 'Guaraneed minimum EPC band C or an excemptoin registered',
+        },
+        {
+            name: '*Tenant Management Service',
+            toolpit: 'We will liaise with your tenant to organise access',
+        },
+        {
+            name: '*MEES Excemption Guidance',
+            toolpit: 'We will idenfiy and apply for any relevant excemptions',
+        },
+        {
+            name: 'Cost Refunded on Installation',
+            toolpit: 'Full cost of deducated from final invoice',
+        },
+        {
+            name: 'Cost (inc VAT)',
+            toolpit: '',
+        },
+    ];
+
+    return (
+        data &&
+        data.map((item, i) => {
+            return <TableHeadingCell name={item.name} toolpit={item.toolpit} />;
+        })
+    );
+}
+
 function SurveyTable() {
     return (
         <div>
@@ -11,25 +93,7 @@ function SurveyTable() {
                     <thead>
                         <tr>
                             <th>-</th>
-                            <th className="d-flex">
-                                Current Energy Performance Certificate (EPC)
-                                <SurveyTooltip title="HI">
-                                    <span className="surveyTable__info">?</span>
-                                </SurveyTooltip>
-                            </th>
-                            <th>Energy Performance Report (EPR)</th>
-                            <th>Improvement Plan</th>
-                            <th>Funding finder (ECO4, Home, Upgrade Grant etc)</th>
-                            <th>Ventilation Report</th>
-                            <th>Property Condition Report</th>
-                            <th>Quotation</th>
-                            <th>Final EPC Lodged</th>
-                            <th>Property Database</th>
-                            <th>*Guaranteed MEES Compilant</th>
-                            <th>*Tenant Management Service</th>
-                            <th>*MEES Excemption Guidance</th>
-                            <th>Cost Refunded on Installation</th>
-                            <th>Cost (inc VAT)</th>
+                            <TableHeadingList />
                         </tr>
                     </thead>
                     <tbody>
