@@ -1,16 +1,33 @@
 // ==========================================================================
 // # Survey Request
 // ==========================================================================
- .table-wrapper {
-  
+ .surveyTable {
+  background-color: white;
   tr {
     border-bottom: 1px solid;
   }
+
+  &__info {
+    background-color: gray;
+    border-radius: 9999px;
+    padding: 5px;
+    color: white;
+    width: 20px;
+    height: 20px;
+    line-height: 10px;
+    text-align: center;
+  }
+
+  &__title {
+    font-weight: bold
+  }
   
   th {
-    background-color: #555;
-    color: #fff;
+    background-color: var(--grey-background);
+    
     white-space: nowrap;
+    color: var(--color-green-400);
+    padding-right: 30px;
   }
   
   th,
