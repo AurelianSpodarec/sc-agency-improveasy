@@ -16,6 +16,7 @@ import house from './../../../../_content/icons/house_outline_green.png';
 import { selectPropertyEPCRating } from '@selectors/propertyInformation';
 import { selectSingleProperty } from '@selectors/properties';
 import { fetchPropertyRatingRecommendations } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
+import { PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
 
 function Property() {
     const dispatch = useDispatch();
@@ -58,7 +59,9 @@ function Property() {
                     </div>
 
                     <MainCard
-                        title={`${property?.addressLine1}, ${property?.postcode}`}
+                        title={`${property?.addressLine1}, ${property?.postcode} - ${
+                            PropertyStatusTypeLabel[property?.status]
+                        }`}
                         className="w-10/12"
                     >
                         <PropertyAccordion property={property} />

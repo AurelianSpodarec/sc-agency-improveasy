@@ -1,10 +1,10 @@
+import { useSelector } from 'react-redux';
+
 import { RootState } from '@reducers/index';
 import {
     selectPropertyEPCRating,
     selectPropertyRatingRecommendations,
 } from '@selectors/propertyInformation';
-import Checkbox from 'lib/src/components/form/Checkbox';
-import { useSelector } from 'react-redux';
 
 const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
     const propertyRating = useSelector((state: RootState) =>
