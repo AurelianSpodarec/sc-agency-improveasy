@@ -1,4 +1,5 @@
-import { Section, Container, PageHeading } from '@components/ui';
+import CoolCard from '@components/CoolCard';
+import { Section, Container, PageHeading, Text } from '@components/ui';
 import SurveyTooltip from '@components/ui/SurveyTooltip';
 import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
@@ -177,85 +178,110 @@ function SurveyRequest() {
                     <Container>
                         <PageHeading title="Survey Request" />
 
-                        <div>
-                            <h2>
-                                Continue your journey with EPC Builder - improve the energy
-                                efficiency of your property, increase your EPC rating and lower
-                                energy costs.
-                            </h2>
+                        <CoolCard>
                             <div>
-                                Book survey type:
+                                <Text>
+                                    Continue your journey with EPC Builder - improve the energy
+                                    efficiency of your property, increase your EPC rating and lower
+                                    energy costs.
+                                </Text>
                                 <div>
-                                    <input name="survey-type" id="standalone-epc" type="radio" />
-                                    <label htmlFor="standalone-epc">Standalone EPC</label>
-                                </div>
-                                <div>
-                                    <input name="survey-type" id="energy-survey" type="radio" />
-                                    <label htmlFor="energy-survey">Whole House Energy Survey</label>
+                                    Book survey type:
+                                    <div>
+                                        <input
+                                            name="survey-type"
+                                            id="standalone-epc"
+                                            type="radio"
+                                        />
+                                        <label htmlFor="standalone-epc">Standalone EPC</label>
+                                    </div>
+                                    <div>
+                                        <input name="survey-type" id="energy-survey" type="radio" />
+                                        <label htmlFor="energy-survey">
+                                            Whole House Energy Survey
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </CoolCard>
                         <SurveyTable />
                     </Container>
                 </Section>
 
                 <Section>
                     <Container>
-                        <h2>When to choose each option</h2>
+                        <CoolCard>
+                            <PageHeading title="When to choose each option" />
 
-                        <div>
-                            <h3>EPC</h3>
-                            <p>If you want an assessor to visi the property and conduct an EPC.</p>
-                        </div>
+                            <div className="grid grid-cols-3 gap-4">
+                                <div>
+                                    <Text type="h3" size="lg" weight="semibold">
+                                        EPC
+                                    </Text>
+                                    <Text type="p">
+                                        If you want an assessor to visi the property and conduct an
+                                        EPC.
+                                    </Text>
+                                </div>
 
-                        <div>
-                            <h3>Whole House Survey</h3>
-                            <p>Only available if we have undertaken a recent EPC.</p>
-                        </div>
+                                <div>
+                                    <Text type="h3" size="lg" weight="semibold">
+                                        Whole House Survey
+                                    </Text>
+                                    <Text type="p">
+                                        Only available if we have undertaken a recent EPC.
+                                    </Text>
+                                </div>
 
-                        <div>
-                            <h3>Energy Saving Actions</h3>
-                            <p>
-                                If you want an accessor to visit the property to conduct a whole
-                                house survey in order to produce a plan to improve your EPC rating.
-                            </p>
-                        </div>
+                                <div>
+                                    <Text type="h3" size="lg" weight="semibold">
+                                        Energy Saving Actions
+                                    </Text>
+                                    <Text>
+                                        If you want an accessor to visit the property to conduct a
+                                        whole house survey in order to produce a plan to improve
+                                        your EPC rating.
+                                    </Text>
+                                </div>
+                            </div>
+                        </CoolCard>
                     </Container>
                 </Section>
 
                 <Section>
                     <Container>
-                        <div>
-                            <h2>Why book a Whole House Energy Survey?</h2>
-                            <span>
-                                Booking this survey will give you access to a range of services
-                                including:
-                            </span>
+                        <CoolCard>
+                            <div>
+                                <PageHeading title="Why book a Whole House Energy Survey?" />
+                                <Text size="base">
+                                    Booking this survey will give you access to a range of services
+                                    including:
+                                </Text>
 
-                            <ul>
-                                <li>FUNDING IDENTIFICATION</li>
-                            </ul>
-                        </div>
+                                <ul>
+                                    <li>FUNDING IDENTIFICATION</li>
+                                </ul>
+                            </div>
 
-                        <div>
-                            <h3>
-                                We will identify and apply for any available grant funding which
-                                could fully or partially fund the cost of installing energy
-                                efficiency measures in the property. Available grants include:
-                            </h3>
-                            <ul>
-                                <li>
-                                    <span>ECO4 (Energy Company Obligation)</span>
-                                    <ul>
-                                        <li>LA Flex (Local Authority Flexible Eligibility)</li>
-                                        <li>HUG (Home Upgrade Grant)</li>
-                                    </ul>
-                                </li>
-                                <li>BUS (Boiler Upgrade Scheme)</li>
-                            </ul>
-                        </div>
+                            <div>
+                                <h3>
+                                    We will identify and apply for any available grant funding which
+                                    could fully or partially fund the cost of installing energy
+                                    efficiency measures in the property. Available grants include:
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <span>ECO4 (Energy Company Obligation)</span>
+                                        <ul>
+                                            <li>LA Flex (Local Authority Flexible Eligibility)</li>
+                                            <li>HUG (Home Upgrade Grant)</li>
+                                        </ul>
+                                    </li>
+                                    <li>BUS (Boiler Upgrade Scheme)</li>
+                                </ul>
+                            </div>
 
-                        {/* <div>
+                            {/* <div>
                             <h3>Epc</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
@@ -264,6 +290,7 @@ function SurveyRequest() {
                                 reiciendis soluta quidem, delectus magnam.
                             </p>
                         </div> */}
+                        </CoolCard>
                     </Container>
                 </Section>
 
