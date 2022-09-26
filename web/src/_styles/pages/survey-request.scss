@@ -5,7 +5,8 @@
   background-color: white;
   font-size: 1.2rem;
   border-radius: 15px;
-  overflow: hidden;
+  overflow-x: scroll;
+
   tr {
     border-bottom: 1px solid;
   }
@@ -49,43 +50,43 @@
     border: 1px solid var(--stroke-table-row);
   }
   
-  @media screen and (max-width: 1140px) {
-    table {
-      display: flex;
-    }
+//   @media screen and (max-width: 1140px) {
+//     table {
+//       display: flex;
+//     }
   
-    tbody {
-      display: flex;
-      position: relative;
-      overflow-x: auto;
-      overflow-y: hidden;
+//     tbody {
+//       display: flex;
+//       position: relative;
+//       overflow-x: auto;
+//       overflow-y: hidden;
   
-      max-width: 100%;
-      background:
-        linear-gradient(to right, white 30%, rgba(255,255,255,0)),
-        linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
-        radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.4), rgba(0,0,0,0)),
-        radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
-      background-repeat: no-repeat;
-      background-color: white;
-      background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
-      background-position: 0 0, 100%, 0 0, 100%;
-      background-attachment: local, local, scroll, scroll;
-    }
+//       max-width: 100%;
+//       background:
+//         linear-gradient(to right, white 30%, rgba(255,255,255,0)),
+//         linear-gradient(to right, rgba(255,255,255,0), white 70%) 0 100%,
+//         radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.4), rgba(0,0,0,0)),
+//         radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+//       background-repeat: no-repeat;
+//       background-color: white;
+//       background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+//       background-position: 0 0, 100%, 0 0, 100%;
+//       background-attachment: local, local, scroll, scroll;
+//     }
   
-    th,
-    td {
-      display: block;
-    }
+//     th,
+//     td {
+//       display: block;
+//     }
   
-    .numeric {
-      text-align: right;
-    }
+//     .numeric {
+//       text-align: right;
+//     }
   
-    .text {
-      text-align: center;
-    }
-  }
+//     .text {
+//       text-align: center;
+//     }
+//   }
   
   p {
     text-align: right;

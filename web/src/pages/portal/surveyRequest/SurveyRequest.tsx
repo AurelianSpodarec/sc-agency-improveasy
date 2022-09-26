@@ -11,17 +11,23 @@ function SurveyTable() {
                         <tr>
                             <th>-</th>
                             <th className="d-flex">
-                                Emoji{' '}
+                                Current Energy Performance Certificate (EPC)
                                 <span className="surveyTable__info" title="Hi">
                                     ?
                                 </span>
                             </th>
-                            <th>Calories</th>
-                            <th>Carbohydrates (g)</th>
-                            <th>Total Sugar (g)</th>
-                            <th>Protein (g)</th>
-                            <th>Total Fat (g)</th>
-                            <th>Total Fiber (g)</th>
+                            <th>Energy Performance Report (EPR)</th>
+                            <th>Improvement Plan</th>
+                            <th>Funding finder (ECO4, Home, Upgrade Grant etc)</th>
+                            <th>Ventilation Report</th>
+                            <th>Property Condition Report</th>
+                            <th>Quotation</th>
+                            <th>Final EPC Lodged</th>
+                            <th>Property Database</th>
+                            <th>*Guaranteed MEES Compilant</th>
+                            <th>*Tenant Management Service</th>
+                            <th>*MEES Excemption Guidance</th>
+                            <th>Cost Refunded on Installation</th>
                             <th>Cost (inc VAT)</th>
                         </tr>
                     </thead>
