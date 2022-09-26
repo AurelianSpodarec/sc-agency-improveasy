@@ -4,7 +4,8 @@
  .surveyTable {
   background-color: white;
   font-size: 1.2rem;
-
+  border-radius: 15px;
+  overflow: hidden;
   tr {
     border-bottom: 1px solid;
   }
@@ -12,11 +13,12 @@
   &__info {
     background-color: gray;
     border-radius: 9999px;
-    padding: 5px;
+    padding: 3px;
     color: white;
-    width: 20px;
-    height: 20px;
-    line-height: 10px;
+    width: 14px;
+    height: 14px;
+    line-height: 7px;
+    font-size: 14px;
     text-align: center;
   }
 
@@ -30,7 +32,7 @@
   
   th {
     background-color: var(--grey-background);
-    
+    font-weight: bold;
     white-space: nowrap;
     color: var(--color-green-400);
     padding-right: 30px;
