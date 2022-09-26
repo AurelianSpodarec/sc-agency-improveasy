@@ -14,9 +14,10 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
         handleChange,
         closeModal,
         isPosting,
-        formState: { email, firstName, lastName },
+        formState,
+        formState: { email, phone, firstName, lastName },
     } = useUpdateUser(user);
-
+    console.log(formState);
     return (
         <Modal title="Update user" size="small">
             <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting}>
@@ -28,6 +29,16 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
                         onChange={handleChange}
                         label="Email address"
                         placeholder="Email address"
+                        required
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        name="phone"
+                        value={phone}
+                        onChange={handleChange}
+                        label="Phone"
+                        placeholder="Phone"
                         required
                     />
                 </FormRow>

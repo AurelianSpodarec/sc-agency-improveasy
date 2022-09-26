@@ -13,7 +13,7 @@ import dayjs from 'dayjs';
 const User: React.FC<UserProps> = ({ user }) => {
     if (!user) return null;
 
-    const { id, firstName, lastName, email, isConfirmed, createdOn } = user;
+    const { id, firstName, lastName, phone, email, isConfirmed, createdOn } = user;
     return (
         <>
             <Title>
@@ -25,10 +25,15 @@ const User: React.FC<UserProps> = ({ user }) => {
                     <ContentItem label="Name">
                         <p>{`${firstName} ${lastName}`}</p>
                     </ContentItem>
+                </ContentRow>
+                <ContentRow>
                     <ContentItem label="Email">
                         <p>
                             <a href={`mailto:${email}`}>{email}</a>
                         </p>
+                    </ContentItem>
+                    <ContentItem label="Phone">
+                        <p>{phone ? phone : '-'}</p>
                     </ContentItem>
                 </ContentRow>
                 <ContentRow>

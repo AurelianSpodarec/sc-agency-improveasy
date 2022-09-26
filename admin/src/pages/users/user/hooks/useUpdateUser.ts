@@ -9,12 +9,7 @@ import { getUserIsPosting, getUserPostSuccess, getUsersPostError } from '@select
 import { useHistory } from 'react-router-dom';
 import { User } from 'src/types/shared/User';
 
-export default function useUpdateUser({
-    id,
-    email,
-    firstName,
-    lastName,
-}: User): UseUpdateUserReturn {
+export default function useUpdateUser({ id, email, firstName, lastName, phone }: User) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -22,7 +17,7 @@ export default function useUpdateUser({
         history.replace(`/users/${id}`);
     }, [history, id]);
 
-    const [formState, handleChange] = useForm({ email, firstName, lastName });
+    const [formState, handleChange] = useForm({ email, firstName, lastName, phone: phone || '' });
 
     const handleSubmit = useCallback(() => {
         dispatch(updateUser(id, formState));
@@ -47,19 +42,4 @@ export default function useUpdateUser({
         isPosting,
         error,
     };
-}
-
-interface FormState {
-    email: string;
-    firstName: string;
-    lastName: string;
-}
-
-interface UseUpdateUserReturn {
-    handleSubmit: () => void;
-    formState: FormState;
-    handleChange: <T>(name: 'firstName' | 'lastName' | 'email', value: T) => void;
-    closeModal: () => void;
-    isPosting: boolean;
-    error: string | null;
 }
