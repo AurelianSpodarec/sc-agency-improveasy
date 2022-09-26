@@ -201,6 +201,30 @@ function SurveyRequest() {
 
                 <Section>
                     <Container>
+                        <h2>When to choose each option</h2>
+
+                        <div>
+                            <h3>EPC</h3>
+                            <p>If you want an assessor to visi the property and conduct an EPC.</p>
+                        </div>
+
+                        <div>
+                            <h3>Whole House Survey</h3>
+                            <p>Only available if we have undertaken a recent EPC.</p>
+                        </div>
+
+                        <div>
+                            <h3>Energy Saving Actions</h3>
+                            <p>
+                                If you want an accessor to visit the property to conduct a whole
+                                house survey in order to produce a plan to improve your EPC rating.
+                            </p>
+                        </div>
+                    </Container>
+                </Section>
+
+                <Section>
+                    <Container>
                         <div>
                             <h2>Why book a Whole House Energy Survey?</h2>
                             <span>
