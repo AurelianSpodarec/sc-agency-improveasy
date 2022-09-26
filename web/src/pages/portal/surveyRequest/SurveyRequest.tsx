@@ -5,11 +5,15 @@ import MainPortal from '../_components/MainPortal';
 
 function TableHeadingCell({ name, toolpit }: any) {
     return (
-        <th className="d-flex">
-            {name}
-            <SurveyTooltip title={toolpit}>
-                <span className="surveyTable__info">?</span>
-            </SurveyTooltip>
+        <th>
+            <div className="d-flex">
+                {name}
+                {toolpit !== '' && (
+                    <SurveyTooltip title={toolpit}>
+                        <span className="surveyTable__info">?</span>
+                    </SurveyTooltip>
+                )}
+            </div>
         </th>
     );
 }
@@ -77,11 +81,17 @@ function TableHeadingList() {
         },
     ];
 
+    if (!data) return <></>;
     return (
-        data &&
-        data.map((item, i) => {
-            return <TableHeadingCell name={item.name} toolpit={item.toolpit} />;
-        })
+        <thead>
+            <tr>
+                <th>-</th>
+                {data &&
+                    data.map((item, i) => {
+                        return <TableHeadingCell key={i} name={item.name} toolpit={item.toolpit} />;
+                    })}
+            </tr>
+        </thead>
     );
 }
 
@@ -90,12 +100,8 @@ function SurveyTable() {
         <div>
             <div className="surveyTable">
                 <table>
-                    <thead>
-                        <tr>
-                            <th>-</th>
-                            <TableHeadingList />
-                        </tr>
-                    </thead>
+                    <TableHeadingList />
+
                     <tbody>
                         <tr>
                             <td className="surveyTable__title">EPC</td>
@@ -105,6 +111,12 @@ function SurveyTable() {
                             <td className="numeric">
                                 <MeesRating mees={false} />
                             </td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
@@ -121,11 +133,23 @@ function SurveyTable() {
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
                             <td className="numeric">£120</td>
                         </tr>
                         <tr>
                             <td className="surveyTable__title">Energy Saving Plan</td>
                             <td className="text">Yes</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
+                            <td className="numeric">no</td>
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
                             <td className="numeric">no</td>
