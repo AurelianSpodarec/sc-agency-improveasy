@@ -14,10 +14,9 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
         handleChange,
         closeModal,
         isPosting,
-        formState,
         formState: { email, phone, firstName, lastName },
     } = useUpdateUser(user);
-    console.log(formState);
+
     return (
         <Modal title="Update user" size="small">
             <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting}>
