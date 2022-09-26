@@ -92,10 +92,20 @@ export interface IEPC {
     ratingCreatedOn: string;
     wallDescription: string;
     isDeleted: boolean;
+    status: PropertyStatusType;
 }
 
 export interface IPropertyRatingRecommendations {
     id: number;
+    propertyRatingID: number;
+    step?: number;
+    improvementDescription: string;
+    typicalInstallCostMin?: number;
+    typicalInstallCostMax?: number;
+    typicalYearlySavingMin?: number;
+    typicalYearlySavingMax?: number;
+    potentialRatingAfterCompletion?: string;
+    createdOn: string;
 }
 
 export interface FetchPropertiesRequest {

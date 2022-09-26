@@ -49,3 +49,28 @@
 .search-wrapper {
     padding: 30px 15px;
 }
+
+.certificate-table {
+    margin-top: 10%;
+    font-size: 120%;
+    border: 3px solid #979797;
+
+    tr {
+        &:nth-child(odd) {
+            background-color: var(--grey-background);
+        }
+    }
+
+    th {
+        padding-right: 30px; 
+        white-space: nowrap;
+        border: 3px solid #979797;
+
+    }
+
+    td {
+        word-break: break-all;
+        border: 3px solid #979797;
+        @include mainFontSemiBold();
+    }
+}

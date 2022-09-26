@@ -87,6 +87,5 @@ function handleFetchRatingsSuccess(
     action: PayloadAction<IPropertyRatingRecommendations>,
 ) {
     state.isFetching = false;
-    // change IPropertyRatingRecommendations to proper type then use propertyID as index signature
-    state.propertyRatingRecommendations[action.payload.id] = action.payload;
+    state.propertyRatingRecommendations[action.payload.propertyRatingID] = action.payload;
 }
