@@ -6,7 +6,7 @@ import ActionButton from 'lib/src/components/button/ActionButton';
 
 const CreatePropertyEPCSuccess = ({ potentialEPC, currentEPC, closeModal }: IProps) => {
     return (
-        <section className="flex-column align-center horizontal-padding">
+        <section className="flex-column align-center space-x-4">
             <h2 className="heading">EPC Check Complete</h2>
 
             <div style={{ width: '50%', margin: '25px 0' }}>

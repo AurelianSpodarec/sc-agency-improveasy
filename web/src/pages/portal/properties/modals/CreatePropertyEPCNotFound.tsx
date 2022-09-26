@@ -8,7 +8,7 @@ const CreatePropertyEPCNotFound = ({
     handleContinueAnyway,
 }: IProps) => {
     return (
-        <section className="flex-column align-center horizontal-padding">
+        <section className="flex-column align-center space-x-4">
             <h2 className="heading">Unable to locate EPC for {addressString}</h2>
 
             <p className="flex-column align-center text-center semi-bold-content">
