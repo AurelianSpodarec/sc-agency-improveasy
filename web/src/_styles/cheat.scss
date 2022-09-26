@@ -2,27 +2,7 @@
 // # Cheat
 // ==========================================================================
 
- 
-.overflow-x-auto {
-    overflow-x: auto;
-}
 
-.no-underline {
-    text-decoration-line: none;
-}
-
-
-
-.rounded {
-    &--full {
-        border-radius: 9999px;
-    }
-}
-
-
-.horizontal-padding {
-    padding: 0 20px;
-}
 
 .list-wrapper {
     text-align: left;
@@ -43,13 +23,8 @@
 }
 
 
-.text-white {
-    color: white;
-}
 
-.h-full {
-    height: 100%;
-}
+
 
 .text-button {
     @include mainFont();
@@ -92,13 +67,29 @@
     line-height: 24px;
 }
 
+
+
+
 .w-full {
     width: 100%;
 }
 
-
-
+.h-full {
+    height: 100%;
+}
 
 .bg-green {
     background-color: #0D695C!important;
+}
+
+.text-white {
+    color: white;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.no-underline {
+    text-decoration-line: none;
 }
