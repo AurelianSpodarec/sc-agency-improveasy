@@ -189,21 +189,83 @@ function Home() {
 
             <Section>
                 <Container>
-                    <div className="cardTestimonial">
-                        {/* svg icon here */}
-                        <div className="cardTestimonial__text">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
-                            rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
-                            voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum, autem
-                            iusto.
+                    <div className="grid lg:grid-cols-3 gap-16">
+                        <div className="cardTestimonial">
+                            <div className="cardTestimonial__svg-wrap">
+                                <svg
+                                    className="cardTestimonial__svg cardTestimonial__svg--1"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"
+                                >
+                                    <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
+                                </svg>
+                            </div>
+                            <div className="cardTestimonial__text">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
+                                rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
+                                voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum,
+                                autem iusto.
+                            </div>
+                            <div className="cardTestimonial__avatar-wrap">
+                                <Text className="cardTestimonial__avatar-name">Jack Smith</Text>
+                                <img
+                                    className="cardTestimonial__avatar-image"
+                                    src="https://eyemediastudios.co.uk/wp-content/uploads/2021/02/photography-8-4-4.jpg"
+                                    alt="Testimonial face"
+                                />
+                            </div>
                         </div>
-                        <div className="cardTestimonial__avatar-wrap">
-                            <Text className="cardTestimonial__avatar-name">Jack Smith</Text>
-                            <img
-                                className="cardTestimonial__avatar-image"
-                                src=""
-                                alt="Testimonial face"
-                            />
+
+                        <div className="cardTestimonial">
+                            <div className="cardTestimonial__svg-wrap">
+                                <svg
+                                    className="cardTestimonial__svg cardTestimonial__svg--2"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"
+                                >
+                                    <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
+                                </svg>
+                            </div>
+                            <div className="cardTestimonial__text">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
+                                rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
+                                voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum,
+                                autem iusto.
+                            </div>
+                            <div className="cardTestimonial__avatar-wrap">
+                                <Text className="cardTestimonial__avatar-name">Debra Donoven</Text>
+                                <img
+                                    className="cardTestimonial__avatar-image"
+                                    src="https://www.unh.edu/unhtoday/sites/default/files/styles/article_huge/public/article/2019/professional_woman_headshot.jpg?itok=3itzxHXh"
+                                    alt="Testimonial face"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="cardTestimonial">
+                            <div className="cardTestimonial__svg-wrap">
+                                <svg
+                                    className="cardTestimonial__svg cardTestimonial__svg--3"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512"
+                                >
+                                    <path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z" />
+                                </svg>
+                            </div>
+                            <div className="cardTestimonial__text">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate,
+                                rem! Facilis dicta excepturi velit qui in, cum animi, cupiditate
+                                voluptate tempore culpa debitis deserunt dolorum iste esse. Rerum,
+                                autem iusto.
+                            </div>
+                            <div className="cardTestimonial__avatar-wrap">
+                                <Text className="cardTestimonial__avatar-name">Ria Carlon</Text>
+                                <img
+                                    className="cardTestimonial__avatar-image"
+                                    src="https://www.headshotlondon.co.uk/wp-content/uploads/2015/05/headshotlondonblog_examples-of-headshots.jpg"
+                                    alt="Testimonial face"
+                                />
+                            </div>
                         </div>
                     </div>
                 </Container>

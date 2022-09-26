@@ -25,6 +25,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
         }
     }
 
+    if (!property) return <></>;
     return (
         <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
@@ -45,13 +46,14 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 isOpen={openValue === PropertyAccordionValue.EPC}
             >
                 <div className="flex-row justify-between">
-                    <PropertyEPCChart />
+                    <PropertyEPCChart propertyID={property.id} />
+
                     <PropertyCertificate />
                 </div>
                 <br />
 
                 <PageHeading title="Potential Rating Improvements" size="lg" />
-                <p className="semi-bold">
+                <p className="font-semibold">
                     If you have installed any of these recommendations this may have an impact on
                     your current EPC rating
                 </p>

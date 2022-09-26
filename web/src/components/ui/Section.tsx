@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 function Section({ className, style, children, size }: SectionProps) {
-    const options: any = {
+    const options = {
         fluid: 'fluid',
         sm: 'sm',
         base: 'base',
@@ -12,11 +12,7 @@ function Section({ className, style, children, size }: SectionProps) {
         '2xl': '2xl',
     };
 
-    // if(options[size]) {
-    //     console.error("section - provided value", size, "doesn't exist");
-    // }
     return (
-        // @ts-ignore
         <section
             style={style}
             className={`section ${className ? className : ''} ${

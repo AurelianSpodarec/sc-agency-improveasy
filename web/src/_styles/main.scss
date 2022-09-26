@@ -29,6 +29,7 @@
 @import 'utils/text-align';
 @import 'utils/grid';
 @import 'utils/space';
+@import 'utils/gap';
 
 
 // ==========================================================================
@@ -66,6 +67,9 @@
 @import 'components/accordion/accordionTwo';
 @import 'components/accordion/accordionFilter';
 
+@import 'components/properties-back';
+@import 'components/mees-tooltip';
+@import 'components/cardTestimonial';
 @import 'components/button';
 @import 'components/form';
 @import 'components/modal';
@@ -80,6 +84,7 @@
 // ==========================================================================
 @import 'pages/authLogin';
 @import 'pages/properties';
+@import 'pages/home';
 
 
 // ==========================================================================

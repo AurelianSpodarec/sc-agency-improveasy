@@ -8,7 +8,7 @@ function AccordionTwoItem({ title, children, value, isOpen, style }: IAccordionI
         <Accordion.Item className="accordionTwo-item" value={value}>
             <Accordion.Header className="accordionTwo-item__header">
                 <Accordion.Trigger className="accordionTwo-item__trigger">
-                    <div className="d-flex align-center">
+                    <div className="d-flex justify-between align-center">
                         <PageHeading title={title} size="lg" border space={'none'} />
 
                         <div className="accordionTwo-item__icon">

@@ -27,8 +27,8 @@ interface IPropertyState {
     isPosting: boolean;
     postSuccess: boolean;
     error: string | null;
-    propertyEPCRating: IEPC | null;
-    propertyRatingRecommendations: IPropertyRatingRecommendations | null;
+    propertyEPCRating: Record<number, IEPC | null>;
+    propertyRatingRecommendations: Record<number, IPropertyRatingRecommendations | null>;
 }
 
 const initialState: IPropertyState = {
@@ -36,8 +36,8 @@ const initialState: IPropertyState = {
     isPosting: false,
     postSuccess: false,
     error: null,
-    propertyEPCRating: null,
-    propertyRatingRecommendations: null,
+    propertyEPCRating: {},
+    propertyRatingRecommendations: {},
 };
 
 export default createReducer(initialState, {
@@ -62,7 +62,7 @@ function handleFetchRequest(state: IPropertyState) {
 
 function handleFetchEpcSuccess(state: IPropertyState, action: PayloadAction<IEPC>) {
     state.isFetching = false;
-    state.propertyEPCRating = action.payload;
+    state.propertyEPCRating[action.payload.propertyID] = action.payload;
 }
 
 function handleFailure(state: IPropertyState, action: PayloadAction<string>) {
@@ -87,5 +87,6 @@ function handleFetchRatingsSuccess(
     action: PayloadAction<IPropertyRatingRecommendations>,
 ) {
     state.isFetching = false;
-    state.propertyRatingRecommendations = action.payload;
+    // change IPropertyRatingRecommendations to proper type then use propertyID as index signature
+    state.propertyRatingRecommendations[action.payload.id] = action.payload;
 }

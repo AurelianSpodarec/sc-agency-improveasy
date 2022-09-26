@@ -1,62 +1,201 @@
-.line {
-  color: white;
-  margin-top: 2px;
-  text-align: right;
-  padding: 10px;
+$epc-line-height: 55px;
 
+.epc-graph {
   p {
-    margin: 0;
-    @include mainFontSemiBold;
-    font-size: 120%;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-bottom: 0;
   }
-}
 
-.potential-wrapper {
   .line {
-    &:first-child {
-      width: 80%!important;
-    }
-    
-    &:last-child{
-      width: 100%!important;
+    color: white;
+    margin-top: 2px;
+    text-align: right;
+    padding: 10px;
+    height: $epc-line-height;
+
+    p {
+      margin: 0;
+      @include mainFontSemiBold;
+      font-size: 140%;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
   }
-}
 
-/* Each line */
-.a {
-  width: 70%;
-  background-color: rgb(13, 118, 51);
-}
+  .potential-wrapper {
+    .line {
+      &:first-child {
+        width: 80%!important;
+      }
+      
+      &:last-child{
+        width: 100%!important;
+      }
+    }
+  }
 
-.b {
-  width: 75%;
-  background-color: rgb(21, 143, 50);
-}
+  .ratings {
+    /* Each line */
+    .a {
+      width: 70%;
+      background-color: var(--epc-a)
+    }
 
-.c {
-  width: 80%;
-  transition: all .2s ease-in-out;
-  background-color: rgb(114, 174, 42);
-}
+    .b {
+      width: 75%;
+      background-color: var(--epc-b)
+    }
 
-.d {
-  width: 85%;
-  background-color: rgb(244, 231, 31);
-}
+    .c {
+      width: 80%;
+      background-color: var(--epc-c)
+    }
 
-.e {
-  width: 90%;
-  background-color: rgb(233, 141, 22);
-}
+    .d {
+      width: 85%;
+      background-color: var(--epc-d)
+    }
 
-.f {
-  width: 95%;
-  background-color: rgb(231, 80, 23);
-}
+    .e {
+      width: 90%;
+      background-color: var(--epc-e)
+    }
 
-.g {
-  width: 100%;
-  background-color: rgb(209, 29, 24);
+    .f {
+      width: 95%;
+      background-color: var(--epc-f)
+    }
+
+    .g {
+      width: 100%;
+      background-color: var(--epc-g)
+    }
+  }
+
+
+
+  .epc-indicator {
+    display: flex;
+
+    .epc-arrow {
+        display: block;
+        width: 0px;
+        height: 0px;
+        border: 20px solid transparent;
+        border-right-color: #ccc;
+        border-left-width: 0px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #ccc;
+      @include mainFontSemiBold;
+      font-size: 140%;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+      color: white;
+    }
+
+    &.a {
+      .box {
+        background-color: var(--epc-a);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-a);
+      }
+    }
+
+    &.b {
+      margin-top: $epc-line-height;
+      
+      .box {
+        background-color: var(--epc-b);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-b);
+      }
+    }
+
+    &.c {
+      margin-top: calc($epc-line-height * 2);
+
+      .box {
+        background-color: var(--epc-c);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-c);
+      }
+    }
+
+    &.d {
+      margin-top: calc($epc-line-height * 3);
+    
+      .box {
+        background-color: var(--epc-d);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-d);
+      }
+    }
+
+    &.e {
+      margin-top: calc($epc-line-height * 4);
+
+      .box {
+        background-color: var(--epc-e);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-e);
+      }
+    }
+
+    &.f {
+      margin-top: calc($epc-line-height * 5);
+
+      .box {
+        background-color: var(--epc-f);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-f);
+      }
+    }
+
+    &.g {
+      margin-top: calc($epc-line-height * 6);
+      
+      .box {
+        background-color: var(--epc-g);
+      }
+      .epc-arrow {
+        border-right-color: var(--epc-g);
+      }
+    }
+  }
+
+  .rating-wrapper {
+    border: 3px solid #979797;
+    margin-left: 16px;
+  }
+
+  .epc-table-head {
+    border-bottom: 3px solid #979797;
+ 
+    div {
+      text-align: center;
+      padding: 8px;
+
+      &:first-child {
+        border-right: 3px solid #979797;
+      }
+    }
+  }
+
+  .epc-table-column {
+    padding: 0 8px;
+
+    &:first-child {
+      border-right: 3px solid #979797;
+    }
+  }
 }

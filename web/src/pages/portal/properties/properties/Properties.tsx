@@ -11,6 +11,7 @@ import DataCheck from '@components/ui/DataCheck';
 import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
+import MeesTooltip from '@components/MeesTooltip';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -31,7 +32,7 @@ function Properties({ showCreateModal }: IProps) {
             <MainPortal>
                 <Section>
                     <Container>
-                        <div className="lg:d-flex space-x-4">
+                        <div className="lg:d-flex space-y-8 lg:space-y-0 lg:space-x-4">
                             <div className="lg:w-1/3">
                                 <MainCard title="Filter">
                                     <PropertiesFilters
@@ -87,7 +88,15 @@ function Properties({ showCreateModal }: IProps) {
                                                         <td>{section.currentEPCRating}</td>
                                                         <td>{section.potentialEPCRating}</td>
                                                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                            <MEESRating mees={section.hasEPC} />
+                                                            <MeesTooltip
+                                                                name={`${
+                                                                    section.hasEPC
+                                                                        ? 'EPC Active'
+                                                                        : 'No EPC'
+                                                                }`}
+                                                            >
+                                                                <MEESRating mees={section.hasEPC} />
+                                                            </MeesTooltip>
                                                         </td>
                                                         <td>
                                                             {

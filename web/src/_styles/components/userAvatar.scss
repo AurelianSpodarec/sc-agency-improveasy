@@ -3,7 +3,10 @@
 // ==========================================================================
 
 .userAvatar {
-    
+    background-color: transparent;
+    &__trigger {
+        background-color: transparent;
+    }
     &__image {
         border: 1px solid #407175;
         border-radius: 9999px;
@@ -20,13 +23,28 @@
     }
 
     &__menu {
-        visibility: hidden;
         background: white;
+        width: 230px;
+        border: 1px solid lightgrey;
+        padding: 16px 0;
+        border-radius: 10px;
+        right: 20px;
         z-index: 1000;
-        position: absolute;
-        bottom: -25px;
-        &.is-open {
-            visibility: visible;
+    }
+
+    &__menu-button {
+        text-decoration: none;
+        font-size: 14px;
+        color: black;
+        font-family: 'Nunito Sans';
+        transition: .15s ease-in-out;
+        text-align: left;
+        cursor: default;
+        width: 100%;
+        background-color: transparent;
+        padding: 16px 20px;
+        &:hover {
+            background-color: #efefef;
         }
     }
 }

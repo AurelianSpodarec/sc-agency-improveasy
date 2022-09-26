@@ -9,6 +9,8 @@ export interface IProperty {
     useAccountDetailsForAccess: boolean;
     currentEPCRating: EPCRatings;
     potentialEPCRating: EPCRatings;
+    currentEnergyEfficiencyRating: number;
+    potentialEnergyEfficiencyRating: number;
     hasEPC: boolean;
     accessDetails: IAccessDetails;
     status: PropertyStatusType;
