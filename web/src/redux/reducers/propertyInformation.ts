@@ -28,7 +28,7 @@ interface IPropertyState {
     postSuccess: boolean;
     error: string | null;
     propertyEPCRating: Record<number, IEPC | null>;
-    propertyRatingRecommendations: Record<number, IPropertyRatingRecommendations | null>;
+    propertyRatingRecommendations: Record<number, IPropertyRatingRecommendations[] | null>;
 }
 
 const initialState: IPropertyState = {
@@ -84,8 +84,8 @@ function handlePostSuccess(state: IPropertyState) {
 
 function handleFetchRatingsSuccess(
     state: IPropertyState,
-    action: PayloadAction<IPropertyRatingRecommendations>,
+    action: PayloadAction<IPropertyRatingRecommendations[]>,
 ) {
     state.isFetching = false;
-    state.propertyRatingRecommendations[action.payload.propertyRatingID] = action.payload;
+    state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = action.payload;
 }

@@ -98,7 +98,7 @@ export interface IEPC {
 export interface IPropertyRatingRecommendations {
     id: number;
     propertyRatingID: number;
-    step?: number;
+    step: number;
     improvementDescription: string;
     typicalInstallCostMin?: number;
     typicalInstallCostMax?: number;

@@ -19,7 +19,7 @@ export const fetchPropertyRatingRecommendations =
         dispatch(fetchPropertyRatingRecommendationsRequest());
         try {
             const { data } = await api.get<IPropertyRatingRecommendations>(
-                `propertyRatingRecommendations/${id}`,
+                `PropertyRatingRecommendations/${id}`,
             );
             dispatch(fetchPropertyRatingRecommendationsSuccess(data));
         } catch (e) {

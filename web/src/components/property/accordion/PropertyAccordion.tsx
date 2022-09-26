@@ -54,7 +54,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 </div>
                 <br />
 
-                <PageHeading title="Potential Rating Improvements" size="lg" />
+                <PageHeading title="Recommendations from current EPC Certificate" size="lg" />
                 <p className="font-semibold">
                     If you have installed any of these recommendations this may have an impact on
                     your current EPC rating
