@@ -1,4 +1,5 @@
 import { Section, Container, PageHeading } from '@components/ui';
+import SurveyTooltip from '@components/ui/SurveyTooltip';
 import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
 
@@ -12,9 +13,9 @@ function SurveyTable() {
                             <th>-</th>
                             <th className="d-flex">
                                 Current Energy Performance Certificate (EPC)
-                                <span className="surveyTable__info" title="Hi">
-                                    ?
-                                </span>
+                                <SurveyTooltip title="HI">
+                                    <span className="surveyTable__info">?</span>
+                                </SurveyTooltip>
                             </th>
                             <th>Energy Performance Report (EPR)</th>
                             <th>Improvement Plan</th>
