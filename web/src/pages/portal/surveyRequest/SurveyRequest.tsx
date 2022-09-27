@@ -39,7 +39,7 @@ function SurveyRequest() {
                             isFetching={isFetching}
                             error={propertyError}
                         >
-                            <Section>
+                            <Section className="text-center">
                                 <PageHeading
                                     title={`Survey Request - ${property?.addressLine1}, ${
                                         property?.postcode
@@ -53,8 +53,9 @@ function SurveyRequest() {
                                         lower energy costs.
                                     </Text>
                                     <div>
-                                        Book survey type:
-                                        <ButtonRow alignment="left">
+                                        <Text>Book survey type</Text>
+
+                                        <div>
                                             <ActionButton
                                                 className="winged"
                                                 onClick={handleRequestEPC}
@@ -75,16 +76,16 @@ function SurveyRequest() {
                                             >
                                                 Whole House Energy Survey
                                             </ActionButton>
-                                        </ButtonRow>
+                                        </div>
                                     </div>
                                 </div>
                             </Section>
 
-                            <Section>
+                            <Section size="sm">
                                 <SurveyTable />
                             </Section>
 
-                            <Section>
+                            <Section size="lg">
                                 <PageHeading title="When to choose each option" />
 
                                 <div className="grid grid-cols-3 gap-4">
