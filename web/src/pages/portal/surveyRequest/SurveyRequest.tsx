@@ -2,89 +2,14 @@ import CoolCard from '@components/CoolCard';
 import { Section, Container, PageHeading, Text, DataCheck } from '@components/ui';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
-import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
-import TableHeadingList from './components/TableHeadingList';
 import useSurveyRequest from './_hooks/useSurveyRequest';
 import SuccessModal from 'lib/src/components/modal/SuccessModal';
 import ErrorModal from 'lib/src/components/modal/ErrorModal';
 import ConfirmModal from 'lib/src/components/modal/ConfirmModal';
 
 import { PropertyStatusType, PropertyStatusTypeLabel } from '../../../types/shared/Properties';
-
-function SurveyTable() {
-    return (
-        <div>
-            <div className="surveyTable">
-                <table>
-                    <TableHeadingList />
-
-                    <tbody>
-                        <tr>
-                            <td className="surveyTable__title">EPC</td>
-                            <td className="text">
-                                <MeesRating mees={true} />
-                            </td>
-                            <td className="numeric">
-                                <MeesRating mees={false} />
-                            </td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">£75</td>
-                        </tr>
-                        <tr>
-                            <td className="surveyTable__title">Whole House Survey</td>
-                            <td className="text">Yes</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">£120</td>
-                        </tr>
-                        <tr>
-                            <td className="surveyTable__title">Energy Saving Plan</td>
-                            <td className="text">Yes</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">£150</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p style={{ color: 'white', fontWeight: 'bold', marginTop: '20px' }}>
-                Only applicable to landlords
-            </p>
-        </div>
-    );
-}
+import SurveyTable from './components/SurveyTable';
 
 function SurveyRequest() {
     const {
@@ -107,16 +32,20 @@ function SurveyRequest() {
     return (
         <>
             <MainPortal>
-                <DataCheck dataExists={!!property} isFetching={isFetching} error={propertyError}>
-                    <Section>
-                        <Container>
-                            <PageHeading
-                                title={`Survey Request - ${property?.addressLine1}, ${
-                                    property?.postcode
-                                } (${PropertyStatusTypeLabel[property?.status]})`}
-                            />
+                <Container size="2xl" style={{ margin: '50px auto' }}>
+                    <CoolCard>
+                        <DataCheck
+                            dataExists={!!property}
+                            isFetching={isFetching}
+                            error={propertyError}
+                        >
+                            <Section>
+                                <PageHeading
+                                    title={`Survey Request - ${property?.addressLine1}, ${
+                                        property?.postcode
+                                    } (${PropertyStatusTypeLabel[property?.status]})`}
+                                />
 
-                            <CoolCard>
                                 <div>
                                     <Text>
                                         Continue your journey with EPC Builder - improve the energy
@@ -149,14 +78,13 @@ function SurveyRequest() {
                                         </ButtonRow>
                                     </div>
                                 </div>
-                            </CoolCard>
-                            <SurveyTable />
-                        </Container>
-                    </Section>
+                            </Section>
 
-                    <Section>
-                        <Container>
-                            <CoolCard>
+                            <Section>
+                                <SurveyTable />
+                            </Section>
+
+                            <Section>
                                 <PageHeading title="When to choose each option" />
 
                                 <div className="grid grid-cols-3 gap-4">
@@ -190,13 +118,9 @@ function SurveyRequest() {
                                         </Text>
                                     </div>
                                 </div>
-                            </CoolCard>
-                        </Container>
-                    </Section>
+                            </Section>
 
-                    <Section>
-                        <Container>
-                            <CoolCard>
+                            <Section>
                                 <div>
                                     <PageHeading title="Why book a Whole House Energy Survey?" />
                                     <Text size="base">
@@ -229,8 +153,9 @@ function SurveyRequest() {
                                         <li>BUS (Boiler Upgrade Scheme)</li>
                                     </ul>
                                 </div>
+                            </Section>
 
-                                {/* <div>
+                            {/* <div>
                             <h3>Epc</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
@@ -239,16 +164,11 @@ function SurveyRequest() {
                                 reiciendis soluta quidem, delectus magnam.
                             </p>
                         </div> */}
-                            </CoolCard>
-                        </Container>
-                    </Section>
 
-                    <Section>
-                        <Container>
                             <div>Contact us or 'Book'</div>
-                        </Container>
-                    </Section>
-                </DataCheck>
+                        </DataCheck>
+                    </CoolCard>
+                </Container>
             </MainPortal>
 
             {showSuccessModal && (
