@@ -31,6 +31,7 @@ export interface IAccessDetails {
     lastName: string;
     email: string;
     phone: string;
+    preferredContactTime: string | null;
 }
 
 export interface IUpdatePropertyAccessDetailsForm extends IAccessDetails {

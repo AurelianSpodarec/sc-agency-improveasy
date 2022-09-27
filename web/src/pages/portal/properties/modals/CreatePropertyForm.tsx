@@ -15,7 +15,7 @@ const CreatePropertyForm = ({
         postcode,
         bypassEPC,
         useAccountDetailsForAccess,
-        accessDetails: { firstName, lastName, email, phone },
+        accessDetails: { firstName, lastName, email, phone, preferredContactTime },
     },
     handleChange,
     handleSubmit,
@@ -24,16 +24,14 @@ const CreatePropertyForm = ({
 }: IProps) => {
     const [showAddressFields, setShowAddressFields] = useState(false);
 
-    const handleAddressSelect = useCallback(
-        (address: IAddress) => {
-            handleChange('addressLine1', address.addressLine1 || '');
-            handleChange('addressLine2', address.addressLine2 || '');
-            handleChange('city', address.town || '');
-            handleChange('postcode', address.postCode || '');
-            setShowAddressFields(true);
-        },
-        [handleChange],
-    );
+    const handleAddressSelect = useCallback((address: IAddress) => {
+        handleChange('addressLine1', address.addressLine1 || '');
+        handleChange('addressLine2', address.addressLine2 || '');
+        handleChange('city', address.town || '');
+        handleChange('postcode', address.postCode || '');
+        setShowAddressFields(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <Form
@@ -131,13 +129,23 @@ const CreatePropertyForm = ({
                 className="winged"
                 required
             />
+            <TextInput
+                name="accessDetails.preferredContactTime"
+                value={preferredContactTime || ''}
+                onChange={handleChange}
+                placeholder="Preferred Contact Time"
+                className="winged"
+            />
         </Form>
     );
 };
 
 interface IProps {
     formState: ICreatePropertyForm;
-    handleChange: (name: keyof ICreatePropertyForm, value: string | number | boolean) => void;
+    handleChange: (
+        name: keyof ICreatePropertyForm,
+        value: string | number | boolean | Date | null,
+    ) => void;
     handleSubmit: () => void;
     isPosting: boolean;
     error: string | null;

@@ -33,6 +33,7 @@ const initialForm: ICreatePropertyForm = {
         lastName: '',
         email: '',
         phone: '',
+        preferredContactTime: null,
     },
 };
 
@@ -59,7 +60,10 @@ const useCreateProperty = () => {
         history.push('/portal/properties');
     }, [history]);
 
-    const handleChange = (name: keyof ICreatePropertyForm, value: string | number | boolean) => {
+    const handleChange = (
+        name: keyof ICreatePropertyForm,
+        value: string | number | boolean | Date | null,
+    ) => {
         if (name === 'useAccountDetailsForAccess') {
             if (formState.useAccountDetailsForAccess) {
                 _handleChange('useAccountDetailsForAccess', false);

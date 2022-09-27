@@ -1,4 +1,4 @@
-import { Container, Section } from '@components/ui';
+import { Container, Loading, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
@@ -65,12 +65,18 @@ function Properties({ showCreateModal }: IProps) {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <DataCheck
-                                                dataExists={!!properties.length}
-                                                isFetching={isFetching}
-                                                error={error}
-                                            >
-                                                {properties.map((section: IProperty) => (
+                                            {!properties.length ? (
+                                                <tr>
+                                                    <td style={{ textAlign: 'center' }}>
+                                                        {isFetching ? (
+                                                            <Loading />
+                                                        ) : (
+                                                            <p>No properties found</p>
+                                                        )}
+                                                    </td>
+                                                </tr>
+                                            ) : (
+                                                properties.map((section: IProperty) => (
                                                     <tr
                                                         key={section.id}
                                                         className="bg-gray-50"
@@ -111,8 +117,8 @@ function Properties({ showCreateModal }: IProps) {
                                                             )}
                                                         </td>
                                                     </tr>
-                                                ))}
-                                            </DataCheck>
+                                                ))
+                                            )}
                                         </tbody>
                                     </table>
                                 </MainCard>

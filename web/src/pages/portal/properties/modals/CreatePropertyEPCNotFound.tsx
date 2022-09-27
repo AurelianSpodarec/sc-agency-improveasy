@@ -17,13 +17,13 @@ const CreatePropertyEPCNotFound = ({
                 <br />
                 <br />
                 This may be due to:
-                <p className="list-wrapper">
+                <div className="list-wrapper">
                     <ol>
                         <li> Incorrect address information</li>
                         <li> An EPC has been done in the last 3 months</li>
                         <li> The property does not have an EPC</li>
                     </ol>
-                </p>
+                </div>
             </p>
 
             <ButtonRow>
