@@ -8,9 +8,9 @@ import { PropertyRatingRecomendation } from 'src/types/shared/PropertyRatingReco
 export const fetchPropertyRatingRecommendationsRequest = createAction(
     'fetchPropertyRatingRecommendationsRequest',
 );
-export const fetchPropertyRatingRecommendationsSuccess = createAction<PropertyRatingRecomendation>(
-    'fetchPropertyRatingRecommendationsSuccess',
-);
+export const fetchPropertyRatingRecommendationsSuccess = createAction<
+    PropertyRatingRecomendation[]
+>('fetchPropertyRatingRecommendationsSuccess');
 export const fetchPropertyRatingRecommendationsFailure = createAction<string>(
     'fetchPropertyRatingRecommendationsFailure',
 );
@@ -21,8 +21,8 @@ export const fetchPropertyRatingRecommendations =
         dispatch(fetchPropertyRatingRecommendationsRequest());
 
         try {
-            const { data } = await api.get<PropertyRatingRecomendation>(
-                `propertyRating/${propertyID}`,
+            const { data } = await api.get<PropertyRatingRecomendation[]>(
+                `propertyRatingRecommendations/${propertyID}`,
             );
             dispatch(fetchPropertyRatingRecommendationsSuccess(data));
         } catch (e) {

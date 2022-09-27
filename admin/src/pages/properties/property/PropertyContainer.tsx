@@ -6,6 +6,7 @@ import PropertyEditAddressModal from './PropertyEditAddressModal';
 import PropertyEditAccessDetailsModel from './PropertyEditAccessDetailsModel';
 import PropertyRating from './PropertyRating';
 import PropertyEditRatingModal from './PropertyEditRatingModal';
+import PropertyRecommendations from './PropertyRecommendations';
 
 interface Props {
     showEditAddressModal?: boolean;
@@ -27,7 +28,7 @@ const PropertyContainer: React.FC<Props> = ({
                 <PropertyAccessDetails property={property} />
                 <PropertyRating property={property} />
             </DataCheck>
-
+            <PropertyRecommendations />
             {!!property && showEditAddressModal && <PropertyEditAddressModal property={property} />}
             {!!property && !!user && showEditAccessDetailsModal && (
                 <PropertyEditAccessDetailsModel property={property} user={user} />
