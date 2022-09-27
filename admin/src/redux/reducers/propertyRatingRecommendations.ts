@@ -1,38 +1,88 @@
+import {
+    fetchPropertyRatingRecommendationsFailure,
+    fetchPropertyRatingRecommendationsRequest,
+    fetchPropertyRatingRecommendationsSuccess,
+    createPropertyRatingRecommendationRequest,
+    createPropertyRatingRecommendationSuccess,
+    createPropertyRatingRecommendationFailure,
+    deletePropertyRatingRecommendationRequest,
+    deletePropertyRatingRecommendationSuccess,
+    deletePropertyRatingRecommendationFailure,
+} from './../actions/propertyRatingReccomendations';
+
 import { convertArrToObj } from 'lib/src/utils/generic';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
-import { postLoginRequest, postLoginSuccess, postLoginFailure } from '@actions/auth';
-import { PropertyRating } from 'src/types/shared/PropertyRating';
+import { PropertyRatingRecomendation } from 'src/types/shared/PropertyRatingRecomendation';
 
 interface AuthState {
     isFetching: boolean;
-    error: string | null;
-    recommendations: Record<number, PropertyRating>;
+    fetchError: string | null;
+    isPosting: boolean;
+    postError: string | null;
+    postSuccess: boolean;
+    recommendations: Record<number, PropertyRatingRecomendation>;
 }
 
 const initialState: AuthState = {
     isFetching: false,
-    error: null,
+    fetchError: null,
+    isPosting: false,
+    postSuccess: false,
+    postError: null,
     recommendations: {},
 };
 
 export default createReducer(initialState, {
-    [postLoginRequest.type]: handleFetchRequest,
-    [postLoginSuccess.type]: handleFetchSuccess,
-    [postLoginFailure.type]: handleFetchFailure,
+    [fetchPropertyRatingRecommendationsRequest.type]: handleFetchRequest,
+    [fetchPropertyRatingRecommendationsSuccess.type]: handleFetchSuccess,
+    [fetchPropertyRatingRecommendationsFailure.type]: handleFetchFailure,
+    [createPropertyRatingRecommendationRequest.type]: handlePostRequest,
+    [createPropertyRatingRecommendationSuccess.type]: handlePostSuccess,
+    [createPropertyRatingRecommendationFailure.type]: handlePostFailure,
+    [deletePropertyRatingRecommendationRequest.type]: handlePostRequest,
+    [deletePropertyRatingRecommendationSuccess.type]: handleDeleteSuccess,
+    [deletePropertyRatingRecommendationFailure.type]: handlePostFailure,
 });
 
 function handleFetchRequest(state: AuthState) {
     state.isFetching = true;
-    state.error = null;
+    state.fetchError = null;
+    state.recommendations = {};
 }
 
-function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRating[]>) {
+function handleFetchSuccess(
+    state: AuthState,
+    action: PayloadAction<PropertyRatingRecomendation[]>,
+) {
     state.isFetching = false;
     state.recommendations = convertArrToObj(action.payload);
 }
 
 function handleFetchFailure(state: AuthState, action: PayloadAction<string>) {
     state.isFetching = false;
-    state.error = action.payload;
+    state.fetchError = action.payload;
+}
+
+function handlePostRequest(state: AuthState) {
+    state.isPosting = true;
+    state.postSuccess = false;
+    state.postError = null;
+}
+
+function handlePostSuccess(state: AuthState, action: PayloadAction<PropertyRatingRecomendation>) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    state.recommendations[action.payload.id] = action.payload;
+}
+
+function handleDeleteSuccess(state: AuthState, action: PayloadAction<number>) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    delete state.recommendations[action.payload];
+}
+
+function handlePostFailure(state: AuthState, action: PayloadAction<string>) {
+    state.isPosting = false;
+    state.postError = action.payload;
 }

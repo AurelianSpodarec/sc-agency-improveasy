@@ -1,7 +1,11 @@
+import {
+    fetchImprovementTypesRequest,
+    fetchImprovementTypesSuccess,
+    fetchImprovementTypesFailure,
+} from './../actions/improvementTypes/fetchImprovementTypes';
 import { convertArrToObj } from 'lib/src/utils/generic';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
-import { postLoginRequest, postLoginSuccess, postLoginFailure } from '@actions/auth';
 import { ImprovementType } from 'src/types/shared/ImprovementType';
 
 interface AuthState {
@@ -17,9 +21,9 @@ const initialState: AuthState = {
 };
 
 export default createReducer(initialState, {
-    [postLoginRequest.type]: handleFetchRequest,
-    [postLoginSuccess.type]: handleFetchSuccess,
-    [postLoginFailure.type]: handleFetchFailure,
+    [fetchImprovementTypesRequest.type]: handleFetchRequest,
+    [fetchImprovementTypesSuccess.type]: handleFetchSuccess,
+    [fetchImprovementTypesFailure.type]: handleFetchFailure,
 });
 
 function handleFetchRequest(state: AuthState) {

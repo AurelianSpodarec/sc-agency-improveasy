@@ -19,6 +19,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                 onCancel={closeModal}
                 isPosting={isPosting}
                 buttonClassName={buttonClassName}
+                error={error}
             />
         </Modal>
     );
