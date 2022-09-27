@@ -21,7 +21,7 @@ const Routes: React.FC = () => (
         <SubRouter path="/properties" auth>
             <PropertiesRoutes />
         </SubRouter>
-        <DefaultRedirect to="properties" />
+        <DefaultRedirect to="/properties" />
     </Switch>
 );
 
