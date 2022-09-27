@@ -8,6 +8,7 @@ import PropertyCertificate from '../PropertyCertificate';
 import { PageHeading } from '@components/ui';
 import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
 import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
+import PropertyPotentialImprovements from '../PropertyPotentialImprovements';
 
 export enum PropertyAccordionValue {
     TENANT = '1',
@@ -26,6 +27,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
     }
 
     if (!property) return <></>;
+
     return (
         <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
@@ -48,15 +50,17 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 <div className="flex-row justify-between">
                     <PropertyEPCChart propertyID={property.id} />
 
-                    <PropertyCertificate />
+                    <PropertyCertificate propertyID={property.id} />
                 </div>
                 <br />
 
-                <PageHeading title="Potential Rating Improvements" size="lg" />
+                <PageHeading title="Recommendations from current EPC Certificate" size="lg" />
                 <p className="font-semibold">
                     If you have installed any of these recommendations this may have an impact on
                     your current EPC rating
                 </p>
+
+                <PropertyPotentialImprovements propertyID={property.id} />
             </AccordionTwoItem>
         </AccordionTwo>
     );

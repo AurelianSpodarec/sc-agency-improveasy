@@ -6,7 +6,6 @@ export interface IProperty {
     city: string;
     postcode: string;
     statusUpdatedOn: Date;
-    useAccountDetailsForAccess: boolean;
     currentEPCRating: EPCRatings;
     potentialEPCRating: EPCRatings;
     currentEnergyEfficiencyRating: number;
@@ -26,11 +25,13 @@ export interface ICreatePropertyForm {
     useAccountDetailsForAccess: boolean;
     accessDetails: IAccessDetails;
 }
+
 export interface IAccessDetails {
     firstName: string;
     lastName: string;
     email: string;
     phone: string;
+    preferredContactTime: string | null;
 }
 
 export interface IUpdatePropertyAccessDetailsForm extends IAccessDetails {
@@ -55,8 +56,13 @@ export interface IPropertyFilterRequest {
     propertyStatusFilters: PropertyStatusType;
 }
 
-export interface ICreatePropertyRequest extends Omit<ICreatePropertyForm, 'accessDetails'> {
-    accessDetails: IAccessDetails | null;
+export interface ICreatePropertyRequest {
+    addressLine1: string;
+    addressLine2: string;
+    city: string;
+    postcode: string;
+    bypassEPC: boolean;
+    accessDetails: IAccessDetails;
 }
 
 export enum ModalContent {
@@ -92,10 +98,20 @@ export interface IEPC {
     ratingCreatedOn: string;
     wallDescription: string;
     isDeleted: boolean;
+    status: PropertyStatusType;
 }
 
 export interface IPropertyRatingRecommendations {
     id: number;
+    propertyRatingID: number;
+    step: number;
+    improvementDescription: string;
+    typicalInstallCostMin?: number;
+    typicalInstallCostMax?: number;
+    typicalYearlySavingMin?: number;
+    typicalYearlySavingMax?: number;
+    potentialRatingAfterCompletion?: string;
+    createdOn: string;
 }
 
 export interface FetchPropertiesRequest {

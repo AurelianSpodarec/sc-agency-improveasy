@@ -19,6 +19,7 @@ import {
     selectSingleProperty,
 } from '@selectors/properties';
 import { RootState } from '@reducers/index';
+import { selectAccountDetails } from '@selectors/account';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -32,6 +33,7 @@ const initialForm: ICreatePropertyForm = {
         lastName: '',
         email: '',
         phone: '',
+        preferredContactTime: null,
     },
 };
 
@@ -44,6 +46,7 @@ const useCreateProperty = () => {
     const postSuccess = useSelector(selectPropertiesPostSuccess);
     const prevPostSuccess = usePrevious(postSuccess);
     const error = useSelector(selectPropertiesError);
+    const accountDetails = useSelector(selectAccountDetails);
 
     const [formState, _handleChange] = useForm<ICreatePropertyForm>(initialForm);
     const [modalContent, setModalContent] = useState<ModalContent>(1);
@@ -57,8 +60,29 @@ const useCreateProperty = () => {
         history.push('/portal/properties');
     }, [history]);
 
-    const handleChange = (name: keyof ICreatePropertyForm, value: string | number | boolean) => {
-        if (name.includes('accessDetails')) {
+    const handleChange = (
+        name: keyof ICreatePropertyForm,
+        value: string | number | boolean | Date | null,
+    ) => {
+        if (name === 'useAccountDetailsForAccess') {
+            if (formState.useAccountDetailsForAccess) {
+                _handleChange('useAccountDetailsForAccess', false);
+                _handleChange('accessDetails', {
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    phone: '',
+                });
+            } else {
+                _handleChange('useAccountDetailsForAccess', true);
+                _handleChange('accessDetails', {
+                    firstName: accountDetails?.firstName,
+                    lastName: accountDetails?.lastName,
+                    email: accountDetails?.email,
+                    phone: accountDetails?.phone,
+                });
+            }
+        } else if (name.includes('accessDetails')) {
             const accessDetailsName = name.split('.')[1];
 
             _handleChange('accessDetails', {
@@ -96,17 +120,10 @@ const useCreateProperty = () => {
     ]);
 
     const handleSubmit = (bypassEPC?: true) => {
-        let postBody: ICreatePropertyRequest = {
+        const postBody: ICreatePropertyRequest = {
             ...formState,
             bypassEPC: bypassEPC || formState.bypassEPC,
         };
-
-        if (formState.useAccountDetailsForAccess) {
-            postBody = {
-                ...postBody,
-                accessDetails: null,
-            };
-        }
 
         dispatch(postCreateUserProperty(postBody));
     };

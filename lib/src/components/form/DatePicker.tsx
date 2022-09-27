@@ -21,6 +21,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     maxDate = tenYearsFromNow,
     disabled,
     customValidate,
+    className = '',
 }) => {
     const [error, showError] = useFieldValidation({
         name,
@@ -61,7 +62,13 @@ const DatePicker: React.FC<DatePickerProps> = ({
     ));
 
     return (
-        <FormField name={name} label={label} required={required} error={error}>
+        <FormField
+            name={name}
+            label={label}
+            required={required}
+            error={error}
+            className={className}
+        >
             <ReactDatePicker
                 selected={value}
                 onChange={_handleChange}
@@ -101,6 +108,7 @@ interface DatePickerProps extends FormInputProps<Date | null> {
     placeholder?: string;
     minDate?: Date;
     maxDate?: Date;
+    className?: string;
 }
 
 interface ForwardRefProps {

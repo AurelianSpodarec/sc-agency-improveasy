@@ -8,7 +8,7 @@ const CreatePropertyEPCNotFound = ({
     handleContinueAnyway,
 }: IProps) => {
     return (
-        <section className="flex-column align-center horizontal-padding">
+        <section className="flex-column align-center space-x-4">
             <h2 className="heading">Unable to locate EPC for {addressString}</h2>
 
             <p className="flex-column align-center text-center semi-bold-content">
@@ -17,13 +17,13 @@ const CreatePropertyEPCNotFound = ({
                 <br />
                 <br />
                 This may be due to:
-                <p className="list-wrapper">
+                <div className="list-wrapper">
                     <ol>
                         <li> Incorrect address information</li>
                         <li> An EPC has been done in the last 3 months</li>
                         <li> The property does not have an EPC</li>
                     </ol>
-                </p>
+                </div>
             </p>
 
             <ButtonRow>

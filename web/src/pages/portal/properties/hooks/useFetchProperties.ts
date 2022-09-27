@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useForm from 'lib/src/hooks/useForm';
 
@@ -10,6 +10,7 @@ import {
 
 import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
 import { FetchPropertiesRequest } from 'src/types/shared/Properties';
+import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
@@ -39,7 +40,10 @@ const useFetchProperties = () => {
     });
 
     useEffect(() => {
-        dispatch(fetchUserProperties(form));
+        batch(() => {
+            dispatch(fetchUserProperties(form));
+            dispatch(fetchAccountDetails());
+        });
     }, [dispatch, form]);
 
     const handleClearFilters = () => {

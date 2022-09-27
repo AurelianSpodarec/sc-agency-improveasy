@@ -1,5 +1,5 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-import { IEPC, IProperty } from '../../types/shared/Properties';
+import { IProperty } from '../../types/shared/Properties';
 import {
     postUserPropertiesFiltersFailure,
     postUserPropertiesFiltersRequest,
@@ -38,7 +38,6 @@ interface IPropertyState {
     postSuccess: boolean;
     error: string | null;
     properties: Record<number, IProperty>;
-    propertyEPCRatings: Record<number, IEPC>;
     lastCreatedID: number | null;
 }
 
@@ -48,7 +47,6 @@ const initialState: IPropertyState = {
     postSuccess: false,
     error: null,
     properties: {},
-    propertyEPCRatings: {},
     lastCreatedID: null,
 };
 

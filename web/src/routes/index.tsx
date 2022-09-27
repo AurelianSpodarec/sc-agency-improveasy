@@ -13,6 +13,7 @@ import Properties from '@pages/portal/properties/properties/Properties';
 import Property from '@pages/portal/properties/property/Property';
 
 import AuthRoutes from './AuthRoutes';
+import SurveyRequest from '@pages/portal/surveyRequest/SurveyRequest';
 
 const Routes: React.FC = () => (
     <Switch>
@@ -36,6 +37,10 @@ const Routes: React.FC = () => (
         {/* Portal */}
         <Route exact path="/portal">
             <Properties />
+        </Route>
+
+        <Route exact path="/portal/survey-request">
+            <SurveyRequest />
         </Route>
 
         <Route exact path="/portal/properties">

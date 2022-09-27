@@ -13,21 +13,29 @@ import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 import { fetchPropertyEPCRating } from '@actions/propertyInformation/fetchPropertyEPCRating';
 
 import house from './../../../../_content/icons/house_outline_green.png';
+import { selectPropertyEPCRating } from '@selectors/propertyInformation';
+import { selectSingleProperty } from '@selectors/properties';
+import { fetchPropertyRatingRecommendations } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
+import { PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
 
 function Property() {
     const dispatch = useDispatch();
 
     const { id } = useParams<{ id: string }>();
 
-    const property = useSelector((state: RootState) => state.propertiesReducer.properties[+id]);
+    const property = useSelector((state: RootState) => selectSingleProperty(state, +id));
+    const propertyRating = useSelector((state: RootState) => selectPropertyEPCRating(state, +id));
 
     useEffect(() => {
         batch(() => {
             dispatch(fetchPropertyByID(+id));
             dispatch(fetchAccountDetails());
             dispatch(fetchPropertyEPCRating(+id));
+            if (propertyRating?.id) {
+                dispatch(fetchPropertyRatingRecommendations(propertyRating.id));
+            }
         });
-    }, [dispatch, id]);
+    }, [dispatch, id, propertyRating?.id]);
 
     return (
         <MainPortal>
@@ -51,7 +59,9 @@ function Property() {
                     </div>
 
                     <MainCard
-                        title={`${property?.addressLine1}, ${property?.postcode}`}
+                        title={`${property?.addressLine1}, ${property?.postcode} - ${
+                            PropertyStatusTypeLabel[property?.status]
+                        }`}
                         className="w-10/12"
                     >
                         <PropertyAccordion property={property} />

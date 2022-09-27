@@ -54,15 +54,15 @@ const PropertyEPCChart = ({ propertyID }: IProps) => {
                 </div>
                 <div className="flex-3 flex-column rating-wrapper">
                     <div className="flex-row epc-table-head">
-                        <div className="flex-6">
+                        <div className="w-1/2">
                             <p className="font-semibold">Current</p>
                         </div>
-                        <div className="flex-6">
+                        <div className="w-1/2">
                             <p className="font-semibold">Potential</p>
                         </div>
                     </div>
                     <div className="flex flex-row justify-between">
-                        <div className="epc-table-column flex-column align-center flex-6">
+                        <div className="epc-table-column flex-column align-center w-1/2">
                             <div
                                 className={`epc-indicator ${propertyRatings.currentRating.toLowerCase()}`}
                             >
@@ -70,7 +70,7 @@ const PropertyEPCChart = ({ propertyID }: IProps) => {
                                 <p className="box">{propertyRatings.currentEnergyEfficiency}</p>
                             </div>
                         </div>
-                        <div className="epc-table-column flex-column align-center flex-6">
+                        <div className="epc-table-column flex-column align-center w-1/2">
                             <div
                                 className={`epc-indicator ${propertyRatings.potentialRating.toLowerCase()}`}
                             >

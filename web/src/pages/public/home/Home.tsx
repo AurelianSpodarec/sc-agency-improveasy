@@ -452,7 +452,7 @@ function Home() {
 
             <Section>
                 <Container size="2xl">
-                    <AccordionOne data={accordion} type="single" collapsible />
+                    <AccordionOne data={accordion} type="single" />
                 </Container>
             </Section>
         </MainPublic>

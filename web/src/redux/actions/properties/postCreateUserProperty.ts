@@ -19,6 +19,7 @@ export const postCreateUserProperty =
                 'properties',
                 postBody,
             );
+
             dispatch(postCreateUserPropertySuccess(data));
         } catch (e) {
             handleApiErrors(dispatch, postCreateUserPropertyFailure, e as APIError);

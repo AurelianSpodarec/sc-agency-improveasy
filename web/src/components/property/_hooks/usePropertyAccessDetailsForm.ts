@@ -15,7 +15,8 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
         lastName: property.accessDetails.lastName,
         email: property.accessDetails.email,
         phone: property.accessDetails.phone,
-        useAccountDetailsForAccess: property.useAccountDetailsForAccess,
+        useAccountDetailsForAccess: false,
+        preferredContactTime: property.accessDetails.preferredContactTime,
     };
 
     const [form, _handleChange, resetData] = useForm(initialForm);
@@ -30,6 +31,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
                 lastName: '',
                 email: '',
                 phone: '',
+                preferredContactTime: null,
                 useAccountDetailsForAccess: false,
             });
         } else {
@@ -38,6 +40,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
                 lastName: accountDetails?.lastName || '',
                 email: accountDetails?.email || '',
                 phone: accountDetails?.phone || '',
+                preferredContactTime: null,
                 useAccountDetailsForAccess: true,
             });
         }

@@ -28,7 +28,7 @@ function AccordionOne({ data = [], type }: any) {
             onValueChange={(e: any) => onValueChange(e)}
             style={{ borderBottom: '7px solid #0D695C' }}
             type={type}
-            collapsible
+            collapsible={true}
         >
             <AccordionList listData={data} isOpen={isOpen} />
         </Accordion.Root>
