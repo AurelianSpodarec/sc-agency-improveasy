@@ -156,17 +156,9 @@ function SurveyRequest() {
                                 </div>
                             </Section>
 
-                            {/* <div>
-                            <h3>Epc</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-                                ducimus quo exercitationem natus magni dolores blanditiis aspernatur
-                                labore fugit reprehenderit sit, quaerat quod? Aperiam totam
-                                reiciendis soluta quidem, delectus magnam.
-                            </p>
-                        </div> */}
-
-                            <div>Contact us or 'Book'</div>
+                            <Section>
+                                <div>Contact us or 'Book'</div>
+                            </Section>
                         </DataCheck>
                     </CoolCard>
                 </Container>

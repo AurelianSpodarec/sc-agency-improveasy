@@ -30,7 +30,7 @@ const Header = () => {
                     </div>
 
                     <div className="d-flex">
-                        <div className="hidden lg:block flex-row align-center">
+                        <div className="block flex-row align-center">
                             {isLoggedIn ? (
                                 <div className="d-flex justify-between align-center">
                                     <UserAvatar />
