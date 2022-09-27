@@ -139,15 +139,17 @@ export enum MEESCompliance {
 }
 
 export enum PropertyStatusType {
-    Compliant = 1,
-    NonCompliant = 2,
-    RequestedEPC = 3,
-    BookedEPC = 4,
+    New = 1,
+    Compliant,
+    NonCompliant,
+    RequestedEPC,
+    BookedEPC,
 }
 
 export enum PropertyStatusTypeLabel {
-    'Compliant' = 1,
-    'Non Compliant' = 2,
-    'Requested EPC' = 3,
-    'Booked EPC' = 4,
+    'New' = 1,
+    'Compliant',
+    'Non Compliant',
+    'Requested EPC',
+    'Booked EPC',
 }

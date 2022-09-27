@@ -57,7 +57,12 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                         <PropertyPotentialImprovements propertyID={property.id} />
                     </>
                 ) : (
-                    <p className="font-semibold">No EPC Certificate</p>
+                    <div className="flex-row">
+                        <p className="font-semibold">
+                            This property has no EPC certificate but you can{' '}
+                            <a href="/portal/survey-request">request a survey here</a>
+                        </p>
+                    </div>
                 )}
             </AccordionTwoItem>
         </AccordionTwo>

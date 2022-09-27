@@ -7,7 +7,6 @@ import MEESRating from '@pages/portal/properties/properties/MEESRating';
 
 import dayjs from 'dayjs';
 import { useHistory } from 'react-router-dom';
-import DataCheck from '@components/ui/DataCheck';
 import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
@@ -19,7 +18,6 @@ function Properties({ showCreateModal }: IProps) {
     const {
         properties,
         isFetching,
-        error,
         searchTerm,
         setSearchTerm,
         handleClearFilters,
