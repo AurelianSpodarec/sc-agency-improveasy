@@ -1,5 +1,7 @@
 import CoolCard from '@components/CoolCard';
 import { Section, Container, PageHeading, Text } from '@components/ui';
+import ActionButton from 'lib/src/components/button/ActionButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
 import MeesRating from '../properties/properties/MEESRating';
 import MainPortal from '../_components/MainPortal';
 import TableHeadingList from './components/TableHeadingList';
@@ -95,20 +97,14 @@ function SurveyRequest() {
                                 </Text>
                                 <div>
                                     Book survey type:
-                                    <div>
-                                        <input
-                                            name="survey-type"
-                                            id="standalone-epc"
-                                            type="radio"
-                                        />
-                                        <label htmlFor="standalone-epc">Standalone EPC</label>
-                                    </div>
-                                    <div>
-                                        <input name="survey-type" id="energy-survey" type="radio" />
-                                        <label htmlFor="energy-survey">
+                                    <ButtonRow alignment="left">
+                                        <ActionButton className="winged">
+                                            Standalone EPC
+                                        </ActionButton>
+                                        <ActionButton className="winged" source="positive">
                                             Whole House Energy Survey
-                                        </label>
-                                    </div>
+                                        </ActionButton>
+                                    </ButtonRow>
                                 </div>
                             </div>
                         </CoolCard>
