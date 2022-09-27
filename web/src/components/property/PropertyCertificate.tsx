@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '@reducers/index';
 import { selectPropertyEPCRating } from '@selectors/propertyInformation';
 import dayjs from 'dayjs';
-import ActionButton from 'lib/src/components/button/ActionButton';
+import LinkButton from 'lib/src/components/button/LinkButton';
 
 const PropertyCertificate = ({ propertyID }: IProps) => {
     const propertyEPCInformation = useSelector((state: RootState) =>
@@ -29,7 +29,9 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
                 In order to accurately assess the current energy efficiency of your property and
                 continue on your journey and book a survey
             </p>
-            <ActionButton className="winged">Request Survey</ActionButton>
+            <LinkButton className="winged" href={`/portal/survey-request/${propertyID}`}>
+                Request Survey
+            </LinkButton>
 
             <table className="certificate-table">
                 <tbody>

@@ -74,6 +74,7 @@ function handleFailure(state: IPropertyState, action: PayloadAction<string>) {
 function handlePostRequest(state: IPropertyState) {
     state.isPosting = true;
     state.error = null;
+    state.postSuccess = false;
 }
 
 function handlePostSuccess(state: IPropertyState) {

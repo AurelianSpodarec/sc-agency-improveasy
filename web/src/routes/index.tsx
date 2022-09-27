@@ -39,7 +39,7 @@ const Routes: React.FC = () => (
             <Properties />
         </Route>
 
-        <Route exact path="/portal/survey-request">
+        <Route exact path="/portal/survey-request/:propertyID">
             <SurveyRequest />
         </Route>
 

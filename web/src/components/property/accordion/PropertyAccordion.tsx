@@ -5,7 +5,6 @@ import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
 import PropertyEPCChart from '../PropertyEPCChart';
 import PropertyCertificate from '../PropertyCertificate';
-import { PageHeading } from '@components/ui';
 import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
 import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
 import PropertyPotentialImprovements from '../PropertyPotentialImprovements';
@@ -47,20 +46,26 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 value={PropertyAccordionValue.EPC}
                 isOpen={openValue === PropertyAccordionValue.EPC}
             >
-                <div className="flex-row justify-between">
-                    <PropertyEPCChart propertyID={property.id} />
+                {property.hasEPC ? (
+                    <>
+                        <div className="flex-row justify-between">
+                            <PropertyEPCChart propertyID={property.id} />
 
-                    <PropertyCertificate propertyID={property.id} />
-                </div>
-                <br />
-
-                <PageHeading title="Recommendations from current EPC Certificate" size="lg" />
-                <p className="font-semibold">
-                    If you have installed any of these recommendations this may have an impact on
-                    your current EPC rating
-                </p>
-
-                <PropertyPotentialImprovements propertyID={property.id} />
+                            <PropertyCertificate propertyID={property.id} />
+                        </div>
+                        <br />
+                        <PropertyPotentialImprovements propertyID={property.id} />
+                    </>
+                ) : (
+                    <div className="flex-row">
+                        <p className="font-semibold">
+                            This property has no EPC certificate but you can{' '}
+                            <a href={`/portal/survey-request/${property.id}`}>
+                                request a survey here
+                            </a>
+                        </p>
+                    </div>
+                )}
             </AccordionTwoItem>
         </AccordionTwo>
     );
