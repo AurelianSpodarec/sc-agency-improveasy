@@ -64,7 +64,7 @@ const useSurveyRequest = () => {
 
     useEffect(() => {
         dispatch(fetchPropertyByID(+propertyID));
-    }, [dispatch, propertyID]);
+    }, [dispatch, propertyID, postSuccess]);
 
     useEffect(() => {
         if (postSuccess && !prevPostSuccess) {
