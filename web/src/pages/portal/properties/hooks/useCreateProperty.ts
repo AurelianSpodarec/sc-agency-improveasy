@@ -120,8 +120,10 @@ const useCreateProperty = () => {
     ]);
 
     const handleSubmit = (bypassEPC?: true) => {
+        const { useAccountDetailsForAccess, ...rest } = formState;
+
         const postBody: ICreatePropertyRequest = {
-            ...formState,
+            ...rest,
             bypassEPC: bypassEPC || formState.bypassEPC,
         };
 

@@ -55,7 +55,8 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
     };
 
     const handleSubmit = () => {
-        dispatch(updatePropertyAccessDetails(property.id, form));
+        const { useAccountDetailsForAccess, ...rest } = form;
+        dispatch(updatePropertyAccessDetails(property.id, rest));
     };
 
     const revertChanges = () => {
