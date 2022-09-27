@@ -32,7 +32,6 @@ function handleFetchRequest(state: AuthState) {
 
 function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRating>) {
     state.isFetching = false;
-    console.log(action.payload);
     state.propertyRatings[action.payload.propertyID] = action.payload;
 }
 

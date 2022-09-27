@@ -4,15 +4,11 @@ import AdminUsersRoutes from './AdminUsersRoutes';
 import AuthRoutes from './AuthRoutes';
 import SubRouter from './SubRouter';
 import UsersRoutes from './UsersRoutes';
-import Dashboard from '@pages/dashboard/Dashboard';
 import DefaultRedirect from './DefaultRedirect';
 import PropertiesRoutes from './ProperitesRoutes';
 
 const Routes: React.FC = () => (
     <Switch>
-        <SubRouter exact path="/" auth>
-            <Dashboard />
-        </SubRouter>
         <SubRouter path="/auth">
             <AuthRoutes />
         </SubRouter>
@@ -25,7 +21,7 @@ const Routes: React.FC = () => (
         <SubRouter path="/properties" auth>
             <PropertiesRoutes />
         </SubRouter>
-        <DefaultRedirect to="/" />
+        <DefaultRedirect to="properties" />
     </Switch>
 );
 
