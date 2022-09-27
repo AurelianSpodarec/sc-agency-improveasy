@@ -7,6 +7,7 @@ import authReducer from './auth';
 import adminUsersReducer from './adminUsers';
 import usersReducer from './users';
 import propertiesReducer from './properties';
+import improvementTypesReducer from './improvementTypes';
 
 const rootReducer = combineReducers({
     fieldErrorsReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
     redirectsReducer,
     darkModeReducer,
     propertiesReducer,
+    improvementTypesReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
