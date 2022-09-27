@@ -3,3 +3,4 @@ export * from './fetchProperty';
 export * from './fetchUserProperties';
 export * from './editPropertyAccessDetails';
 export * from './editPropertyAddress';
+export * from './updatePropertyStatus';

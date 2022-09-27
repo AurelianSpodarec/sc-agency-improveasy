@@ -13,3 +13,8 @@ export const getProperties = (state: RootState) =>
 export const getPropertiesByUserID = (state: RootState, userID: number) =>
     Object.values(state.propertiesReducer.properties).filter(p => p.userID === userID);
 export const getProperty = (state: RootState, id: number) => state.propertiesReducer.properties[id];
+
+export const getPropertiesUpdateStatusError = (state: RootState) =>
+    state.propertiesReducer.updatingStatusError;
+export const getPropertiesIsUpdatingStatus = (state: RootState) =>
+    state.propertiesReducer.isUpdatingStatus;

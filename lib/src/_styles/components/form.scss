@@ -64,13 +64,23 @@
     &:disabled, &.disabled {
         cursor: not-allowed;
     }
+}
 
-    // mini version
-    &.mini {
+.mini-select-wrapper {
+    display: flex;
+
+    .form-select {
         padding: {
             top: 7px;
             bottom: 7px;
         }
+    }
+
+    .mini-select-spinner {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 

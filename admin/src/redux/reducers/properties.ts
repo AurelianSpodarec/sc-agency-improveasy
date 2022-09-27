@@ -1,3 +1,4 @@
+import { UpdatePropertyStatusRequest } from './../actions/properties/updatePropertyStatus';
 import { convertArrToObj } from 'lib/src/utils/generic';
 import { Property } from './../../types/shared/Property';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
@@ -19,6 +20,9 @@ import {
     editPropertyAddressRequest,
     editPropertyAddressSuccess,
     editPropertyAddressFailure,
+    updatePropertyStatusRequest,
+    updatePropertyStatusSuccess,
+    updatePropertyStatusFailure,
 } from '@actions/properties';
 
 interface PropertiesState {
@@ -26,6 +30,8 @@ interface PropertiesState {
     postSuccess: boolean;
     postError: string | null;
     isFetching: boolean;
+    isUpdatingStatus: boolean;
+    updatingStatusError: string | null;
     fetchError: string | null;
     properties: Record<number, Property>;
     itemCount: number;
@@ -36,6 +42,8 @@ const initialState: PropertiesState = {
     postSuccess: false,
     postError: null,
     isFetching: false,
+    isUpdatingStatus: false,
+    updatingStatusError: null,
     fetchError: null,
     properties: {},
     itemCount: 0,
@@ -57,6 +65,9 @@ export default createReducer(initialState, {
     [editPropertyAddressRequest.type]: handlePostRequest,
     [editPropertyAddressSuccess.type]: handlePostSuccess,
     [editPropertyAddressFailure.type]: handlePostFailure,
+    [updatePropertyStatusRequest.type]: handlePatchStatusRequest,
+    [updatePropertyStatusSuccess.type]: handlePatchStatusSuccess,
+    [updatePropertyStatusFailure.type]: handlePatchStatusFailure,
 });
 
 function handlePostRequest(state: PropertiesState) {
@@ -101,4 +112,22 @@ function handleFetchFailure(state: PropertiesState, action: PayloadAction<string
     state.isFetching = false;
     state.fetchError = action.payload;
     state.itemCount = 0;
+}
+
+function handlePatchStatusRequest(state: PropertiesState) {
+    state.isUpdatingStatus = true;
+    state.updatingStatusError = null;
+}
+
+function handlePatchStatusSuccess(
+    state: PropertiesState,
+    action: PayloadAction<UpdatePropertyStatusRequest>,
+) {
+    state.isUpdatingStatus = false;
+    state.properties[action.payload.id].status = action.payload.statusType;
+}
+
+function handlePatchStatusFailure(state: PropertiesState, action: PayloadAction<string>) {
+    state.isUpdatingStatus = false;
+    state.updatingStatusError = action.payload;
 }

@@ -4,6 +4,7 @@ import DataCheck from '@components/common/DataCheck';
 import PropertyAccessDetails from './PropertyAccessDetails';
 import PropertyEditAddressModal from './PropertyEditAddressModal';
 import PropertyEditAccessDetailsModel from './PropertyEditAccessDetailsModel';
+
 interface Props {
     showEditAddressModel?: boolean;
     showEditAccessDetailsModel?: boolean;
@@ -21,6 +22,7 @@ const PropertyContainer: React.FC<Props> = ({
                 <Property property={property} user={user} />
                 <PropertyAccessDetails property={property} />
             </DataCheck>
+
             {!!property && showEditAddressModel && <PropertyEditAddressModal property={property} />}
             {!!property && !!user && showEditAccessDetailsModel && (
                 <PropertyEditAccessDetailsModel property={property} user={user} />

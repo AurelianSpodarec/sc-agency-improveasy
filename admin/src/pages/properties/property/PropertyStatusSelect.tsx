@@ -1,16 +1,15 @@
 import React from 'react';
 
 import { Property as PropertyResponse } from 'src/types/shared/Property';
-import Select from 'lib/src/components/form/Select';
-import { convertEnumToDropdownOption } from 'lib/src/shared/enums/dropdownEnums';
-import { PropertyStatus } from '@actions/properties';
+import useSetPropertyStatus from './hooks/useSetPropertyStatus';
+import MiniSelect from 'lib/src/components/form/MiniSelect';
 
 interface Props {
     property: PropertyResponse;
 }
-const statusOptions = convertEnumToDropdownOption(PropertyStatus);
-
 const PropertyStatusSelect: React.FC<Props> = ({ property }) => {
+    const { statusOptions, handleChange, updating, error } = useSetPropertyStatus(property);
+
     return (
         <div
             style={{
@@ -18,17 +17,18 @@ const PropertyStatusSelect: React.FC<Props> = ({ property }) => {
                 flexDirection: 'column',
             }}
         >
+            <p className="form-label">Status</p>
             <div style={{ display: 'flex' }}>
-                <Select
-                    omitRemove
-                    label="Status"
+                <MiniSelect
+                    // isPosting
                     name="status"
                     value={property.status}
                     options={statusOptions}
-                    onChange={() => {}}
+                    onChange={handleChange}
+                    isPosting={updating}
                 />
             </div>
-            {/* <p className="form-error">hi</p> */}
+            {!!error && <p className="form-error">{error}</p>}
         </div>
     );
 };

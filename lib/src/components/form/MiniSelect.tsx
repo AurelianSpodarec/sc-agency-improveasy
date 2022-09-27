@@ -8,6 +8,7 @@ const MiniSelect = <T,>({
     value,
     options = [],
     onChange,
+    isPosting = false
 }: MiniSelectProps<T>) => {
     const node = useRef<HTMLDivElement | null>(null);
 
@@ -25,9 +26,16 @@ const MiniSelect = <T,>({
 
     return (
         <div ref={node} onClick={() => !disabled && setIsOpen(!isOpen)}>
-            <div className={`form-select mini ${disabled ? 'disabled' : ''}`}>
-                <p>{selected?.label}</p>
-                <i className="arrow fal fa-angle-down" />
+            <div className='mini-select-wrapper' style={{display: 'flex'}}>
+                <div className={`form-select mini ${disabled ? 'disabled' : ''}`}>
+                    <p>{selected?.label}</p>
+                    <i className="arrow fal fa-angle-down" />
+                </div>
+                {isPosting && (
+                    <div className='mini-select-spinner'>
+                        <i className="fal fa-spinner fa-spin" />
+                    </div>
+                )}
             </div>
 
             {isOpen && (
@@ -73,6 +81,7 @@ const MiniSelect = <T,>({
 
 interface MiniSelectProps<T> extends FormInputProps<T> {
     options: DropdownOption<T>[];
+    isPosting?: boolean;
 }
 
 export default MiniSelect;
