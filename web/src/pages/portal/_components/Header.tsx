@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 
-import IconLogoPortal from '@content/icons/logo/IconLogoPortal';
+import IconLogoPortal from '@content/icons/logo/epc-builder-logo.png';
 
 import LinkButton from 'lib/src/components/button/LinkButton';
 
 import { Container } from '@components/ui';
 import UserAvatar from '@components/UserAvatar/UserAvatar';
-
-import logo from './../../../_content/icons/logo/logogreen.png';
 
 const Header = () => {
     return (
@@ -16,7 +14,7 @@ const Header = () => {
                 <div className="header__inner flex justify-between items-center">
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
-                            <img src={logo} alt="logo" className="header__logo-img" />
+                            <img src={IconLogoPortal} alt="logo" className="header__logo-img" />
                             <span
                                 style={{ marginBottom: '0px' }}
                                 className="hidden lg:block font-semibold"
