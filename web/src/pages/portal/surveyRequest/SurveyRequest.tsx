@@ -274,7 +274,7 @@ function SurveyRequest() {
                     title="Are you sure?"
                     description="You are about to request a survey. Are you sure you want to continue?"
                     handleSubmit={handleSubmit}
-                    submitButtonClassName="winged"
+                    buttonClassName="winged"
                 />
             )}
         </>

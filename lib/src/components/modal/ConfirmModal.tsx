@@ -9,7 +9,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
     isPosting,
     title = 'Confirm',
     description = 'Are you sure?',
-    submitButtonClassName = '',
+    buttonClassName = '',
 }) => {
     return (
         <Modal title={title} size="small">
@@ -18,7 +18,7 @@ const ConfirmModal: React.FC<ConfirmModalProps> = ({
                 onSubmit={handleSubmit}
                 onCancel={closeModal}
                 isPosting={isPosting}
-                buttonClassName={submitButtonClassName}
+                buttonClassName={buttonClassName}
             />
         </Modal>
     );
@@ -30,7 +30,7 @@ interface ConfirmModalProps {
     isPosting?: boolean;
     title?: string;
     description?: string;
-    submitButtonClassName?: string;
+    buttonClassName?: string;
 }
 
 export default ConfirmModal;
