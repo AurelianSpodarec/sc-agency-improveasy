@@ -24,7 +24,7 @@ const Header = () => {
                         </div>
                     </Link>
 
-                    <div className="hidden lg:block">
+                    <div className="block">
                         <div className="flex-row space-x-4">
                             <div className="flex-row align-center">
                                 <LinkButton
