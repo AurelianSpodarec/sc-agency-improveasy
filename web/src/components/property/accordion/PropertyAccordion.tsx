@@ -46,13 +46,19 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                 value={PropertyAccordionValue.EPC}
                 isOpen={openValue === PropertyAccordionValue.EPC}
             >
-                <div className="flex-row justify-between">
-                    <PropertyEPCChart propertyID={property.id} />
+                {property.hasEPC ? (
+                    <>
+                        <div className="flex-row justify-between">
+                            <PropertyEPCChart propertyID={property.id} />
 
-                    <PropertyCertificate propertyID={property.id} />
-                </div>
-                <br />
-                <PropertyPotentialImprovements propertyID={property.id} />
+                            <PropertyCertificate propertyID={property.id} />
+                        </div>
+                        <br />
+                        <PropertyPotentialImprovements propertyID={property.id} />
+                    </>
+                ) : (
+                    <p className="font-semibold">No EPC Certificate</p>
+                )}
             </AccordionTwoItem>
         </AccordionTwo>
     );
