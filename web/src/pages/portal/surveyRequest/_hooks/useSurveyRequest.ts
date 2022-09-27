@@ -18,6 +18,11 @@ import {
 import usePrevious from 'lib/src/hooks/usePrevious';
 import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
 
+enum SurveyRequestType {
+    EPC = 1,
+    HouseSurvey = 2,
+}
+
 const useSurveyRequest = () => {
     const dispatch = useDispatch();
 
@@ -36,13 +41,25 @@ const useSurveyRequest = () => {
 
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
+    const [surveyToPost, setSurveyToPost] = useState<null | SurveyRequestType>(null);
 
     const handleRequestEPC = () => {
-        dispatch(patchRequestNewEPC(+propertyID));
+        setSurveyToPost(SurveyRequestType.EPC);
     };
 
     const handleRequestSurvey = () => {
-        dispatch(patchRequestSurvey(+propertyID));
+        setSurveyToPost(SurveyRequestType.HouseSurvey);
+    };
+
+    const handleSubmit = () => {
+        if (surveyToPost === SurveyRequestType.EPC) {
+            dispatch(patchRequestNewEPC(+propertyID));
+        }
+        if (surveyToPost === SurveyRequestType.HouseSurvey) {
+            dispatch(patchRequestSurvey(+propertyID));
+        }
+
+        setSurveyToPost(null);
     };
 
     useEffect(() => {
@@ -71,6 +88,9 @@ const useSurveyRequest = () => {
         showErrorModal,
         setShowErrorModal,
         error,
+        handleSubmit,
+        surveyToPost,
+        setSurveyToPost,
     };
 };
 
