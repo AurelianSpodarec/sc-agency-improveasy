@@ -37,7 +37,7 @@ const CreatePropertyForm = ({
         <Form
             onSubmit={handleSubmit}
             buttonAlignment="center"
-            submitButtonClassName="winged"
+            buttonClassName="winged"
             isPosting={isPosting}
             error={error}
         >

@@ -28,7 +28,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
     } = usePropertyAccessDetailsForm(property);
 
     return (
-        <div className="inset-box-shadow flex-6" style={{ marginRight: 25 }}>
+        <div className="inset-box-shadow flex-5">
             <div className="flex-row justify-center">
                 <PageHeading title="Access Details" size="lg" />
             </div>

@@ -13,7 +13,10 @@ export const initApi = (apiUrl: string) => {
     API_URL = apiUrl;
 };
 
-const get = async <TResponseBody>(url: string, params?: any): Promise<AxiosResponse<TResponseBody>> =>
+const get = async <TResponseBody>(
+    url: string,
+    params?: any,
+): Promise<AxiosResponse<TResponseBody>> =>
     axios.get<TResponseBody>(`${API_URL}/${url}`, await getConfig(params));
 
 const post = async <TRequestBody, TResponseBody>(url: string, data: TRequestBody, params?: any) =>
@@ -62,15 +65,23 @@ export const handleApiErrors = <A extends Action>(
     const { response, message } = err;
 
     if (response && response.status === 400) {
-        typeof response.data === 'string'
-            ? dispatch(addFormError(response.data))
-            : dispatch(setFieldErrors(response.data.errors));
-
-        return dispatch(failureAction(null));
+        if (typeof response.data === 'string') {
+            dispatch(addFormError(response.data));
+            dispatch(failureAction(response.data));
+            return;
+        } else {
+            dispatch(setFieldErrors(response.data.errors));
+            dispatch(failureAction(null));
+            return;
+        }
     }
     if (response && response.status === 401) {
         dispatch(failureAction('Unauthorized'));
-        clearJwtAndRefreshToken();
+        try {
+            localStorage.removeItem('token');
+        } catch (e) {
+            console.warn('Error removing token from localStorage:', e);
+        }
         return dispatch(setRedirectUrl('/auth/login'));
     }
 

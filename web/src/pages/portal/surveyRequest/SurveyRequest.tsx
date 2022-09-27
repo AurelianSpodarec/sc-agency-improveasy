@@ -7,6 +7,11 @@ import MainPortal from '../_components/MainPortal';
 import TableHeadingList from './components/TableHeadingList';
 import useSurveyRequest from './_hooks/useSurveyRequest';
 import SuccessModal from 'lib/src/components/modal/SuccessModal';
+import ErrorModal from 'lib/src/components/modal/ErrorModal';
+import ConfirmModal from 'lib/src/components/modal/ConfirmModal';
+
+import { PropertyStatusType, PropertyStatusTypeLabel } from '../../../types/shared/Properties';
+
 function SurveyTable() {
     return (
         <div>
@@ -91,6 +96,12 @@ function SurveyRequest() {
         setShowSuccessModal,
         isFetching,
         propertyError,
+        showErrorModal,
+        setShowErrorModal,
+        error,
+        handleSubmit,
+        surveyToPost,
+        setSurveyToPost,
     } = useSurveyRequest();
 
     return (
@@ -100,7 +111,9 @@ function SurveyRequest() {
                     <Section>
                         <Container>
                             <PageHeading
-                                title={`Survey Request - ${property?.addressLine1}, ${property?.postcode}`}
+                                title={`Survey Request - ${property?.addressLine1}, ${
+                                    property?.postcode
+                                } (${PropertyStatusTypeLabel[property?.status]})`}
                             />
 
                             <CoolCard>
@@ -117,6 +130,10 @@ function SurveyRequest() {
                                                 className="winged"
                                                 onClick={handleRequestEPC}
                                                 isPosting={isPosting}
+                                                disabled={
+                                                    property?.status ===
+                                                    PropertyStatusType.RequestedEPC
+                                                }
                                             >
                                                 Standalone EPC
                                             </ActionButton>
@@ -237,6 +254,26 @@ function SurveyRequest() {
             {showSuccessModal && (
                 <SuccessModal
                     closeModal={() => setShowSuccessModal(false)}
+                    buttonClassName="winged"
+                    title="Successfully requested survey"
+                    description="You have successfully requested a survey. We will be in touch shortly."
+                />
+            )}
+
+            {showErrorModal && (
+                <ErrorModal
+                    closeModal={() => setShowErrorModal(false)}
+                    description={error || 'There was an error with your response'}
+                    buttonClassName="winged"
+                />
+            )}
+
+            {surveyToPost && (
+                <ConfirmModal
+                    closeModal={() => setSurveyToPost(null)}
+                    title="Are you sure?"
+                    description="You are about to request a survey. Are you sure you want to continue?"
+                    handleSubmit={handleSubmit}
                     buttonClassName="winged"
                 />
             )}
