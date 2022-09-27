@@ -59,8 +59,11 @@ function Property() {
                     </div>
 
                     <MainCard
-                        title={`${property?.addressLine1}, ${property?.postcode} - ${
-                            PropertyStatusTypeLabel[property?.status]
+                        title={`${property?.addressLine1}, ${property?.postcode}${
+                            property?.status
+                                ? ` -
+                            ${PropertyStatusTypeLabel[property?.status]}`
+                                : ''
                         }`}
                         className="w-10/12"
                     >
