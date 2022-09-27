@@ -55,7 +55,7 @@ function SurveyRequest() {
                                     <div>
                                         <Text>Book survey type</Text>
 
-                                        <div>
+                                        <div className="space-y-4 lg:space-y-0">
                                             <ActionButton
                                                 className="winged"
                                                 onClick={handleRequestEPC}
@@ -121,43 +121,51 @@ function SurveyRequest() {
                                 </div>
                             </Section>
 
-                            <Section>
-                                <div>
-                                    <PageHeading title="Why book a Whole House Energy Survey?" />
-                                    <Text size="base">
-                                        Booking this survey will give you access to a range of
-                                        services including:
-                                    </Text>
+                            <Section className="sm">
+                                <div className="space-y-6">
+                                    <div>
+                                        <PageHeading title="Why book a Whole House Energy Survey?" />
+                                        <Text size="base">
+                                            Booking this survey will give you access to a range of
+                                            services including:
+                                        </Text>
+                                        <ul className="deep-list">
+                                            <li>FUNDING IDENTIFICATION</li>
+                                        </ul>
+                                    </div>
 
-                                    <ul>
-                                        <li>FUNDING IDENTIFICATION</li>
-                                    </ul>
-                                </div>
-
-                                <div>
-                                    <h3>
+                                    <Text type="h3">
                                         We will identify and apply for any available grant funding
                                         which could fully or partially fund the cost of installing
                                         energy efficiency measures in the property. Available grants
                                         include:
-                                    </h3>
-                                    <ul>
-                                        <li>
-                                            <span>ECO4 (Energy Company Obligation)</span>
-                                            <ul>
-                                                <li>
-                                                    LA Flex (Local Authority Flexible Eligibility)
-                                                </li>
-                                                <li>HUG (Home Upgrade Grant)</li>
-                                            </ul>
-                                        </li>
-                                        <li>BUS (Boiler Upgrade Scheme)</li>
-                                    </ul>
+                                    </Text>
+
+                                    <div>
+                                        <ul className="deep-list">
+                                            <li>
+                                                <span>ECO4 (Energy Company Obligation)</span>
+                                                <ul>
+                                                    <li>
+                                                        LA Flex (Local Authority Flexible
+                                                        Eligibility)
+                                                    </li>
+                                                    <li>HUG (Home Upgrade Grant)</li>
+                                                </ul>
+                                            </li>
+                                            <li>BUS (Boiler Upgrade Scheme)</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </Section>
 
-                            <Section>
-                                <div>Contact us or 'Book'</div>
+                            <Section style={{ paddingTop: 0 }}>
+                                <div className="space-y-4 lg:space-y-0">
+                                    <ActionButton className="winged">Contact</ActionButton>
+                                    <ActionButton className="winged" source="positive">
+                                        Book
+                                    </ActionButton>
+                                </div>
                             </Section>
                         </DataCheck>
                     </CoolCard>
