@@ -15,7 +15,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
         lastName: property.accessDetails.lastName,
         email: property.accessDetails.email,
         phone: property.accessDetails.phone,
-        useAccountDetailsForAccess: property.useAccountDetailsForAccess,
+        useAccountDetailsForAccess: false,
     };
 
     const [form, _handleChange, resetData] = useForm(initialForm);

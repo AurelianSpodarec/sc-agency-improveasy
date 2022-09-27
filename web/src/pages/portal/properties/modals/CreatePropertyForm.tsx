@@ -96,45 +96,41 @@ const CreatePropertyForm = ({
                 leftPlaceholder="Use Account Details for Access"
                 className="justify-center"
             />
-            {!useAccountDetailsForAccess && (
-                <>
-                    <div className="flex-row">
-                        <PageHeading title="Access Details" size="lg" />
-                    </div>
-                    <TextInput
-                        name="accessDetails.firstName"
-                        value={firstName}
-                        onChange={handleChange}
-                        placeholder="First Name"
-                        className="winged"
-                        required
-                    />
-                    <TextInput
-                        name="accessDetails.lastName"
-                        value={lastName}
-                        onChange={handleChange}
-                        placeholder="Last Name"
-                        className="winged"
-                        required
-                    />
-                    <TextInput
-                        name="accessDetails.email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        className="winged"
-                        required
-                    />
-                    <TextInput
-                        name="accessDetails.phone"
-                        value={phone}
-                        onChange={handleChange}
-                        placeholder="Phone"
-                        className="winged"
-                        required
-                    />
-                </>
-            )}
+            <div className="flex-row">
+                <PageHeading title="Access Details" size="lg" />
+            </div>
+            <TextInput
+                name="accessDetails.firstName"
+                value={firstName}
+                onChange={handleChange}
+                placeholder="First Name"
+                className="winged"
+                required
+            />
+            <TextInput
+                name="accessDetails.lastName"
+                value={lastName}
+                onChange={handleChange}
+                placeholder="Last Name"
+                className="winged"
+                required
+            />
+            <TextInput
+                name="accessDetails.email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="winged"
+                required
+            />
+            <TextInput
+                name="accessDetails.phone"
+                value={phone}
+                onChange={handleChange}
+                placeholder="Phone"
+                className="winged"
+                required
+            />
         </Form>
     );
 };
