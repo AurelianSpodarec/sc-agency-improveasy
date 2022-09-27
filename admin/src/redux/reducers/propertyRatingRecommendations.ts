@@ -1,28 +1,25 @@
-import {
-    fetchPropertyRatingRequest,
-    fetchPropertyRatingSuccess,
-    fetchPropertyRatingFailure,
-} from './../actions/propertyRatings/fetchPropertyRating';
+import { convertArrToObj } from 'lib/src/utils/generic';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
+import { postLoginRequest, postLoginSuccess, postLoginFailure } from '@actions/auth';
 import { PropertyRating } from 'src/types/shared/PropertyRating';
 
 interface AuthState {
     isFetching: boolean;
     error: string | null;
-    propertyRatings: Record<number, PropertyRating>;
+    recommendations: Record<number, PropertyRating>;
 }
 
 const initialState: AuthState = {
     isFetching: false,
     error: null,
-    propertyRatings: {},
+    recommendations: {},
 };
 
 export default createReducer(initialState, {
-    [fetchPropertyRatingRequest.type]: handleFetchRequest,
-    [fetchPropertyRatingSuccess.type]: handleFetchSuccess,
-    [fetchPropertyRatingFailure.type]: handleFetchFailure,
+    [postLoginRequest.type]: handleFetchRequest,
+    [postLoginSuccess.type]: handleFetchSuccess,
+    [postLoginFailure.type]: handleFetchFailure,
 });
 
 function handleFetchRequest(state: AuthState) {
@@ -30,10 +27,9 @@ function handleFetchRequest(state: AuthState) {
     state.error = null;
 }
 
-function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRating>) {
+function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRating[]>) {
     state.isFetching = false;
-    console.log(action.payload);
-    state.propertyRatings[action.payload.propertyID] = action.payload;
+    state.recommendations = convertArrToObj(action.payload);
 }
 
 function handleFetchFailure(state: AuthState, action: PayloadAction<string>) {

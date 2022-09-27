@@ -9,6 +9,7 @@ import usersReducer from './users';
 import propertiesReducer from './properties';
 import improvementTypesReducer from './improvementTypes';
 import propertyRatingsReducer from './propertyRatings';
+import propertyRatingRecommendationsReducer from './propertyRatingRecommendations';
 
 const rootReducer = combineReducers({
     fieldErrorsReducer,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     propertiesReducer,
     improvementTypesReducer,
     propertyRatingsReducer,
+    propertyRatingRecommendationsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
