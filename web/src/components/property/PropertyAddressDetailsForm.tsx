@@ -31,7 +31,7 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
     );
 
     return (
-        <div className="inset-box-shadow flex-6" style={{ marginRight: 25 }}>
+        <div className="inset-box-shadow flex-5">
             <div className="flex-row justify-center">
                 <PageHeading title="Address Details" size="lg" />
             </div>

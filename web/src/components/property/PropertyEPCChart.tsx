@@ -29,7 +29,7 @@ const PropertyEPCChart = ({ propertyID }: IProps) => {
     if (!propertyRatings) return null;
 
     return (
-        <div className="flex-5 epc-graph">
+        <div className="flex-5 epc-graph l-margin-bottom-ld">
             <p className="font-semibold">
                 An Energy Performance Certificate shows how energy efficient your property is. Your
                 property will be given an energy efficiency rating between A and G with A being the
