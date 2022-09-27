@@ -25,6 +25,9 @@ const PropertiesRoutes: React.FC = () => {
             <Route exact path={`${path}/:id/delete-recommendation/:recommendationID`}>
                 <PropertyContainer showDeleteRecommendationModal />
             </Route>
+            <Route exact path={`${path}/:id/attach-recommendation`}>
+                <PropertyContainer showCreateRecommendationModal />
+            </Route>
             <DefaultRedirect to="/" />
         </Switch>
     );

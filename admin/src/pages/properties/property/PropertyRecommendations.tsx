@@ -22,7 +22,7 @@ const PropertyRecommendations: React.FC = () => {
         {
             key: 2,
             heading: 'Step',
-            getValue: row => `${row.step}`,
+            getValue: row => `${row.step ?? '-'}`,
         },
         {
             key: 3,
@@ -47,7 +47,12 @@ const PropertyRecommendations: React.FC = () => {
 
     return (
         <ContentBlock>
-            <CreateHeader>Recommendations</CreateHeader>
+            <CreateHeader>
+                Recommendations
+                <LinkButton href={`/properties/${propertyID}/attach-recommendation`}>
+                    Create
+                </LinkButton>
+            </CreateHeader>
 
             <Table
                 columns={columns}
