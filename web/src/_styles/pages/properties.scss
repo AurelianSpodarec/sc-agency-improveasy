@@ -1,12 +1,12 @@
 .properties-table {
     @include mainFontSemiBold();
     font-size: 120%;
-
+    overflow-y: scroll; 
     thead {
         background-color: var(--grey-background);
         display: table;
         width: 100%;
-
+      white-space: nowrap;
         th {
             color: var(--color-green-400);
             padding-right: 30px; 
@@ -17,12 +17,13 @@
         width: calc(100% / 8);
         text-align: center;
         padding: 25px 10px;
+        width: 232px;
     }
 
     tbody {
         display: block; 
         max-height: 75vh;
-        overflow-y: scroll; 
+      
 
         tr {
             display: table;
