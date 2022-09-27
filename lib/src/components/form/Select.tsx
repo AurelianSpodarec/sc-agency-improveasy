@@ -16,7 +16,7 @@ import FormField from './FormField';
 // options should be in this form '[{ value: 1, label: "opt 1" }, { value: 2, label: "opt 2" }]'
 // value should be the selected 'value' not option(the number not the object)
 // pass `null` as the default value
-const Select: React.FC<SelectProps> = ({
+const Select = <T,>({
     name,
     search = false,
     disabled = false,
@@ -28,7 +28,7 @@ const Select: React.FC<SelectProps> = ({
     required,
     customValidate,
     omitRemove = false,
-}) => {
+}: SelectProps<T | null>) => {
     const [error, showError] = useFieldValidation({
         name,
         required,
@@ -153,15 +153,15 @@ const Select: React.FC<SelectProps> = ({
         setSearch((e.target as HTMLTextAreaElement).value);
     }
 
-    function handleChange(val: number | null) {
+    function handleChange(val: T | null) {
         if (value === val) return;
         onChange(name, val);
     }
 };
 
-interface SelectProps extends FormInputProps<number | null> {
+interface SelectProps<T> extends FormInputProps<T | null> {
     search?: boolean;
-    options?: DropdownOption<number>[];
+    options?: DropdownOption<T>[];
     label?: string;
     placeholder?: string;
     omitRemove?: boolean;

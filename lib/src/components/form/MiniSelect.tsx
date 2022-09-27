@@ -2,13 +2,13 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 import { DropdownOption } from '../../types/shared/DropdownOption';
 import { FormInputProps } from '../../types/shared/FormInputProps';
 
-const MiniSelect: React.FC<MiniSelectProps> = ({
+const MiniSelect = <T,>({
     name,
     disabled = false,
     value,
     options = [],
     onChange,
-}) => {
+}: MiniSelectProps<T>) => {
     const node = useRef<HTMLDivElement | null>(null);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -65,14 +65,14 @@ const MiniSelect: React.FC<MiniSelectProps> = ({
         setIsOpen(false);
     }
 
-    function handleChange(val: number) {
+    function handleChange(val: T) {
         if (value === val) return;
         onChange(name, val);
     }
 };
 
-interface MiniSelectProps extends FormInputProps<number> {
-    options: DropdownOption<number>[];
+interface MiniSelectProps<T> extends FormInputProps<T> {
+    options: DropdownOption<T>[];
 }
 
 export default MiniSelect;
