@@ -1,9 +1,9 @@
+import { useSelector } from 'react-redux';
+
 import { RootState } from '@reducers/index';
 import { selectPropertyEPCRating } from '@selectors/propertyInformation';
 import dayjs from 'dayjs';
 import ActionButton from 'lib/src/components/button/ActionButton';
-import { useSelector } from 'react-redux';
-import { PropertyStatusTypeLabel } from '../../types/shared/Properties';
 
 const PropertyCertificate = ({ propertyID }: IProps) => {
     const propertyEPCInformation = useSelector((state: RootState) =>
@@ -12,8 +12,16 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
 
     if (!propertyEPCInformation) return null;
 
-    const { certificateNumber, certificateValidUntil, ratingCreatedOn, status } =
-        propertyEPCInformation;
+    const {
+        certificateNumber,
+        certificateValidUntil,
+        ratingCreatedOn,
+        floorDescription,
+        wallDescription,
+        constructionAgeBand,
+        builtForm,
+        propertyType,
+    } = propertyEPCInformation;
 
     return (
         <div className="flex-6">
@@ -38,8 +46,24 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
                         <td>{dayjs(certificateValidUntil).format('DD/MM/YYYY')}</td>
                     </tr>
                     <tr>
-                        <th>Property status</th>
-                        <td>{PropertyStatusTypeLabel[status]}</td>
+                        <th>Floor description</th>
+                        <td>{floorDescription || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <th>Wall description</th>
+                        <td>{wallDescription || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <th>Construction age band</th>
+                        <td>{constructionAgeBand || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <th>Built form</th>
+                        <td>{builtForm || 'N/A'}</td>
+                    </tr>
+                    <tr>
+                        <th>Property type</th>
+                        <td>{propertyType || 'N/A'}</td>
                     </tr>
                 </tbody>
             </table>
