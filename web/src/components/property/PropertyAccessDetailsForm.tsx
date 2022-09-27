@@ -11,7 +11,14 @@ import Checkbox from 'lib/src/components/form/Checkbox';
 
 const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) => {
     const {
-        form: { firstName, lastName, email, phone, useAccountDetailsForAccess },
+        form: {
+            firstName,
+            lastName,
+            email,
+            phone,
+            useAccountDetailsForAccess,
+            preferredContactTime,
+        },
         handleChange,
         handleSubmit,
         isPosting,
@@ -58,6 +65,13 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     placeholder="Phone"
                     className="winged font-sm"
                     required
+                />
+                <TextInput
+                    name="preferredContactTime"
+                    value={preferredContactTime || ''}
+                    onChange={handleChange}
+                    placeholder="Preferred Contact Time"
+                    className="winged"
                 />
                 <Checkbox
                     name="useAccountDetailsForAccess"
