@@ -7,17 +7,20 @@ import PropertyEditAccessDetailsModel from './PropertyEditAccessDetailsModel';
 import PropertyRating from './PropertyRating';
 import PropertyEditRatingModal from './PropertyEditRatingModal';
 import PropertyRecommendations from './PropertyRecommendations';
+import PropertyDeleteRecommendationModal from './PropertyDeleteRecommendationModal';
 
 interface Props {
     showEditAddressModal?: boolean;
     showEditAccessDetailsModal?: boolean;
     showEditRatingModal?: boolean;
+    showDeleteRecommendationModal?: boolean;
 }
 
 const PropertyContainer: React.FC<Props> = ({
     showEditAddressModal = false,
     showEditAccessDetailsModal = false,
     showEditRatingModal = false,
+    showDeleteRecommendationModal = false,
 }) => {
     const { property, user, isFetching, fetchError, propertyRating } = useFetchPropertyDetails();
 
@@ -36,6 +39,7 @@ const PropertyContainer: React.FC<Props> = ({
             {!!propertyRating && showEditRatingModal && (
                 <PropertyEditRatingModal propertyRating={propertyRating} />
             )}
+            {showDeleteRecommendationModal && <PropertyDeleteRecommendationModal />}
         </>
     );
 };

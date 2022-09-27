@@ -22,6 +22,9 @@ const PropertiesRoutes: React.FC = () => {
             <Route exact path={`${path}/:id/edit-rating`}>
                 <PropertyContainer showEditRatingModal />
             </Route>
+            <Route exact path={`${path}/:id/delete-recommendation/:recommendationID`}>
+                <PropertyContainer showDeleteRecommendationModal />
+            </Route>
             <DefaultRedirect to="/" />
         </Switch>
     );

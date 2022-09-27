@@ -2,6 +2,8 @@ import { RootState } from '@reducers/index';
 
 export const getPropertyRatingRecommendations = (state: RootState) =>
     Object.values(state.propertyRatingRecommendationsReducer.recommendations);
+export const getPropertyRatingRecommendation = (state: RootState, id: number) =>
+    state.propertyRatingRecommendationsReducer.recommendations[id];
 
 export const getPropertyRatingRecommendationsIsFetching = (state: RootState) =>
     state.propertyRatingRecommendationsReducer.isFetching;

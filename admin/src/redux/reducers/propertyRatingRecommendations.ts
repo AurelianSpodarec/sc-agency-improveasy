@@ -5,6 +5,9 @@ import {
     createPropertyRatingRecommendationRequest,
     createPropertyRatingRecommendationSuccess,
     createPropertyRatingRecommendationFailure,
+    deletePropertyRatingRecommendationRequest,
+    deletePropertyRatingRecommendationSuccess,
+    deletePropertyRatingRecommendationFailure,
 } from './../actions/propertyRatingReccomendations';
 
 import { convertArrToObj } from 'lib/src/utils/generic';
@@ -37,6 +40,9 @@ export default createReducer(initialState, {
     [createPropertyRatingRecommendationRequest.type]: handlePostRequest,
     [createPropertyRatingRecommendationSuccess.type]: handlePostSuccess,
     [createPropertyRatingRecommendationFailure.type]: handlePostFailure,
+    [deletePropertyRatingRecommendationRequest.type]: handlePostRequest,
+    [deletePropertyRatingRecommendationSuccess.type]: handleDeleteSuccess,
+    [deletePropertyRatingRecommendationFailure.type]: handlePostFailure,
 });
 
 function handleFetchRequest(state: AuthState) {
@@ -68,6 +74,12 @@ function handlePostSuccess(state: AuthState, action: PayloadAction<PropertyRatin
     state.isPosting = false;
     state.postSuccess = true;
     state.recommendations[action.payload.id] = action.payload;
+}
+
+function handleDeleteSuccess(state: AuthState, action: PayloadAction<number>) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    delete state.recommendations[action.payload];
 }
 
 function handlePostFailure(state: AuthState, action: PayloadAction<string>) {

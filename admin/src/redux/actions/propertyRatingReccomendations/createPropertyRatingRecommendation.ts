@@ -22,7 +22,7 @@ export const createPropertyRatingRecommendation =
 
         try {
             const { data } = await api.post<unknown, PropertyRatingRecomendation>(
-                `propertyRating/${propertyID}/attach/${improvementTypeID}`,
+                `propertyRatingRecommendations/${propertyID}/attach/${improvementTypeID}`,
                 {},
             );
             dispatch(createPropertyRatingRecommendationSuccess(data));

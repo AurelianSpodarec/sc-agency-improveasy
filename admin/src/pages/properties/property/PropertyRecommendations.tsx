@@ -11,7 +11,39 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import { PropertyRatingRecomendation } from 'src/types/shared/PropertyRatingRecomendation';
 
 const PropertyRecommendations: React.FC = () => {
-    const { isFetching, error, recommendations } = useFetchPropertyRecommendations();
+    const { isFetching, error, recommendations, propertyID } = useFetchPropertyRecommendations();
+
+    const columns: TableColumns<PropertyRatingRecomendation> = [
+        {
+            key: 1,
+            heading: 'Description',
+            getValue: row => row.improvementDescription,
+        },
+        {
+            key: 2,
+            heading: 'Step',
+            getValue: row => `${row.step}`,
+        },
+        {
+            key: 3,
+            heading: 'Is Completed?',
+            getValue: row => (row.completed ? 'Yes' : 'No'),
+        },
+        {
+            key: 4,
+            heading: '',
+            getValue: row => (
+                <ButtonRow alignment="right">
+                    <LinkButton
+                        source="negative"
+                        href={`/properties/${propertyID}/delete-recommendation/${row.id}`}
+                    >
+                        Delete
+                    </LinkButton>
+                </ButtonRow>
+            ),
+        },
+    ];
 
     return (
         <ContentBlock>
@@ -27,34 +59,5 @@ const PropertyRecommendations: React.FC = () => {
         </ContentBlock>
     );
 };
-
-const columns: TableColumns<PropertyRatingRecomendation> = [
-    {
-        key: 1,
-        heading: 'Description',
-        getValue: row => row.improvementDescription,
-    },
-    {
-        key: 2,
-        heading: 'Step',
-        getValue: row => `${row.step}`,
-    },
-    {
-        key: 3,
-        heading: 'Is Completed?',
-        getValue: row => (row.completed ? 'Yes' : 'No'),
-    },
-    {
-        key: 4,
-        heading: '',
-        getValue: row => (
-            <ButtonRow alignment="right">
-                <LinkButton source="negative" href={`/properties/${row.id}`}>
-                    Delete
-                </LinkButton>
-            </ButtonRow>
-        ),
-    },
-];
 
 export default PropertyRecommendations;

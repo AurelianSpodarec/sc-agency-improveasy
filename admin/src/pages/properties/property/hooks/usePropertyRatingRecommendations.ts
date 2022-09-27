@@ -21,7 +21,7 @@ const usePropertyRatingRecommendations = () => {
         dispatch(fetchPropertyRatingRecommendations(+id));
     }, [dispatch, id]);
 
-    return { isFetching, error, recommendations };
+    return { isFetching, error, recommendations, propertyID: id };
 };
 
 export default usePropertyRatingRecommendations;
