@@ -1,23 +1,10 @@
 $epc-line-height: 55px;
 
+
+
 .epc-graph {
   p {
     margin-bottom: 0;
-  }
-
-  .line {
-    color: white;
-    margin-top: 2px;
-    text-align: right;
-    padding: 10px;
-    height: $epc-line-height;
-
-    p {
-      margin: 0;
-      @include mainFontSemiBold;
-      font-size: 140%;
-      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    }
   }
 
   .potential-wrapper {
@@ -29,6 +16,21 @@ $epc-line-height: 55px;
       &:last-child{
         width: 100%!important;
       }
+    }
+  }
+
+  .line {
+    color: white;
+    margin-top: 2px;
+    text-align: right;
+    padding: 10px;
+    height: $epc-line-height;
+  
+    p {
+      margin: 0;
+      @include mainFontSemiBold;
+      font-size: 140%;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
   }
 

@@ -9,7 +9,7 @@ const CreatePropertyEPCSuccess = ({ potentialEPC, currentEPC, closeModal }: IPro
         <section className="flex-column align-center space-x-4">
             <h2 className="heading">EPC Check Complete</h2>
 
-            <div style={{ width: '50%', margin: '25px 0' }}>
+            <div style={{ width: '50%', margin: '25px 0' }} className="epc-graph">
                 <EPCRatingWrapper className="potential-wrapper">
                     <Rating rating={potentialEPC} text="Potential" />
                     <Rating rating={currentEPC} text="Current" />
