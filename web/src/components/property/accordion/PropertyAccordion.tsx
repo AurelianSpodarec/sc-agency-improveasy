@@ -60,7 +60,9 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                     <div className="flex-row">
                         <p className="font-semibold">
                             This property has no EPC certificate but you can{' '}
-                            <a href="/portal/survey-request">request a survey here</a>
+                            <a href={`/portal/survey-request/${property.id}`}>
+                                request a survey here
+                            </a>
                         </p>
                     </div>
                 )}

@@ -29,7 +29,7 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
                 In order to accurately assess the current energy efficiency of your property and
                 continue on your journey and book a survey
             </p>
-            <LinkButton className="winged" href="/portal/survey-request">
+            <LinkButton className="winged" href={`/portal/survey-request/${propertyID}`}>
                 Request Survey
             </LinkButton>
 
