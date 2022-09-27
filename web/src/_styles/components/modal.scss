@@ -23,5 +23,17 @@
                 }
             }
         }
+
+        .page-title {
+            font-size: 180%;
+            color: var(--color-green-400);
+            @include mainFontSemiBold();
+        }
+
+        .page-description {
+            font-size: 120%;
+            color: var(--typography-secondary);
+            @include mainFontSemiBold();
+        }
     }
 }

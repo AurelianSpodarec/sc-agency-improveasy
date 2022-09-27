@@ -16,10 +16,8 @@ class ErrorBoundary extends React.Component<any, any> {
 
     componentDidCatch = async (error: Error, errorInfo: React.ErrorInfo) => {
         this.setState({ info: errorInfo, error, hasErrored: true });
-        console.log('error message');
-        console.log(error.message);
-        console.log('error info');
-        console.log(errorInfo.componentStack);
+        console.log(`Error message - ${error.message}`);
+        console.log(`Error stack - ${errorInfo.componentStack}`);
         try {
             const errorLog: ErrorLogRequest = {
                 message: error.message,
@@ -28,12 +26,10 @@ class ErrorBoundary extends React.Component<any, any> {
                 device: '',
                 deviceOS: '',
                 deviceRAM: null,
-
             };
             await api.logError(errorLog);
         } catch (e) {
-            console.log('Error logging error');
-            console.log(JSON.stringify(e));
+            console.log('Error logging error', JSON.stringify(e));
         }
     };
 

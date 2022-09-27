@@ -28,12 +28,14 @@ const useSurveyRequest = () => {
     const propertyError = useSelector(selectPropertiesError);
 
     const isPosting = useSelector(selectPropertyInformationIsPosting);
+    const prevIsPosting = usePrevious(isPosting);
     const postSuccess = useSelector(selectPropertyInformationPostSuccess);
 
     const error = useSelector(selectPropertyInformationError);
     const prevPostSuccess = usePrevious(postSuccess);
 
     const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
 
     const handleRequestEPC = () => {
         dispatch(patchRequestNewEPC(+propertyID));
@@ -51,7 +53,11 @@ const useSurveyRequest = () => {
         if (postSuccess && !prevPostSuccess) {
             setShowSuccessModal(true);
         }
-    }, [postSuccess, prevPostSuccess]);
+
+        if (prevIsPosting && !isPosting && error) {
+            setShowErrorModal(true);
+        }
+    }, [postSuccess, prevPostSuccess, error, isPosting, prevIsPosting]);
 
     return {
         property,
@@ -62,6 +68,9 @@ const useSurveyRequest = () => {
         setShowSuccessModal,
         isFetching,
         propertyError,
+        showErrorModal,
+        setShowErrorModal,
+        error,
     };
 };
 

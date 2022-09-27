@@ -3,10 +3,10 @@ import ButtonRow from '../button/ButtonRow';
 import Description from '../typography/Description';
 import Modal from './Modal';
 
-const SuccessModal: React.FC<SuccessModalProps> = ({
+const ErrorModal: React.FC<ErrorModalProps> = ({
     closeModal,
-    title = 'Success',
-    description = 'Your request was successful',
+    title = 'Error',
+    description = 'There was an error processing your request',
     buttonText = 'Close',
     buttonClassName,
 }) => {
@@ -22,7 +22,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
         </Modal>
     );
 };
-interface SuccessModalProps {
+interface ErrorModalProps {
     closeModal: () => void;
     title?: string;
     description?: string;
@@ -30,4 +30,4 @@ interface SuccessModalProps {
     buttonText?: string;
 }
 
-export default SuccessModal;
+export default ErrorModal;

@@ -7,6 +7,8 @@ import MainPortal from '../_components/MainPortal';
 import TableHeadingList from './components/TableHeadingList';
 import useSurveyRequest from './_hooks/useSurveyRequest';
 import SuccessModal from 'lib/src/components/modal/SuccessModal';
+import ErrorModal from 'lib/src/components/modal/ErrorModal';
+
 function SurveyTable() {
     return (
         <div>
@@ -91,6 +93,9 @@ function SurveyRequest() {
         setShowSuccessModal,
         isFetching,
         propertyError,
+        showErrorModal,
+        setShowErrorModal,
+        error,
     } = useSurveyRequest();
 
     return (
@@ -237,6 +242,16 @@ function SurveyRequest() {
             {showSuccessModal && (
                 <SuccessModal
                     closeModal={() => setShowSuccessModal(false)}
+                    buttonClassName="winged"
+                    title="Successfully requested survey"
+                    description="You have successfully requested a survey. We will be in touch shortly."
+                />
+            )}
+
+            {showErrorModal && (
+                <ErrorModal
+                    closeModal={() => setShowErrorModal(false)}
+                    description={error || 'There was an error with your response'}
                     buttonClassName="winged"
                 />
             )}
