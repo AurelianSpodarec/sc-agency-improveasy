@@ -88,7 +88,7 @@ function SurveyRequest() {
                             <Section size="lg">
                                 <PageHeading title="When to choose each option" />
 
-                                <div className="grid grid-cols-3 gap-4">
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                                     <div>
                                         <Text type="h3" size="lg" weight="semibold">
                                             EPC

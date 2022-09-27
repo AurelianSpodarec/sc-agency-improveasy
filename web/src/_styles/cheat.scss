@@ -96,7 +96,11 @@
 
 
 .cool-card {
+    padding: 0 16px;
     background-color: white;
-    padding: 32px;
     border-radius: 15px;
+
+    @media (min-width: 767px) {
+        padding:0 32px;
+    }
 }
