@@ -38,7 +38,6 @@ const UpdateUserModal: React.FC<UpdateUserProps> = ({ user }) => {
                         onChange={handleChange}
                         label="Phone"
                         placeholder="Phone"
-                        required
                     />
                 </FormRow>
                 <FormRow>
