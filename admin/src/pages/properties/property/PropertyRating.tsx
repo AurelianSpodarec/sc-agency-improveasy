@@ -16,7 +16,7 @@ interface Props {
 
 const PropertyRating: React.FC<Props> = ({ property }) => {
     const { isFetching, error, propertyRating } = usePropertyRating();
-    console.log({ propertyRating });
+
     return (
         <ContentBlock>
             <CreateHeader>Rating</CreateHeader>

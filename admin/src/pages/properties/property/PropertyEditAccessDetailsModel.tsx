@@ -33,7 +33,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         name="unused-name"
                         value={useOwnerDetails}
                         onChange={(_, val) => {
-                            console.log({ useOwnerDetails, val });
                             setUseOwnerDetails(val);
                         }}
                         placeholder="Use owner details?"
