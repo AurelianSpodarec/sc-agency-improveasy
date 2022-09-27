@@ -2,20 +2,29 @@ import {
     fetchPropertyRatingRequest,
     fetchPropertyRatingSuccess,
     fetchPropertyRatingFailure,
-} from './../actions/propertyRatings/fetchPropertyRating';
+    updatePropertyRatingRequest,
+    updatePropertyRatingSuccess,
+    updatePropertyRatingFailure,
+} from './../actions/propertyRatings';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 import { PropertyRating } from 'src/types/shared/PropertyRating';
 
 interface AuthState {
     isFetching: boolean;
-    error: string | null;
+    fetchError: string | null;
+    isPosting: boolean;
+    postSuccess: boolean;
+    postError: string | null;
     propertyRatings: Record<number, PropertyRating>;
 }
 
 const initialState: AuthState = {
     isFetching: false,
-    error: null,
+    fetchError: null,
+    isPosting: false,
+    postSuccess: false,
+    postError: null,
     propertyRatings: {},
 };
 
@@ -23,11 +32,14 @@ export default createReducer(initialState, {
     [fetchPropertyRatingRequest.type]: handleFetchRequest,
     [fetchPropertyRatingSuccess.type]: handleFetchSuccess,
     [fetchPropertyRatingFailure.type]: handleFetchFailure,
+    [updatePropertyRatingRequest.type]: handlePostRequest,
+    [updatePropertyRatingSuccess.type]: handlePostSuccess,
+    [updatePropertyRatingFailure.type]: handlePostFailure,
 });
 
 function handleFetchRequest(state: AuthState) {
     state.isFetching = true;
-    state.error = null;
+    state.fetchError = null;
 }
 
 function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRating>) {
@@ -37,5 +49,22 @@ function handleFetchSuccess(state: AuthState, action: PayloadAction<PropertyRati
 
 function handleFetchFailure(state: AuthState, action: PayloadAction<string>) {
     state.isFetching = false;
-    state.error = action.payload;
+    state.fetchError = action.payload;
+}
+
+function handlePostRequest(state: AuthState) {
+    state.isPosting = true;
+    state.postSuccess = false;
+    state.postError = null;
+}
+
+function handlePostSuccess(state: AuthState, action: PayloadAction<PropertyRating>) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    state.propertyRatings[action.payload.propertyID] = action.payload;
+}
+
+function handlePostFailure(state: AuthState, action: PayloadAction<string>) {
+    state.isPosting = false;
+    state.postError = action.payload;
 }

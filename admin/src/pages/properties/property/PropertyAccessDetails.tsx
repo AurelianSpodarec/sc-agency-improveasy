@@ -43,7 +43,7 @@ const PropertyAccessDetails: React.FC<Props> = ({ property }) => {
                     source="secondary"
                     href={`/properties/${property.id}/edit-access-details`}
                 >
-                    Edit Access Details
+                    Edit
                 </LinkButton>
             </ContentBlock>
         </>

@@ -14,10 +14,13 @@ const PropertiesRoutes: React.FC = () => {
                 <PropertyContainer />
             </Route>
             <Route exact path={`${path}/:id/edit-address`}>
-                <PropertyContainer showEditAddressModel />
+                <PropertyContainer showEditAddressModal />
             </Route>
             <Route exact path={`${path}/:id/edit-access-details`}>
-                <PropertyContainer showEditAccessDetailsModel />
+                <PropertyContainer showEditAccessDetailsModal />
+            </Route>
+            <Route exact path={`${path}/:id/edit-rating`}>
+                <PropertyContainer showEditRatingModal />
             </Route>
             <DefaultRedirect to="/" />
         </Switch>

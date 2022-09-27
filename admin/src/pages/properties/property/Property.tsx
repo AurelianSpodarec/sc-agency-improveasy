@@ -49,7 +49,7 @@ const Property: React.FC<Props> = ({ property, user }) => {
                 </ContentRow>
 
                 <LinkButton source="secondary" href={`/properties/${property.id}/edit-address`}>
-                    Edit Address
+                    Edit
                 </LinkButton>
             </ContentBlock>
         </>
