@@ -25,7 +25,7 @@ const ResetPassword: React.FC = () => {
                     <TextInput
                         name="newPassword"
                         value={newPassword}
-                        label="New Password"
+                        placeholder="New Password"
                         onChange={handleChange}
                         type="password"
                         required

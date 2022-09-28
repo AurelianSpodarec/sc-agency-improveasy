@@ -58,7 +58,7 @@ const Register: React.FC = (): JSX.Element => {
                                 name="email"
                                 type="email"
                                 value={formState.email}
-                                label="Email address"
+                                placeholder="Email address"
                                 onChange={handleChange}
                                 required
                             />
@@ -67,14 +67,14 @@ const Register: React.FC = (): JSX.Element => {
                         <TextInput
                             name="firstName"
                             value={formState.firstName}
-                            label="First name"
+                            placeholder="First name"
                             onChange={handleChange}
                             required
                         />
                         <TextInput
                             name="lastName"
                             value={formState.lastName}
-                            label="Last name"
+                            placeholder="Last name"
                             onChange={handleChange}
                             required
                         />
@@ -84,7 +84,7 @@ const Register: React.FC = (): JSX.Element => {
                                 name="phone"
                                 value={formState.phone}
                                 type="tel"
-                                label="Phone"
+                                placeholder="Phone"
                                 onChange={handleChange}
                                 required
                             />
@@ -93,7 +93,7 @@ const Register: React.FC = (): JSX.Element => {
                             <TextInput
                                 name="password"
                                 value={formState.password}
-                                label="Password"
+                                placeholder="Password"
                                 onChange={handleChange}
                                 type="password"
                                 required

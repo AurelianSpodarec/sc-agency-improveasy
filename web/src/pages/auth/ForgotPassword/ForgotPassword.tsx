@@ -52,7 +52,7 @@ const ForgotPassword: React.FC = () => {
                             name="email"
                             type="email"
                             value={formState.email}
-                            label="Email address"
+                            placeholder="Email address"
                             onChange={handleChange}
                             required
                         />
