@@ -6,21 +6,18 @@ import AuthRoutes from './AuthRoutes';
 import PortalRoutes from './PortalRoutes';
 import PublicRoutes from './PublicRoutes';
 
-const Routes: React.FC = () => (
+const Routes = () => (
     <Switch>
-        {/* Public */}
-        <SubRouter path="/">
-            <PublicRoutes />
-        </SubRouter>
-
-        {/* Portal */}
-        <SubRouter path="/portal">
+        <SubRouter path="/portal" auth>
             <PortalRoutes />
         </SubRouter>
 
-        {/* Auth */}
         <SubRouter path="/auth">
             <AuthRoutes />
+        </SubRouter>
+
+        <SubRouter path="/">
+            <PublicRoutes />
         </SubRouter>
 
         <DefaultRedirect to="/" />

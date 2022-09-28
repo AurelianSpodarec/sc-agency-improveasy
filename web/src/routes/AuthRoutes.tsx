@@ -23,8 +23,7 @@ const AuthRoutes = () => {
             <Route exact path={`${path}/reset-password/:token`}>
                 <ResetPassword />
             </Route>
-            {/* <Route exact path={`${path}/confirm-email/:token`}> */}
-            <Route exact path={`${path}/confirm-email/`}>
+            <Route exact path={`${path}/confirm-email/:token`}>
                 <ConfirmEmail />
             </Route>
         </Switch>

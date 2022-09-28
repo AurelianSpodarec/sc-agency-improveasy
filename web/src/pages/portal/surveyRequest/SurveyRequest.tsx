@@ -1,7 +1,6 @@
 import CoolCard from '@components/CoolCard';
 import { Section, Container, PageHeading, Text, DataCheck } from '@components/ui';
 import ActionButton from 'lib/src/components/button/ActionButton';
-import ButtonRow from 'lib/src/components/button/ButtonRow';
 import MainPortal from '../_components/MainPortal';
 import useSurveyRequest from './_hooks/useSurveyRequest';
 import SuccessModal from 'lib/src/components/modal/SuccessModal';

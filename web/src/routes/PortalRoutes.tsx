@@ -3,9 +3,11 @@ import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Properties from '@pages/portal/properties/properties/Properties';
 import Property from '@pages/portal/properties/property/Property';
 import SurveyRequest from '@pages/portal/surveyRequest/SurveyRequest';
+import Profile from '@pages/portal/profile/Profile';
 
 const PortalRoutes = () => {
     const { path } = useRouteMatch();
+
     return (
         <Switch>
             <Route exact path={`${path}`}>
@@ -28,7 +30,9 @@ const PortalRoutes = () => {
                 <Property />
             </Route>
 
-            <Route exact path={`${path}/profile`}></Route>
+            <Route exact path={`${path}/profile`}>
+                <Profile />
+            </Route>
         </Switch>
     );
 };
