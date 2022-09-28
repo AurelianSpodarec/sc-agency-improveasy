@@ -9,8 +9,9 @@ import fieldErrorsReducer from 'lib/src/redux/reducers/fieldErrors';
 import redirectsReducer from 'lib/src/redux/reducers/redirects';
 import postcodeFinderReducer from './postcodeFinder';
 import accountReducer from './account';
+import { logout } from '@actions/auth';
 
-const rootReducer = combineReducers({
+const combinedReducer = combineReducers({
     accountReducer,
     authReducer,
     darkModeReducer,
@@ -21,6 +22,13 @@ const rootReducer = combineReducers({
     propertyInformationReducer,
 });
 
-export type RootState = ReturnType<typeof rootReducer>;
+const rootReducer = (state: RootState | undefined, action: any) => {
+    if (action.type === logout.type) {
+        state = undefined;
+    }
+    return combinedReducer(state, action);
+};
+
+export type RootState = ReturnType<typeof combinedReducer>;
 
 export default rootReducer;
