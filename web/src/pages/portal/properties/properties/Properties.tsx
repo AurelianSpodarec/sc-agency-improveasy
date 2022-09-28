@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { Container, Loading, Section } from '@components/ui';
 import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
@@ -6,7 +7,6 @@ import useFetchProperties from '@pages/portal/properties/hooks/useFetchPropertie
 import MEESRating from '@pages/portal/properties/properties/MEESRating';
 
 import dayjs from 'dayjs';
-import { useHistory } from 'react-router-dom';
 import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
@@ -24,6 +24,10 @@ function Properties({ showCreateModal }: IProps) {
         form,
         handleChange,
     } = useFetchProperties();
+
+    if (properties.length === 1 && !window.location.pathname.includes('create')) {
+        history.push(`/portal/properties/${properties[0].id}`);
+    }
 
     return (
         <>
