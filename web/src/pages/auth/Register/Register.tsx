@@ -24,11 +24,11 @@ const Register: React.FC = (): JSX.Element => {
     const postSuccess = useSelector(getAuthPostSuccess);
 
     const [formState, handleChange] = useForm({
-        firstName: 'test',
-        lastName: 'test',
+        firstName: '',
+        lastName: '',
         email: '',
-        password: 'Asdasd123Aqwa',
-        phone: '077777777',
+        password: '',
+        phone: '',
     });
 
     const prevPostSuccess = usePrevious(postSuccess);
