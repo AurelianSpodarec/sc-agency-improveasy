@@ -11,6 +11,7 @@ import PropertiesFilters from './PropertiesFilters';
 
 import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
 import MeesTooltip from '@components/MeesTooltip';
+import LinkButton from 'lib/src/components/button/LinkButton';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();
@@ -64,6 +65,7 @@ function Properties({ showCreateModal }: IProps) {
                                                 <th>MEES Compliant</th>
                                                 <th>Status</th>
                                                 <th>Last updated</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -117,6 +119,11 @@ function Properties({ showCreateModal }: IProps) {
                                                             {dayjs(section.statusUpdatedOn).format(
                                                                 'DD/MM/YYYY',
                                                             )}
+                                                        </td>
+                                                        <td>
+                                                            <LinkButton className="winged">
+                                                                View Property
+                                                            </LinkButton>
                                                         </td>
                                                     </tr>
                                                 ))

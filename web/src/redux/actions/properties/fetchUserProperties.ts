@@ -10,7 +10,7 @@ export const fetchUserPropertiesSuccess = createAction<IProperty[]>('fetchUserPr
 export const fetchUserPropertiesFailure = createAction('fetchUserPropertiesFailure');
 
 export const fetchUserProperties =
-    (params: FetchPropertiesRequest) =>
+    (params?: FetchPropertiesRequest) =>
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(fetchUserPropertiesRequest());
         try {

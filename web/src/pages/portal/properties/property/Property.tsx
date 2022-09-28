@@ -8,7 +8,6 @@ import MainCard from '@pages/portal/_components/MainCard';
 import { Section } from '@components/ui';
 
 import { RootState } from '@reducers/index';
-import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 import { fetchPropertyEPCRating } from '@actions/propertyInformation/fetchPropertyEPCRating';
 
@@ -17,6 +16,7 @@ import { selectPropertyEPCRating } from '@selectors/propertyInformation';
 import { selectProperties, selectSingleProperty } from '@selectors/properties';
 import { fetchPropertyRatingRecommendations } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
 import { PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
+import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
 
 function Property() {
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function Property() {
 
     useEffect(() => {
         batch(() => {
-            dispatch(fetchPropertyByID(+id));
+            dispatch(fetchUserProperties());
             dispatch(fetchAccountDetails());
             dispatch(fetchPropertyEPCRating(+id));
             if (propertyRating?.id) {
@@ -73,7 +73,7 @@ function Property() {
                             ${PropertyStatusTypeLabel[property?.status]}`
                                 : ''
                         }`}
-                        className="w-8/12"
+                        className={singleView ? 'w-11/12' : 'w-9/12'}
                     >
                         <PropertyAccordion property={property} />
                     </MainCard>
