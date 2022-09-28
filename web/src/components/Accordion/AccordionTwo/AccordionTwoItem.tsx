@@ -3,13 +3,20 @@ import * as Accordion from '@radix-ui/react-accordion';
 import ChevronDown from '@content/icons/ChevronDown';
 import { PageHeading } from '@components/ui';
 
-function AccordionTwoItem({ title, children, value, isOpen, style }: IAccordionItemProps) {
+function AccordionTwoItem({
+    title,
+    children,
+    value,
+    isOpen,
+    style,
+    headerSize = 'lg',
+}: IAccordionItemProps) {
     return (
         <Accordion.Item className="accordionTwo-item" value={value}>
             <Accordion.Header className="accordionTwo-item__header">
                 <Accordion.Trigger className="accordionTwo-item__trigger">
                     <div className="d-flex justify-between align-center">
-                        <PageHeading title={title} size="lg" border space={'none'} />
+                        <PageHeading title={title} size={headerSize} border space={'none'} />
 
                         <div className="accordionTwo-item__icon">
                             <ChevronDown
@@ -34,6 +41,7 @@ interface IAccordionItemProps {
     value: string;
     isOpen: boolean;
     style?: object;
+    headerSize?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default AccordionTwoItem;
