@@ -57,7 +57,6 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                 </FormRow>
                 <FormRow>
                     <TextInput
-                        required
                         label="Certificate Number"
                         name="certificateNumber"
                         value={formState.certificateNumber}
