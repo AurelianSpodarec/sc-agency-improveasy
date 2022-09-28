@@ -17,7 +17,7 @@ export const updatePropertyRating =
         dispatch(updatePropertyRatingRequest());
 
         try {
-            const { data } = await api.patch<PostBody, PropertyRating>(
+            const { data } = await api.put<PostBody, PropertyRating>(
                 `propertyRating/${propertyID}`,
                 postBody,
             );
