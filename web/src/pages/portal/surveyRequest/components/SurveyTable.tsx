@@ -15,53 +15,127 @@ function SurveyTable() {
                                 <MeesRating mees={true} />
                             </td>
                             <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
                                 <MeesRating mees={false} />
                             </td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
                             <td className="numeric">£75</td>
                         </tr>
                         <tr>
                             <td className="surveyTable__title">Whole House Survey</td>
-                            <td className="text">Yes</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
+                            <td className="text">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
                             <td className="numeric">£120</td>
                         </tr>
                         <tr>
                             <td className="surveyTable__title">Energy Saving Plan</td>
-                            <td className="text">Yes</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
-                            <td className="numeric">no</td>
+                            <td className="text">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={false} />
+                            </td>
+                            <td className="numeric">
+                                <MeesRating mees={true} />
+                            </td>
                             <td className="numeric">£150</td>
                         </tr>
                     </tbody>
