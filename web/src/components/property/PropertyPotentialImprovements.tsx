@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { RootState } from '@reducers/index';
 import {
@@ -6,8 +6,11 @@ import {
     selectPropertyRatingRecommendations,
 } from '@selectors/propertyInformation';
 import { PageHeading } from '@components/ui';
+import { toggleRecommendation } from '@actions/propertyInformation/toggleRecommendation';
 
 const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
+    const dispatch = useDispatch();
+
     const propertyRating = useSelector((state: RootState) =>
         selectPropertyEPCRating(state, propertyID),
     );
@@ -22,6 +25,7 @@ const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
             </div>
         );
     }
+
     return (
         <>
             <PageHeading title="Recommendations from current EPC Certificate" size="lg" />
@@ -41,7 +45,7 @@ const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
                     </thead>
 
                     <tbody>
-                        {[...potentialImprovements]
+                        {Object.values(potentialImprovements)
                             .sort((a, b) => a.step - b.step)
                             .map(improvement => (
                                 <tr key={improvement.id}>
@@ -52,14 +56,20 @@ const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
                                             <input
                                                 type="checkbox"
                                                 name={'name'}
-                                                checked={true}
-                                                onChange={() => console.log('change')}
+                                                checked={improvement.completed}
                                             />
                                             <label className="content" htmlFor={'name'}>
-                                                <div className="outer-box">
+                                                <div
+                                                    className="outer-box"
+                                                    onClick={() =>
+                                                        dispatch(
+                                                            toggleRecommendation(improvement.id),
+                                                        )
+                                                    }
+                                                >
                                                     <i
                                                         className={`inner-box fa fa-check ${
-                                                            true ? 'active' : ''
+                                                            improvement.completed ? 'active' : ''
                                                         }`}
                                                     ></i>
                                                 </div>

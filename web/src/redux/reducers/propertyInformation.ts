@@ -21,6 +21,12 @@ import {
     fetchPropertyRatingRecommendationsRequest,
     fetchPropertyRatingRecommendationsSuccess,
 } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
+import {
+    toggleRecommendationFailure,
+    toggleRecommendationRequest,
+    toggleRecommendationSuccess,
+} from '@actions/propertyInformation/toggleRecommendation';
+import { convertArrToObj } from 'lib/src/utils/generic';
 
 interface IPropertyState {
     isFetching: boolean;
@@ -28,7 +34,10 @@ interface IPropertyState {
     postSuccess: boolean;
     error: string | null;
     propertyEPCRating: Record<number, IEPC | null>;
-    propertyRatingRecommendations: Record<number, IPropertyRatingRecommendations[] | null>;
+    propertyRatingRecommendations: Record<
+        number,
+        Record<number, IPropertyRatingRecommendations> | null
+    >;
 }
 
 const initialState: IPropertyState = {
@@ -53,6 +62,9 @@ export default createReducer(initialState, {
     [fetchPropertyRatingRecommendationsRequest.type]: handleFetchRequest,
     [fetchPropertyRatingRecommendationsSuccess.type]: handleFetchRatingsSuccess,
     [fetchPropertyRatingRecommendationsFailure.type]: handleFailure,
+    [toggleRecommendationRequest.type]: handlePostRequest,
+    [toggleRecommendationSuccess.type]: handlePostRecommendationSuccess,
+    [toggleRecommendationFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
@@ -88,5 +100,20 @@ function handleFetchRatingsSuccess(
     action: PayloadAction<IPropertyRatingRecommendations[]>,
 ) {
     state.isFetching = false;
-    state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = action.payload;
+    state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = convertArrToObj(
+        action.payload,
+    );
+}
+
+function handlePostRecommendationSuccess(
+    state: IPropertyState,
+    action: PayloadAction<IPropertyRatingRecommendations>,
+) {
+    state.isPosting = false;
+    state.postSuccess = true;
+    state.error = null;
+    state.propertyRatingRecommendations[action.payload.propertyRatingID] = {
+        ...state.propertyRatingRecommendations[action.payload.propertyRatingID],
+        [action.payload.id]: action.payload,
+    };
 }

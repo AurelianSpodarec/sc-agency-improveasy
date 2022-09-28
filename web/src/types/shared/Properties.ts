@@ -106,12 +106,8 @@ export interface IPropertyRatingRecommendations {
     propertyRatingID: number;
     step: number;
     improvementDescription: string;
-    typicalInstallCostMin?: number;
-    typicalInstallCostMax?: number;
-    typicalYearlySavingMin?: number;
-    typicalYearlySavingMax?: number;
-    potentialRatingAfterCompletion?: string;
     createdOn: string;
+    completed: boolean;
 }
 
 export interface FetchPropertiesRequest {
