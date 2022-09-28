@@ -72,7 +72,9 @@ const TextInput: React.FC<TextInputProps> = ({
         e.preventDefault();
 
         if(number) {
-            if(!Number((e.target as HTMLInputElement).value)) return
+            let val = (e.target as HTMLInputElement).value
+            if(val !== "" && !Number(val)) return
+            if(val !== '' && val.length == 12) return
         }
             
 
