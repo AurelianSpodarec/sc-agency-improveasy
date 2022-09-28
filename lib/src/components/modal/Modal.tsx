@@ -10,6 +10,7 @@ const Modal: React.FC<ModalProps> = ({
     size = 'small',
     style = {},
     title,
+    showOverflow,
 }) => {
     const [hidden, updateHidden] = useState(true);
     const [darkMode] = useDarkMode();
@@ -30,12 +31,11 @@ const Modal: React.FC<ModalProps> = ({
     const modalRoot = document.getElementById('modal-root');
     if (modalRoot === null) return null;
     return createPortal(
-        <div
-            className={`modal-overlay ${className}`}
-            data-theme={darkMode ? 'dark' : 'light'}
-        >
+        <div className={`modal-overlay ${className}`} data-theme={darkMode ? 'dark' : 'light'}>
             <div
-                className={`modal-body custom-scroll ${size} ${className}`}
+                className={`modal-body custom-scroll ${size} ${className} ${
+                    showOverflow ? 'show-overflow' : ''
+                }`}
                 style={style}
             >
                 {!!title && <Title>{title}</Title>}
@@ -51,6 +51,7 @@ interface ModalProps {
     size?: string;
     title?: string;
     style?: React.CSSProperties;
+    showOverflow?: boolean;
 }
 
 export default Modal;

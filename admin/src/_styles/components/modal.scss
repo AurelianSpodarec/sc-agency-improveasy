@@ -2,6 +2,10 @@
     .modal-body {
         background-color: var(--background-body);
         color: var(--typography-primary);
+
+        &.show-overflow {
+            overflow: unset;
+        }
     }
 }
 

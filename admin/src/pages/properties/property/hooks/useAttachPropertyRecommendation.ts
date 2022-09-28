@@ -10,7 +10,8 @@ import {
     getPropertyRatingRecommendationsPostError,
 } from './../../../../redux/selectors/propertyRatingRecommendations';
 import { useDispatch, useSelector } from 'react-redux';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { createRecommendationImprovementType } from '@actions/propertyRatingReccomendations/createRecommendationImprovementType';
 
 const useAttachPropertyRecommendation = (rating: PropertyRating) => {
     const history = useHistory();
@@ -21,20 +22,32 @@ const useAttachPropertyRecommendation = (rating: PropertyRating) => {
     const success = useSelector(getPropertyRatingRecommendationsPostSuccess);
     const improvementTypes = useSelector(getImprovementTypes);
 
-    const [formState, handleChange] = useForm<{ improvementTypeID: number | null }>({
+    const [formState, handleChange] = useForm<{
+        improvementTypeID: number | null;
+        improvementType: string;
+    }>({
         improvementTypeID: null,
+        improvementType: '',
     });
+
+    const [showFreeInput, setShowFreeInput] = useState(false);
 
     const handleSubmit = () => {
         const improvementTypeID = formState.improvementTypeID as number;
-        dispatch(createPropertyRatingRecommendation(rating.id, improvementTypeID));
+
+        if (showFreeInput) {
+            dispatch(createRecommendationImprovementType(rating.id, formState.improvementType));
+        } else {
+            dispatch(createPropertyRatingRecommendation(rating.id, improvementTypeID));
+        }
     };
 
     const closeModal = useCallback(() => {
         history.replace(`/properties/${rating.propertyID}`);
-    }, [rating.propertyID, history]);
+    }, [rating?.propertyID, history]);
 
     const prevSuccess = usePrevious(success);
+
     useEffect(() => {
         if (!prevSuccess && success) {
             closeModal();
@@ -54,6 +67,9 @@ const useAttachPropertyRecommendation = (rating: PropertyRating) => {
         error,
         improvementTypeOptions,
         formState,
+        isSubmitDisabled: !formState.improvementTypeID && !formState.improvementType,
+        showFreeInput,
+        setShowFreeInput,
     };
 };
 

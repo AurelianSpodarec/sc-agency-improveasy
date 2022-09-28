@@ -16,6 +16,7 @@ const Form: React.FC<FormProps> = ({
     error,
     buttonAlignment = 'right',
     buttonClassName = '',
+    submitDisabled = false,
 }) => {
     const dispatch = useDispatch();
     const fieldErrors = useSelector(getFieldErrors);
@@ -45,7 +46,12 @@ const Form: React.FC<FormProps> = ({
                             Cancel
                         </ActionButton>
                     )}
-                    <ActionButton isPosting={isPosting} className={buttonClassName} type="submit">
+                    <ActionButton
+                        isPosting={isPosting}
+                        className={buttonClassName}
+                        type="submit"
+                        disabled={submitDisabled}
+                    >
                         Submit
                     </ActionButton>
                 </ButtonRow>
@@ -80,6 +86,7 @@ interface FormProps {
     error?: string | undefined | null;
     buttonAlignment?: 'left' | 'center' | 'right';
     buttonClassName?: string;
+    submitDisabled?: boolean;
 }
 
 export default Form;
