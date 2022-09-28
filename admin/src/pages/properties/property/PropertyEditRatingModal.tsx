@@ -82,6 +82,52 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                         onChange={handleChange}
                     />
                 </FormRow>
+                <FormRow>
+                    <TextInput
+                        required
+                        label="Built Form"
+                        name="builtForm"
+                        value={formState.builtForm}
+                        onChange={handleChange}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        required
+                        label="Construction Age Band"
+                        name="constructionAgeBand"
+                        value={formState.constructionAgeBand}
+                        onChange={handleChange}
+                    />
+                </FormRow>
+
+                <FormRow>
+                    <TextInput
+                        required
+                        label="wallDescription"
+                        name="wallDescription"
+                        value={formState.wallDescription}
+                        onChange={handleChange}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        required
+                        label="floorDescription"
+                        name="floorDescription"
+                        value={formState.floorDescription}
+                        onChange={handleChange}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextInput
+                        required
+                        label="propertyType"
+                        name="propertyType"
+                        value={formState.propertyType}
+                        onChange={handleChange}
+                    />
+                </FormRow>
             </Form>
         </Modal>
     );

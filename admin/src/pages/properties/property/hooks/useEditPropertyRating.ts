@@ -30,6 +30,11 @@ const useEditPropertyRating = (propertyRating: PropertyRating) => {
         certificateNumber: propertyRating.certificateNumber,
         currentEnergyEfficiency: propertyRating.currentEnergyEfficiency,
         potentialEnergyEfficiency: propertyRating.potentialEnergyEfficiency,
+        builtForm: propertyRating.builtForm || '',
+        constructionAgeBand: propertyRating.constructionAgeBand || '',
+        wallDescription: propertyRating.wallDescription || '',
+        floorDescription: propertyRating.floorDescription || '',
+        propertyType: propertyRating.propertyType || '',
     });
 
     const handleSubmit = () => {
