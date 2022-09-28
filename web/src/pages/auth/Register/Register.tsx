@@ -86,7 +86,6 @@ const Register: React.FC = (): JSX.Element => {
                                 type="tel"
                                 placeholder="Phone"
                                 onChange={handleChange}
-                                required
                             />
                         </FormRow>
                         <FormRow>
