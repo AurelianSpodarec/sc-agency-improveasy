@@ -16,14 +16,14 @@ export const createRecommendationImprovementTypeFailure = createAction<string>(
 );
 
 export const createRecommendationImprovementType =
-    (ratingID: number, improvementType: string) =>
+    (propertyID: number, improvementType: string) =>
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(createRecommendationImprovementTypeRequest());
 
         try {
             const { data } = await api.post<unknown, PropertyRatingRecomendation>(
-                `PropertyRatingRecommendations/${ratingID}/attach/new`,
-                { improvementType },
+                `PropertyRatingRecommendations/${propertyID}/attach/new?name=${improvementType}`,
+                {},
             );
             dispatch(createRecommendationImprovementTypeSuccess(data));
         } catch (e) {

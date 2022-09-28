@@ -14,6 +14,11 @@ import { convertArrToObj } from 'lib/src/utils/generic';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 
 import { PropertyRatingRecomendation } from 'src/types/shared/PropertyRatingRecomendation';
+import {
+    createRecommendationImprovementTypeFailure,
+    createRecommendationImprovementTypeRequest,
+    createRecommendationImprovementTypeSuccess,
+} from '@actions/propertyRatingReccomendations/createRecommendationImprovementType';
 
 interface AuthState {
     isFetching: boolean;
@@ -43,6 +48,9 @@ export default createReducer(initialState, {
     [deletePropertyRatingRecommendationRequest.type]: handlePostRequest,
     [deletePropertyRatingRecommendationSuccess.type]: handleDeleteSuccess,
     [deletePropertyRatingRecommendationFailure.type]: handlePostFailure,
+    [createRecommendationImprovementTypeRequest.type]: handlePostRequest,
+    [createRecommendationImprovementTypeSuccess.type]: handlePostSuccess,
+    [createRecommendationImprovementTypeFailure.type]: handlePostFailure,
 });
 
 function handleFetchRequest(state: AuthState) {
