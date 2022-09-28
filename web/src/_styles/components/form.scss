@@ -57,9 +57,9 @@
 }
 // inputs, textarea and select
 .form-input, .form-select {
-    color: var(--typography-primary);
-    background-color: var(--background-form-input);
-    border-color: var(--stroke-form-input);
+    // color: var(--typography-primary);
+    // background-color: var(--background-form-input);
+    // border-color: var(--stroke-form-input);
 
     &:disabled, &.disabled {
         background-color: var(--background-form-input-disabled);
