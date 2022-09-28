@@ -83,7 +83,8 @@ const Register: React.FC = (): JSX.Element => {
                             <TextInput
                                 name="phone"
                                 value={formState.phone}
-                                type="tel"
+                                type="text"
+                                number
                                 placeholder="Phone"
                                 onChange={handleChange}
                             />
