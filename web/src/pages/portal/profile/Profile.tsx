@@ -18,7 +18,11 @@ const Profile = () => {
                         <div className="flex-row justify-center">
                             <PageHeading title="Profile" />
                         </div>
-                        <DataCheck dataExists={!!form} isFetching={isFetching} error={error}>
+                        <DataCheck
+                            dataExists={!!firstName || !!lastName}
+                            isFetching={isFetching}
+                            error={error}
+                        >
                             <Form
                                 onSubmit={handleSubmit}
                                 buttonClassName="winged"
