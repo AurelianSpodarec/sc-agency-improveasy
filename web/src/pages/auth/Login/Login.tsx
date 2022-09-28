@@ -37,8 +37,8 @@ const Login: React.FC = () => {
                             name="email"
                             type="email"
                             value={email}
-                            label="Email address"
                             onChange={handleChange}
+                            placeholder="Email address"
                             required
                         />
                     </FormRow>
@@ -46,20 +46,25 @@ const Login: React.FC = () => {
                         <TextInput
                             name="password"
                             value={password}
-                            label="Password"
+                            placeholder="Password"
                             onChange={handleChange}
                             type="password"
                             required
                             customValidate={customValidate}
-                            rightLabel={<Link to="/auth/forgot-password">Forgot password?</Link>}
+                            // rightLabel={<Link to="/auth/forgot-password">Forgot password?</Link>}
                         />
                     </FormRow>
 
                     {/* TODO: Please confrm your email */}
 
-                    <div className="d-flex">
-                        <input type="checkbox" />
-                        <div>Remember Me</div>
+                    <div className="d-flex justify-beween w-full" style={{ marginBottom: '20px' }}>
+                        <div className="d-flex">
+                            <input type="checkbox" />
+                            <div>Remember Me</div>
+                        </div>
+                        <div style={{ marginLeft: 'auto' }}>
+                            <Link to="/auth/forgot-password">Forgot password?</Link>
+                        </div>
                     </div>
 
                     <div className="d-flex justify-between">

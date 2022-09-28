@@ -63,9 +63,10 @@
 
     &__content {
         background-color: white;
+        border-radius: 94px 0;
         @media (min-width: 767px) {
             width: 50%;
-            border-radius: 10px;
+            
         }
     }
 

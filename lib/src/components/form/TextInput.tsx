@@ -50,7 +50,7 @@ const TextInput: React.FC<TextInputProps> = ({
         >
             <input
                 type={type}
-                className={`form-input text-area ${error ? 'error' : ''}`}
+                className={`input form-input text-area ${error ? 'error' : ''}`}
                 placeholder={placeholder}
                 name={name}
                 id={name}
