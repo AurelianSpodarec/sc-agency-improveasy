@@ -32,7 +32,7 @@ interface PostBody {
     id: number;
     currentRating: string;
     potentialRating: string;
-    dateOfInstpection: Date;
+    dateOfInspection: Date;
     validUntil: Date;
     certificateNumber: string;
     currentEnergyEfficiency: number;

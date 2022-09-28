@@ -25,7 +25,7 @@ const useEditPropertyRating = (propertyRating: PropertyRating) => {
     const [formState, handleChange] = useForm({
         currentRating: propertyRating.currentRating,
         potentialRating: propertyRating.potentialRating,
-        dateOfInstpection: new Date(propertyRating.ratingCreatedOn),
+        dateOfInspection: new Date(propertyRating.ratingCreatedOn),
         validUntil: new Date(propertyRating.certificateValidUntil),
         certificateNumber: propertyRating.certificateNumber,
         currentEnergyEfficiency: propertyRating.currentEnergyEfficiency,

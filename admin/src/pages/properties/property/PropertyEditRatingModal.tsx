@@ -41,8 +41,8 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                     <DatePicker
                         required
                         label="Date Of Inspection"
-                        name="dateOfInstpection"
-                        value={formState.dateOfInstpection}
+                        name="dateOfInspection"
+                        value={formState.dateOfInspection}
                         onChange={handleChange}
                     />
                 </FormRow>
