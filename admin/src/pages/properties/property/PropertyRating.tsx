@@ -50,6 +50,29 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
                     </ContentItem>
                 </ContentRow>
 
+                <ContentRow>
+                    <ContentItem label="Built Form">
+                        <p>{propertyRating?.builtForm || 'N/A'}</p>
+                    </ContentItem>
+                    <ContentItem label="Construction Age Band">
+                        <p>{propertyRating?.constructionAgeBand || 'N/A'}</p>
+                    </ContentItem>
+                </ContentRow>
+                <ContentRow>
+                    <ContentItem label="Wall Description">
+                        <p>{propertyRating?.wallDescription || 'N/A'}</p>
+                    </ContentItem>
+                    <ContentItem label="Floor Description">
+                        <p>{propertyRating?.floorDescription || 'N/A'}</p>
+                    </ContentItem>
+                </ContentRow>
+
+                <ContentRow>
+                    <ContentItem label="Property Type">
+                        <p>{propertyRating?.propertyType || 'N/A'}</p>
+                    </ContentItem>
+                </ContentRow>
+
                 <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
                     Edit
                 </LinkButton>
