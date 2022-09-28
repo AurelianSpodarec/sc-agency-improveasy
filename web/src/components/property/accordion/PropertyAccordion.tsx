@@ -31,7 +31,7 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
         <AccordionTwo onValueChange={onValueChange}>
             <AccordionTwoItem
                 style={{ margin: '40px 0' }}
-                title="Access Details"
+                title="Property Details"
                 value={PropertyAccordionValue.TENANT}
                 isOpen={openValue === PropertyAccordionValue.TENANT}
             >
