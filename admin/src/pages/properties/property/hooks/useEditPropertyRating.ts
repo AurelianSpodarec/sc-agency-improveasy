@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useCallback } from 'react';
 import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
+import { fetchPropertyRatingRecommendations } from '@actions/propertyRatingReccomendations';
 
 const useEditPropertyRating = (propertyRating: PropertyRating) => {
     const { id } = useParams<{ id: string }>();
@@ -50,11 +51,13 @@ const useEditPropertyRating = (propertyRating: PropertyRating) => {
     }, [dispatch, id]);
 
     const prevSuccess = usePrevious(success);
+
     useEffect(() => {
         if (!prevSuccess && success) {
+            dispatch(fetchPropertyRatingRecommendations(+id));
             closeModal();
         }
-    }, [prevSuccess, success, dispatch, closeModal]);
+    }, [prevSuccess, success, dispatch, closeModal, id]);
 
     return {
         isPosting,
