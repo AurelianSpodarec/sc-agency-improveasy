@@ -226,10 +226,11 @@
         }
 
         .inner-box {
-            display: none;
+            display: block;
+            visibility: hidden;
 
             &.active {
-                display: block;
+                visibility: visible;
             }
         }
 
