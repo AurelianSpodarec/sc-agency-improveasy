@@ -16,13 +16,17 @@ const useConfirmEmail = () => {
     const { token } = useParams<{ token: string }>();
 
     useEffect(() => {
-        dispatch(postConfirmEmail(token));
+        setTimeout(function () {
+            dispatch(postConfirmEmail(token));
+        }, 2000);
     }, [token, dispatch, history]);
 
     const prevSuccess = usePrevious(success);
     useEffect(() => {
         if (!prevSuccess && success) {
-            history.push('/portal');
+            setTimeout(function () {
+                history.push('/portal');
+            }, 2000);
         }
     }, [success, prevSuccess, history]);
 
