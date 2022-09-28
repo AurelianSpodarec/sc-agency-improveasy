@@ -1,16 +1,18 @@
 import React from 'react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import { SyntheticEvent } from 'react';
 import { clearJwtAndRefreshToken } from 'lib/src/utils/jwt';
+import { logout } from '@actions/auth';
 
 function UserAvatar() {
     const history = useHistory();
+    const dispatch = useDispatch();
 
-    function logout(e: SyntheticEvent) {
-        e.preventDefault();
+    function handleLogout() {
+        dispatch(logout());
         clearJwtAndRefreshToken();
-        history.replace('/');
+        history.push('/');
     }
 
     return (
@@ -29,7 +31,7 @@ function UserAvatar() {
                         View Properties
                     </Link>
                     <button
-                        onClick={() => logout}
+                        onClick={() => handleLogout()}
                         className="userAvatar__menu-button"
                         type="button"
                     >
