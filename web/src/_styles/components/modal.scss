@@ -11,7 +11,9 @@
                 font-size: 180%;
                 color: var(--color-green-400);
                 @include mainFontSemiBold();
-                border-bottom: 7px solid var(--color-green-400);
+                border-bottom: 7px solid #0D695C;
+                border-top-left-radius: 200px 50px;
+                border-bottom-right-radius: 5px 5px;
             }
 
             .header-button {

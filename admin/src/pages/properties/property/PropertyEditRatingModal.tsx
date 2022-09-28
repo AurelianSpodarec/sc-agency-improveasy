@@ -104,7 +104,7 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                 <FormRow>
                     <TextInput
                         required
-                        label="wallDescription"
+                        label="Wall Description"
                         name="wallDescription"
                         value={formState.wallDescription}
                         onChange={handleChange}
@@ -113,7 +113,7 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                 <FormRow>
                     <TextInput
                         required
-                        label="floorDescription"
+                        label="Floor Description"
                         name="floorDescription"
                         value={formState.floorDescription}
                         onChange={handleChange}
@@ -122,7 +122,7 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
                 <FormRow>
                     <TextInput
                         required
-                        label="propertyType"
+                        label="Property Type"
                         name="propertyType"
                         value={formState.propertyType}
                         onChange={handleChange}
