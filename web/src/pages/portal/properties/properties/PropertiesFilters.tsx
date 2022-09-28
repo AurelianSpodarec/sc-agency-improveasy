@@ -93,7 +93,7 @@ const PropertiesFilters = ({
                     </div>
                 </AccordionTwoItem>
                 <AccordionTwoItem
-                    title="MEESE"
+                    title="MEES"
                     value={FilterAccordionValue.MEES}
                     isOpen={
                         openValue?.length
