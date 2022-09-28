@@ -27,6 +27,9 @@ function UserAvatar() {
 
             <DropdownMenu.Portal>
                 <DropdownMenu.Content className="userAvatar__menu">
+                    <Link to="/portal/profile" className="userAvatar__menu-button" type="button">
+                        View Profile
+                    </Link>
                     <Link to="/portal/properties" className="userAvatar__menu-button" type="button">
                         View Properties
                     </Link>

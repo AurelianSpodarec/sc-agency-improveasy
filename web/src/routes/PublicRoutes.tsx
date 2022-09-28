@@ -1,14 +1,15 @@
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 
-import Home from '@pages/public/home/Home';
 import FAQ from '@pages/public/faq/FAQ';
+import Home from '@pages/public/home/Home';
 import MEES from '@pages/public/mees/MEES';
 import WhyUse from '@pages/public/whyUse/WhyUse';
 
-function RoutePages() {
+const PublicRoutes = () => {
+    const { path } = useRouteMatch();
     return (
         <Switch>
-            <Route exact path="/">
+            <Route exact path={`${path}`}>
                 <Home />
             </Route>
 
@@ -20,11 +21,11 @@ function RoutePages() {
                 <MEES />
             </Route>
 
-            <Route exact path="/why-us">
+            <Route exact path="/why-use">
                 <WhyUse />
             </Route>
         </Switch>
     );
-}
+};
 
-export default RoutePages;
+export default PublicRoutes;
