@@ -16,11 +16,9 @@ const NumberInput: React.FC<NumberInputProps> = ({
     disabled,
     customValidate,
     onBlur = () => {},
+    className = '',
 }) => {
-    const memoizedValidate = useCallback(_validate, [
-        min,
-        max,
-    ]);
+    const memoizedValidate = useCallback(_validate, [min, max]);
     const [error, showError] = useFieldValidation({
         name,
         required,
@@ -30,7 +28,13 @@ const NumberInput: React.FC<NumberInputProps> = ({
     });
 
     return (
-        <FormField name={name} label={label} required={required} error={error}>
+        <FormField
+            name={name}
+            label={label}
+            required={required}
+            error={error}
+            className={className}
+        >
             <input
                 type="number"
                 className={`form-input text-area ${error ? 'error' : ''}`}
@@ -56,7 +60,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
         e.preventDefault();
 
         const stringVal = (e.target as HTMLInputElement).value;
-        onChange(name, stringVal ? parseInt(stringVal) : null)
+        onChange(name, stringVal ? parseInt(stringVal) : null);
     }
 
     function _validate(val: null | number) {
@@ -77,6 +81,7 @@ interface NumberInputProps extends FormInputProps<number | null> {
     min?: number;
     max?: number;
     onBlur?: () => void;
+    className?: string;
 }
 
 export default NumberInput;

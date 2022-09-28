@@ -2,6 +2,7 @@ import CoolCard from '@components/CoolCard';
 import { Container, DataCheck, PageHeading, Section } from '@components/ui';
 import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
+import NumberInput from 'lib/src/components/form/NumberInput';
 import MainPortal from '../_components/MainPortal';
 import useEditAccountDetails from './_hooks/useEditAccountDetails';
 
@@ -43,9 +44,9 @@ const Profile = () => {
                                     onChange={handleChange}
                                     className="winged font-sm"
                                 />
-                                <TextInput
+                                <NumberInput
                                     name="phone"
-                                    value={phone || ''}
+                                    value={!!phone ? +phone : null}
                                     placeholder="Phone"
                                     onChange={handleChange}
                                     className="winged font-sm"
