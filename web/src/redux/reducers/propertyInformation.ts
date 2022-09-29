@@ -107,12 +107,17 @@ function handlePostSuccess(state: IPropertyState) {
 
 function handleFetchRatingsSuccess(
     state: IPropertyState,
-    action: PayloadAction<IPropertyRatingRecommendations[]>,
+    action: PayloadAction<IPropertyRatingRecommendations[] | []>,
 ) {
     state.isFetching = false;
-    state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = convertArrToObj(
-        action.payload,
-    );
+
+    if (action.payload.length > 0) {
+        state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = convertArrToObj(
+            action.payload,
+        );
+    } else {
+        state.propertyRatingRecommendations = {};
+    }
 }
 
 function handlePostRecommendationSuccess(
