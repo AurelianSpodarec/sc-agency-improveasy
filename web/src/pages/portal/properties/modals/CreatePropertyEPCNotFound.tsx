@@ -26,6 +26,8 @@ const CreatePropertyEPCNotFound = ({
                     </ol>
                 </div>
             </div>
+            <br />
+            <br />
 
             <ButtonRow>
                 <ActionButton className="winged" onClick={() => setModalContent(ModalContent.Form)}>

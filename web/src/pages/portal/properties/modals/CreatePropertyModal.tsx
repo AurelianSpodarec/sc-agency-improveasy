@@ -36,7 +36,7 @@ const CreatePropertyModal = () => {
                 <CreatePropertyEPCNotFound
                     addressString={`${formState.addressLine1}${
                         !!formState.addressLine2 ? ' ' + formState.addressLine2 : ''
-                    }`}
+                    }, ${formState.city}, ${formState.postcode}`}
                     setModalContent={setModalContent}
                     closeModal={closeModal}
                     handleContinueAnyway={() => handleSubmit(true)}
