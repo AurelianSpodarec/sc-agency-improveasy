@@ -14,6 +14,7 @@ import {
     selectPropertyInformationIsFetching,
     selectUsersPropertyCount,
 } from '@selectors/propertyInformation';
+import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const useFetchProperties = () => {
 
     useEffect(() => {
         dispatch(fetchUserProperties(form));
+        dispatch(fetchAccountDetails());
     }, [dispatch, form]);
 
     const handleClearFilters = () => {
