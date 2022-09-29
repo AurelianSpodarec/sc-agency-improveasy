@@ -5,16 +5,12 @@ import { DataCheck } from '@components/ui';
 import useFetchEssentialData from './_hooks/useFetchEssentialData';
 
 function MainPortal({ children }: MainPortalProps) {
-    const { propertyCount, properties, isFetching, error } = useFetchEssentialData();
+    const { propertyCount, isFetching, error } = useFetchEssentialData();
 
     return (
         <div className="main-portal">
             <Header />
-            <DataCheck
-                dataExists={!!propertyCount && !!properties}
-                isFetching={isFetching}
-                error={error}
-            >
+            <DataCheck dataExists={propertyCount !== null} isFetching={isFetching} error={error}>
                 <main>{children}</main>
             </DataCheck>
         </div>
