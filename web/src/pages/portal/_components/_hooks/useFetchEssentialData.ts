@@ -1,7 +1,7 @@
 import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
 import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 import { selectAccountDetails } from '@selectors/account';
-import { selectPropertiesIsFetching } from '@selectors/properties';
+import { selectProperties, selectPropertiesIsFetching } from '@selectors/properties';
 import {
     selectPropertyInformationIsFetching,
     selectUsersPropertyCount,
@@ -16,7 +16,7 @@ const useFetchEssentialData = () => {
     const isFetchingProperties = useSelector(selectPropertiesIsFetching);
     const isFetchingAccountDetails = useSelector(selectPropertyInformationIsFetching);
 
-    const properties = useSelector(selectUsersPropertyCount);
+    const properties = useSelector(selectProperties);
     const propertyCount = useSelector(selectUsersPropertyCount);
     const accountDetails = useSelector(selectAccountDetails);
 
