@@ -1,3 +1,4 @@
+import { ModalContent } from '../../../../types/shared/Properties';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 
@@ -27,7 +28,7 @@ const CreatePropertyEPCNotFound = ({
             </p>
 
             <ButtonRow>
-                <ActionButton className="winged" onClick={() => setModalContent(1)}>
+                <ActionButton className="winged" onClick={() => setModalContent(ModalContent.Form)}>
                     Edit Address
                 </ActionButton>
                 <ActionButton className="winged" source="secondary" onClick={() => closeModal()}>

@@ -30,7 +30,7 @@ const CreatePropertyModal = () => {
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     isPosting={isPosting}
-                    error={error}
+                    error={!error?.includes('404') ? error : ''}
                 />
             ) : modalContent === ModalContent.EPCFailure ? (
                 <CreatePropertyEPCNotFound

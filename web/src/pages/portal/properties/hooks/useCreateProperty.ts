@@ -58,7 +58,11 @@ const useCreateProperty = () => {
     );
 
     const closeModal = useCallback(() => {
-        history.push(`/portal/properties/${lastCreatedPropertyId}`);
+        if (lastCreatedPropertyId) {
+            history.push(`/portal/properties/${lastCreatedPropertyId}`);
+        } else {
+            history.push('/portal/properties');
+        }
     }, [history, lastCreatedPropertyId]);
 
     const handleChange = (
@@ -101,27 +105,19 @@ const useCreateProperty = () => {
                 setModalContent(ModalContent.EPCFailure);
             }
         }
+    }, [error, isPosting, prevIsPosting]);
 
+    useEffect(() => {
         if (postSuccess && !prevPostSuccess) {
             dispatch(fetchUsersPropertyCount());
 
-            if (lastCreatedProperty.hasEPC) {
+            if (lastCreatedProperty?.hasEPC) {
                 setModalContent(ModalContent.EPCSuccess);
             } else {
                 closeModal();
             }
         }
-    }, [
-        postSuccess,
-        prevPostSuccess,
-        closeModal,
-        formState.bypassEPC,
-        error,
-        isPosting,
-        prevIsPosting,
-        lastCreatedProperty,
-        dispatch,
-    ]);
+    }, [closeModal, dispatch, lastCreatedProperty?.hasEPC, postSuccess, prevPostSuccess]);
 
     const handleSubmit = (bypassEPC?: true) => {
         const { useAccountDetailsForAccess, ...rest } = formState;
