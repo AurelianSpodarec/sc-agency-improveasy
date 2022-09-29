@@ -43,9 +43,7 @@ const useCreateProperty = () => {
     const dispatch = useDispatch();
 
     const isPosting = useSelector(selectPropertiesIsPosting);
-    const prevIsPosting = usePrevious(isPosting);
     const postSuccess = useSelector(selectPropertiesPostSuccess);
-    const prevPostSuccess = usePrevious(postSuccess);
     const error = useSelector(selectPropertiesError);
     const accountDetails = useSelector(selectAccountDetails);
 
@@ -56,6 +54,8 @@ const useCreateProperty = () => {
     const lastCreatedProperty = useSelector((state: RootState) =>
         selectSingleProperty(state, lastCreatedPropertyId || 0),
     );
+
+    const prevProps = usePrevious({ isPosting, postSuccess, error });
 
     const closeModal = useCallback(() => {
         if (lastCreatedPropertyId) {
@@ -100,15 +100,15 @@ const useCreateProperty = () => {
     };
 
     useEffect(() => {
-        if (!isPosting && prevIsPosting) {
+        if (!isPosting && prevProps.isPosting) {
             if (error && error.includes('404')) {
                 setModalContent(ModalContent.EPCFailure);
             }
         }
-    }, [error, isPosting, prevIsPosting]);
+    }, [error, isPosting, prevProps.isPosting]);
 
     useEffect(() => {
-        if (postSuccess && !prevPostSuccess) {
+        if (postSuccess && !prevProps.postSuccess) {
             dispatch(fetchUsersPropertyCount());
 
             if (lastCreatedProperty?.hasEPC) {
@@ -117,7 +117,7 @@ const useCreateProperty = () => {
                 closeModal();
             }
         }
-    }, [closeModal, dispatch, lastCreatedProperty?.hasEPC, postSuccess, prevPostSuccess]);
+    }, [closeModal, dispatch, lastCreatedProperty?.hasEPC, postSuccess, prevProps.postSuccess]);
 
     const handleSubmit = (bypassEPC?: true) => {
         const { useAccountDetailsForAccess, ...rest } = formState;

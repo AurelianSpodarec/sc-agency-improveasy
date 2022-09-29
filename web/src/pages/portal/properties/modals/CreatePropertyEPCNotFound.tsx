@@ -12,7 +12,7 @@ const CreatePropertyEPCNotFound = ({
         <section className="flex-column align-center space-x-4">
             <h2 className="heading">Unable to locate EPC for {addressString}</h2>
 
-            <p className="flex-column align-center text-center semi-bold-content">
+            <div className="flex-column align-center text-center semi-bold-content">
                 <br />
                 Unfortunately, we were unable to locate your property’s EPC rating.
                 <br />
@@ -25,7 +25,7 @@ const CreatePropertyEPCNotFound = ({
                         <li> The property does not have an EPC</li>
                     </ol>
                 </div>
-            </p>
+            </div>
 
             <ButtonRow>
                 <ActionButton className="winged" onClick={() => setModalContent(ModalContent.Form)}>
