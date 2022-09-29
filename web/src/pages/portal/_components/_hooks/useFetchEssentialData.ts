@@ -27,7 +27,7 @@ const useFetchEssentialData = () => {
             if (!properties && !isFetchingProperties) {
                 dispatch(fetchUserProperties());
             }
-            if (!propertyCount && !isFetchingAccountDetails) {
+            if (propertyCount === null && !isFetchingAccountDetails) {
                 dispatch(fetchUsersPropertyCount());
             }
         });
