@@ -60,7 +60,7 @@ const useEditAccountDetails = () => {
         if (!isPosting && prevProps.isPosting && !!error) {
             setShowErrorModal(true);
         }
-    }, [prevProps.postSuccess, postSuccess]);
+    }, [prevProps.postSuccess, postSuccess, prevProps.isPosting, isPosting, error]);
 
     const handleSubmit = () => {
         dispatch(updateAccountDetails(form));
