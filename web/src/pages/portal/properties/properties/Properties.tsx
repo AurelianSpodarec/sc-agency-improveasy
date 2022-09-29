@@ -9,7 +9,11 @@ import MEESRating from '@pages/portal/properties/properties/MEESRating';
 import dayjs from 'dayjs';
 import PropertiesFilters from './PropertiesFilters';
 
-import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
+import {
+    IProperty,
+    PropertyStatusType,
+    PropertyStatusTypeLabel,
+} from '../../../../types/shared/Properties';
 import MeesTooltip from '@components/MeesTooltip';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
@@ -110,7 +114,12 @@ function Properties({ showCreateModal }: IProps) {
                                                                         : 'No EPC'
                                                                 }`}
                                                             >
-                                                                <MEESRating mees={section.hasEPC} />
+                                                                <MEESRating
+                                                                    mees={
+                                                                        section.status ===
+                                                                        PropertyStatusType.Compliant
+                                                                    }
+                                                                />
                                                             </MeesTooltip>
                                                         </td>
                                                         <td>
