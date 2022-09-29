@@ -20,6 +20,7 @@ import {
 } from '@selectors/properties';
 import { RootState } from '@reducers/index';
 import { selectAccountDetails } from '@selectors/account';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -57,8 +58,8 @@ const useCreateProperty = () => {
     );
 
     const closeModal = useCallback(() => {
-        history.push('/portal/properties');
-    }, [history]);
+        history.push(`/portal/properties/${lastCreatedPropertyId}`);
+    }, [history, lastCreatedPropertyId]);
 
     const handleChange = (
         name: keyof ICreatePropertyForm,
@@ -102,6 +103,8 @@ const useCreateProperty = () => {
         }
 
         if (postSuccess && !prevPostSuccess) {
+            dispatch(fetchUsersPropertyCount());
+
             if (lastCreatedProperty.hasEPC) {
                 setModalContent(ModalContent.EPCSuccess);
             } else {
@@ -117,6 +120,7 @@ const useCreateProperty = () => {
         isPosting,
         prevIsPosting,
         lastCreatedProperty,
+        dispatch,
     ]);
 
     const handleSubmit = (bypassEPC?: true) => {
