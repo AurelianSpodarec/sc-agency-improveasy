@@ -12,18 +12,19 @@ import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 import { fetchPropertyEPCRating } from '@actions/propertyInformation/fetchPropertyEPCRating';
 
 import house from './../../../../_content/icons/house_outline_green.png';
-import { selectPropertyEPCRating } from '@selectors/propertyInformation';
-import { selectProperties, selectSingleProperty } from '@selectors/properties';
+import { selectPropertyEPCRating, selectUsersPropertyCount } from '@selectors/propertyInformation';
+import { selectSingleProperty } from '@selectors/properties';
 import { fetchPropertyRatingRecommendations } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
 import { PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
 import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 function Property() {
     const dispatch = useDispatch();
 
     const { id } = useParams<{ id: string }>();
 
-    const singleView = Object.values(useSelector(selectProperties)).length === 1;
+    const singleView = useSelector(selectUsersPropertyCount) === 1;
 
     const property = useSelector((state: RootState) => selectSingleProperty(state, +id));
     const propertyRating = useSelector((state: RootState) => selectPropertyEPCRating(state, +id));
@@ -33,6 +34,7 @@ function Property() {
             dispatch(fetchUserProperties());
             dispatch(fetchAccountDetails());
             dispatch(fetchPropertyEPCRating(+id));
+            dispatch(fetchUsersPropertyCount());
             if (propertyRating?.id) {
                 dispatch(fetchPropertyRatingRecommendations(propertyRating.id));
             }

@@ -1,11 +1,22 @@
 import { ReactNode } from 'react';
 import Header from './Header';
 
+import { DataCheck } from '@components/ui';
+import useFetchEssentialData from './_hooks/useFetchEssentialData';
+
 function MainPortal({ children }: MainPortalProps) {
+    const { propertyCount, properties, isFetching, error } = useFetchEssentialData();
+
     return (
         <div className="main-portal">
             <Header />
-            <main>{children}</main>
+            <DataCheck
+                dataExists={!!propertyCount && !!properties}
+                isFetching={isFetching}
+                error={error}
+            >
+                <main>{children}</main>
+            </DataCheck>
         </div>
     );
 }

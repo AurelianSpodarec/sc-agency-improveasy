@@ -24,9 +24,14 @@ function Properties({ showCreateModal }: IProps) {
         handleClearFilters,
         form,
         handleChange,
+        propertyCount,
     } = useFetchProperties();
 
-    if (properties.length === 1 && !window.location.pathname.includes('create')) {
+    if (
+        !!properties.length &&
+        propertyCount === 1 &&
+        !window.location.pathname.includes('create')
+    ) {
         history.push(`/portal/properties/${properties[0].id}`);
     }
 
