@@ -44,7 +44,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         value={formState.firstName}
                         onChange={handleChange}
                         label="First name"
-                        required
                     />
                 </FormRow>
                 <FormRow>
@@ -53,7 +52,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         value={formState.lastName}
                         onChange={handleChange}
                         label="Last name"
-                        required
                     />
                 </FormRow>
                 <FormRow>
@@ -63,7 +61,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         value={formState.email}
                         onChange={handleChange}
                         label="Email address"
-                        required
                     />
                 </FormRow>
                 <FormRow>
@@ -73,7 +70,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         value={formState.phone}
                         onChange={handleChange}
                         label="Phone"
-                        required
                     />
                 </FormRow>
                 <FormRow>
@@ -82,7 +78,6 @@ const PropertyEditAccessDetailsModel: React.FC<Props> = ({ property, user }) => 
                         value={formState.preferredContactTime}
                         onChange={handleChange}
                         label="Preferred contact time"
-                        required
                     />
                 </FormRow>
             </Form>
