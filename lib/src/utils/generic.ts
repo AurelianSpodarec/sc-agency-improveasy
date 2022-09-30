@@ -8,7 +8,7 @@ export function isEmpty(item: any): boolean {
     return !item;
 }
 
-function isObjEmpty(obj: Record<string, unknown>): boolean {
+export function isObjEmpty(obj: any): boolean {
     for (const key in obj) {
         if (obj.hasOwnProperty(key)) return false;
     }

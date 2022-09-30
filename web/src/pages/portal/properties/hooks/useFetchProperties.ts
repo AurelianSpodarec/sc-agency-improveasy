@@ -1,12 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { batch, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useForm from 'lib/src/hooks/useForm';
 
-import {
-    selectProperties,
-    selectPropertiesError,
-    selectPropertiesIsFetching,
-} from '@selectors/properties';
+import { selectProperties, selectPropertiesError } from '@selectors/properties';
 
 import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
 import { FetchPropertiesRequest } from 'src/types/shared/Properties';
@@ -15,10 +11,10 @@ import {
     selectUsersPropertyCount,
 } from '@selectors/propertyInformation';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
-    const isFetching = useSelector(selectPropertiesIsFetching);
     const isFetchingCount = useSelector(selectPropertyInformationIsFetching);
 
     const error = useSelector(selectPropertiesError);
@@ -47,8 +43,11 @@ const useFetchProperties = () => {
     });
 
     useEffect(() => {
-        dispatch(fetchUserProperties(form));
-        dispatch(fetchAccountDetails());
+        batch(() => {
+            dispatch(fetchUsersPropertyCount());
+            dispatch(fetchUserProperties(form));
+            dispatch(fetchAccountDetails());
+        });
     }, [dispatch, form]);
 
     const handleClearFilters = () => {
@@ -70,7 +69,7 @@ const useFetchProperties = () => {
 
     return {
         properties: filteredProperties,
-        isFetching: isFetching || isFetchingCount,
+        isFetching: isFetchingCount,
         error,
         searchTerm,
         setSearchTerm,

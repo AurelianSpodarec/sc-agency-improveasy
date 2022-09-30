@@ -112,6 +112,7 @@ function handleFetchSingleProperty(state: IPropertyState, action: PayloadAction<
 
 function handleFailure(state: IPropertyState, action: PayloadAction<string>) {
     state.isPosting = false;
+    state.isFetching = false;
     state.postSuccess = false;
     state.error = action.payload;
 }

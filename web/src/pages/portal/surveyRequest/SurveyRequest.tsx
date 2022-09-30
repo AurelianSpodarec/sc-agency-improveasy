@@ -30,7 +30,7 @@ function SurveyRequest() {
 
     return (
         <>
-            <MainPortal>
+            <MainPortal isFetching={isFetching}>
                 <Container size="2xl" style={{ margin: '50px auto' }}>
                     <CoolCard>
                         <DataCheck

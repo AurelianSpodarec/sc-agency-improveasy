@@ -1,18 +1,13 @@
 import { ReactNode } from 'react';
 import Header from './Header';
 
-import { DataCheck } from '@components/ui';
-import useFetchEssentialData from './_hooks/useFetchEssentialData';
+import { Loading } from '@components/ui';
 
-function MainPortal({ children }: MainPortalProps) {
-    const { isFetching, dataExist } = useFetchEssentialData();
-
+function MainPortal({ isFetching = false, children, dataExists = true }: MainPortalProps) {
     return (
         <div className="main-portal">
             <Header />
-            <DataCheck dataExists={dataExist} isFetching={isFetching} error={''}>
-                <main>{children}</main>
-            </DataCheck>
+            {isFetching && !dataExists ? <Loading /> : <main>{children}</main>}
         </div>
     );
 }
@@ -21,4 +16,6 @@ export default MainPortal;
 
 interface MainPortalProps {
     children: ReactNode;
+    isFetching?: boolean;
+    dataExists?: boolean;
 }

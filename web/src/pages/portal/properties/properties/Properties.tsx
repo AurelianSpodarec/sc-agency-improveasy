@@ -41,7 +41,7 @@ function Properties({ showCreateModal }: IProps) {
 
     return (
         <>
-            <MainPortal>
+            <MainPortal isFetching={isFetching} dataExists={propertyCount !== null}>
                 <Section>
                     <Container>
                         <div className="lg:d-flex space-y-8 lg:space-y-0 lg:space-x-4">
