@@ -13,6 +13,7 @@ import {
 import { IUpdateAccountPostBody } from '../../../../types/shared/Account';
 import { useEffect, useMemo, useState } from 'react';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
+import { checkIfObjDiff } from '../../../../utils/generic';
 
 const useEditAccountDetails = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,8 @@ const useEditAccountDetails = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [showErrorModal, setShowErrorModal] = useState(false);
 
+    const [hasChanged, setHasChanged] = useState(false);
+
     const initialForm = useMemo(
         () => ({
             firstName: userDetails?.firstName || '',
@@ -41,6 +44,14 @@ const useEditAccountDetails = () => {
     );
 
     const [form, handleChange, resetData] = useForm<IUpdateAccountPostBody>(initialForm);
+
+    useEffect(() => {
+        if (checkIfObjDiff(initialForm, form)) {
+            setHasChanged(true);
+        } else {
+            setHasChanged(false);
+        }
+    }, [initialForm, form]);
 
     useEffect(() => {
         dispatch(fetchAccountDetails());
@@ -77,6 +88,8 @@ const useEditAccountDetails = () => {
         setShowSuccessModal,
         showErrorModal,
         setShowErrorModal,
+        postSuccess,
+        hasChanged,
     };
 };
 

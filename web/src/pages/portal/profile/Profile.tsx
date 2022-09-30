@@ -1,9 +1,10 @@
 import CoolCard from '@components/CoolCard';
 import { Container, DataCheck, PageHeading, Section } from '@components/ui';
+import ActionButton from 'lib/src/components/button/ActionButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
 import Form from 'lib/src/components/form/Form';
 import TextInput from 'lib/src/components/form/TextInput';
 import ErrorModal from 'lib/src/components/modal/ErrorModal';
-import SuccessModal from 'lib/src/components/modal/SuccessModal';
 import MainPortal from '../_components/MainPortal';
 import useEditAccountDetails from './_hooks/useEditAccountDetails';
 
@@ -15,10 +16,10 @@ const Profile = () => {
         isPosting,
         error,
         isFetching,
-        showSuccessModal,
-        setShowSuccessModal,
         showErrorModal,
         setShowErrorModal,
+        postSuccess,
+        hasChanged,
     } = useEditAccountDetails();
 
     const { firstName, lastName, email, phone } = form;
@@ -42,6 +43,7 @@ const Profile = () => {
                                     buttonClassName="winged"
                                     isPosting={isPosting}
                                     error={error}
+                                    omitButtons
                                 >
                                     <TextInput
                                         name="firstName"
@@ -71,20 +73,26 @@ const Profile = () => {
                                         onChange={handleChange}
                                         className="winged font-sm"
                                     />
+                                    <br />
+                                    <ButtonRow alignment="right">
+                                        <ActionButton source="positive" className="winged">
+                                            Change Password
+                                        </ActionButton>
+                                        <ActionButton
+                                            className="winged"
+                                            success={!hasChanged && postSuccess}
+                                            type="submit"
+                                            disabled={!hasChanged}
+                                        >
+                                            Save
+                                        </ActionButton>
+                                    </ButtonRow>
                                 </Form>
                             </DataCheck>
                         </Section>
                     </CoolCard>
                 </Container>
             </MainPortal>
-
-            {showSuccessModal && (
-                <SuccessModal
-                    description="You have successfully updated your profile details"
-                    closeModal={() => setShowSuccessModal(false)}
-                    buttonClassName="winged"
-                />
-            )}
 
             {showErrorModal && (
                 <ErrorModal closeModal={() => setShowErrorModal(false)} buttonClassName="winged" />
