@@ -53,11 +53,7 @@ const PropertyPotentialImprovements = ({ propertyID }: IProps) => {
                                     <td>{improvement.improvementDescription}</td>
                                     <td>
                                         <div className="form-checkbox flex-row justify-center">
-                                            <input
-                                                type="checkbox"
-                                                name={'name'}
-                                                checked={improvement.completed}
-                                            />
+                                            <input type="checkbox" name={'name'} />
                                             <label className="content" htmlFor={'name'}>
                                                 <div
                                                     className="outer-box"

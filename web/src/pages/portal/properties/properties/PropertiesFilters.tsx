@@ -36,7 +36,7 @@ const PropertiesFilters = ({
 
     return (
         <>
-            <AccordionTwo onValueChange={e => setOpenValue(e)} type="multiple" collapsible={false}>
+            <AccordionTwo onValueChange={e => setOpenValue(e)}>
                 <div className="d-flex justify-between search-wrapper space-x-2">
                     <Input
                         placeholder="Search"
