@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { postRegister } from '@actions/auth/postRegister';
 import { getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
@@ -10,13 +7,11 @@ import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
 import useForm from 'lib/src/hooks/useForm';
-import usePrevious from 'lib/src/hooks/usePrevious';
 
 import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
+import { useCallback, useState } from 'react';
 
 const Register = () => {
-    const history = useHistory();
-
     const dispatch = useDispatch();
     const isPosting = useSelector(getAuthIsPosting);
     const postSuccess = useSelector(getAuthPostSuccess);
@@ -29,13 +24,13 @@ const Register = () => {
         phone: '',
     });
 
-    // const prevPostSuccess = usePrevious(postSuccess);
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    // useEffect(() => {
-    //     if (!prevPostSuccess && postSuccess) {
-    //         history.push('/auth/confirm-email');
-    //     }
-    // }, [postSuccess, prevPostSuccess, history]);
+    const validatePassword = useCallback(() => {
+        if (formState.password !== confirmPassword) {
+            return 'Passwords do not match';
+        }
+    }, [formState.password, confirmPassword]);
 
     return (
         <AuthCard>
@@ -93,6 +88,17 @@ const Register = () => {
                                 onChange={handleChange}
                                 type="password"
                                 required
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="confirmPassword"
+                                value={confirmPassword}
+                                placeholder="Confirm Password"
+                                onChange={(_, val) => setConfirmPassword(val)}
+                                type="password"
+                                required
+                                customValidate={validatePassword}
                             />
                         </FormRow>
                     </div>
