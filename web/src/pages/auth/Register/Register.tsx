@@ -16,7 +16,7 @@ import { HandleSubmit } from 'src/types/shared/Functions';
 
 import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
 
-const Register: React.FC = (): JSX.Element => {
+const Register = () => {
     const history = useHistory();
 
     const dispatch = useDispatch();
@@ -32,13 +32,12 @@ const Register: React.FC = (): JSX.Element => {
     });
 
     const prevPostSuccess = usePrevious(postSuccess);
+
     useEffect(() => {
         if (!prevPostSuccess && postSuccess) {
             history.push('/auth/confirm-email');
         }
     }, [postSuccess, prevPostSuccess, history]);
-
-    console.log('Register', prevPostSuccess, postSuccess, isPosting);
 
     return (
         <AuthCard>
@@ -82,9 +81,8 @@ const Register: React.FC = (): JSX.Element => {
                         <FormRow>
                             <TextInput
                                 name="phone"
-                                value={formState.phone}
+                                value={formState.phone || ''}
                                 type="text"
-                                number
                                 placeholder="Phone"
                                 onChange={handleChange}
                             />
