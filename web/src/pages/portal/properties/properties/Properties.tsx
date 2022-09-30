@@ -45,7 +45,7 @@ function Properties({ showCreateModal }: IProps) {
                 <Section>
                     <Container>
                         <div className="lg:d-flex space-y-8 lg:space-y-0 lg:space-x-4">
-                            <div className="lg:w-3/12">
+                            <div>
                                 <MainCard title="Filter">
                                     <PropertiesFilters
                                         searchTerm={searchTerm}
@@ -57,7 +57,7 @@ function Properties({ showCreateModal }: IProps) {
                                 </MainCard>
                             </div>
 
-                            <div className="lg:w-9/12">
+                            <div className="lg:w-10/12">
                                 <MainCard
                                     title="Result"
                                     className="grey-background"

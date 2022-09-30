@@ -65,6 +65,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_CURRENT
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -87,6 +88,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_POTENTIAL
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -109,6 +111,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.MEES
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="lg:grid lg:grid-cols-2">
                         {meesFilterOptions.map(option => (
@@ -131,6 +134,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.STATUS
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid xl:grid-cols-2">
                         {statusFilterOptions.map((option, index) => (
