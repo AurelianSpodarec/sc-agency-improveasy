@@ -11,10 +11,11 @@ const ResetPassword: React.FC = () => {
     const {
         isPosting,
         error,
-        formState: { newPassword },
+        formState: { newPassword, confirmPassword },
         handleChange,
         showSuccess,
         handleSubmit,
+        validatePassword,
     } = useResetPassword();
 
     return (
@@ -44,6 +45,18 @@ const ResetPassword: React.FC = () => {
                             onChange={handleChange}
                             type="password"
                             required
+                        />
+                    </FormRow>
+
+                    <FormRow>
+                        <TextInput
+                            name="confirmPassword"
+                            value={confirmPassword}
+                            placeholder="Confirm Password"
+                            onChange={handleChange}
+                            type="password"
+                            required
+                            customValidate={validatePassword}
                         />
                     </FormRow>
                 </Form>

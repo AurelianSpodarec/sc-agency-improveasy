@@ -1,6 +1,6 @@
 import { postResetPassword } from '../../../../redux/actions/auth/postResetPassword';
 import useForm from 'lib/src/hooks/useForm';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const useConfirmEmail = () => {
     const error = useSelector(getAuthConfirmEmailError);
 
     const [showSuccess, setShowSuccess] = useState(false);
-    const [formState, handleChange] = useForm({ newPassword: '' });
+    const [formState, handleChange] = useForm({ newPassword: '', confirmPassword: '' });
     const { token } = useParams<{ token: string }>();
 
     const prevSuccess = usePrevious(success);
@@ -30,6 +30,12 @@ const useConfirmEmail = () => {
         dispatch(postResetPassword(token, formState.newPassword));
     };
 
+    const validatePassword = useCallback(() => {
+        if (formState.newPassword !== formState.confirmPassword) {
+            return 'Passwords do not match';
+        }
+    }, [formState]);
+
     return {
         isPosting,
         error,
@@ -37,6 +43,7 @@ const useConfirmEmail = () => {
         formState,
         handleSubmit,
         showSuccess,
+        validatePassword,
     };
 };
 
