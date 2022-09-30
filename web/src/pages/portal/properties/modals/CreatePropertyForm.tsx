@@ -81,13 +81,6 @@ const CreatePropertyForm = ({
                 </>
             )}
             <Checkbox
-                name="bypassEPC"
-                value={bypassEPC}
-                onChange={handleChange}
-                leftPlaceholder="Bypass EPC"
-                className="justify-center"
-            />
-            <Checkbox
                 name="useAccountDetailsForAccess"
                 value={useAccountDetailsForAccess}
                 onChange={handleChange}
