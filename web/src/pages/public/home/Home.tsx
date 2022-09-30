@@ -444,7 +444,9 @@ function Home() {
                                     enim ad minim veniam, quis nostrud.
                                 </Text>
                             </div>
-                            <LinkButton className="winged">Read more</LinkButton>
+                            <LinkButton className="winged" href="/faq">
+                                Read more
+                            </LinkButton>
                         </div>
                     </div>
                 </Container>
