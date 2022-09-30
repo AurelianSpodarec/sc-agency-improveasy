@@ -8,18 +8,38 @@ import {
     selectPropertiesIsPosting,
     selectPropertiesPostSuccess,
 } from '@selectors/properties';
+import { useState, useEffect, useMemo } from 'react';
 
 const usePropertyAddressDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
 
-    const initialForm: IUpdateAddressDetailsProps = {
-        addressLine1: property.addressLine1,
-        addressLine2: property.addressLine2,
-        city: property.city,
-        postcode: property.postcode,
-    };
+    const initialForm: IUpdateAddressDetailsProps = useMemo(
+        () => ({
+            addressLine1: property.addressLine1,
+            addressLine2: property.addressLine2,
+            city: property.city,
+            postcode: property.postcode,
+        }),
+        [property],
+    );
 
     const [form, handleChange, resetData] = useForm(initialForm);
+
+    const [hasFormChanged, setHasFormChanged] = useState(false);
+
+    useEffect(() => {
+        if (form.addressLine1 !== initialForm.addressLine1) {
+            setHasFormChanged(true);
+        } else if (form.addressLine2 !== initialForm.addressLine2) {
+            setHasFormChanged(true);
+        } else if (form.city !== initialForm.city) {
+            setHasFormChanged(true);
+        } else if (form.postcode !== initialForm.postcode) {
+            setHasFormChanged(true);
+        } else {
+            setHasFormChanged(false);
+        }
+    }, [form, initialForm]);
 
     const isPosting = useSelector(selectPropertiesIsPosting);
     const error = useSelector(selectPropertiesError);
@@ -33,7 +53,16 @@ const usePropertyAddressDetailsForm = (property: IProperty) => {
         resetData(initialForm);
     };
 
-    return { form, handleChange, handleSubmit, isPosting, error, revertChanges, postSuccess };
+    return {
+        form,
+        handleChange,
+        handleSubmit,
+        isPosting,
+        error,
+        revertChanges,
+        postSuccess,
+        hasFormChanged,
+    };
 };
 
 interface IUpdateAddressDetailsProps {

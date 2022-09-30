@@ -9,21 +9,43 @@ import {
 import { IProperty, IUpdatePropertyAccessDetailsForm } from 'src/types/shared/Properties';
 import { updatePropertyAccessDetails } from '@actions/properties/updatePropertyAccessDetails';
 import { selectAccountDetails } from '@selectors/account';
+import { useEffect, useMemo, useState } from 'react';
 
 const usePropertyAccessDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
     const accountDetails = useSelector(selectAccountDetails);
 
-    const initialForm: IUpdatePropertyAccessDetailsForm = {
-        firstName: property.accessDetails.firstName,
-        lastName: property.accessDetails.lastName,
-        email: property.accessDetails.email,
-        phone: property.accessDetails.phone,
-        useAccountDetailsForAccess: false,
-        preferredContactTime: property.accessDetails.preferredContactTime,
-    };
+    const initialForm: IUpdatePropertyAccessDetailsForm = useMemo(
+        () => ({
+            firstName: property.accessDetails.firstName,
+            lastName: property.accessDetails.lastName,
+            email: property.accessDetails.email,
+            phone: property.accessDetails.phone,
+            useAccountDetailsForAccess: false,
+            preferredContactTime: property.accessDetails.preferredContactTime,
+        }),
+        [property],
+    );
 
     const [form, _handleChange, resetData] = useForm(initialForm);
+
+    const [hasFormChanged, setHasFormChanged] = useState(false);
+
+    useEffect(() => {
+        if (form.firstName !== initialForm.firstName) {
+            setHasFormChanged(true);
+        } else if (form.lastName !== initialForm.lastName) {
+            setHasFormChanged(true);
+        } else if (form.email !== initialForm.email) {
+            setHasFormChanged(true);
+        } else if (form.phone !== initialForm.phone) {
+            setHasFormChanged(true);
+        } else if (form.preferredContactTime !== initialForm.preferredContactTime) {
+            setHasFormChanged(true);
+        } else {
+            setHasFormChanged(false);
+        }
+    }, [form, initialForm]);
 
     const isPosting = useSelector(selectPropertiesIsPostingAccessDetails);
     const postSuccess = useSelector(selectPropertyAccessDetailsPostSuccess);
@@ -77,6 +99,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
         revertChanges,
         handleSelectAccountDetails,
         postSuccess,
+        hasFormChanged,
     };
 };
 
