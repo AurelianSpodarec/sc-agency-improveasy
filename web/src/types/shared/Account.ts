@@ -11,3 +11,8 @@ export interface IUpdateAccountPostBody {
     email: string;
     phone: string | null;
 }
+
+export interface IUpdatePasswordPostBody {
+    newPassword: string;
+    oldPassword: string;
+}

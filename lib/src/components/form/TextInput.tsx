@@ -71,12 +71,11 @@ const TextInput: React.FC<TextInputProps> = ({
     function handleChange(e: SyntheticEvent) {
         e.preventDefault();
 
-        if(number) {
-            let val = (e.target as HTMLInputElement).value
-            if(val !== "" && !Number(val)) return
-            if(val !== '' && val.length == 12) return
+        if (number) {
+            let val = (e.target as HTMLInputElement).value;
+            if (val !== '' && !Number(val)) return;
+            if (val !== '' && val.length == 12) return;
         }
-            
 
         const newVal =
             type === 'number'

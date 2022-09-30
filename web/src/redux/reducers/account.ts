@@ -8,6 +8,11 @@ import {
     updateAccountDetailsRequest,
     updateAccountDetailsSuccess,
 } from '@actions/account/updateAccountDetails';
+import {
+    updatePasswordFailure,
+    updatePasswordRequest,
+    updatePasswordSuccess,
+} from '@actions/account/updatePassword';
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 import { IAccountDetails } from 'src/types/shared/Account';
 
@@ -17,14 +22,20 @@ interface IAccountState {
     postSuccess: boolean;
     error: string | null;
     accountDetails: IAccountDetails | null;
+    isPatchingPassword: boolean;
+    patchPasswordSuccess: boolean;
+    patchPasswordError: string | null;
 }
 
 const initialState: IAccountState = {
     isFetching: false,
     isPosting: false,
+    isPatchingPassword: false,
     postSuccess: false,
+    patchPasswordSuccess: false,
     error: null,
     accountDetails: null,
+    patchPasswordError: null,
 };
 
 export default createReducer(initialState, {
@@ -34,6 +45,9 @@ export default createReducer(initialState, {
     [updateAccountDetailsRequest.type]: handlePostRequest,
     [updateAccountDetailsSuccess.type]: handleUpdateSuccess,
     [updateAccountDetailsFailure.type]: handleFailure,
+    [updatePasswordRequest.type]: handlePatchPasswordRequest,
+    [updatePasswordSuccess.type]: handlePatchPasswordSuccess,
+    [updatePasswordFailure.type]: handlePatchPasswordError,
 });
 
 function handleFetchRequest(state: IAccountState) {
@@ -62,4 +76,21 @@ function handleUpdateSuccess(state: IAccountState, action: PayloadAction<IAccoun
     state.isPosting = false;
     state.postSuccess = true;
     state.accountDetails = action.payload;
+}
+
+function handlePatchPasswordRequest(state: IAccountState) {
+    state.isPatchingPassword = true;
+    state.patchPasswordSuccess = false;
+    state.error = null;
+}
+
+function handlePatchPasswordSuccess(state: IAccountState) {
+    state.isPatchingPassword = false;
+    state.patchPasswordSuccess = true;
+}
+
+function handlePatchPasswordError(state: IAccountState, action: PayloadAction<string>) {
+    state.isPatchingPassword = false;
+    state.patchPasswordSuccess = false;
+    state.patchPasswordError = action.payload;
 }

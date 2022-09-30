@@ -1,14 +1,24 @@
-import CoolCard from '@components/CoolCard';
-import { Container, DataCheck, PageHeading, Section } from '@components/ui';
-import ActionButton from 'lib/src/components/button/ActionButton';
-import ButtonRow from 'lib/src/components/button/ButtonRow';
-import Form from 'lib/src/components/form/Form';
-import TextInput from 'lib/src/components/form/TextInput';
-import ErrorModal from 'lib/src/components/modal/ErrorModal';
-import MainPortal from '../_components/MainPortal';
+import { useHistory } from 'react-router-dom';
 import useEditAccountDetails from './_hooks/useEditAccountDetails';
 
-const Profile = () => {
+import CoolCard from '@components/CoolCard';
+import { Container, DataCheck, PageHeading, Section } from '@components/ui';
+
+import ActionButton from 'lib/src/components/button/ActionButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
+import LinkButton from 'lib/src/components/button/LinkButton';
+
+import Form from 'lib/src/components/form/Form';
+import TextInput from 'lib/src/components/form/TextInput';
+
+import MainPortal from '../_components/MainPortal';
+
+import ErrorModal from 'lib/src/components/modal/ErrorModal';
+import UpdatePasswordModal from './modals/UpdatePasswordModal';
+
+const Profile = ({ showPasswordModal }: IProps) => {
+    const history = useHistory();
+
     const {
         form,
         handleChange,
@@ -75,9 +85,13 @@ const Profile = () => {
                                     />
                                     <br />
                                     <ButtonRow alignment="right">
-                                        <ActionButton source="positive" className="winged">
+                                        <LinkButton
+                                            source="positive"
+                                            className="winged"
+                                            href="/portal/profile/change-password"
+                                        >
                                             Change Password
-                                        </ActionButton>
+                                        </LinkButton>
                                         <ActionButton
                                             className="winged"
                                             success={!hasChanged && postSuccess}
@@ -97,8 +111,16 @@ const Profile = () => {
             {showErrorModal && (
                 <ErrorModal closeModal={() => setShowErrorModal(false)} buttonClassName="winged" />
             )}
+
+            {showPasswordModal && (
+                <UpdatePasswordModal closeModal={() => history.push('/portal/profile')} />
+            )}
         </>
     );
 };
+
+interface IProps {
+    showPasswordModal?: boolean;
+}
 
 export default Profile;
