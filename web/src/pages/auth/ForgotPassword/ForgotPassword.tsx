@@ -13,6 +13,7 @@ import { postSendForgotPassword } from '@actions/auth';
 import { AuthCard, AuthHeader, AuthSection } from '../_components';
 import { Link } from 'react-router-dom';
 import ActionButton from 'lib/src/components/button/ActionButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
 
 const ForgotPassword: React.FC = () => {
     const dispatch = useDispatch();
@@ -57,15 +58,19 @@ const ForgotPassword: React.FC = () => {
                             required
                         />
                     </FormRow>
-                    <div className="d-flex justify-between">
-                        <div></div>
-                        <ActionButton type="submit" className="winged">
+
+                    {showSuccess && (
+                        <div className="flex-row justify-end">
+                            <p className="success">Password reset sent</p>
+                        </div>
+                    )}
+
+                    <div className="flex-row justify-end">
+                        <ActionButton type="submit" className="winged" success={postSuccess}>
                             Submit
                         </ActionButton>
                     </div>
                 </Form>
-
-                {showSuccess ? 'Password reset sent' : ''}
             </AuthSection>
         </AuthCard>
     );

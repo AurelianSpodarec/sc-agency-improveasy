@@ -22,6 +22,7 @@ const useConfirmEmail = () => {
     }, [token, dispatch, history]);
 
     const prevSuccess = usePrevious(success);
+
     useEffect(() => {
         if (!prevSuccess && success) {
             setTimeout(function () {

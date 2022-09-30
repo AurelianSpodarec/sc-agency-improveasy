@@ -20,7 +20,9 @@ export const postConfirmEmail =
                 payload,
             );
 
-            localStorage.setItem('token', data.token);
+            console.log(data);
+
+            localStorage.setItem('jwt', data.token);
             localStorage.setItem('refreshToken', data.refreshToken);
 
             dispatch(postConfirmEmailSuccess());
