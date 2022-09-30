@@ -42,7 +42,6 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     onChange={handleChange}
                     placeholder="First Name"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="lastName"
@@ -50,7 +49,6 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     onChange={handleChange}
                     placeholder="Last Name"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="email"
@@ -58,7 +56,6 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     onChange={handleChange}
                     placeholder="Email"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="phone"
@@ -66,7 +63,6 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     onChange={handleChange}
                     placeholder="Phone"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="preferredContactTime"

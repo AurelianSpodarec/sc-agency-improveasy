@@ -120,6 +120,8 @@ function handleFailure(state: IPropertyState, action: PayloadAction<string>) {
     state.isPosting = false;
     state.isFetching = false;
     state.postSuccess = false;
+    state.isPostingAccessDetails = false;
+    state.postAccessDetailsSuccess = false;
     state.error = action.payload;
 }
 
