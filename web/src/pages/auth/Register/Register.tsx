@@ -29,13 +29,13 @@ const Register = () => {
         phone: '',
     });
 
-    const prevPostSuccess = usePrevious(postSuccess);
+    // const prevPostSuccess = usePrevious(postSuccess);
 
-    useEffect(() => {
-        if (!prevPostSuccess && postSuccess) {
-            history.push('/auth/confirm-email');
-        }
-    }, [postSuccess, prevPostSuccess, history]);
+    // useEffect(() => {
+    //     if (!prevPostSuccess && postSuccess) {
+    //         history.push('/auth/confirm-email');
+    //     }
+    // }, [postSuccess, prevPostSuccess, history]);
 
     return (
         <AuthCard>
@@ -104,6 +104,8 @@ const Register = () => {
                         </ActionButton>
                     </div>
                 </Form>
+
+                {postSuccess && <div>Please check your email and confirm it</div>}
             </AuthSection>
         </AuthCard>
     );
