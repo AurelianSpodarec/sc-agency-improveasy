@@ -1,6 +1,3 @@
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { postRegister } from '@actions/auth/postRegister';
 import { getAuthIsPosting, getAuthPostSuccess } from '@selectors/auth';
@@ -10,35 +7,30 @@ import Form from 'lib/src/components/form/Form';
 import FormRow from 'lib/src/components/form/FormRow';
 import TextInput from 'lib/src/components/form/TextInput';
 import useForm from 'lib/src/hooks/useForm';
-import usePrevious from 'lib/src/hooks/usePrevious';
-
-import { HandleSubmit } from 'src/types/shared/Functions';
 
 import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
+import { useCallback, useState } from 'react';
 
-const Register: React.FC = (): JSX.Element => {
-    const history = useHistory();
-
+const Register = () => {
     const dispatch = useDispatch();
     const isPosting = useSelector(getAuthIsPosting);
     const postSuccess = useSelector(getAuthPostSuccess);
 
     const [formState, handleChange] = useForm({
-        firstName: 'test',
-        lastName: 'test',
+        firstName: '',
+        lastName: '',
         email: '',
-        password: 'Asdasd123Aqwa',
-        phone: '077777777',
+        password: '',
+        phone: '',
     });
 
-    const prevPostSuccess = usePrevious(postSuccess);
-    useEffect(() => {
-        if (!prevPostSuccess && postSuccess) {
-            history.push('/auth/confirm-email');
-        }
-    }, [postSuccess, prevPostSuccess, history]);
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-    console.log('Register', prevPostSuccess, postSuccess, isPosting);
+    const validatePassword = useCallback(() => {
+        if (formState.password !== confirmPassword) {
+            return 'Passwords do not match';
+        }
+    }, [formState.password, confirmPassword]);
 
     return (
         <AuthCard>
@@ -82,11 +74,10 @@ const Register: React.FC = (): JSX.Element => {
                         <FormRow>
                             <TextInput
                                 name="phone"
-                                value={formState.phone}
-                                type="tel"
+                                value={formState.phone || ''}
+                                type="text"
                                 placeholder="Phone"
                                 onChange={handleChange}
-                                required
                             />
                         </FormRow>
                         <FormRow>
@@ -99,6 +90,17 @@ const Register: React.FC = (): JSX.Element => {
                                 required
                             />
                         </FormRow>
+                        <FormRow>
+                            <TextInput
+                                name="confirmPassword"
+                                value={confirmPassword}
+                                placeholder="Confirm Password"
+                                onChange={(_, val) => setConfirmPassword(val)}
+                                type="password"
+                                required
+                                customValidate={validatePassword}
+                            />
+                        </FormRow>
                     </div>
 
                     <div className="d-flex justify-between">
@@ -108,6 +110,8 @@ const Register: React.FC = (): JSX.Element => {
                         </ActionButton>
                     </div>
                 </Form>
+
+                {postSuccess && <div>Please check your email and confirm it</div>}
             </AuthSection>
         </AuthCard>
     );

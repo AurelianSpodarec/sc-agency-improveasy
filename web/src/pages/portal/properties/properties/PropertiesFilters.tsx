@@ -36,8 +36,17 @@ const PropertiesFilters = ({
 
     return (
         <>
-            <AccordionTwo onValueChange={e => setOpenValue(e)} type="multiple" collapsible={false}>
-                <div className="d-flex justify-between search-wrapper space-x-2">
+            <AccordionTwo onValueChange={e => setOpenValue(e)}>
+                <div className="d-flex-column search-wrapper">
+                    <div className="flex flex-row justify-end">
+                        <button
+                            className="search__clear-inputs"
+                            onClick={handleClearFilters}
+                            style={{ marginBottom: 15 }}
+                        >
+                            Clear
+                        </button>
+                    </div>
                     <Input
                         placeholder="Search"
                         className="input--search w-full"
@@ -46,9 +55,6 @@ const PropertiesFilters = ({
                         value={searchTerm}
                         onChange={(_, val) => setSearchTerm(val)}
                     />
-                    <button className="search__clear-inputs" onClick={handleClearFilters}>
-                        Clear filters
-                    </button>
                 </div>
                 <AccordionTwoItem
                     title="EPC Current"
@@ -59,6 +65,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_CURRENT
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -68,6 +75,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-current`}
                                 value={form['currentEPCFilters'].includes(option.value)}
                                 onChange={() => handleChange('currentEPCFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -81,6 +89,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.EPC_POTENTIAL
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3">
                         {epcFilterOptions.map((option, index) => (
@@ -90,6 +99,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-potential`}
                                 value={form['potentialEPCFilters'].includes(option.value)}
                                 onChange={() => handleChange('potentialEPCFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -103,6 +113,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.MEES
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="lg:grid lg:grid-cols-2">
                         {meesFilterOptions.map(option => (
@@ -112,6 +123,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-mees`}
                                 value={form['meesComplianceFilters'].includes(option.value)}
                                 onChange={() => handleChange('meesComplianceFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -125,6 +137,7 @@ const PropertiesFilters = ({
                             : openValue === FilterAccordionValue.STATUS
                     }
                     headerSize="md"
+                    contentClass="filter"
                 >
                     <div className="grid xl:grid-cols-2">
                         {statusFilterOptions.map((option, index) => (
@@ -134,6 +147,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-status`}
                                 value={form['propertyStatusFilters'].includes(option.value)}
                                 onChange={() => handleChange('propertyStatusFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>

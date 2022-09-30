@@ -16,7 +16,7 @@ export const updateAccountDetails =
     async (dispatch: AppDispatch): Promise<void> => {
         dispatch(updateAccountDetailsRequest());
         try {
-            const { data } = await api.put<IAccountDetails, IUpdateAccountPostBody>(
+            const { data } = await api.put<IUpdateAccountPostBody, IAccountDetails>(
                 'account',
                 postBody,
             );

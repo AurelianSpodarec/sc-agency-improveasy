@@ -81,13 +81,6 @@ const CreatePropertyForm = ({
                 </>
             )}
             <Checkbox
-                name="bypassEPC"
-                value={bypassEPC}
-                onChange={handleChange}
-                leftPlaceholder="Bypass EPC"
-                className="justify-center"
-            />
-            <Checkbox
                 name="useAccountDetailsForAccess"
                 value={useAccountDetailsForAccess}
                 onChange={handleChange}
@@ -99,35 +92,31 @@ const CreatePropertyForm = ({
             </div>
             <TextInput
                 name="accessDetails.firstName"
-                value={firstName}
+                value={firstName || ''}
                 onChange={handleChange}
                 placeholder="First Name"
                 className="winged"
-                required
             />
             <TextInput
                 name="accessDetails.lastName"
-                value={lastName}
+                value={lastName || ''}
                 onChange={handleChange}
                 placeholder="Last Name"
                 className="winged"
-                required
             />
             <TextInput
                 name="accessDetails.email"
-                value={email}
+                value={email || ''}
                 onChange={handleChange}
                 placeholder="Email"
                 className="winged"
-                required
             />
             <TextInput
                 name="accessDetails.phone"
-                value={phone}
+                value={phone || ''}
                 onChange={handleChange}
                 placeholder="Phone"
                 className="winged"
-                required
             />
             <TextInput
                 name="accessDetails.preferredContactTime"

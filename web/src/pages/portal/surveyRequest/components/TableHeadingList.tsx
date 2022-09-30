@@ -67,7 +67,7 @@ function TableHeadingList() {
     return (
         <thead>
             <tr>
-                <th>-</th>
+                <th>‎ </th>
                 {data &&
                     data.map((item, i) => {
                         return <TableHeadingCell key={i} name={item.name} toolpit={item.toolpit} />;

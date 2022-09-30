@@ -1,3 +1,5 @@
+import useScrollToTop from '../../../utils/hooks/useScrollToTop';
+
 import MainPublic from '../_components/MainPublic';
 
 import { Container, PageHeading, Section, Text } from '@components/ui';
@@ -27,6 +29,7 @@ const accordion = [
 ];
 
 function FAQ() {
+    useScrollToTop();
     return (
         <MainPublic>
             <Section>
@@ -74,7 +77,6 @@ function FAQ() {
                                     enim ad minim veniam, quis nostrud.
                                 </Text>
                             </div>
-                            {/* <button>Read more</button> */}
                             <LinkButton className="winged">Read more</LinkButton>
                         </div>
                     </div>

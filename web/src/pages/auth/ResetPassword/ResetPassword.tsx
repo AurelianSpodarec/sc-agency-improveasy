@@ -4,6 +4,8 @@ import TextInput from 'lib/src/components/form/TextInput';
 import useResetPassword from './hooks/useResetPassword';
 
 import { AuthCard, AuthHeader } from '../_components';
+import LinkButton from 'lib/src/components/button/LinkButton';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
 
 const ResetPassword: React.FC = () => {
     const {
@@ -11,27 +13,41 @@ const ResetPassword: React.FC = () => {
         error,
         formState: { newPassword },
         handleChange,
-        // showSuccess,
+        showSuccess,
         handleSubmit,
     } = useResetPassword();
 
     return (
         <AuthCard>
             <AuthHeader title="Reset password" />
-            {/* TODO: Show success message */}
-
-            <Form onSubmit={handleSubmit} isPosting={isPosting} error={error}>
-                <FormRow>
-                    <TextInput
-                        name="newPassword"
-                        value={newPassword}
-                        placeholder="New Password"
-                        onChange={handleChange}
-                        type="password"
-                        required
-                    />
-                </FormRow>
-            </Form>
+            {showSuccess ? (
+                <div>
+                    <p>Your password has been reset.</p>
+                    <ButtonRow alignment="right">
+                        <LinkButton href="/auth/login" className="winged">
+                            Login
+                        </LinkButton>
+                    </ButtonRow>
+                </div>
+            ) : (
+                <Form
+                    onSubmit={handleSubmit}
+                    isPosting={isPosting}
+                    error={error}
+                    buttonClassName="winged"
+                >
+                    <FormRow>
+                        <TextInput
+                            name="newPassword"
+                            value={newPassword}
+                            placeholder="New Password"
+                            onChange={handleChange}
+                            type="password"
+                            required
+                        />
+                    </FormRow>
+                </Form>
+            )}
         </AuthCard>
     );
 };

@@ -27,6 +27,11 @@ import {
     toggleRecommendationSuccess,
 } from '@actions/propertyInformation/toggleRecommendation';
 import { convertArrToObj } from 'lib/src/utils/generic';
+import {
+    fetchUsersPropertyCountFailure,
+    fetchUsersPropertyCountRequest,
+    fetchUsersPropertyCountSuccess,
+} from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 interface IPropertyState {
     isFetching: boolean;
@@ -38,6 +43,7 @@ interface IPropertyState {
         number,
         Record<number, IPropertyRatingRecommendations> | null
     >;
+    usersPropertyCount: number | null;
 }
 
 const initialState: IPropertyState = {
@@ -47,6 +53,7 @@ const initialState: IPropertyState = {
     error: null,
     propertyEPCRating: {},
     propertyRatingRecommendations: {},
+    usersPropertyCount: null,
 };
 
 export default createReducer(initialState, {
@@ -65,6 +72,9 @@ export default createReducer(initialState, {
     [toggleRecommendationRequest.type]: handlePostRequest,
     [toggleRecommendationSuccess.type]: handlePostRecommendationSuccess,
     [toggleRecommendationFailure.type]: handleFailure,
+    [fetchUsersPropertyCountRequest.type]: handleFetchRequest,
+    [fetchUsersPropertyCountSuccess.type]: handleFetchCountSuccess,
+    [fetchUsersPropertyCountFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
@@ -97,12 +107,17 @@ function handlePostSuccess(state: IPropertyState) {
 
 function handleFetchRatingsSuccess(
     state: IPropertyState,
-    action: PayloadAction<IPropertyRatingRecommendations[]>,
+    action: PayloadAction<IPropertyRatingRecommendations[] | []>,
 ) {
     state.isFetching = false;
-    state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = convertArrToObj(
-        action.payload,
-    );
+
+    if (action.payload.length > 0) {
+        state.propertyRatingRecommendations[action.payload[0].propertyRatingID] = convertArrToObj(
+            action.payload,
+        );
+    } else {
+        state.propertyRatingRecommendations = {};
+    }
 }
 
 function handlePostRecommendationSuccess(
@@ -116,4 +131,9 @@ function handlePostRecommendationSuccess(
         ...state.propertyRatingRecommendations[action.payload.propertyRatingID],
         [action.payload.id]: action.payload,
     };
+}
+
+function handleFetchCountSuccess(state: IPropertyState, action: PayloadAction<number>) {
+    state.isFetching = false;
+    state.usersPropertyCount = action.payload;
 }

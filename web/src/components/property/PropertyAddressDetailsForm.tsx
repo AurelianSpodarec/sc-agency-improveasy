@@ -18,6 +18,8 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
         revertChanges,
         isPosting,
         error,
+        postSuccess,
+        hasFormChanged,
     } = usePropertyAddressDetailsForm(property);
 
     const handleAddressSelect = useCallback(
@@ -77,12 +79,18 @@ const PropertyAddressDetailsForm = ({ property }: IPropertyAddressForm) => {
                     <ActionButton
                         className="winged"
                         source="positive"
-                        isPosting={isPosting}
+                        disabled={isPosting || !hasFormChanged}
                         onClick={revertChanges}
                     >
-                        Revert
+                        Cancel
                     </ActionButton>
-                    <ActionButton className="winged dark-green" type="submit" isPosting={isPosting}>
+                    <ActionButton
+                        className="winged dark-green"
+                        type="submit"
+                        isPosting={isPosting}
+                        success={!hasFormChanged && postSuccess}
+                        disabled={!hasFormChanged}
+                    >
                         Save Changes
                     </ActionButton>
                 </ButtonRow>

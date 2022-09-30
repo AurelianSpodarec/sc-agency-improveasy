@@ -18,8 +18,8 @@ const useConfirmEmail = () => {
     const [formState, handleChange] = useForm({ newPassword: '' });
     const { token } = useParams<{ token: string }>();
 
-    // TODO: Abstract as it repeats in multiple files
     const prevSuccess = usePrevious(success);
+
     useEffect(() => {
         if (!prevSuccess && success) {
             setShowSuccess(true);

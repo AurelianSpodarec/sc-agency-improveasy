@@ -1,3 +1,4 @@
+import { ModalContent } from '../../../../types/shared/Properties';
 import ActionButton from 'lib/src/components/button/ActionButton';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 
@@ -9,9 +10,9 @@ const CreatePropertyEPCNotFound = ({
 }: IProps) => {
     return (
         <section className="flex-column align-center space-x-4">
-            <h2 className="heading">Unable to locate EPC for {addressString}</h2>
+            <h2 className="heading w-3/4">Unable to locate EPC for {addressString}</h2>
 
-            <p className="flex-column align-center text-center semi-bold-content">
+            <div className="flex-column align-center text-center semi-bold-content">
                 <br />
                 Unfortunately, we were unable to locate your property’s EPC rating.
                 <br />
@@ -24,10 +25,12 @@ const CreatePropertyEPCNotFound = ({
                         <li> The property does not have an EPC</li>
                     </ol>
                 </div>
-            </p>
+            </div>
+            <br />
+            <br />
 
             <ButtonRow>
-                <ActionButton className="winged" onClick={() => setModalContent(1)}>
+                <ActionButton className="winged" onClick={() => setModalContent(ModalContent.Form)}>
                     Edit Address
                 </ActionButton>
                 <ActionButton className="winged" source="secondary" onClick={() => closeModal()}>

@@ -15,12 +15,6 @@ const Header = () => {
                     <Link to="/" className="no-underline">
                         <div className="d-flex align-center space-x-6">
                             <img src={IconLogoPortal} alt="logo" className="header__logo-img" />
-                            <span
-                                style={{ marginBottom: '0px' }}
-                                className="hidden lg:block font-semibold"
-                            >
-                                MEES Compliance
-                            </span>
                         </div>
                     </Link>
 

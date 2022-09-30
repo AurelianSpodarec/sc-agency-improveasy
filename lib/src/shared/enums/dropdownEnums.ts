@@ -23,14 +23,6 @@ export const adminUserRoleNames: { [key: number]: string | undefined | null } = 
     [adminUserRoles.superAdmin]: 'Super Admin',
 };
 
-interface SuperAdminRolesEnumModel {
-    superAdmin: number;
-    admin: number;
-}
-interface UserDropdownEnumModel {
-    basic: number;
-}
-
 interface GenericEnumModel {
     [key: string]: number | string;
 }
@@ -42,13 +34,25 @@ export const convertEnumToDropdownOption = (enums: GenericEnumModel): DropdownOp
         if (typeof value === 'number') {
             filteredArr.push({
                 value: value,
-                label: key.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
-                    return str.toUpperCase();
-                }),
+                label: prettierifyEnumKey(key),
             });
         }
         return;
     });
 
     return filteredArr;
+};
+
+const prettierifyEnumKey = (key: string): string => {
+    const splitKey = key.split('');
+
+    for (let i = 0; i < splitKey.length; i++) {
+        if (splitKey[i] === splitKey[i].toLowerCase()) {
+            if (splitKey[i + 1] && splitKey[i + 1] === splitKey[i + 1].toUpperCase()) {
+                splitKey[i] = `${splitKey[i]} `;
+            }
+        }
+    }
+
+    return splitKey.join('');
 };

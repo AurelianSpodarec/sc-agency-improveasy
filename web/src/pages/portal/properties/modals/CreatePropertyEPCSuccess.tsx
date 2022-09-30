@@ -11,7 +11,11 @@ const CreatePropertyEPCSuccess = ({ potentialEPC, currentEPC, closeModal }: IPro
 
             <div style={{ width: '50%', margin: '25px 0' }} className="epc-graph">
                 <EPCRatingWrapper className="potential-wrapper">
-                    <Rating rating={potentialEPC} text="Potential" />
+                    <Rating
+                        rating={potentialEPC}
+                        text="Potential"
+                        className={potentialEPC === currentEPC ? 'w-full' : ''}
+                    />
                     <Rating rating={currentEPC} text="Current" />
                 </EPCRatingWrapper>
             </div>

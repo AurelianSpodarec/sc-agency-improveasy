@@ -6,6 +6,7 @@ import FormField from './FormField';
 
 const TextInput: React.FC<TextInputProps> = ({
     name,
+    number,
     value,
     onChange,
     label = '',
@@ -70,6 +71,12 @@ const TextInput: React.FC<TextInputProps> = ({
     function handleChange(e: SyntheticEvent) {
         e.preventDefault();
 
+        if (number) {
+            let val = (e.target as HTMLInputElement).value;
+            if (val !== '' && !Number(val)) return;
+            if (val !== '' && val.length == 12) return;
+        }
+
         const newVal =
             type === 'number'
                 ? parseInt((e.target as HTMLInputElement).value)
@@ -117,6 +124,7 @@ interface TextInputProps extends FormInputProps<string> {
     label?: string;
     validationRegExp?: string;
     minLength?: number;
+    number?: boolean;
     maxLength?: number;
     type?: string;
     minNumber?: number;

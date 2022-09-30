@@ -30,13 +30,13 @@ const CreatePropertyModal = () => {
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     isPosting={isPosting}
-                    error={error}
+                    error={!error?.includes('404') ? error : ''}
                 />
             ) : modalContent === ModalContent.EPCFailure ? (
                 <CreatePropertyEPCNotFound
                     addressString={`${formState.addressLine1}${
                         !!formState.addressLine2 ? ' ' + formState.addressLine2 : ''
-                    }`}
+                    }, ${formState.city}, ${formState.postcode}`}
                     setModalContent={setModalContent}
                     closeModal={closeModal}
                     handleContinueAnyway={() => handleSubmit(true)}

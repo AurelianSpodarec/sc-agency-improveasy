@@ -10,6 +10,7 @@ function AccordionTwoItem({
     isOpen,
     style,
     headerSize = 'lg',
+    contentClass,
 }: IAccordionItemProps) {
     return (
         <Accordion.Item className="accordionTwo-item" value={value}>
@@ -28,7 +29,10 @@ function AccordionTwoItem({
                 </Accordion.Trigger>
             </Accordion.Header>
 
-            <Accordion.Content className="accordionTwo-item__content" style={style}>
+            <Accordion.Content
+                className={`accordionTwo-item__content ${contentClass}`}
+                style={style}
+            >
                 {children}
             </Accordion.Content>
         </Accordion.Item>
@@ -42,6 +46,7 @@ interface IAccordionItemProps {
     isOpen: boolean;
     style?: object;
     headerSize?: 'sm' | 'md' | 'lg' | 'xl';
+    contentClass?: string;
 }
 
 export default AccordionTwoItem;

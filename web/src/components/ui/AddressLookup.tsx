@@ -109,7 +109,11 @@ const AddressLookup = ({
 
             {!hideManualEntryButton && (
                 <div className="flex-row justify-center">
-                    <button className="text-button" onClick={() => setShowAddressFields(true)}>
+                    <button
+                        className="text-button"
+                        onClick={() => setShowAddressFields(true)}
+                        type="button"
+                    >
                         Manually enter address
                     </button>
                 </div>

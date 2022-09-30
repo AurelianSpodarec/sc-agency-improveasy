@@ -5,17 +5,19 @@ import PropertyAddressDetailsForm from '../PropertyAddressDetailsForm';
 import PropertyAccessDetailsForm from '../PropertyAccessDetailsForm';
 import PropertyEPCChart from '../PropertyEPCChart';
 import PropertyCertificate from '../PropertyCertificate';
-import { AccordionTwo } from '@components/Accordion/AccordionTwo/AccordionTwo';
 import AccordionTwoItem from '@components/Accordion/AccordionTwo/AccordionTwoItem';
 import PropertyPotentialImprovements from '../PropertyPotentialImprovements';
+import { AccordionTwoSingle } from '@components/Accordion/AccordionTwo/AccordionTwoSingle';
 
 export enum PropertyAccordionValue {
-    TENANT = '1',
-    EPC = '2',
+    EPC = '1',
+    TENANT = '2',
 }
 
 function PropertyAccordion({ property }: IPropertyAccordionProps) {
-    const [openValue, setOpenValue] = useState<PropertyAccordionValue | null>(null);
+    const [openValue, setOpenValue] = useState<PropertyAccordionValue | null>(
+        PropertyAccordionValue.EPC,
+    );
 
     function onValueChange(e: string | string[]) {
         if (e === PropertyAccordionValue.TENANT || e === PropertyAccordionValue.EPC) {
@@ -26,20 +28,12 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
     }
 
     if (!property) return <></>;
-
     return (
-        <AccordionTwo onValueChange={onValueChange}>
-            <AccordionTwoItem
-                style={{ margin: '40px 0' }}
-                title="Access Details"
-                value={PropertyAccordionValue.TENANT}
-                isOpen={openValue === PropertyAccordionValue.TENANT}
-            >
-                <div className="flex-row flex-wrap lg:flex-no-wrap justify-evenly flex-column-ld">
-                    <PropertyAddressDetailsForm property={property} />
-                    <PropertyAccessDetailsForm property={property} />
-                </div>
-            </AccordionTwoItem>
+        <AccordionTwoSingle
+            onValueChange={onValueChange}
+            defaultValue={PropertyAccordionValue.EPC}
+            collapsible
+        >
             <AccordionTwoItem
                 style={{ margin: '40px 0' }}
                 title="EPC Rating"
@@ -67,7 +61,18 @@ function PropertyAccordion({ property }: IPropertyAccordionProps) {
                     </div>
                 )}
             </AccordionTwoItem>
-        </AccordionTwo>
+            <AccordionTwoItem
+                style={{ margin: '40px 0' }}
+                title="Property Details"
+                value={PropertyAccordionValue.TENANT}
+                isOpen={openValue === PropertyAccordionValue.TENANT}
+            >
+                <div className="flex-row flex-wrap lg:flex-no-wrap justify-evenly flex-column-ld">
+                    <PropertyAddressDetailsForm property={property} />
+                    <PropertyAccessDetailsForm property={property} />
+                </div>
+            </AccordionTwoItem>
+        </AccordionTwoSingle>
     );
 }
 interface IPropertyAccordionProps {

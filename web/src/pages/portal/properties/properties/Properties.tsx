@@ -9,7 +9,11 @@ import MEESRating from '@pages/portal/properties/properties/MEESRating';
 import dayjs from 'dayjs';
 import PropertiesFilters from './PropertiesFilters';
 
-import { IProperty, PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
+import {
+    IProperty,
+    PropertyStatusType,
+    PropertyStatusTypeLabel,
+} from '../../../../types/shared/Properties';
 import MeesTooltip from '@components/MeesTooltip';
 import LinkButton from 'lib/src/components/button/LinkButton';
 
@@ -24,19 +28,24 @@ function Properties({ showCreateModal }: IProps) {
         handleClearFilters,
         form,
         handleChange,
+        propertyCount,
     } = useFetchProperties();
 
-    if (properties.length === 1 && !window.location.pathname.includes('create')) {
+    if (
+        !!properties.length &&
+        propertyCount === 1 &&
+        !window.location.pathname.includes('create')
+    ) {
         history.push(`/portal/properties/${properties[0].id}`);
     }
 
     return (
         <>
-            <MainPortal>
+            <MainPortal isFetching={isFetching} dataExists={propertyCount !== null}>
                 <Section>
                     <Container>
                         <div className="lg:d-flex space-y-8 lg:space-y-0 lg:space-x-4">
-                            <div className="lg:w-1/3">
+                            <div>
                                 <MainCard title="Filter">
                                     <PropertiesFilters
                                         searchTerm={searchTerm}
@@ -48,7 +57,7 @@ function Properties({ showCreateModal }: IProps) {
                                 </MainCard>
                             </div>
 
-                            <div className="lg:w-2/3">
+                            <div className="lg:w-10/12">
                                 <MainCard
                                     title="Result"
                                     className="grey-background"
@@ -105,7 +114,12 @@ function Properties({ showCreateModal }: IProps) {
                                                                         : 'No EPC'
                                                                 }`}
                                                             >
-                                                                <MEESRating mees={section.hasEPC} />
+                                                                <MEESRating
+                                                                    mees={
+                                                                        section.status ===
+                                                                        PropertyStatusType.Compliant
+                                                                    }
+                                                                />
                                                             </MeesTooltip>
                                                         </td>
                                                         <td>

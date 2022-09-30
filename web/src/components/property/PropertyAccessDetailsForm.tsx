@@ -25,6 +25,8 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
         error,
         revertChanges,
         handleSelectAccountDetails,
+        postSuccess,
+        hasFormChanged,
     } = usePropertyAccessDetailsForm(property);
 
     return (
@@ -36,35 +38,31 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
             <Form onSubmit={handleSubmit} omitButtons isPosting={isPosting} error={error}>
                 <TextInput
                     name="firstName"
-                    value={firstName}
+                    value={firstName || ''}
                     onChange={handleChange}
                     placeholder="First Name"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="lastName"
-                    value={lastName}
+                    value={lastName || ''}
                     onChange={handleChange}
                     placeholder="Last Name"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="email"
-                    value={email}
+                    value={email || ''}
                     onChange={handleChange}
                     placeholder="Email"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="phone"
-                    value={phone}
+                    value={phone || ''}
                     onChange={handleChange}
                     placeholder="Phone"
                     className="winged font-sm"
-                    required
                 />
                 <TextInput
                     name="preferredContactTime"
@@ -84,12 +82,18 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     <ActionButton
                         className="winged font-sm"
                         source="positive"
-                        isPosting={isPosting}
+                        disabled={isPosting || !hasFormChanged}
                         onClick={revertChanges}
                     >
-                        Revert
+                        Cancel
                     </ActionButton>
-                    <ActionButton className="winged dark-green" type="submit" isPosting={isPosting}>
+                    <ActionButton
+                        className="winged dark-green"
+                        type="submit"
+                        isPosting={isPosting}
+                        success={!hasFormChanged && postSuccess}
+                        disabled={!hasFormChanged}
+                    >
                         Save Changes
                     </ActionButton>
                 </ButtonRow>

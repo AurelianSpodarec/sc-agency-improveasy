@@ -17,6 +17,7 @@ const Form: React.FC<FormProps> = ({
     buttonAlignment = 'right',
     buttonClassName = '',
     submitDisabled = false,
+    postSuccess,
 }) => {
     const dispatch = useDispatch();
     const fieldErrors = useSelector(getFieldErrors);
@@ -51,6 +52,7 @@ const Form: React.FC<FormProps> = ({
                         className={buttonClassName}
                         type="submit"
                         disabled={submitDisabled}
+                        success={postSuccess}
                     >
                         Submit
                     </ActionButton>
@@ -87,6 +89,7 @@ interface FormProps {
     buttonAlignment?: 'left' | 'center' | 'right';
     buttonClassName?: string;
     submitDisabled?: boolean;
+    postSuccess?: boolean;
 }
 
 export default Form;

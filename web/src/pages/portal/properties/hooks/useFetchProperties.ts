@@ -2,19 +2,21 @@ import { batch, useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import useForm from 'lib/src/hooks/useForm';
 
-import {
-    selectProperties,
-    selectPropertiesError,
-    selectPropertiesIsFetching,
-} from '@selectors/properties';
+import { selectProperties, selectPropertiesError } from '@selectors/properties';
 
 import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
 import { FetchPropertiesRequest } from 'src/types/shared/Properties';
+import {
+    selectPropertyInformationIsFetching,
+    selectUsersPropertyCount,
+} from '@selectors/propertyInformation';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 const useFetchProperties = () => {
     const dispatch = useDispatch();
-    const isFetching = useSelector(selectPropertiesIsFetching);
+    const isFetchingCount = useSelector(selectPropertyInformationIsFetching);
+
     const error = useSelector(selectPropertiesError);
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -29,6 +31,7 @@ const useFetchProperties = () => {
     const [form, _handleChange, resetData] = useForm<FetchPropertiesRequest>(initialForm);
 
     const properties = Object.values(useSelector(selectProperties));
+    const propertyCount = useSelector(selectUsersPropertyCount);
 
     const filteredProperties = properties.filter(property => {
         return Object.values(property).some(value => {
@@ -41,6 +44,7 @@ const useFetchProperties = () => {
 
     useEffect(() => {
         batch(() => {
+            dispatch(fetchUsersPropertyCount());
             dispatch(fetchUserProperties(form));
             dispatch(fetchAccountDetails());
         });
@@ -65,13 +69,14 @@ const useFetchProperties = () => {
 
     return {
         properties: filteredProperties,
-        isFetching,
+        isFetching: isFetchingCount,
         error,
         searchTerm,
         setSearchTerm,
         handleClearFilters,
         form,
         handleChange,
+        propertyCount,
     };
 };
 

@@ -20,6 +20,7 @@ import {
 } from '@selectors/properties';
 import { RootState } from '@reducers/index';
 import { selectAccountDetails } from '@selectors/account';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
 
 const initialForm: ICreatePropertyForm = {
     addressLine1: '',
@@ -29,10 +30,10 @@ const initialForm: ICreatePropertyForm = {
     bypassEPC: false,
     useAccountDetailsForAccess: false,
     accessDetails: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
+        firstName: null,
+        lastName: null,
+        email: null,
+        phone: null,
         preferredContactTime: null,
     },
 };
@@ -42,9 +43,7 @@ const useCreateProperty = () => {
     const dispatch = useDispatch();
 
     const isPosting = useSelector(selectPropertiesIsPosting);
-    const prevIsPosting = usePrevious(isPosting);
     const postSuccess = useSelector(selectPropertiesPostSuccess);
-    const prevPostSuccess = usePrevious(postSuccess);
     const error = useSelector(selectPropertiesError);
     const accountDetails = useSelector(selectAccountDetails);
 
@@ -56,9 +55,15 @@ const useCreateProperty = () => {
         selectSingleProperty(state, lastCreatedPropertyId || 0),
     );
 
+    const prevProps = usePrevious({ isPosting, postSuccess, error });
+
     const closeModal = useCallback(() => {
-        history.push('/portal/properties');
-    }, [history]);
+        if (lastCreatedPropertyId) {
+            history.push(`/portal/properties/${lastCreatedPropertyId}`);
+        } else {
+            history.push('/portal/properties');
+        }
+    }, [history, lastCreatedPropertyId]);
 
     const handleChange = (
         name: keyof ICreatePropertyForm,
@@ -95,29 +100,24 @@ const useCreateProperty = () => {
     };
 
     useEffect(() => {
-        if (!isPosting && prevIsPosting) {
+        if (!isPosting && prevProps.isPosting) {
             if (error && error.includes('404')) {
                 setModalContent(ModalContent.EPCFailure);
             }
         }
+    }, [error, isPosting, prevProps.isPosting]);
 
-        if (postSuccess && !prevPostSuccess) {
-            if (lastCreatedProperty.hasEPC) {
+    useEffect(() => {
+        if (postSuccess && !prevProps.postSuccess) {
+            dispatch(fetchUsersPropertyCount());
+
+            if (lastCreatedProperty?.hasEPC) {
                 setModalContent(ModalContent.EPCSuccess);
             } else {
                 closeModal();
             }
         }
-    }, [
-        postSuccess,
-        prevPostSuccess,
-        closeModal,
-        formState.bypassEPC,
-        error,
-        isPosting,
-        prevIsPosting,
-        lastCreatedProperty,
-    ]);
+    }, [closeModal, dispatch, lastCreatedProperty?.hasEPC, postSuccess, prevProps.postSuccess]);
 
     const handleSubmit = (bypassEPC?: true) => {
         const { useAccountDetailsForAccess, ...rest } = formState;

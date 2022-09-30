@@ -33,6 +33,10 @@ const PortalRoutes = () => {
             <Route exact path={`${path}/profile`}>
                 <Profile />
             </Route>
+
+            <Route exact path={`${path}/profile/change-password`}>
+                <Profile showPasswordModal />
+            </Route>
         </Switch>
     );
 };

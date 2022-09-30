@@ -2,40 +2,32 @@
     @include mainFontSemiBold();
     font-size: 120%;
     overflow-y: scroll; 
+
     thead {
         background-color: var(--grey-background);
-        display: table;
         width: 100%;
-      white-space: nowrap;
-        th {
+        
+      th {
             color: var(--color-green-400);
-            padding-right: 30px; 
+            white-space: wrap;
+            text-align: center;
+            padding: 25px 20px;
         }
     }
 
-    th, td {
-        width: calc(100% / 8);
-        text-align: center;
-        padding: 25px 10px;
-        width: 232px;
-    }
-
     tbody {
-        display: block; 
         max-height: 75vh;
-      
 
         tr {
-            display: table;
             width: 100%;
             box-sizing: border-box;
             table-layout: fixed;
             border: none;
 
             td {
+                width: calc(100% / 8);
                 text-align: center;
                 vertical-align: middle;
-                padding: 20px;
                 border: 1px solid var(--stroke-table-row);
             }
 
@@ -48,7 +40,7 @@
 }
 
 .search-wrapper {
-    padding: 30px 15px;
+    padding: 15px;
 }
 
 .certificate-table {

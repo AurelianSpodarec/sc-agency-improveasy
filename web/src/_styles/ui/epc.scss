@@ -16,6 +16,10 @@ $epc-line-height: 55px;
       &:last-child{
         width: 100%!important;
       }
+
+      &.w-full {
+        width: 100%!important;
+      }
     }
   }
 

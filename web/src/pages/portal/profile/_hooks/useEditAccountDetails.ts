@@ -8,20 +8,30 @@ import {
     selectAccountError,
     selectAccountIsFetching,
     selectAccountIsPosting,
+    selectAccountPostSucccess,
 } from '@selectors/account';
 import { IUpdateAccountPostBody } from '../../../../types/shared/Account';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
+import { checkIfObjDiff } from '../../../../utils/generic';
 
 const useEditAccountDetails = () => {
     const dispatch = useDispatch();
 
     const userDetails = useSelector(selectAccountDetails);
     const isFetching = useSelector(selectAccountIsFetching);
-    const prevIsFetching = usePrevious(isFetching);
 
     const isPosting = useSelector(selectAccountIsPosting);
+    const postSuccess = useSelector(selectAccountPostSucccess);
+
+    const prevProps = usePrevious({ isPosting, postSuccess, isFetching });
+
     const error = useSelector(selectAccountError);
+
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+    const [showErrorModal, setShowErrorModal] = useState(false);
+
+    const [hasChanged, setHasChanged] = useState(false);
 
     const initialForm = useMemo(
         () => ({
@@ -36,20 +46,51 @@ const useEditAccountDetails = () => {
     const [form, handleChange, resetData] = useForm<IUpdateAccountPostBody>(initialForm);
 
     useEffect(() => {
+        if (checkIfObjDiff(initialForm, form)) {
+            setHasChanged(true);
+        } else {
+            setHasChanged(false);
+        }
+    }, [initialForm, form]);
+
+    useEffect(() => {
         dispatch(fetchAccountDetails());
     }, [dispatch]);
 
     useEffect(() => {
-        if (!isFetching && prevIsFetching) {
+        if (!isFetching && prevProps.isFetching) {
             resetData(initialForm);
         }
-    }, [isFetching, prevIsFetching, initialForm, resetData]);
+    }, [isFetching, prevProps.isFetching, initialForm, resetData]);
+
+    useEffect(() => {
+        if (postSuccess && !prevProps.postSuccess) {
+            setShowSuccessModal(true);
+        }
+
+        if (!isPosting && prevProps.isPosting && !!error) {
+            setShowErrorModal(true);
+        }
+    }, [prevProps.postSuccess, postSuccess, prevProps.isPosting, isPosting, error]);
 
     const handleSubmit = () => {
         dispatch(updateAccountDetails(form));
     };
 
-    return { form, handleChange, handleSubmit, isPosting, error, isFetching };
+    return {
+        form,
+        handleChange,
+        handleSubmit,
+        isPosting,
+        error,
+        isFetching,
+        showSuccessModal,
+        setShowSuccessModal,
+        showErrorModal,
+        setShowErrorModal,
+        postSuccess,
+        hasChanged,
+    };
 };
 
 export default useEditAccountDetails;

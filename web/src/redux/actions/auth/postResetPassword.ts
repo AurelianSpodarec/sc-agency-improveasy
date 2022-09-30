@@ -14,8 +14,7 @@ export const postResetPassword =
 
         try {
             const payload = { token, newPassword };
-            await api.post('Auth/Confirm-Email', payload);
-
+            await api.post('Auth/Forgot-Password/reset', payload);
             dispatch(postResetPasswordSuccess());
         } catch (e) {
             handleApiErrors(dispatch, postResetPasswordFailure, e as APIError);

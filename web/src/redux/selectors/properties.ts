@@ -11,3 +11,8 @@ export const selectSingleProperty = (state: RootState, id: number) =>
     state.propertiesReducer.properties[id];
 export const selectLastCreatedPropertyId = (state: RootState) =>
     state.propertiesReducer.lastCreatedID;
+
+export const selectPropertiesIsPostingAccessDetails = (state: RootState) =>
+    state.propertiesReducer.isPostingAccessDetails;
+export const selectPropertyAccessDetailsPostSuccess = (state: RootState) =>
+    state.propertiesReducer.postAccessDetailsSuccess;

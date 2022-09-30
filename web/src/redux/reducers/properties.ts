@@ -35,7 +35,9 @@ import {
 interface IPropertyState {
     isFetching: boolean;
     isPosting: boolean;
+    isPostingAccessDetails: boolean;
     postSuccess: boolean;
+    postAccessDetailsSuccess: boolean;
     error: string | null;
     properties: Record<number, IProperty>;
     lastCreatedID: number | null;
@@ -44,6 +46,8 @@ interface IPropertyState {
 const initialState: IPropertyState = {
     isFetching: false,
     isPosting: false,
+    isPostingAccessDetails: false,
+    postAccessDetailsSuccess: false,
     postSuccess: false,
     error: null,
     properties: {},
@@ -66,14 +70,16 @@ export default createReducer(initialState, {
     [updatePropertyAddressRequest.type]: handlePostRequest,
     [updatePropertyAddressSuccess.type]: handlePostPropertySuccess,
     [updatePropertyAddressFailure.type]: handleFailure,
-    [updatePropertyAccessDetailsRequest.type]: handlePostRequest,
-    [updatePropertyAccessDetailsSuccess.type]: handlePostPropertySuccess,
+    [updatePropertyAccessDetailsRequest.type]: handlePostAccessDetailsRequest,
+    [updatePropertyAccessDetailsSuccess.type]: handlePostAccessDetailsSuccess,
     [updatePropertyAccessDetailsFailure.type]: handleFailure,
 });
 
 function handleFetchRequest(state: IPropertyState) {
     state.isFetching = true;
     state.error = null;
+    state.postSuccess = false;
+    state.postAccessDetailsSuccess = false;
 }
 
 function handleFetchSuccess(state: IPropertyState, action: PayloadAction<IProperty[]>) {
@@ -112,6 +118,22 @@ function handleFetchSingleProperty(state: IPropertyState, action: PayloadAction<
 
 function handleFailure(state: IPropertyState, action: PayloadAction<string>) {
     state.isPosting = false;
+    state.isFetching = false;
     state.postSuccess = false;
+    state.isPostingAccessDetails = false;
+    state.postAccessDetailsSuccess = false;
     state.error = action.payload;
+}
+
+function handlePostAccessDetailsRequest(state: IPropertyState) {
+    state.isPostingAccessDetails = true;
+    state.postAccessDetailsSuccess = false;
+    state.error = null;
+}
+
+function handlePostAccessDetailsSuccess(state: IPropertyState, action: PayloadAction<IProperty>) {
+    state.isPostingAccessDetails = false;
+    state.postAccessDetailsSuccess = true;
+    state.error = null;
+    state.properties[action.payload.id] = action.payload;
 }

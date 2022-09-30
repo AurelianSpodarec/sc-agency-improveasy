@@ -12,25 +12,31 @@ import { fetchAccountDetails } from '@actions/account/fetchAccountDetails';
 import { fetchPropertyEPCRating } from '@actions/propertyInformation/fetchPropertyEPCRating';
 
 import house from './../../../../_content/icons/house_outline_green.png';
-import { selectPropertyEPCRating } from '@selectors/propertyInformation';
-import { selectProperties, selectSingleProperty } from '@selectors/properties';
+import { selectPropertyEPCRating, selectUsersPropertyCount } from '@selectors/propertyInformation';
+import { selectSingleProperty } from '@selectors/properties';
 import { fetchPropertyRatingRecommendations } from '@actions/propertyInformation/fetchPropertyRatingRecommendations';
 import { PropertyStatusTypeLabel } from '../../../../types/shared/Properties';
-import { fetchUserProperties } from '@actions/properties/fetchUserProperties';
+import { fetchUsersPropertyCount } from '@actions/propertyInformation/fetchUsersPropertyCount';
+import { selectAccountIsFetching } from '@selectors/account';
+import { fetchPropertyByID } from '@actions/properties/fetchPropertyByID';
 
 function Property() {
     const dispatch = useDispatch();
 
     const { id } = useParams<{ id: string }>();
 
-    const singleView = Object.values(useSelector(selectProperties)).length === 1;
+    const propertyCount = useSelector(selectUsersPropertyCount);
+    const singleView = propertyCount === 1;
 
     const property = useSelector((state: RootState) => selectSingleProperty(state, +id));
     const propertyRating = useSelector((state: RootState) => selectPropertyEPCRating(state, +id));
 
+    const isFetchingCount = useSelector(selectAccountIsFetching);
+
     useEffect(() => {
         batch(() => {
-            dispatch(fetchUserProperties());
+            dispatch(fetchUsersPropertyCount());
+            dispatch(fetchPropertyByID(+id));
             dispatch(fetchAccountDetails());
             dispatch(fetchPropertyEPCRating(+id));
             if (propertyRating?.id) {
@@ -40,7 +46,7 @@ function Property() {
     }, [dispatch, id, propertyRating?.id]);
 
     return (
-        <MainPortal>
+        <MainPortal isFetching={isFetchingCount} dataExists={propertyCount !== null}>
             <Section>
                 <div className={`d-flex space-x-12 ${singleView ? 'justify-center' : ''}`}>
                     {!singleView && (
