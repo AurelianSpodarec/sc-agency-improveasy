@@ -11,7 +11,6 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { updatePassword } from '@actions/account/updatePassword';
 import { useCallback, useEffect } from 'react';
-import { PageHeading } from '@components/ui';
 import ModalHeader from '@pages/portal/modals/ModalHeader';
 import usePrevious from 'lib/src/hooks/usePrevious';
 
@@ -43,8 +42,8 @@ const UpdatePasswordModal = ({ closeModal }: IProps) => {
     );
 
     useEffect(() => {
-        if (prevPatchSuccess && !patchSuccess) {
-            closeModal();
+        if (!prevPatchSuccess && patchSuccess) {
+            setTimeout(closeModal, 1000);
         }
     }, [patchSuccess, prevPatchSuccess, closeModal]);
 

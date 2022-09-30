@@ -81,7 +81,7 @@ function handleUpdateSuccess(state: IAccountState, action: PayloadAction<IAccoun
 function handlePatchPasswordRequest(state: IAccountState) {
     state.isPatchingPassword = true;
     state.patchPasswordSuccess = false;
-    state.error = null;
+    state.patchPasswordError = null;
 }
 
 function handlePatchPasswordSuccess(state: IAccountState) {
