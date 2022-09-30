@@ -75,10 +75,6 @@
     &:focus {
         border-color: var(--highlight-form);
     }
-
-    &::placeholder {
-        color: var(--placeholder-form-input);
-    }
 }
 
 // select
