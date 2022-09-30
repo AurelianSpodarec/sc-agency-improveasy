@@ -37,7 +37,16 @@ const PropertiesFilters = ({
     return (
         <>
             <AccordionTwo onValueChange={e => setOpenValue(e)}>
-                <div className="d-flex justify-between search-wrapper space-x-2">
+                <div className="d-flex-column search-wrapper">
+                    <div className="flex flex-row justify-end">
+                        <button
+                            className="search__clear-inputs"
+                            onClick={handleClearFilters}
+                            style={{ marginBottom: 15 }}
+                        >
+                            Clear
+                        </button>
+                    </div>
                     <Input
                         placeholder="Search"
                         className="input--search w-full"
@@ -46,9 +55,6 @@ const PropertiesFilters = ({
                         value={searchTerm}
                         onChange={(_, val) => setSearchTerm(val)}
                     />
-                    <button className="search__clear-inputs" onClick={handleClearFilters}>
-                        Clear filters
-                    </button>
                 </div>
                 <AccordionTwoItem
                     title="EPC Current"
