@@ -12,8 +12,6 @@ import TextInput from 'lib/src/components/form/TextInput';
 import useForm from 'lib/src/hooks/useForm';
 import usePrevious from 'lib/src/hooks/usePrevious';
 
-import { HandleSubmit } from 'src/types/shared/Functions';
-
 import { AuthCard, AuthSection, AuthHeader, AuthSubHeader } from '../_components';
 
 const Register = () => {

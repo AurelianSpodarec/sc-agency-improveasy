@@ -1,7 +1,11 @@
 import useForm from 'lib/src/hooks/useForm';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectPropertiesIsPosting, selectPropertiesError } from '@selectors/properties';
+import {
+    selectPropertiesError,
+    selectPropertiesIsPostingAccessDetails,
+    selectPropertyAccessDetailsPostSuccess,
+} from '@selectors/properties';
 import { IProperty, IUpdatePropertyAccessDetailsForm } from 'src/types/shared/Properties';
 import { updatePropertyAccessDetails } from '@actions/properties/updatePropertyAccessDetails';
 import { selectAccountDetails } from '@selectors/account';
@@ -21,7 +25,8 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
 
     const [form, _handleChange, resetData] = useForm(initialForm);
 
-    const isPosting = useSelector(selectPropertiesIsPosting);
+    const isPosting = useSelector(selectPropertiesIsPostingAccessDetails);
+    const postSuccess = useSelector(selectPropertyAccessDetailsPostSuccess);
     const error = useSelector(selectPropertiesError);
 
     const handleSelectAccountDetails = () => {
@@ -71,6 +76,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
         error,
         revertChanges,
         handleSelectAccountDetails,
+        postSuccess,
     };
 };
 

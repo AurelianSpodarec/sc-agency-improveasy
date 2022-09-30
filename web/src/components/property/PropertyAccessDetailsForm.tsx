@@ -25,6 +25,7 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
         error,
         revertChanges,
         handleSelectAccountDetails,
+        postSuccess,
     } = usePropertyAccessDetailsForm(property);
 
     return (
@@ -84,12 +85,17 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
                     <ActionButton
                         className="winged font-sm"
                         source="positive"
-                        isPosting={isPosting}
+                        disabled={isPosting}
                         onClick={revertChanges}
                     >
-                        Revert
+                        Cancel
                     </ActionButton>
-                    <ActionButton className="winged dark-green" type="submit" isPosting={isPosting}>
+                    <ActionButton
+                        className="winged dark-green"
+                        type="submit"
+                        isPosting={isPosting}
+                        success={postSuccess}
+                    >
                         Save Changes
                     </ActionButton>
                 </ButtonRow>

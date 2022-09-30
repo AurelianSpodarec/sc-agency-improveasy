@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { updatePropertyAddress } from '@actions/properties/updatePropertyAddress';
 import { IProperty } from 'src/types/shared/Properties';
-import { selectPropertiesError, selectPropertiesIsPosting } from '@selectors/properties';
+import {
+    selectPropertiesError,
+    selectPropertiesIsPosting,
+    selectPropertiesPostSuccess,
+} from '@selectors/properties';
 
 const usePropertyAddressDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
@@ -19,6 +23,7 @@ const usePropertyAddressDetailsForm = (property: IProperty) => {
 
     const isPosting = useSelector(selectPropertiesIsPosting);
     const error = useSelector(selectPropertiesError);
+    const postSuccess = useSelector(selectPropertiesPostSuccess);
 
     const handleSubmit = () => {
         dispatch(updatePropertyAddress(property.id, form));
@@ -28,7 +33,7 @@ const usePropertyAddressDetailsForm = (property: IProperty) => {
         resetData(initialForm);
     };
 
-    return { form, handleChange, handleSubmit, isPosting, error, revertChanges };
+    return { form, handleChange, handleSubmit, isPosting, error, revertChanges, postSuccess };
 };
 
 interface IUpdateAddressDetailsProps {

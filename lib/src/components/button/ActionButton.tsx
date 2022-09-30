@@ -7,6 +7,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
     isPosting = false,
     disabled = false,
     onClick = () => {},
+    success,
 }) => (
     <button
         className={`button ${source} ${className}`}
@@ -15,7 +16,12 @@ const ActionButton: React.FC<ActionButtonProps> = ({
         onClick={onClick}
     >
         {icon && !isPosting && <i className={`icon far fa-fw fa-${icon}`}></i>}
-        {isPosting && <i className="icon far fa-fw fa-spinner fa-spin"></i>}
+        {isPosting ? (
+            <i className="icon far fa-fw fa-spinner fa-spin"></i>
+        ) : (
+            success && <i className="icon far fa-fw fa-check"></i>
+        )}
+
         <span className="text">{children}</span>
     </button>
 );
@@ -29,6 +35,7 @@ interface ActionButtonProps {
     isPosting?: boolean;
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     disabled?: boolean;
+    success?: boolean;
 }
 
 export default ActionButton;
