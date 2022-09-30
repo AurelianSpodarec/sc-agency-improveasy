@@ -3,7 +3,6 @@ import { APIError } from 'lib/src/types/APIError';
 import { api, handleApiErrors } from 'lib/src/utils/api';
 import { AppDispatch } from 'src/redux/store';
 
-// ConfirmEmail
 export const postConfirmEmailRequest = createAction('postConfirmEmailRequest');
 export const postConfirmEmailSuccess = createAction('postConfirmEmailSuccess');
 export const postConfirmEmailFailure = createAction('postConfirmEmailFailure');
@@ -21,7 +20,7 @@ export const postConfirmEmail =
                 payload,
             );
 
-            localStorage.setItem('jwt', data.token);
+            localStorage.setItem('token', data.token);
             localStorage.setItem('refreshToken', data.refreshToken);
 
             dispatch(postConfirmEmailSuccess());
