@@ -75,6 +75,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-current`}
                                 value={form['currentEPCFilters'].includes(option.value)}
                                 onChange={() => handleChange('currentEPCFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -98,6 +99,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-potential`}
                                 value={form['potentialEPCFilters'].includes(option.value)}
                                 onChange={() => handleChange('potentialEPCFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -121,6 +123,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-mees`}
                                 value={form['meesComplianceFilters'].includes(option.value)}
                                 onChange={() => handleChange('meesComplianceFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>
@@ -144,6 +147,7 @@ const PropertiesFilters = ({
                                 name={`${option.label}-status`}
                                 value={form['propertyStatusFilters'].includes(option.value)}
                                 onChange={() => handleChange('propertyStatusFilters', option.value)}
+                                checkboxClassName="flex flex-row"
                             />
                         ))}
                     </div>

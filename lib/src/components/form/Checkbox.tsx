@@ -12,6 +12,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
     disabled = false,
     customValidate,
     className = '',
+    checkboxClassName = '',
     leftPlaceholder,
 }) => {
     const [error, showError] = useFieldValidation({
@@ -23,7 +24,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
     return (
         <FormField name={name} label={label} required={required} error={error}>
-            <div className="form-checkbox">
+            <div className={`form-checkbox ${checkboxClassName}`}>
                 <input
                     type="checkbox"
                     name={name}
@@ -59,6 +60,7 @@ interface CheckboxProps extends FormInputProps<boolean> {
     placeholder?: string;
     className?: string;
     leftPlaceholder?: string;
+    checkboxClassName?: string;
 }
 
 export default Checkbox;
