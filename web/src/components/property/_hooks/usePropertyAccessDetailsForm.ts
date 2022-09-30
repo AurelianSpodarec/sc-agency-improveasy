@@ -47,19 +47,19 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
     const handleSelectAccountDetails = () => {
         if (form.useAccountDetailsForAccess) {
             resetData({
-                firstName: '',
-                lastName: '',
-                email: '',
-                phone: '',
+                firstName: null,
+                lastName: null,
+                email: null,
+                phone: null,
                 preferredContactTime: null,
                 useAccountDetailsForAccess: false,
             });
         } else {
             resetData({
-                firstName: accountDetails?.firstName || '',
-                lastName: accountDetails?.lastName || '',
-                email: accountDetails?.email || '',
-                phone: accountDetails?.phone || '',
+                firstName: accountDetails?.firstName || null,
+                lastName: accountDetails?.lastName || null,
+                email: accountDetails?.email || null,
+                phone: accountDetails?.phone || null,
                 preferredContactTime: null,
                 useAccountDetailsForAccess: true,
             });

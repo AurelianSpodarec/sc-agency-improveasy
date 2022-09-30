@@ -30,10 +30,10 @@ const initialForm: ICreatePropertyForm = {
     bypassEPC: false,
     useAccountDetailsForAccess: false,
     accessDetails: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
+        firstName: null,
+        lastName: null,
+        email: null,
+        phone: null,
         preferredContactTime: null,
     },
 };

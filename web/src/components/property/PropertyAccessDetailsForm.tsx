@@ -38,28 +38,28 @@ const PropertyAccessDetailsForm = ({ property }: IPropertyAccessDetailsProps) =>
             <Form onSubmit={handleSubmit} omitButtons isPosting={isPosting} error={error}>
                 <TextInput
                     name="firstName"
-                    value={firstName}
+                    value={firstName || ''}
                     onChange={handleChange}
                     placeholder="First Name"
                     className="winged font-sm"
                 />
                 <TextInput
                     name="lastName"
-                    value={lastName}
+                    value={lastName || ''}
                     onChange={handleChange}
                     placeholder="Last Name"
                     className="winged font-sm"
                 />
                 <TextInput
                     name="email"
-                    value={email}
+                    value={email || ''}
                     onChange={handleChange}
                     placeholder="Email"
                     className="winged font-sm"
                 />
                 <TextInput
                     name="phone"
-                    value={phone}
+                    value={phone || ''}
                     onChange={handleChange}
                     placeholder="Phone"
                     className="winged font-sm"

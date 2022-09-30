@@ -27,10 +27,10 @@ export interface ICreatePropertyForm {
 }
 
 export interface IAccessDetails {
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
+    firstName: string | null;
+    lastName: string | null;
+    email: string | null;
+    phone: string | null;
     preferredContactTime: string | null;
 }
 
