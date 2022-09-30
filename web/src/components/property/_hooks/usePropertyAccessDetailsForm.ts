@@ -10,6 +10,7 @@ import { IProperty, IUpdatePropertyAccessDetailsForm } from 'src/types/shared/Pr
 import { updatePropertyAccessDetails } from '@actions/properties/updatePropertyAccessDetails';
 import { selectAccountDetails } from '@selectors/account';
 import { useEffect, useMemo, useState } from 'react';
+import { checkIfObjDiff } from '../../../utils/generic';
 
 const usePropertyAccessDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
@@ -32,15 +33,7 @@ const usePropertyAccessDetailsForm = (property: IProperty) => {
     const [hasFormChanged, setHasFormChanged] = useState(false);
 
     useEffect(() => {
-        if (form.firstName !== initialForm.firstName) {
-            setHasFormChanged(true);
-        } else if (form.lastName !== initialForm.lastName) {
-            setHasFormChanged(true);
-        } else if (form.email !== initialForm.email) {
-            setHasFormChanged(true);
-        } else if (form.phone !== initialForm.phone) {
-            setHasFormChanged(true);
-        } else if (form.preferredContactTime !== initialForm.preferredContactTime) {
+        if (checkIfObjDiff(form, initialForm)) {
             setHasFormChanged(true);
         } else {
             setHasFormChanged(false);

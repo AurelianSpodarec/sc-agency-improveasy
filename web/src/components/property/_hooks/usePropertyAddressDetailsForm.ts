@@ -9,6 +9,7 @@ import {
     selectPropertiesPostSuccess,
 } from '@selectors/properties';
 import { useState, useEffect, useMemo } from 'react';
+import { checkIfObjDiff } from '../../../utils/generic';
 
 const usePropertyAddressDetailsForm = (property: IProperty) => {
     const dispatch = useDispatch();
@@ -28,13 +29,7 @@ const usePropertyAddressDetailsForm = (property: IProperty) => {
     const [hasFormChanged, setHasFormChanged] = useState(false);
 
     useEffect(() => {
-        if (form.addressLine1 !== initialForm.addressLine1) {
-            setHasFormChanged(true);
-        } else if (form.addressLine2 !== initialForm.addressLine2) {
-            setHasFormChanged(true);
-        } else if (form.city !== initialForm.city) {
-            setHasFormChanged(true);
-        } else if (form.postcode !== initialForm.postcode) {
+        if (checkIfObjDiff(form, initialForm)) {
             setHasFormChanged(true);
         } else {
             setHasFormChanged(false);
