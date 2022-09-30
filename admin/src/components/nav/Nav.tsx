@@ -16,8 +16,6 @@ const Nav: React.FC = () => {
     return (
         <nav className="navigation custom-scroll">
             <ul className="nav-list">
-                <NavItem to="/" text="Dashboard" icon="home" />
-
                 <NavGroup text="Property management">
                     <NavItem to="/properties" text="Properties" icon="users-cog" />
                 </NavGroup>
