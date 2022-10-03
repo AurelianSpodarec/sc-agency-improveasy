@@ -116,7 +116,7 @@ const columns: TableColumns<Property> = [
         key: 6,
         heading: 'MEES compliance',
         getValue: row => (
-            <div style={{ height: '35%', width: '35%' }}>
+            <div style={{ height: '20%', width: '20%' }}>
                 <MEESRating mees={row.status === PropertyStatus.Compliant} />
             </div>
         ),
