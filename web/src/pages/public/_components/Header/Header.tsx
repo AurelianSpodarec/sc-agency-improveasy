@@ -42,7 +42,7 @@ const Header = () => {
                                         href="/auth/login"
                                         className="winged"
                                     >
-                                        Get Started
+                                        Get Started - it's free
                                     </LinkButton>
                                 </>
                             )}
