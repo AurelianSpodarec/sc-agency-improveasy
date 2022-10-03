@@ -1,4 +1,4 @@
-import MeesRating from '@pages/portal/properties/properties/MEESRating';
+import MeesRating from 'lib/src/components/mees/MEESRating';
 import TableHeadingList from './TableHeadingList';
 
 function SurveyTable() {
