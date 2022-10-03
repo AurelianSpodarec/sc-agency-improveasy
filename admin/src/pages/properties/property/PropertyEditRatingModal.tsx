@@ -20,24 +20,6 @@ const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
         <Modal title="Update Rating" size="small">
             <Form onCancel={closeModal} onSubmit={handleSubmit} isPosting={isPosting} error={error}>
                 <FormRow>
-                    <TextInput
-                        required
-                        label="Current Rating"
-                        name="currentRating"
-                        value={formState.currentRating}
-                        onChange={handleChange}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextInput
-                        required
-                        label="Potential Rating"
-                        name="potentialRating"
-                        value={formState.potentialRating}
-                        onChange={handleChange}
-                    />
-                </FormRow>
-                <FormRow>
                     <DatePicker
                         required
                         label="Date Of Inspection"

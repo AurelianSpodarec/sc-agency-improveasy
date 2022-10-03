@@ -24,8 +24,6 @@ const useEditPropertyRating = (propertyRating: PropertyRating) => {
     const error = useSelector(getPropertyRatingsPostError);
 
     const [formState, handleChange] = useForm({
-        currentRating: propertyRating.currentRating,
-        potentialRating: propertyRating.potentialRating,
         dateOfInspection: new Date(propertyRating.ratingCreatedOn),
         validUntil: new Date(propertyRating.certificateValidUntil),
         lmkKey: propertyRating.lmkKey,

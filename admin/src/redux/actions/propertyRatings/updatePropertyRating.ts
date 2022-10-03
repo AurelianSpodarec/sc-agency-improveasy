@@ -30,8 +30,6 @@ export const updatePropertyRating =
 
 interface PostBody {
     id: number;
-    currentRating: string;
-    potentialRating: string;
     dateOfInspection: Date;
     validUntil: Date;
     lmkKey: string;
