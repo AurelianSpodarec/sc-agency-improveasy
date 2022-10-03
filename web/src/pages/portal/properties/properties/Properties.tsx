@@ -4,7 +4,6 @@ import MainCard from '@pages/portal/_components/MainCard';
 import MainPortal from '@pages/portal/_components/MainPortal';
 import CreatePropertyModal from '../modals/CreatePropertyModal';
 import useFetchProperties from '@pages/portal/properties/hooks/useFetchProperties';
-import MEESRating from '@pages/portal/properties/properties/MEESRating';
 
 import dayjs from 'dayjs';
 import PropertiesFilters from './PropertiesFilters';
@@ -16,6 +15,7 @@ import {
 } from '../../../../types/shared/Properties';
 import MeesTooltip from '@components/MeesTooltip';
 import LinkButton from 'lib/src/components/button/LinkButton';
+import MEESRating from 'lib/src/components/mees/MEESRating';
 
 function Properties({ showCreateModal }: IProps) {
     const history = useHistory();

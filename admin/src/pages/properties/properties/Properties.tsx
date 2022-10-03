@@ -8,6 +8,9 @@ import { Property } from 'src/types/shared/Property';
 import MultiSelect from 'lib/src/components/form/MultiSelect';
 import ButtonRow from 'lib/src/components/button/ButtonRow';
 import LinkButton from 'lib/src/components/button/LinkButton';
+import dayjs from 'dayjs';
+import MEESRating from 'lib/src/components/mees/MEESRating';
+import { PropertyStatus } from '@actions/properties';
 
 const Properties: React.FC = () => {
     const {
@@ -101,6 +104,30 @@ const columns: TableColumns<Property> = [
     },
     {
         key: 4,
+        heading: 'Current EPC',
+        getValue: row => row.currentEPCRating,
+    },
+    {
+        key: 5,
+        heading: 'Potential EPC',
+        getValue: row => row.potentialEPCRating,
+    },
+    {
+        key: 6,
+        heading: 'MEES compliance',
+        getValue: row => (
+            <div style={{ height: '35%', width: '35%' }}>
+                <MEESRating mees={row.status === PropertyStatus.Compliant} />
+            </div>
+        ),
+    },
+    {
+        key: 7,
+        heading: 'Last updated',
+        getValue: row => dayjs(row.statusUpdatedOn).format('DD/MM/YYYY'),
+    },
+    {
+        key: 8,
         heading: '',
         getValue: row => (
             <ButtonRow alignment="right">
