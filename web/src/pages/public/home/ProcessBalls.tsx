@@ -50,11 +50,13 @@ const ProcessBalls = () => {
                             </div>
 
                             <div className="flex flex-column align-center">
-                                <div className="processBalls__icon-wrap rounded--full">
-                                    {description}
+                                <div className="processBalls__icon-wrap rounded--full flex-column justify-center align-center">
+                                    <Text size="sm" weight="semibold">
+                                        {description}
+                                    </Text>
                                 </div>
                                 <div style={{ width: '90%' }}>
-                                    <Text size="md" weight="bold" style={{ wordbreak: 'wrap' }}>
+                                    <Text size="md" weight="bold">
                                         {title}
                                     </Text>
                                 </div>
