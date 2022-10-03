@@ -74,6 +74,7 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
                     <p>{propertyRating?.isManualEntry ? 'Yes' : 'No'}</p>
                 </ContentItem>
             </ContentRow>
+            <br />
 
             <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
                 Edit
