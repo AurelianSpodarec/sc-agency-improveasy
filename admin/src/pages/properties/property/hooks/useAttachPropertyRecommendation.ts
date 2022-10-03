@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback, useEffect, useState } from 'react';
 import { createRecommendationImprovementType } from '@actions/propertyRatingReccomendations/createRecommendationImprovementType';
+import { fetchImprovementTypes } from '@actions/improvementTypes';
 
 const useAttachPropertyRecommendation = (rating: PropertyRating) => {
     const history = useHistory();
@@ -51,8 +52,9 @@ const useAttachPropertyRecommendation = (rating: PropertyRating) => {
     useEffect(() => {
         if (!prevSuccess && success) {
             closeModal();
+            dispatch(fetchImprovementTypes());
         }
-    }, [closeModal, prevSuccess, success]);
+    }, [closeModal, prevSuccess, success, dispatch]);
 
     const improvementTypeOptions = improvementTypes.map(({ name, id }) => ({
         label: name,
