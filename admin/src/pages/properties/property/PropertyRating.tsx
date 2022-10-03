@@ -22,8 +22,8 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
             <CreateHeader>Rating</CreateHeader>
             <DataCheck isFetching={isFetching} error={error} dataExists={!!propertyRating}>
                 <ContentRow>
-                    <ContentItem label="Certificate Number">
-                        <p>{propertyRating?.certificateNumber}</p>
+                    <ContentItem label="LMK Key">
+                        <p>{propertyRating?.lmkKey}</p>
                     </ContentItem>
                     <ContentItem label="Certificate Valid Until">
                         <p>
@@ -70,6 +70,9 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
                 <ContentRow>
                     <ContentItem label="Property Type">
                         <p>{propertyRating?.propertyType || 'N/A'}</p>
+                    </ContentItem>
+                    <ContentItem label="Manual Entry?">
+                        <p>{propertyRating?.isManualEntry ? 'Yes' : 'No'}</p>
                     </ContentItem>
                 </ContentRow>
 

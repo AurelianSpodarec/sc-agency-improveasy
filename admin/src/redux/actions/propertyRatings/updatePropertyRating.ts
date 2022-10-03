@@ -34,7 +34,7 @@ interface PostBody {
     potentialRating: string;
     dateOfInspection: Date;
     validUntil: Date;
-    certificateNumber: string;
+    lmkKey: string;
     currentEnergyEfficiency: number;
     potentialEnergyEfficiency: number;
 }

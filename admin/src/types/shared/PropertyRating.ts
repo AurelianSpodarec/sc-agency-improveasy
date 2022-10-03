@@ -7,7 +7,7 @@ export interface PropertyRating {
     potentialRating: string;
     currentEnergyEfficiency: number;
     potentialEnergyEfficiency: number;
-    certificateNumber: string;
+    lmkKey: string;
     certificateValidUntil: Date;
     builtForm: string | null;
     constructionAgeBand: string | null;
