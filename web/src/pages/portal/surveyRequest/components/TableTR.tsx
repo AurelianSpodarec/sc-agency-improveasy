@@ -1,11 +1,4 @@
-import MeesRating from '@pages/portal/properties/properties/MEESRating';
-
-{
-    /* {data &&
-                    data.map((item, i) => {
-                        return <TableHeadingCell key={i} name={item.name} toolpit={item.toolpit} />;
-                    })} */
-}
+import MeesRating from 'lib/src/components/mees/MEESRating';
 
 const data = [
     {
