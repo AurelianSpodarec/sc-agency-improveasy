@@ -39,9 +39,7 @@ const PropertyContainer: React.FC<Props> = ({
             {!!property && !!user && showEditAccessDetailsModal && (
                 <PropertyEditAccessDetailsModel property={property} user={user} />
             )}
-            {!!propertyRating && showEditRatingModal && (
-                <PropertyEditRatingModal propertyRating={propertyRating} />
-            )}
+            {showEditRatingModal && <PropertyEditRatingModal propertyRating={propertyRating} />}
             {showDeleteRecommendationModal && <PropertyDeleteRecommendationModal />}
             {showCreateRecommendationModal && (
                 <PropertyAttachRecommendationModal rating={propertyRating} />

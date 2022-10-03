@@ -18,7 +18,6 @@ export const fetchImprovementTypes =
 
         try {
             const { data } = await api.get<ImprovementType>('improvementTypes');
-            console.log({ data });
 
             dispatch(fetchImprovementTypesSuccess(data));
         } catch (e) {

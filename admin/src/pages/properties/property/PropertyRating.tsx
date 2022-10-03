@@ -7,7 +7,6 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import { Property as PropertyResponse } from 'src/types/shared/Property';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import usePropertyRating from './hooks/usePropertyRating';
-import DataCheck from '@components/common/DataCheck';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -15,71 +14,70 @@ interface Props {
 }
 
 const PropertyRating: React.FC<Props> = ({ property }) => {
-    const { isFetching, error, propertyRating } = usePropertyRating();
+    const { propertyRating } = usePropertyRating();
 
     return (
         <ContentBlock>
             <CreateHeader>Rating</CreateHeader>
-            <DataCheck isFetching={isFetching} error={error} dataExists={!!propertyRating}>
-                <ContentRow>
-                    <ContentItem label="LMK Key">
-                        <p>{propertyRating?.lmkKey}</p>
-                    </ContentItem>
-                    <ContentItem label="Certificate Valid Until">
-                        <p>
-                            {propertyRating?.certificateValidUntil
-                                ? dayjs(propertyRating?.certificateValidUntil).format('DD/MM/YYYY')
-                                : '-'}
-                        </p>
-                    </ContentItem>
-                </ContentRow>
-                <ContentRow>
-                    <ContentItem label="Current Rating">
-                        <p>{propertyRating?.currentRating}</p>
-                    </ContentItem>
-                    <ContentItem label="Potential Rating">
-                        <p>{propertyRating?.potentialRating}</p>
-                    </ContentItem>
-                </ContentRow>
-                <ContentRow>
-                    <ContentItem label="Current Energy Rating">
-                        <p>{propertyRating?.currentEnergyEfficiency}</p>
-                    </ContentItem>
-                    <ContentItem label="Potential Energy Rating">
-                        <p>{propertyRating?.potentialEnergyEfficiency}</p>
-                    </ContentItem>
-                </ContentRow>
 
-                <ContentRow>
-                    <ContentItem label="Built Form">
-                        <p>{propertyRating?.builtForm || 'N/A'}</p>
-                    </ContentItem>
-                    <ContentItem label="Construction Age Band">
-                        <p>{propertyRating?.constructionAgeBand || 'N/A'}</p>
-                    </ContentItem>
-                </ContentRow>
-                <ContentRow>
-                    <ContentItem label="Wall Description">
-                        <p>{propertyRating?.wallDescription || 'N/A'}</p>
-                    </ContentItem>
-                    <ContentItem label="Floor Description">
-                        <p>{propertyRating?.floorDescription || 'N/A'}</p>
-                    </ContentItem>
-                </ContentRow>
+            <ContentRow>
+                <ContentItem label="LMK Key">
+                    <p>{propertyRating?.lmkKey || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Certificate Valid Until">
+                    <p>
+                        {propertyRating?.certificateValidUntil
+                            ? dayjs(propertyRating?.certificateValidUntil).format('DD/MM/YYYY')
+                            : 'N/A'}
+                    </p>
+                </ContentItem>
+            </ContentRow>
+            <ContentRow>
+                <ContentItem label="Current Rating">
+                    <p>{propertyRating?.currentRating || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Potential Rating">
+                    <p>{propertyRating?.potentialRating || 'N/A'}</p>
+                </ContentItem>
+            </ContentRow>
+            <ContentRow>
+                <ContentItem label="Current Energy Rating">
+                    <p>{propertyRating?.currentEnergyEfficiency || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Potential Energy Rating">
+                    <p>{propertyRating?.potentialEnergyEfficiency || 'N/A'}</p>
+                </ContentItem>
+            </ContentRow>
 
-                <ContentRow>
-                    <ContentItem label="Property Type">
-                        <p>{propertyRating?.propertyType || 'N/A'}</p>
-                    </ContentItem>
-                    <ContentItem label="Manual Entry?">
-                        <p>{propertyRating?.isManualEntry ? 'Yes' : 'No'}</p>
-                    </ContentItem>
-                </ContentRow>
+            <ContentRow>
+                <ContentItem label="Built Form">
+                    <p>{propertyRating?.builtForm || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Construction Age Band">
+                    <p>{propertyRating?.constructionAgeBand || 'N/A'}</p>
+                </ContentItem>
+            </ContentRow>
+            <ContentRow>
+                <ContentItem label="Wall Description">
+                    <p>{propertyRating?.wallDescription || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Floor Description">
+                    <p>{propertyRating?.floorDescription || 'N/A'}</p>
+                </ContentItem>
+            </ContentRow>
 
-                <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
-                    Edit
-                </LinkButton>
-            </DataCheck>
+            <ContentRow>
+                <ContentItem label="Property Type">
+                    <p>{propertyRating?.propertyType || 'N/A'}</p>
+                </ContentItem>
+                <ContentItem label="Manual Entry?">
+                    <p>{propertyRating?.isManualEntry ? 'Yes' : 'No'}</p>
+                </ContentItem>
+            </ContentRow>
+
+            <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
+                Edit
+            </LinkButton>
         </ContentBlock>
     );
 };

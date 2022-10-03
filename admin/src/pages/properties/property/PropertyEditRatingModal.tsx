@@ -9,7 +9,7 @@ import { PropertyRating } from 'src/types/shared/PropertyRating';
 import useEditPropertyRating from './hooks/useEditPropertyRating';
 
 interface Props {
-    propertyRating: PropertyRating;
+    propertyRating?: PropertyRating;
 }
 
 const PropertyEditRatingModal: React.FC<Props> = ({ propertyRating }) => {
