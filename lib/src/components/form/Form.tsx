@@ -29,8 +29,6 @@ const Form: React.FC<FormProps> = ({
         };
     }, [dispatch]);
 
-    console.log({formError, error})
-
     return (
         <form onSubmit={_handleSubmit}>
             {children}
