@@ -8,6 +8,7 @@ import { Property as PropertyResponse } from 'src/types/shared/Property';
 import CreateHeader from '@components/layout/createHeader/CreateHeader';
 import usePropertyRating from './hooks/usePropertyRating';
 import dayjs from 'dayjs';
+import ButtonRow from 'lib/src/components/button/ButtonRow';
 
 interface Props {
     property: PropertyResponse;
@@ -80,10 +81,14 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
                 </ContentItem>
             </ContentRow>
             <br />
-
-            <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
-                Edit
-            </LinkButton>
+            <ButtonRow alignment="left">
+                <LinkButton source="primary" href={`/properties/${property.id}/create-rating`}>
+                    Create
+                </LinkButton>
+                <LinkButton source="secondary" href={`/properties/${property.id}/edit-rating`}>
+                    Edit
+                </LinkButton>
+            </ButtonRow>
         </ContentBlock>
     );
 };

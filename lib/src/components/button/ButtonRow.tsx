@@ -4,7 +4,7 @@ const ButtonRow: React.FC<ButtonRowProps> = ({ children, alignment = 'center' })
 
 interface ButtonRowProps {
     children: React.ReactNode;
-    alignment?: string;
+    alignment?: 'left' | 'center' | 'right';
 }
 
 export default ButtonRow;

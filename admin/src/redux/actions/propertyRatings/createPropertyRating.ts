@@ -5,26 +5,26 @@ import { api, handleApiErrors } from 'lib/src/utils/api';
 import { AppDispatch } from 'src/redux/store';
 import { PropertyRating } from 'src/types/shared/PropertyRating';
 
-export const updatePropertyRatingRequest = createAction('updatePropertyRatingRequest');
-export const updatePropertyRatingSuccess = createAction<PropertyRating>(
-    'updatePropertyRatingSuccess',
+export const createPropertyRatingRequest = createAction('createPropertyRatingRequest');
+export const createPropertyRatingSuccess = createAction<PropertyRating>(
+    'createPropertyRatingSuccess',
 );
-export const updatePropertyRatingFailure = createAction<string>('updatePropertyRatingFailure');
+export const createPropertyRatingFailure = createAction<string>('createPropertyRatingFailure');
 
-export const updatePropertyRating =
+export const createPropertyRating =
     (propertyID: number, postBody: PostBody) =>
     async (dispatch: AppDispatch): Promise<void> => {
-        dispatch(updatePropertyRatingRequest());
+        dispatch(createPropertyRatingRequest());
 
         try {
-            const { data } = await api.put<PostBody, PropertyRating>(
-                `propertyRating/${propertyID}/update`,
+            const { data } = await api.post<PostBody, PropertyRating>(
+                `propertyRating/${propertyID}/create`,
                 postBody,
             );
 
-            dispatch(updatePropertyRatingSuccess(data));
+            dispatch(createPropertyRatingSuccess(data));
         } catch (e) {
-            handleApiErrors(dispatch, updatePropertyRatingFailure, e as APIError);
+            handleApiErrors(dispatch, createPropertyRatingFailure, e as APIError);
         }
     };
 

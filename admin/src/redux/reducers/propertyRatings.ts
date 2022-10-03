@@ -1,3 +1,5 @@
+import { createReducer, PayloadAction } from '@reduxjs/toolkit';
+import { PropertyRating } from 'src/types/shared/PropertyRating';
 import {
     fetchPropertyRatingRequest,
     fetchPropertyRatingSuccess,
@@ -5,10 +7,10 @@ import {
     updatePropertyRatingRequest,
     updatePropertyRatingSuccess,
     updatePropertyRatingFailure,
+    createPropertyRatingRequest,
+    createPropertyRatingSuccess,
+    createPropertyRatingFailure,
 } from './../actions/propertyRatings';
-import { createReducer, PayloadAction } from '@reduxjs/toolkit';
-
-import { PropertyRating } from 'src/types/shared/PropertyRating';
 
 interface AuthState {
     isFetching: boolean;
@@ -35,6 +37,9 @@ export default createReducer(initialState, {
     [updatePropertyRatingRequest.type]: handlePostRequest,
     [updatePropertyRatingSuccess.type]: handlePostSuccess,
     [updatePropertyRatingFailure.type]: handlePostFailure,
+    [createPropertyRatingRequest.type]: handlePostRequest,
+    [createPropertyRatingSuccess.type]: handlePostSuccess,
+    [createPropertyRatingFailure.type]: handlePostFailure,
 });
 
 function handleFetchRequest(state: AuthState) {

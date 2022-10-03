@@ -9,11 +9,13 @@ import PropertyEditRatingModal from './PropertyEditRatingModal';
 import PropertyRecommendations from './PropertyRecommendations';
 import PropertyDeleteRecommendationModal from './PropertyDeleteRecommendationModal';
 import PropertyAttachRecommendationModal from './PropertyAttachRecommendationModal';
+import PropertyCreateRatingModal from './PropertyCreateRatingModal';
 
 interface Props {
     showEditAddressModal?: boolean;
     showEditAccessDetailsModal?: boolean;
     showEditRatingModal?: boolean;
+    showCreateRatingModal?: boolean;
     showDeleteRecommendationModal?: boolean;
     showCreateRecommendationModal?: boolean;
 }
@@ -22,6 +24,7 @@ const PropertyContainer: React.FC<Props> = ({
     showEditAddressModal = false,
     showEditAccessDetailsModal = false,
     showEditRatingModal = false,
+    showCreateRatingModal = false,
     showDeleteRecommendationModal = false,
     showCreateRecommendationModal = false,
 }) => {
@@ -40,6 +43,7 @@ const PropertyContainer: React.FC<Props> = ({
                 <PropertyEditAccessDetailsModel property={property} user={user} />
             )}
             {showEditRatingModal && <PropertyEditRatingModal propertyRating={propertyRating} />}
+            {showCreateRatingModal && <PropertyCreateRatingModal />}
             {showDeleteRecommendationModal && <PropertyDeleteRecommendationModal />}
             {showCreateRecommendationModal && (
                 <PropertyAttachRecommendationModal rating={propertyRating} />
