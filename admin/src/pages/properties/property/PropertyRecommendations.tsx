@@ -11,7 +11,8 @@ import LinkButton from 'lib/src/components/button/LinkButton';
 import { PropertyRatingRecomendation } from 'src/types/shared/PropertyRatingRecomendation';
 
 const PropertyRecommendations: React.FC = () => {
-    const { isFetching, error, recommendations, propertyID } = useFetchPropertyRecommendations();
+    const { isFetching, error, recommendations, propertyID, hasEPC } =
+        useFetchPropertyRecommendations();
 
     const columns: TableColumns<PropertyRatingRecomendation> = [
         {
@@ -49,9 +50,11 @@ const PropertyRecommendations: React.FC = () => {
         <ContentBlock>
             <CreateHeader>
                 Recommendations
-                <LinkButton href={`/properties/${propertyID}/attach-recommendation`}>
-                    Create
-                </LinkButton>
+                {hasEPC && (
+                    <LinkButton href={`/properties/${propertyID}/attach-recommendation`}>
+                        Create
+                    </LinkButton>
+                )}
             </CreateHeader>
 
             <Table

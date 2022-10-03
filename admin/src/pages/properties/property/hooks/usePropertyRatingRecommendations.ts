@@ -7,7 +7,8 @@ import {
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../../../redux/store';
+import { getProperty } from '@selectors/properties';
+import { RootState } from '@reducers/index';
 
 const usePropertyRatingRecommendations = () => {
     const dispatch = useDispatch();
@@ -15,13 +16,14 @@ const usePropertyRatingRecommendations = () => {
 
     const isFetching = useSelector(getPropertyRatingRecommendationsIsFetching);
     const error = useSelector(getPropertyRatingRecommendationsFetchError);
-    const recommendations = useAppSelector(state => getPropertyRatingRecommendations(state));
+    const recommendations = useSelector(getPropertyRatingRecommendations);
+    const hasEPC = useSelector((state: RootState) => getProperty(state, +id)?.hasEPC);
 
     useEffect(() => {
         dispatch(fetchPropertyRatingRecommendations(+id));
     }, [dispatch, id]);
 
-    return { isFetching, error, recommendations, propertyID: id };
+    return { isFetching, error, recommendations, propertyID: id, hasEPC };
 };
 
 export default usePropertyRatingRecommendations;

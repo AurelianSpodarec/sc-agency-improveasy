@@ -80,7 +80,7 @@ function Properties({ showCreateModal }: IProps) {
                                         <tbody>
                                             {!properties.length ? (
                                                 <tr>
-                                                    <td style={{ textAlign: 'center' }}>
+                                                    <td colSpan={9} style={{ textAlign: 'center' }}>
                                                         {isFetching ? (
                                                             <Loading />
                                                         ) : (

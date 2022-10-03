@@ -33,6 +33,11 @@ const PropertyRating: React.FC<Props> = ({ property }) => {
                 </ContentItem>
             </ContentRow>
             <ContentRow>
+                <ContentItem label="Certificate Number">
+                    <p>{propertyRating?.certificateNumber || 'N/A'}</p>
+                </ContentItem>
+            </ContentRow>
+            <ContentRow>
                 <ContentItem label="Current Rating">
                     <p>{propertyRating?.currentRating || 'N/A'}</p>
                 </ContentItem>

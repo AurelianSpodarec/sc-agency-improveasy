@@ -67,7 +67,7 @@ export const handleApiErrors = <A extends Action>(
     if (response && response.status === 400) {
         if (typeof response.data === 'string') {
             dispatch(addFormError(response.data));
-            dispatch(failureAction(response.data));
+            dispatch(failureAction(null));
             return;
         } else {
             dispatch(setFieldErrors(response.data.errors));
