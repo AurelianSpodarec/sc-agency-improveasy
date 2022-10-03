@@ -11,6 +11,12 @@ function SurveyTable() {
 
                     <tbody>
                         <TableTR />
+                        <tr>
+                            <td className="font-bold">Cost (inc VAT)</td>
+                            <td className="font-semibold">£75</td>
+                            <td className="font-semibold">£128</td>
+                            <td className="font-semibold">£134</td>
+                        </tr>
                         {/* <tr> */}
                         {/* <td className="surveyTable__title">EPC</td>
                             <td className="text">

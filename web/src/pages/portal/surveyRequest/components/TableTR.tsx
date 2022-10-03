@@ -68,18 +68,10 @@ const data = [
         tooltip: 'Full cost of deducated from final invoice',
         rating: [false, false, true],
     },
-    {
-        name: 'Cost (inc VAT)',
-        tooltip: '',
-        rating: [true, true, true],
-    },
 ];
 
 function RenderRating({ data }: any) {
-    // console.log(data);
-    // if (!data) return <></>;
     return data.map((element: boolean, index: number) => {
-        // console.log(element);
         return (
             <td key={index} className="numeric">
                 <MeesRating mees={element} />
