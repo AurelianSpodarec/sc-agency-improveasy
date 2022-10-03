@@ -4,6 +4,7 @@ import AccordionOne from '@components/Accordion/AccordionOne/AcordionOne';
 import { Container, PageHeading, Section, Text } from '@components/ui';
 import LinkButton from 'lib/src/components/button/LinkButton';
 import ActionButton from 'lib/src/components/button/ActionButton';
+import ProcessBalls from './ProcessBalls';
 
 const accordion = [
     {
@@ -32,159 +33,64 @@ function Home() {
             <Section>
                 <Container size="lg">
                     <div className="text-center">
-                        <Text type="h1" size="3xl" weight="bold">
-                            Increase your rental properties EPC to a minimum band C in 5 easy steps.
+                        <Text type="h1" size="3xl" weight="bold" style={{ marginBottom: 25 }}>
+                            Build your EPC, start saving Energy
                         </Text>
-                        <img
-                            className="page-home__banner-img"
-                            style={{ borderRadius: '25px' }}
-                            width="100%"
-                            src="https://cdn-epabh.nitrocdn.com/FsnmazFPBRLJTCWWiBDcqyKZAxrlVTfk/assets/static/optimized/rev-921f197/wp-content/uploads/2022/01/home-hero-min.jpg"
-                            alt="yes"
-                        />
 
-                        <ActionButton className="bg-green winged">Get Started</ActionButton>
+                        <div className="flex flex-column align-center">
+                            <iframe
+                                src="https://player.vimeo.com/video/404b13db43"
+                                width="640"
+                                height="360"
+                                allow="autoplay; fullscreen"
+                                title="savings"
+                            ></iframe>
+
+                            <Text type="p" weight="semibold" size="lg" style={{ marginTop: 25 }}>
+                                Household energy bills increased by 54% in April 2022, in October
+                                2022 they will increase by a further 27%
+                            </Text>
+
+                            <ActionButton className="bg-green winged">
+                                Get Started - it's free
+                            </ActionButton>
+                        </div>
                     </div>
                 </Container>
             </Section>
 
             <Section>
                 <Container size="2xl">
-                    <PageHeading title="So what is MEES?" />
+                    <PageHeading title="What is EPC builder?" />
                 </Container>
 
                 <Container size="2xl">
                     <div className="">
-                        <Text size="lg" style={{ marginBottom: '32px' }}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
-                        </Text>
-                        <Text size="lg">
-                            Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur.
+                        <Text size="lg" style={{ marginBottom: '32px' }} weight="semibold">
+                            A one-stop shop providing current energy performance, recommendations,
+                            funding and installation of home energy improvements all designed to
+                            build your EPC rating and save energy.
+                            <br />
+                            <br />
+                            An Energy Performance Certificate (EPC) tells you how energy efficient a
+                            property is and gives it a rating from A (very efficient) to G
+                            (inefficient).
+                            <br />
+                            <br />
+                            In 2021 almost half (48%) of all EPCs lodged had an EPC rating of D or
+                            below.
+                            <br />
+                            <br />
+                            Private Rented Sector properties are among the least efficient. Around
+                            3.2 million private rented properties in England and Wales have a rating
+                            of D or below
                         </Text>
                     </div>
                 </Container>
             </Section>
 
             <Section>
-                <Container>
-                    <PageHeading
-                        title="A simple 5step process:"
-                        border={false}
-                        className="text-center"
-                        style={{ color: '#E76F51' }}
-                    />
-                </Container>
-
-                <Container>
-                    <div className="processBalls">
-                        <div className="processBalls__item">
-                            <div className="processBalls-chain">
-                                <div className="processBalls-chain__inner space-x-2">
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                </div>
-                            </div>
-
-                            <div className="processBalls__icon-wrap rounded--full">
-                                <svg
-                                    className="processBalls__icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
-                                    <path d="M384 32H64.01C28.66 32 .0085 60.65 .0065 96L0 415.1C-.002 451.3 28.65 480 64 480h232.1c25.46 0 49.88-10.12 67.89-28.12l55.88-55.89C437.9 377.1 448 353.6 448 328.1V96C448 60.8 419.2 32 384 32zM52.69 427.3C50.94 425.6 48 421.8 48 416l.0195-319.1C48.02 87.18 55.2 80 64.02 80H384c8.674 0 16 7.328 16 16v192h-88C281.1 288 256 313.1 256 344v88H64C58.23 432 54.44 429.1 52.69 427.3zM330.1 417.9C322.9 425.1 313.8 429.6 304 431.2V344c0-4.406 3.594-8 8-8h87.23c-1.617 9.812-6.115 18.88-13.29 26.05L330.1 417.9z" />
-                                </svg>
-                            </div>
-                            <Text size="lg" weight="bold">
-                                Input property code
-                            </Text>
-                        </div>
-
-                        <div className="processBalls__item">
-                            <div className="processBalls-chain">
-                                <div className="processBalls-chain__inner space-x-2">
-                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--2"></div>
-                                </div>
-                            </div>
-                            <div className="processBalls__icon-wrap rounded--full">
-                                <svg
-                                    className="processBalls__icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
-                                    <path d="M384 32H64.01C28.66 32 .0085 60.65 .0065 96L0 415.1C-.002 451.3 28.65 480 64 480h232.1c25.46 0 49.88-10.12 67.89-28.12l55.88-55.89C437.9 377.1 448 353.6 448 328.1V96C448 60.8 419.2 32 384 32zM52.69 427.3C50.94 425.6 48 421.8 48 416l.0195-319.1C48.02 87.18 55.2 80 64.02 80H384c8.674 0 16 7.328 16 16v192h-88C281.1 288 256 313.1 256 344v88H64C58.23 432 54.44 429.1 52.69 427.3zM330.1 417.9C322.9 425.1 313.8 429.6 304 431.2V344c0-4.406 3.594-8 8-8h87.23c-1.617 9.812-6.115 18.88-13.29 26.05L330.1 417.9z" />
-                                </svg>
-                            </div>
-                            <Text size="lg" weight="bold">
-                                Input property code
-                            </Text>
-                        </div>
-
-                        <div className="processBalls__item">
-                            <div className="processBalls-chain">
-                                <div className="processBalls-chain__inner space-x-2">
-                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--3"></div>
-                                </div>
-                            </div>
-                            <div className="processBalls__icon-wrap rounded--full">
-                                <svg
-                                    className="processBalls__icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
-                                    <path d="M384 32H64.01C28.66 32 .0085 60.65 .0065 96L0 415.1C-.002 451.3 28.65 480 64 480h232.1c25.46 0 49.88-10.12 67.89-28.12l55.88-55.89C437.9 377.1 448 353.6 448 328.1V96C448 60.8 419.2 32 384 32zM52.69 427.3C50.94 425.6 48 421.8 48 416l.0195-319.1C48.02 87.18 55.2 80 64.02 80H384c8.674 0 16 7.328 16 16v192h-88C281.1 288 256 313.1 256 344v88H64C58.23 432 54.44 429.1 52.69 427.3zM330.1 417.9C322.9 425.1 313.8 429.6 304 431.2V344c0-4.406 3.594-8 8-8h87.23c-1.617 9.812-6.115 18.88-13.29 26.05L330.1 417.9z" />
-                                </svg>
-                            </div>
-                            <Text size="lg" weight="bold">
-                                Input property code
-                            </Text>
-                        </div>
-
-                        <div className="processBalls__item">
-                            <div className="processBalls-chain">
-                                <div className="processBalls-chain__inner space-x-2">
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                    <div className="processBalls-chain__item processBalls-chain__item--1"></div>
-                                </div>
-                            </div>
-                            <div className="processBalls__icon-wrap rounded--full">
-                                <svg
-                                    className="processBalls__icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
-                                    <path d="M384 32H64.01C28.66 32 .0085 60.65 .0065 96L0 415.1C-.002 451.3 28.65 480 64 480h232.1c25.46 0 49.88-10.12 67.89-28.12l55.88-55.89C437.9 377.1 448 353.6 448 328.1V96C448 60.8 419.2 32 384 32zM52.69 427.3C50.94 425.6 48 421.8 48 416l.0195-319.1C48.02 87.18 55.2 80 64.02 80H384c8.674 0 16 7.328 16 16v192h-88C281.1 288 256 313.1 256 344v88H64C58.23 432 54.44 429.1 52.69 427.3zM330.1 417.9C322.9 425.1 313.8 429.6 304 431.2V344c0-4.406 3.594-8 8-8h87.23c-1.617 9.812-6.115 18.88-13.29 26.05L330.1 417.9z" />
-                                </svg>
-                            </div>
-                            <Text size="lg" weight="bold">
-                                Input property code
-                            </Text>
-                        </div>
-
-                        <div className="processBalls__item">
-                            <div className="processBalls__icon-wrap rounded--full">
-                                <svg
-                                    className="processBalls__icon"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 448 512"
-                                >
-                                    <path d="M384 32H64.01C28.66 32 .0085 60.65 .0065 96L0 415.1C-.002 451.3 28.65 480 64 480h232.1c25.46 0 49.88-10.12 67.89-28.12l55.88-55.89C437.9 377.1 448 353.6 448 328.1V96C448 60.8 419.2 32 384 32zM52.69 427.3C50.94 425.6 48 421.8 48 416l.0195-319.1C48.02 87.18 55.2 80 64.02 80H384c8.674 0 16 7.328 16 16v192h-88C281.1 288 256 313.1 256 344v88H64C58.23 432 54.44 429.1 52.69 427.3zM330.1 417.9C322.9 425.1 313.8 429.6 304 431.2V344c0-4.406 3.594-8 8-8h87.23c-1.617 9.812-6.115 18.88-13.29 26.05L330.1 417.9z" />
-                                </svg>
-                            </div>
-                            <Text size="lg" weight="bold">
-                                Input property code
-                            </Text>
-                        </div>
-                    </div>
-                </Container>
+                <ProcessBalls />
             </Section>
 
             <Section>
