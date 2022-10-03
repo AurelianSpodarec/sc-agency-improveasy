@@ -17,8 +17,7 @@ const usePropertyRatingRecommendations = () => {
     const isFetching = useSelector(getPropertyRatingRecommendationsIsFetching);
     const error = useSelector(getPropertyRatingRecommendationsFetchError);
     const recommendations = useSelector(getPropertyRatingRecommendations);
-    const property = useSelector((state: RootState) => getProperty(state, +id));
-    const hasEPC = property?.hasEPC ?? false;
+    const hasEPC = useSelector((state: RootState) => getProperty(state, +id)?.hasEPC);
 
     useEffect(() => {
         dispatch(fetchPropertyRatingRecommendations(+id));
