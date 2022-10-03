@@ -35,7 +35,15 @@ const weights: any = {
     black: 'black',
 };
 
-function Text({ title, children, type, size, weight = 'normal', className, style }: TextProps) {
+function Text({
+    title,
+    children,
+    type,
+    size,
+    weight = 'normal',
+    className = '',
+    style,
+}: TextProps) {
     // @ts-ignore
     const Tag = types[type] || types.p; // @ts-ignore
     const customClassName = `${className} text--${sizes[size] || sizes.base} font-${
