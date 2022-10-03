@@ -1,7 +1,4 @@
-import TableHeadingCell from './TableHeadingCell';
-
 function TableHeadingList() {
-    // if (!data) return <></>;
     return (
         <thead>
             <tr>
