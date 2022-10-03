@@ -13,7 +13,7 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
     if (!propertyEPCInformation) return null;
 
     const {
-        certificateNumber,
+        lmkKey,
         certificateValidUntil,
         ratingCreatedOn,
         floorDescription,
@@ -36,8 +36,8 @@ const PropertyCertificate = ({ propertyID }: IProps) => {
             <table className="certificate-table">
                 <tbody>
                     <tr>
-                        <th>Certificate number</th>
-                        <td>{certificateNumber}</td>
+                        <th>LMK key</th>
+                        <td>{lmkKey}</td>
                     </tr>
                     <tr>
                         <th>Last updated</th>

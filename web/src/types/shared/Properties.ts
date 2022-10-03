@@ -83,7 +83,7 @@ export interface IUpdatePropertyAddress {
 export interface IEPC {
     id: number;
     builtForm: string;
-    certificateNumber: string;
+    lmkKey: string;
     certificateValidUntil: string;
     constructionAgeBand: number | null;
     createdOn: string;
