@@ -1,4 +1,4 @@
-import MeesRating from 'lib/src/components/mees/MEESRating';
+import RenderRating from './RenderRating';
 
 const data = [
     {
@@ -69,16 +69,6 @@ const data = [
         rating: [false, false, true],
     },
 ];
-
-function RenderRating({ data }: any) {
-    return data.map((element: boolean, index: number) => {
-        return (
-            <td key={index} className="numeric">
-                <MeesRating mees={element} />
-            </td>
-        );
-    });
-}
 
 function TableTR(): any {
     if (!data) return <></>;
