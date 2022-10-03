@@ -26,6 +26,7 @@ const useEditPropertyRating = (propertyRating?: PropertyRating) => {
                 ? new Date(propertyRating.certificateValidUntil)
                 : new Date(new Date().setFullYear(new Date().getFullYear() + 10)),
             lmkKey: propertyRating?.lmkKey || '',
+            certificateNumber: propertyRating?.certificateNumber || '',
             currentEnergyEfficiency: propertyRating?.currentEnergyEfficiency || 0,
             potentialEnergyEfficiency: propertyRating?.potentialEnergyEfficiency || 0,
             builtForm: propertyRating?.builtForm || '',
