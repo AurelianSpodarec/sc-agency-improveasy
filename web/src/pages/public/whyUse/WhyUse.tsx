@@ -102,6 +102,9 @@ function WhyUse() {
                                     funding checked and applied for, installation could be fully, or
                                     part funded.
                                 </Text>
+                                <Text style={{ marginBottom: 0 }} className="text-white" size="sm">
+                                    *£195 (inc VAT)
+                                </Text>
                             </div>
                         </div>
 
@@ -199,7 +202,9 @@ function WhyUse() {
                                     insurance
                                 </Text>
                             </div>
-                            <LinkButton className="winged">Read more</LinkButton>
+                            <LinkButton className="winged" href="/faq">
+                                Read more
+                            </LinkButton>
                         </div>
                     </div>
                 </Container>
