@@ -88,7 +88,7 @@ function WhyUse() {
                                             weight="bold"
                                             style={{ marginBottom: '20px' }}
                                         >
-                                            Tost effective
+                                            Cost effective
                                         </Text>
                                         <Text>
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
