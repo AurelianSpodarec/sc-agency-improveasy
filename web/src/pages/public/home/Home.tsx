@@ -70,7 +70,9 @@ function Home() {
             </Section>
 
             <Section>
-                <ProcessBalls />
+                <Container>
+                    <ProcessBalls />
+                </Container>
             </Section>
 
             <Section>
